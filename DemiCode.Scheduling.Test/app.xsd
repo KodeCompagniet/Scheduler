@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DemiCodeSchedulingSchema" targetNamespace="http://www.demicode.com/SchedulingSchema.xsd" xmlns="http://www.demicode.com/SchedulingSchema.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:complexType name="TaskType">
+		<xs:sequence>
+			<xs:element name="scheduleref" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:attribute name="name" type="xs:string" />
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="type" type="xs:string" use="required" />
+		<xs:anyAttribute processContents="lax" namespace="##other" />
+	</xs:complexType>
+	<xs:complexType name="CodeTaskType">
+		<xs:complexContent>
+			<xs:extension base="TaskType">
+				<xs:attribute name="class" type="xs:string" use="required" />
+				<xs:attribute name="method" type="xs:string" use="required" />
+				<xs:anyAttribute processContents="lax" namespace="##other" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ApplicationTaskType">
+		<xs:complexContent>
+			<xs:extension base="TaskType">
+				<xs:attribute name="path" type="xs:string" use="required" />
+				<xs:anyAttribute processContents="lax" namespace="##other" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Log4netLoggerType">
+	</xs:complexType>
+	<xs:complexType name="LoggerType">
+		<xs:attribute name="type" type="xs:string" use="required" />
+	</xs:complexType>
+	<xs:complexType name="IntervalScheduleType">
+		<xs:sequence>
+			<xs:element name="start" type="xs:string" minOccurs="1" maxOccurs="1" />
+			<xs:element name="interval" type="xs:string" minOccurs="1" maxOccurs="1" />
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="optional" />
+	</xs:complexType>
+	<xs:complexType name="IntervalCountedScheduleType">
+		<xs:sequence>
+			<xs:element name="start" type="xs:string" minOccurs="1" maxOccurs="1" />
+			<xs:element name="occurrences" type="xs:string" minOccurs="1" maxOccurs="1" />
+			<xs:element name="interval" type="xs:string" minOccurs="1" maxOccurs="1" />
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="optional" />
+	</xs:complexType>
+	<xs:complexType name="WeeklyScheduleType">
+		<xs:sequence>
+			<xs:element name="fromDate" type="xs:string" minOccurs="1" maxOccurs="1" />
+			<xs:element name="toDate" type="xs:string" minOccurs="0" maxOccurs="1" />
+			<xs:element name="timeOfDay" type="xs:string" minOccurs="1" maxOccurs="1" />
+			<xs:element name="days" minOccurs="0" maxOccurs="unbounded" type="DaysType" />
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="optional" />
+	</xs:complexType>
+	<xs:complexType name="OneShotScheduleType">
+		<xs:sequence>
+			<xs:element name="time" type="xs:string" minOccurs="1" maxOccurs="1" />
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="optional" />
+	</xs:complexType>
+	<xs:complexType name="ScheduleType">
+		<xs:attribute name="name" type="xs:string" use="optional" />
+		<xs:attribute name="type" type="xs:string" use="required" />
+	</xs:complexType>
+	<xs:complexType name="SchedulerType">
+		<xs:sequence>
+			<xs:element name="tasks" minOccurs="0" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="task" minOccurs="0" maxOccurs="unbounded" type="TaskType" />
+						<xs:element name="CodeTask" minOccurs="0" maxOccurs="unbounded" type="CodeTaskType" />
+						<xs:element name="ApplicationTask" minOccurs="0" maxOccurs="unbounded" type="ApplicationTaskType" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="loggers" minOccurs="0" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Log4netLogger" type="Log4netLoggerType" minOccurs="0" maxOccurs="1" />
+						<xs:element name="logger" minOccurs="0" maxOccurs="unbounded" type="LoggerType" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="IntervalSchedule" minOccurs="0" maxOccurs="unbounded" type="IntervalScheduleType" />
+			<xs:element name="IntervalCountedSchedule" minOccurs="0" maxOccurs="unbounded" type="IntervalCountedScheduleType" />
+			<xs:element name="WeeklySchedule" minOccurs="0" maxOccurs="unbounded" type="WeeklyScheduleType" />
+			<xs:element name="OneShotSchedule" minOccurs="0" maxOccurs="unbounded" type="OneShotScheduleType" />
+			<xs:element name="schedule" minOccurs="0" maxOccurs="unbounded" type="ScheduleType" />
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required" />
+	</xs:complexType>
+	<xs:complexType name="SchedulingType">
+		<xs:sequence>
+			<xs:element name="schedulers" minOccurs="0" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="scheduler" minOccurs="0" maxOccurs="unbounded" type="SchedulerType" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="defaultScheduler" type="xs:string" use="required" />
+	</xs:complexType>
+	<xs:complexType name="SchedulingsType">
+		<xs:sequence>
+			<xs:element name="scheduling" minOccurs="0" maxOccurs="unbounded" type="SchedulingType" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="schedulings" type="SchedulingsType" />
+	<xs:complexType name="DaysType">
+		<xs:sequence>
+			<xs:element name="day" type="DayEnum" minOccurs="1" maxOccurs="7" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="DayEnum">
+		<xs:restriction base="xs:NMTOKENS">
+			<xs:enumeration value="monday" />
+			<xs:enumeration value="tuesday" />
+			<xs:enumeration value="wednesday" />
+			<xs:enumeration value="thursday" />
+			<xs:enumeration value="friday" />
+			<xs:enumeration value="saturday" />
+			<xs:enumeration value="sunday" />
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

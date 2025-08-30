@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="f0361e4e-a359-4f54-a200-6e8a11b94dff" revisionNumber="1">
+  <developerSampleDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <introduction>
+      <para>The SchedulerService project shows a Windows Service using DemiCode Scheduler,
+                reading in the configuration from a configuration file. The service uses a five-second
+                interval timer in order to issue messages to the Application Event Log.</para>
+    </introduction>
+
+   
+            
+                
+            
+            
+<section>
+  <title>Prerequisites</title>
+  <content>
+    <para>Navigate to the <legacyBold>DemiCode Scheduler 1.1\Samples</legacyBold> folder. Unzip the <legacyBold>SchedulerSamples.zip</legacyBold> in the Samples folder.</para>
+  </content>
+</section>
+
+                
+            
+            
+<section>
+  <title>To build the sample using the Command Prompt</title>
+  <content>
+    <list class="ordered">
+                    <listItem>
+                        <para>
+                            Open the Visual Studio 2005 Command Prompt window and navigate to the <legacyBold>DemiCode Scheduler 1.1\Samples</legacyBold> folder.</para>
+                    </listItem>
+                    <listItem>
+                        <para>
+                            Type <legacyBold>msbuild SchedulerService.sln</legacyBold> at the command line.</para>
+                    </listItem>
+                </list>
+  </content>
+</section>
+
+                
+            
+            
+<section>
+  <title>To build the sample using Visual Studio</title>
+  <content>
+    <list class="ordered">
+                    <listItem>
+                        <para>
+                            Open Windows Explorer and navigate to the <legacyBold>DemiCode Scheduler 1.1\Samples</legacyBold>
+                            folder.</para>
+                    </listItem>
+                    <listItem>
+                        <para>
+                            Double-click the <legacyBold>SchedulerService.sln</legacyBold> to open the file in Visual Studio.</para>
+                    </listItem>
+                    <listItem>
+                        <para>
+                            In the <legacyBold>Build</legacyBold> menu, select <legacyBold>Build Solution</legacyBold>.</para>
+                    </listItem>
+                </list>
+  </content>
+</section>
+
+                
+            
+            
+<section>
+  <title>To run the sample</title>
+  <content>
+    <definitionTable>
+                    <definition>
+                        The service must be installed as a service in order to run. Follow these
+                        steps:
+                        <list class="ordered">
+                            <listItem>Open the Visual Studio 2005 Command Prompt window and navigate to the directory that contains the new
+                                executable.</listItem>
+                            <listItem>Install the service using <legacyBold>InstallUtil.exe</legacyBold>. This program is part of the .NET
+                                Framework and can usually be located in C:\Windows\Microsoft.Net\Framework\v2.50727.<para/>
+                                The following command line will install SchedulerService:<para/>
+                                <code language="other">InstallUtil SchedulerService.exe</code>
+                            </listItem>
+                            <listItem>Locate the <legacyBold>Services</legacyBold> application (Control Panel->Administrative Tools->Services) and select the service called <legacyBold>DemiCode Scheduler Service sample</legacyBold>. Click Start in the toolbar.</listItem>
+                            <listItem>Locate the <legacyBold>Event Viewer</legacyBold> application (Control Panel->Administrative Tools->Event Viewer)
+                                and select the <legacyBold>Application event log</legacyBold>.</listItem>
+                                <listItem>
+                                Refresh the event log using the F5 key. You should now see messages from SchedulerService appearing.
+                                </listItem>
+                        </list>
+                    </definition>
+                    <definition>
+                        After trying out the Scheduler service, follow these steps to uninstall the service:
+                        <list class="ordered">
+                            <listItem>Again, locate the <legacyBold>Services</legacyBold> application and select the <legacyBold>DemiCode Scheduler Service sample</legacyBold> service. Click Stop in the toolbar. </listItem>
+                            <listItem>Uninstall the service using InstallUtil.exe.<para/>
+                                The following command line will uninstall SchedulerService:<para/>
+                                <code language="other">
+                                InstallUtil /u SchedulerService.exe</code>
+                            </listItem>
+                        </list>
+                    </definition>
+                </definitionTable>
+  </content>
+</section>
+
+                
+            
+            
+<section>
+  <title>Requirements</title>
+  <content>
+    <para>DemiCode Scheduler 1.1 and .NET Framework 2.0.</para>
+  </content>
+</section>
+
+            
+            
+<section>
+  <title>Remarks</title>
+  <content>
+    <definitionTable>
+                    <definition>
+                        This sample demonstrates the use of the .NET configuration system to configure our
+                        scheduler. Also the ability to hook event handlers to the scheduler, either at the
+                        top level (recieving events from all schedules) or at a specific schedule.
+                    </definition>
+                    <definition>
+                        We can also see how easy it is to establish a scheduling Windows Service with just
+                        a few lines of code.
+                        <code language="c#">
+protected override void OnStart(string[] args)
+{
+    // 1. Create default scheduler from configuration
+    _scheduler = SchedulerFactory.CreateFromConfig("scheduling");
+
+    // 2. Hook up to events
+    _scheduler.ScheduledAlarm += new EventHandler&lt;AlarmEventArgs&gt;(_scheduler_ScheduledAlarm);
+    _scheduler[&quot;FiveSecInterval&quot;].Alarm += new EventHandler&lt;AlarmEventArgs&gt;(fiveSecInterval_Alarm);
+
+    // 3. Start the engine
+    _scheduler.Start();
+}
+                        </code>
+                    </definition>
+                    <definition>
+                        One thing to pay attention to is how we <codeEntityReference qualifyHint="false" autoUpgrade="true">M:DemiCode.Scheduling.Scheduler.Dispose</codeEntityReference>
+                        our scheduler instance. This is important since we're holding on to a valuable timer
+                        resource.
+                        <code language="c#">
+protected override void OnStop()
+{
+    if (_scheduler != null)
+    {
+        _scheduler.Dispose();
+        _scheduler = null;
+    }
+}
+                    </code>
+                        Since, in a Windows service, we have limited control over when the service will
+                        be stopped you should consider overriding the <codeEntityReference qualifyHint="true" autoUpgrade="true">M:System.ServiceProcess.ServiceBase.OnShutdown</codeEntityReference>
+                        and the <codeEntityReference qualifyHint="true" autoUpgrade="true">M:System.ServiceProcess.ServiceBase.OnPowerEvent(System.ServiceProcess.PowerBroadcastStatus)</codeEntityReference> to handle more critical events.
+                        
+                    </definition>   
+                </definitionTable>
+  </content>
+</section>
+
+        
+    
+
+    <relatedTopics>
+    </relatedTopics>
+
+  </developerSampleDocument>
+</topic>

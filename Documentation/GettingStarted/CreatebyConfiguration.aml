@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="c2259bf9-d765-4b73-afda-cbae2bf81a86" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    
+
+
+
+                                     
+    
+        
+            
+            
+                <definitionTable>
+                    <definition>
+                        This sample shows how to create a Scheduler automatically from a configuration file.
+                    </definition>
+                    <definition>
+                        <legacyBold>Note:</legacyBold> You will need to add a reference to the DemiCode.Scheduling.dll
+                        to make this work. (DemiCode.Scheduling.dll can be found in the /DemiCode/Scheduler&#160;1.1
+                        directory in your systems Program&#160;Files folder. You will also need to set the
+                        Copy Local property for this reference to true.
+                    </definition>
+                </definitionTable>
+            
+            
+<section>
+  <title>Sample configuration file</title>
+  <content>
+     <code language="xml">
+&lt;?xml version="1.0" encoding="utf-16" ?&gt;
+&lt;configuration&gt;
+    &lt;configSections&gt;
+        &lt;section name=&quot;scheduling&quot; type=&quot;DemiCode.Scheduling.Configuration.SchedulerSettings, DemiCode.Scheduling, Culture=neutral, PublicKeyToken=069d10bcdee4c3e4&quot; /&gt;
+    &lt;/configSections&gt;
+
+    &lt;scheduling defaultScheduler=&quot;prod&quot;&gt;
+        &lt;schedulers&gt;
+            &lt;scheduler name=&quot;prod&quot;&gt;
+                &lt;IntervalSchedule name=&quot;FiveSec&quot;&gt;
+                    &lt;start&gt;2006-11-30 15:50:00&lt;/start&gt;
+                    &lt;interval&gt;00:00:05&lt;/interval&gt;
+                &lt;/IntervalSchedule&gt;
+            &lt;/scheduler&gt;
+        &lt;/schedulers&gt;
+    &lt;/scheduling&gt;
+&lt;/configuration&gt;
+				</code>
+  </content>
+</section>
+
+            
+               
+            
+            
+<section>
+  <title>Sample code</title>
+  <content>
+    <para>This code uses the above configuration file to create the Scheduler.</para>
+                <code language="c#">using System;
+using DemiCode.Scheduling;
+using DemiCode.Scheduling.Alarms;
+	
+public class Sample
+{
+	private Scheduler _scheduler;
+
+	public void StartHere()
+	{
+		// 1. Create default scheduler from configuration
+		_scheduler = SchedulerFactory.CreateFromConfig("scheduling");
+
+		// 2. Hook up to events
+		_scheduler.ScheduledAlarm += new EventHandler&lt;AlarmEventArgs&gt;(FiveSecInterval_Alarm);
+
+		// 3. Start the engine
+		_scheduler.Start();
+	}
+
+	private void FiveSecInterval_Alarm(object sender, AlarmEventArgs e)
+	{
+		Console.WriteLine("Scheduler Five Sec Interval. Event alarm time {0}, signaled at {1:yyyy-MM-dd HH:mm:ss:ff}", e.SignalTime, e.ActualSignalTime);
+	}
+}
+				</code>
+            
+            
+                To use the code, create an instance of the Sample class, and call the StartHere
+                method.
+                <code language="c#">
+            Sample s = new Sample();
+            s.StartHere();
+			</code>
+  </content>
+</section>
+
+            
+                
+            
+            
+            
+            
+                
+                    
+                
+            
+        
+
+    <relatedTopics>
+      <link xlink:href="f3e5c0d1-beec-42fe-859a-2331662441bf" topicType_id="DAC3A6A0-C863-4E5B-8F65-79EFC6A4BA09">Getting Started</link>
+    </relatedTopics>
+
+  </developerConceptualDocument>
+</topic>

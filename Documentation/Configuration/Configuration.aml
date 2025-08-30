@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="d9a6a49a-098b-4d25-aa79-eb78b4634e34" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <introduction>
+      <para>DemiCode Scheduler can be configured using standard .NET application .config files.</para>
+    </introduction>
+
+   
+            
+            
+            
+                
+            
+            
+<section>
+  <title>In this section</title>
+  <content>
+    <definitionTable>
+                    <definedTerm><link xlink:href="85482458-faf3-4de0-95c0-ef0b3709a1ea">Configure using .NET application .config files</link></definedTerm>
+                    <definition>
+                        <para>
+                            How to configure schedulers using the standard .NET configuration system.</para>
+                    </definition>
+                    <definedTerm><link xlink:href="adf89252-faed-4c5c-b4dc-6321223e6da3">Configure using standalone XML  (deprecated)</link></definedTerm>
+                    <definition>
+                        <para>How to configure schedulers using standalone XML files.</para>
+                    </definition>
+                </definitionTable>
+  </content>
+</section>
+
+        
+    
+
+    <relatedTopics>
+    </relatedTopics>
+
+  </developerConceptualDocument>
+</topic>

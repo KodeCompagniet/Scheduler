@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="5c63cb15-8536-4738-8fea-5062096071a2" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+	
+	
+    <introduction>
+      <para>Thank you for choosing DemiCode Scheduler as the scheduling component for your applications.</para>
+      <para>This Help system describes the DemiCode Scheduler component.</para>
+    </introduction>
+
+	
+
+	<section>
+	<title>In this section</title>
+            <content>
+                <definitionTable>
+                    <definedTerm><link xlink:href="d89af9ef-56cd-4dd7-bc4e-db4f236357f4" /></definedTerm>
+                    <definition>
+                        <para>
+                            Provides an introduction to the DemiCode Scheduler component by describing how
+                            the product works and defining its main operations.</para>
+                    </definition>
+                    <definedTerm><link xlink:href="f3e5c0d1-beec-42fe-859a-2331662441bf" /></definedTerm>
+                    <definition>
+                        <para>
+                            This section describes how to begin using DemiCode Scheduler.</para>
+                    </definition>
+                    <definedTerm><link xlink:href="ac8cf6b9-a48f-4b86-b13d-2303a63255aa" /></definedTerm>
+                    <definition>
+                        <para>
+                            Sample code snippets and walkthroughs of the provided samples.
+                        </para>
+                    </definition>
+                    <definedTerm><link xlink:href="d9a6a49a-098b-4d25-aa79-eb78b4634e34" /></definedTerm>
+                    <definition>
+                        <para>
+                            Describes how to configure the scheduler using the .config file and/or XML.</para>
+                    </definition>
+                    <definedTerm>
+                    	<externalLink>
+                    		<linkText>Class library reference</linkText>
+    						<linkUri>R_Project.htm</linkUri>
+    						<linkTarget>_self</linkTarget>
+						</externalLink>
+					</definedTerm>
+                    <definition>
+                        <para>
+                            This section describes all public classes, methods and properties that make up the
+                            DemiCode Scheduler component.</para>
+                    </definition>
+                    <definedTerm><link xlink:href="487cf5db-4b22-4ca2-b7ef-4d1254f06eab" /></definedTerm>
+                    <definition>
+                        <para>
+                            Provides information on creating custom tasks and schedules.
+                        </para>
+                    </definition>
+                    <definedTerm><link xlink:href="27d2bee2-065b-489b-ac2e-e3b9106b5325">Debugging</link></definedTerm>
+                    <definition>
+                        <para>
+                            How to diagnose errors in the DemiCode Scheduler and custom tasks.
+                        </para>
+                    </definition>
+                    <definedTerm><link xlink:href="0de6046f-c5e3-4dc8-abd8-1b9a8d7d68c7" /></definedTerm>
+                    <definition>
+                        <para>
+                            How to deploy DemiCode Scheduler runtime components with your application.
+                        </para>
+                    </definition>
+                    <definedTerm><link xlink:href="6f6e0381-6914-4357-a53f-915dff7e0305" /></definedTerm>
+                    <definition>
+                        <para>
+                            How to reach us.
+                        </para>
+                    </definition>
+                </definitionTable>
+		</content>            
+	</section>            
+            
+
+    <relatedTopics>
+    </relatedTopics>
+
+  </developerConceptualDocument>
+</topic>

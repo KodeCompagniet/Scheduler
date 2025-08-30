@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="f592f4a7-ecd8-4de0-949c-8c45dcf87b59" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <introduction>
+      <para>The <legacyBold>tasks</legacyBold> element is used to configure a collection of tasks to be executed when schedules fire. By default, each task will be associated
+               with all schedules, but can also be explicitly associated with one or more named schedules. 
+                Supported elements are shown below.</para>
+    </introduction>
+
+    
+                                    
+    
+<section>
+	<content>
+		<code language="xml">
+            &lt;scheduler name=&quot;myscheduler&quot;&gt;
+                &lt;tasks&gt;
+                    &lt;task type="MyTask, MyTaskLibrary" /&gt;
+                    &lt;CodeTask /&gt;
+                    &lt;ApplicationTask /&gt;
+                &lt;/tasks&gt;
+            &lt;/scheduler&gt;
+  		</code>
+	</content>
+</section>
+                
+           
+<section>
+	<title>Attributes and Elements</title>
+ 	<content>
+ 	
+	<table>
+		<title>Attributes</title>
+   			<para>None</para>
+	</table>
+                
+	<table>
+		<title>
+			Child Elements
+		</title>
+		
+		<tableHeader>
+			<row>
+				<entry>
+					Element
+				</entry>
+				<entry>
+					Description
+				</entry>
+			</row>
+		</tableHeader>
+		
+			<row>
+				<entry>
+					<legacyBold><link xlink:href="d790b6d8-8d98-4af9-9de0-70d22e267cba">task</link> </legacyBold>
+				</entry>
+				<entry>
+					A custom or third-party task.
+				</entry>
+			</row>
+			<row>
+				<entry>
+					<legacyBold><link xlink:href="9473b45f-5001-4440-a0ca-c4adddb69235">CodeTask</link> </legacyBold>
+				</entry>
+				<entry>
+					Represents the built-in <codeEntityReference qualifyHint="false">T:DemiCode.Scheduling.Tasks.CodeTask</codeEntityReference> task.
+				</entry>
+			</row>
+			<row>
+				<entry>
+					<legacyBold><link xlink:href="80913175-28b9-46b1-ae4c-455d8fc75d46">ApplicationTask</link> </legacyBold>
+				</entry>
+				<entry>
+					Represents the built-in <codeEntityReference qualifyHint="false">T:DemiCode.Scheduling.Tasks.ApplicationTask</codeEntityReference> task.
+				</entry>
+			</row>
+		</table>
+  </content>
+</section>
+
+            
+
+    
+
+    <relatedTopics>
+    </relatedTopics>
+
+  </developerConceptualDocument>
+</topic>

@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="adf89252-faed-4c5c-b4dc-6321223e6da3" revisionNumber="1">
+  <developerHowToDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <introduction>
+      <para><legacyBold>Note:</legacyBold> this section and related methods are deprecated. Loading (and writing) scheduler configuration from separate files
+                is now supported using standard .NET configuration files. See the <link xlink:href="85482458-faf3-4de0-95c0-ef0b3709a1ea" /> section for details.
+            
+            <para/>
+            <para/>
+                Schedulers can be configured using standalone XML files containing one or more schedule
+                elements.
+                <para/>
+                <legacyBold>Note:</legacyBold>&#160;only the <link xlink:href="c7ca10b4-86cf-4f36-a961-826165893353">schedule</link> element is supported in standalone XML files.
+               <para/> 
+               <para/> 
+            Here is a sample XML configuration file, schedulerconfiguration.xml:</para>
+    </introduction>
+
+    
+               
+
+<section>
+  <content>
+      
+<code language="xml">
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;
+&lt;schedules&gt;
+    &lt;schedule name="schedule1" type=&quot;...&quot; /&gt;
+    &lt;schedule name="schedule2" type=&quot;...&quot; /&gt;
+    &lt;schedule name="schedule3" type=&quot;...&quot; /&gt;
+&lt;/schedules&gt;
+</code>
+<para/>
+            The following code will load the configuration and return an initialized scheduler. 
+<code language="c#">
+using (Scheduler scheduler = SchedulerFactory.CreateFromXml("schedulerconfiguration.xml", "/schedules"))
+{
+    // ... start scheduler processing
+}
+</code>
+</content>
+</section>
+
+
+    <relatedTopics>
+    </relatedTopics>
+
+  </developerHowToDocument>
+</topic>

@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build;Test" ToolsVersion="3.5" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <Import Project="$(MSBuildExtensionsPath)\MSBuildCommunityTasks\MSBuild.Community.Tasks.Targets" />
+
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SolutionDir>$(MSBuildProjectDirectory)</SolutionDir>
+    <TestResultsDir>$(SolutionDir)\TestResults</TestResultsDir>
+    <Solution>$(SolutionDir)\DemiCode.Scheduling.sln</Solution>
+  </PropertyGroup>
+
+  <Target Name="Setup">
+    <MakeDir Directories="$(TestResultsDir)" />
+  </Target>
+
+  <ItemGroup>
+    <ProjectReference Include="$(SolutionDir)\DemiCode.Shared\DemiCode.Shared.csproj" />
+    <ProjectReference Include="$(SolutionDir)\DemiCode.Shared.Test\DemiCode.Shared.Test.csproj" />
+    <ProjectReference Include="$(SolutionDir)\DemiCode.Scheduling\DemiCode.Scheduling.csproj" />
+    <ProjectReference Include="$(SolutionDir)\DemiCode.Scheduling.Test\DemiCode.Scheduling.Test.csproj" />
+    <ProjectReference Include="$(SolutionDir)\DemiCode.SchedulerService\DemiCode.SchedulerService.csproj" />
+    <ProjectReference Include="$(SolutionDir)\DemiCode.Scheduling.Loggers.log4net\DemiCode.Logging.log4net.csproj" />
+  </ItemGroup>
+
+
+  <Target Name="Build" DependsOnTargets="Setup">
+
+    <!-- Clean, then rebuild entire solution -->
+    <MSBuild Projects="@(ProjectReference)" Targets="Build" Properties="Configuration=$(Configuration)" />
+
+  </Target>
+
+
+  <!-- Run Unit tests -->
+  <ItemGroup>
+    <TestAssembly Include="$(SolutionDir)\DemiCode.Shared.Test\bin\debug\DemiCode.Shared.Test.dll" />
+    <TestAssembly Include="$(SolutionDir)\DemiCode.Scheduling.Test\bin\debug\DemiCode.Scheduling.Test.dll" />
+  </ItemGroup>
+
+  <Target Name="Test" DependsOnTargets="Build">
+    <NUnit Assemblies="@(TestAssembly)" DisableShadowCopy="true" OutputXmlFile="$(TestResultsDir)\testresults.xml" ExcludeCategory="SystemTimeChanges">
+      <Output TaskParameter="ExitCode" PropertyName="NUnitExitCode" />
+    </NUnit>
+    <Message Text="NUnit exit code was $(NUnitExitCode)" />
+  </Target>
+
+
+  <!-- Build a release of DemiCode Scheduler -->
+  <Target Name="BuildRelease" DependsOnTargets="Setup">
+
+    <!--<ItemGroup>
+      <ProjectReference Include="$(SolutionDir)\Documentation\Documentation.shfbproj" />
+    </ItemGroup>-->
+    
+    <!-- Build release binaries -->
+    <MSBuild Projects="@(ProjectReference)" Targets="Build" Properties="Configuration=Release" />
+
+    <CallTarget Targets="BuildDocumentation" />
+    
+  </Target>
+
+  <Target Name="BuildDocumentation">
+    <ItemGroup>
+      <SourceFile Include="$(SolutionDir)\DemiCode.Scheduling\bin\Release\DemiCode.Scheduling.dll"/>
+      <SourceFile Include="$(SolutionDir)\DemiCode.Scheduling\bin\Release\DemiCode.Scheduling.xml"/>
+      <SourceFile Include="$(SolutionDir)\DemiCode.Shared\bin\Release\DemiCode.Shared.dll"/>
+      <SourceFile Include="$(SolutionDir)\DemiCode.Shared\bin\Release\DemiCode.Shared.xml"/>
+      <SourceFile Include="$(SolutionDir)\DemiCode.Scheduling.Loggers.log4net\bin\Release\DemiCode.Logging.log4net.dll"/>
+      <SourceFile Include="$(SolutionDir)\DemiCode.Scheduling.Loggers.log4net\bin\Release\DemiCode.Logging.log4net.xml"/>
+    </ItemGroup>
+
+    <Copy SourceFiles="@(SourceFile)" DestinationFolder="$(SolutionFolder)\Documentation\lib" />
+
+    <MSBuild Projects="$(SolutionDir)\Documentation\Documentation.shfbproj" Targets="Build" Properties="Configuration=Release" />
+    
+  </Target>
+
+  
+</Project>

@@ -1,0 +1,266 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{278064F4-4B71-443B-A658-626B243881EE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>DemiCode.Scheduling.Test</RootNamespace>
+    <AssemblyName>DemiCode.Scheduling.Test</AssemblyName>
+    <WarningLevel>4</WarningLevel>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\DemiCodeStrongName.snk</AssemblyOriginatorKeyFile>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <PublishUrl>http://localhost/DemiCode.Scheduling.Test/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>.\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\log4net-1.2.10\bin\net\2.0\debug\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="nunit.framework, Version=2.4.8.0, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\NUnit\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Rhino.Mocks, Version=3.5.0.1337, Culture=neutral, PublicKeyToken=0b3305902db7183f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\Rhino Mocks\Rhino.Mocks.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Alarms\AlarmEventArgsTest.cs" />
+    <Compile Include="AssertLog.cs" />
+    <Compile Include="Configuration\ConfigurationFileWatcherTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Configuration\SchedulerElementTest.cs" />
+    <Compile Include="Configuration\SchedulerSettingsSavingTest.cs" />
+    <Compile Include="Configuration\Schedules\ScheduleElementTest.cs" />
+    <Compile Include="Configuration\Schedules\ScheduleElementCollectionTest.cs" />
+    <Compile Include="Configuration\Schedules\WeeklyScheduleElementTest.cs" />
+    <Compile Include="Configuration\Tasks\CodeTaskElementTest.cs" />
+    <Compile Include="Configuration\Tasks\ScheduleReferenceCollectionTest.cs" />
+    <Compile Include="Configuration\Tasks\ScheduleReferenceElementTest.cs" />
+    <Compile Include="Configuration\Tasks\TaskElementCollectionTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Configuration\Tasks\TaskElementTest.cs" />
+    <Compile Include="Alarms\AlarmTimer2Test.cs" />
+    <Compile Include="Configuration\Tasks\TaskSequenceElementTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DateTimeTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FactoryConfigurationExceptionTest.cs" />
+    <Compile Include="FileHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Mocks\LoggerFactoryMock.cs" />
+    <Compile Include="Mocks\LoggerMock.cs" />
+    <Compile Include="Mocks\NamedOneShotSchedule.cs" />
+    <Compile Include="Mocks\ScheduleMock.cs" />
+    <Compile Include="Mocks\SchedulerMock.cs" />
+    <Compile Include="Scheduler_DisposeInEventHandlerTest.cs" />
+    <Compile Include="Schedules\LongIntervalScheduleTest.cs" />
+    <Compile Include="Service\WatchConfigFileTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tasks\TaskSequenceTest.cs" />
+    <Compile Include="Tasks\TaskCollectionTest.cs" />
+    <Compile Include="Tasks\ApplicationTaskTest.cs" />
+    <Compile Include="Tasks\CodeTaskTest.cs" />
+    <Compile Include="Mocks\SimpleClass.cs" />
+    <Compile Include="Mocks\TaskMock.cs" />
+    <Compile Include="ScheduleAssert.cs" />
+    <Compile Include="FactoryExceptionTest.cs" />
+    <Compile Include="InvalidConfigurationExceptionTest.cs" />
+    <Compile Include="Mocks\BadConstructorMock.cs" />
+    <Compile Include="Mocks\TargetInvocationConstructorMock.cs" />
+    <Compile Include="Mocks\Synchronizer.cs">
+    </Compile>
+    <Compile Include="AlarmTimerMockTest.cs" />
+    <Compile Include="EventHelperTest.cs" />
+    <Compile Include="FactoryTest.cs" />
+    <Compile Include="MessageLoggerTest.cs" />
+    <Compile Include="Mocks\AlarmTimerMock.cs" />
+    <None Include="Schedules\MonthlyScheduleTest.cs" />
+    <Compile Include="Configuration\SchedulerSettingsManagerTest.cs" />
+    <Compile Include="ScheduledAlarmListener.cs" />
+    <Compile Include="SchedulerFactoryTest.cs" />
+    <Compile Include="Schedules\LunchScheduleTest.cs" />
+    <Compile Include="Schedules\IntervalScheduleTest.cs" />
+    <Compile Include="Schedules\IntervalCountedScheduleTest.cs" />
+    <Compile Include="Mocks\ConfigurableMock.cs" />
+    <Compile Include="Mocks\IConfigurableMock.cs" />
+    <Compile Include="Mocks\SynchronizedObject.cs" />
+    <Compile Include="Schedules\OneShotScheduleTest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Schedules\ScheduleBaseTest.cs" />
+    <Compile Include="Configuration\SchedulerElementCollectionTest.cs" />
+    <Compile Include="Configuration\SchedulerSettingsTest.cs" />
+    <Compile Include="SchedulerTest.cs" />
+    <Compile Include="Tasks\TaskHandlerTest.cs" />
+    <Compile Include="TestAssemblySetup.cs" />
+    <Compile Include="TimeHelper.cs" />
+    <Compile Include="Mocks\TimeProviderMock.cs" />
+    <Compile Include="TimeHelperTest.cs" />
+    <Compile Include="VSCodeGenAccessors.cs" />
+    <Compile Include="Schedules\WeeklyScheduleTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TestData\FactoryConfiguration.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\ScheduleConfiguration.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\ScheduleSamples.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DemiCode.Scheduling\DemiCode.Scheduling.csproj">
+      <Project>{3C7ED8E3-6128-482F-BC3C-0BED63584CD6}</Project>
+      <Name>DemiCode.Scheduling</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DemiCode.Logging.log4net\DemiCode.Logging.log4net.csproj">
+      <Project>{D494AB74-6095-4B39-AD47-3E12678AE83C}</Project>
+      <Name>DemiCode.Logging.log4net</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DemiCode.Scheduling.Test.Dummy\DemiCode.Scheduling.Test.Dummy.csproj">
+      <Project>{EDD5C5D8-8D40-4742-ABC6-AFBB145D5900}</Project>
+      <Name>DemiCode.Scheduling.Test.Dummy</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DemiCode.Shared\DemiCode.Shared.csproj">
+      <Project>{4950761D-AFFA-4A0E-B328-4CA6238FC786}</Project>
+      <Name>DemiCode.Shared</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\DemiCodeStrongName.snk">
+      <Link>DemiCodeStrongName.snk</Link>
+    </None>
+    <Content Include="TestData\AddNewAssemblyAtRuntimeTest.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\AddTaskAtRuntimeTest.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="app.config" />
+    <None Include="app.xsc">
+      <DependentUpon>app.xsd</DependentUpon>
+    </None>
+    <None Include="app.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="app.xss">
+      <DependentUpon>app.xsd</DependentUpon>
+    </None>
+    <None Include="app.xsx">
+      <DependentUpon>app.xsd</DependentUpon>
+    </None>
+    <Content Include="TestData\SchedulerSettingsManager_SaveConfigTest.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\AddNewAssemblyAtRuntimeTest.log4net.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\ConfigCacheTest.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TestData\DemiCode.Scheduling.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DemiCode.Scheduling_v1.1.1.0\DemiCode.Scheduling.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Configuration\Loggers\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="0de6046f-c5e3-4dc8-abd8-1b9a8d7d68c7" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <introduction>
+				<para>
+					When deploying your application, you must make sure the DemiCode.Scheduling assembly
+					is available from your assembly.
+				</para>
+				<para>
+					The DemiCode.Scheduling assembly should automatically be copied to the project
+					output directory when you compile your application, and can be deployed by beeing
+					copied with the calling assembly.
+				</para>
+				<para>
+					<legacyBold>Note:</legacyBold> If you have installed the DemiCode.Scheduling assembly in the GAC
+					on your development workstation or build server, this may not happen and you need
+					to make the assembly available to your project's output. This can be done in one
+					of the follwing ways:
+				</para>
+				<list class="bullet">
+					<listItem>By setting the Copy Local property setting for the DemiCode.Scheduling reference
+						to true.</listItem>
+					<listItem>By manually copying the assembly (DemiCode.Scheduling.dll) to the applications'
+						executable file's directory. </listItem>
+					<listItem>By installing it in the global assembly cache (GAC) on the target computer. (See
+						also <externalLink>
+	<linkText>How to: Install Assemblies in the Global Assembly Cache</linkText>
+	<linkUri>ms-help://MS.VSCC.v80/MS.MSDN.v80/MS.VisualStudio.v80.en/dv_fxnetcf/html/5aa081e4-13b3-4646-a391-9c184394ac62.htm</linkUri>
+	</externalLink>.) </listItem>
+				</list>
+    </introduction>
+
+
+	
+
+    <relatedTopics>
+    </relatedTopics>
+
+  </developerConceptualDocument>
+</topic>

@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="9473b45f-5001-4440-a0ca-c4adddb69235" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <introduction>
+      <para>The <codeEntityReference qualifyHint="false">T:DemiCode.Scheduling.Tasks.CodeTask</codeEntityReference>
+                executes a method on a .NET class. This is usefull in scenarios where you have existing .NET classes that performs
+               some job and you need to configure your scheduler to execute this jobs on schedule.</para>
+    </introduction>
+
+    
+                                    
+
+<section>
+  <content>
+    <code language="xml">
+            &lt;CodeTask class=&quot;Importer, MyLibrary&quot; method=&quot;ImportOrders&quot; /&gt;
+            </code>
+  </content>
+</section>
+    
+        
+
+<section>
+  <title>Attributes and Elements</title>
+  <content>
+    
+	<table>
+		<title>Attributes</title>
+                
+		<tableHeader>
+			<row>
+				<entry>Attribute</entry>
+				<entry>Description</entry>
+			</row>
+		</tableHeader>
+			<row>
+				<entry><legacyBold>class</legacyBold></entry>
+				<entry>
+					Fully qualified type name of a class that the CodeTask should instanciate. The class must have a public default constructor.
+				</entry>
+			</row>
+			<row>
+				<entry><legacyBold>method</legacyBold></entry>
+				<entry>
+					Name of a method on the class. If any <legacyBold>parameter</legacyBold> attributes exist, the method signature must have the same number
+                                    of parameters.
+				</entry>
+			</row>
+			<row>
+				<entry><legacyBold>parameter</legacyBold></entry>
+				<entry>
+					Optional attribute(s).<para/>The parameter attribute can have any valid attribute name other than &quot;class&quot; and &quot;method&quot; and represents
+                                    parameters passed to the <legacyBold>method</legacyBold> when executed. One or more attributes can be declared as long as the names are unique.
+				</entry>
+			</row>
+	</table>
+                
+   <table>             
+		<title>Child Elements</title>
+                
+		<tableHeader>
+			<row>
+				<entry>Element</entry>
+				<entry>Description</entry>
+			</row>
+		</tableHeader>
+			<row>
+				<entry>
+					<legacyBold><link xlink:href="100acdd4-daa3-4e8d-b09d-ad27d242a4af">scheduleref</link></legacyBold>
+				</entry>
+				<entry>
+					Reference to a schedule that this task should be associated with.
+				</entry>
+			</row>
+	</table>
+	
+    <table>             
+		<title>Parent Elements</title>
+                
+		<tableHeader>            
+			<row>
+				<entry>Element</entry>
+				<entry>Description</entry>
+			</row>
+		</tableHeader>
+			<row>
+				<entry>
+					<legacyBold><link xlink:href="6204c862-a7b7-45a5-b870-08b3771a7308">tasks</link></legacyBold>
+				</entry>
+				<entry>
+					Collection of one or more <legacyBold>task</legacyBold> elements.
+				</entry>
+			</row>
+	</table>
+  </content>
+</section>
+         
+            
+    
+
+    <relatedTopics>
+    </relatedTopics>
+
+  </developerConceptualDocument>
+</topic>

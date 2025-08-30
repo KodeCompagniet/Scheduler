@@ -1,0 +1,12 @@
+C:\Users\peter\Work\KC\DemiCode.Scheduler\Samples\VB.Net\ApplicationTaskConsole\bin\Debug\ApplicationTaskConsole.exe.config
+C:\Users\peter\Work\KC\DemiCode.Scheduler\Samples\VB.Net\ApplicationTaskConsole\bin\Debug\ApplicationTaskConsole.exe
+C:\Users\peter\Work\KC\DemiCode.Scheduler\Samples\VB.Net\ApplicationTaskConsole\bin\Debug\ApplicationTaskConsole.pdb
+C:\Users\peter\Work\KC\DemiCode.Scheduler\Samples\VB.Net\ApplicationTaskConsole\bin\Debug\ApplicationTaskConsole.xml
+C:\Users\peter\Work\KC\DemiCode.Scheduler\Samples\VB.Net\ApplicationTaskConsole\bin\Debug\log4net.dll
+C:\Users\peter\Work\KC\DemiCode.Scheduler\Samples\VB.Net\ApplicationTaskConsole\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\peter\Work\KC\DemiCode.Scheduler\Samples\VB.Net\ApplicationTaskConsole\obj\Debug\ApplicationTaskConsole.Resources.resources
+C:\Users\peter\Work\KC\DemiCode.Scheduler\Samples\VB.Net\ApplicationTaskConsole\obj\Debug\ResGen.read.1.tlog
+C:\Users\peter\Work\KC\DemiCode.Scheduler\Samples\VB.Net\ApplicationTaskConsole\obj\Debug\ResGen.write.1.tlog
+C:\Users\peter\Work\KC\DemiCode.Scheduler\Samples\VB.Net\ApplicationTaskConsole\obj\Debug\ApplicationTaskConsole.exe
+C:\Users\peter\Work\KC\DemiCode.Scheduler\Samples\VB.Net\ApplicationTaskConsole\obj\Debug\ApplicationTaskConsole.xml
+C:\Users\peter\Work\KC\DemiCode.Scheduler\Samples\VB.Net\ApplicationTaskConsole\obj\Debug\ApplicationTaskConsole.pdb

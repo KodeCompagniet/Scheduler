@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="7451DB08-3678-4263-BF51-AB5D88E6E93C" revisionNumber="1">
+  <developerSampleDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <introduction>
+      <para>
+        The SchedulerConfiguration project shows a .NET WinForms application that reads configuration files, dislays configuration controls and writes changes
+        back to disk.</para>
+    </introduction>
+
+   
+            
+            
+<section>
+  <title>Prerequisites</title>
+  <content>
+    <para>Navigate to the <localUri>DemiCode Scheduler 1.1\Samples</localUri> folder. Unzip <localUri>SchedulerSamples.zip</localUri> in the Samples folder.</para>
+  </content>
+</section>
+            
+            
+<section>
+  <title>To build the sample using the Command Prompt</title>
+  <content>
+    <list class="ordered">
+                    <listItem>
+                        <para>
+                            Open the Visual Studio 2008 Command Prompt window and navigate to the <localUri>DemiCode Scheduler 1.1\Samples</localUri> folder.</para>
+                    </listItem>
+                    <listItem>
+                        <para>
+                            Type <command>msbuild SchedulerConsole.sln</command> at the command line.</para>
+                    </listItem>
+                </list>
+  </content>
+</section>
+       
+                
+            
+            
+<section>
+  <title>To build the sample using Visual Studio</title>
+  <content>
+    <list class="ordered">
+                    <listItem>
+                        <para>
+                            Open Windows Explorer and navigate to the <localUri>DemiCode Scheduler 1.1\Samples</localUri>
+                            folder.</para>
+                    </listItem>
+                    <listItem>
+                        <para>
+                            Double-click the <localUri>SchedulerConsole.sln</localUri> to open the file in Visual Studio.</para>
+                    </listItem>
+                    <listItem>
+                        <para>
+                            In the <legacyBold>Build</legacyBold> menu, select <legacyBold>Build Solution</legacyBold>.</para>
+                    </listItem>
+                </list>
+  </content>
+</section>
+
+                
+            
+            
+<section>
+  <title>To run the sample</title>
+  <content>
+    <definitionTable>
+                    <definition>
+                        Follow these steps to run the sample application:
+                        <list class="ordered">
+                            <listItem>Open a <application>Command Prompt</application> or <application>Windows Explorer</application> and navigate to the folder that contains the new
+                                executable. <para/>
+                                This will usually be <localUri>Samples\SchedulerConsole\bin\Debug</localUri>
+                              </listItem>
+                            <listItem>Run the application by typing or double-clicking:
+                            <code language="other">
+                            SchedulerConfiguration.exe
+                            </code>
+                            </listItem>
+                        </list>
+                    </definition>
+                </definitionTable>
+  </content>
+</section>
+
+                
+            
+            
+<section>
+  <title>Requirements</title>
+  <content>
+    <para>DemiCode Scheduler 1.1 and .NET Framework 2.0.</para>
+  </content>
+</section>
+
+            
+            
+<section>
+  <title>Remarks</title>
+  <content>
+    <definitionTable>
+                    <definition>
+                        This sample demonstrates the use of the .NET configuration system to read and write configuration files. The sample also demonstrates how simple UI controls
+                        can be set up to modify scheduler setup.
+                    </definition>
+                    <definition>
+                      Using the <codeEntityReference qulifyHint="true">T:DemiCode.Scheduling.Configuration.SchedulerSettingsManager</codeEntityReference> we can access the configuration object model loaded from a given .config file.
+                      <code language="c#">
+private void LoadSettings()
+{
+    SchedulerSettings settings = SchedulerSettingsManager.GetConfigurationSection(&quot;...path to .config file&quot;, &quot;scheduling&quot;);
+    SchedulerElement scheduler = settings.Schedulers[settings.DefaultScheduler];
+
+    foreach (ScheduleElementBase schedule in scheduler)
+    {
+        // Examine schedule elements here
+        ...
+    }
+}
+</code>
+                    </definition>
+                    <definition>
+                        Again, using the <codeEntityReference qulifyHint="false">T:DemiCode.Scheduling.Configuration.SchedulerSettingsManager</codeEntityReference>, we can open a configuration section for writing. The configuration object model can then be modified, e.g. according to user selections,
+                        and written back to disk. The following sample illustrates how we can open an existing .config file, modify the object model, and then write
+                        back to the same file.
+                        <code language="c#">
+private void SaveSettings()
+{
+    SchedulerSettings settings = SchedulerSettingsManager.GetWritableConfigurationSection(&quot;scheduling&quot;, &quot;...path to .config file&quot;);
+    SchedulerElement defaultScheduler = settings.Schedulers[settings.DefaultScheduler];
+
+    // Modify the object model here
+    IntervalScheduleElement schedule = new IntervalScheduleElement("interval", DateTime.Now, TimeSpan.FromSeconds(10));
+    defaultScheduler.Add(schedule);
+    
+    SchedulerSettingsManager.SaveConfigurationSection(settings);
+}
+                        </code>
+                    </definition>
+                </definitionTable>
+  </content>
+</section>
+
+            
+        
+    
+
+    <relatedTopics>
+    </relatedTopics>
+
+  </developerSampleDocument>
+</topic>

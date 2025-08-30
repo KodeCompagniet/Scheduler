@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="6f6e0381-6914-4357-a53f-915dff7e0305" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <introduction>
+					<para>
+						The product homepage for DemiCode Scheduler on the internet can be found at <externalLink>
+  <linkText>www.demicode.com/products/scheduler</linkText>
+  <linkUri>http://www.demicode.com/products/scheduler</linkUri>
+  <linkTarget>_blank</linkTarget>
+</externalLink>.
+					</para>
+					<para>
+						You can reach us at <externalLink>
+  <linkText>support@demicode.com</linkText>
+  <linkUri>mailto:support%40demicode.com</linkUri>
+</externalLink>
+						for support inquiries.
+					</para>
+					<para>
+						DemiCode Scheduler is developed and published by <externalLink>
+  <linkText>KodeCompagniet AS</linkText>
+  <linkUri>http://www.kodecompagniet.com</linkUri>
+  <linkTarget>_blank</linkTarget>
+</externalLink>.
+					</para>
+    </introduction>
+
+	
+									
+		
+	
+
+    <relatedTopics>
+    </relatedTopics>
+
+  </developerConceptualDocument>
+</topic>

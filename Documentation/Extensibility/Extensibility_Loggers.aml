@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="25a5da19-1b26-467d-9e5d-627b075e47c5" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <introduction>
+      <definitionTable><definition>
+                DemiCode Scheduler uses loggers to log messages and error information while running.
+                Version 1.1 comes with a log4net logger and a console logger out of the box. If
+                these loggers does not fit your needs you can easily implement your own. 
+               </definition><definition>
+               Loggers in Scheduler consist of (at least) three core classes:
+               </definition>
+               <definition>
+               <list class="bullet">
+               <listItem>A factory</listItem>
+               <listItem>A logger</listItem>
+               <listItem>An NDC</listItem>
+               </list>
+               </definition>
+               <definition>
+                This section describes how to implement these classes.
+               </definition>
+               </definitionTable>
+    </introduction>
+
+    
+                                    
+
+<section>
+  <title>Implementing the factory</title>
+  <content>
+    <definitionTable>
+                    <definition>
+                        The logger factory is a class that "knows" how to create logger instances and NDC
+                        (Nested Diagnostic Context) objects. The Scheduler keeps an instance of the factory
+                        for whenever a logger needs to be created, thus the factory should be light-weight.
+                        Equally, the Create methods should be as fast as possible.
+                    </definition>
+                    <definition>
+                        The logger factory class must implement the
+                        <codeEntityReference qualifyHint="false">T:DemiCode.Logging.ILoggerFactory</codeEntityReference>
+                        interface. The following code shows how the
+                        <codeEntityReference qualifyHint="false">T:DemiCode.Logging.ConsoleLoggerFactory</codeEntityReference>
+                        is implemented.
+					<code language="c#">
+public class ConsoleLoggerFactory : ILoggerFactory
+{
+    ILogger ILoggerFactory.CreateLogger(string name)
+    {
+        return new ConsoleLogger();
+    }
+
+    ILogger ILoggerFactory.CreateLogger(Type type)
+    {
+        return new ConsoleLogger();
+    }
+
+    IDisposable ILoggerFactory.CreateNDC(string message)
+    {
+        return new SimpleNDC(message);
+    }
+}
+					</code>
+                    </definition>
+                    <definition>
+                        <legacyBold>Note:</legacyBold> this simplified implemenation does not use the name and type
+                        parameters. These should be passed on to the logger instance to add contextual information.
+                    </definition>
+		</definitionTable>
+  </content>
+</section>
+    
+        
+            
+
+<section>
+  <title>Implementing the logger</title>
+  <content>
+    <definitionTable>
+                    <definition>
+                        The logger must implement the
+                        <codeEntityReference qualifyHint="false">T:DemiCode.Logging.ILogger</codeEntityReference>
+                        interface. This interface consist of five groups of methods.
+                        </definition>
+                        <definition>
+                        <list class="bullet">
+                            <listItem>Debug</listItem>
+                            <listItem>Information</listItem>
+                            <listItem>Warning</listItem>
+                            <listItem>Error</listItem>
+                            <listItem>Fatal</listItem>
+                        </list>
+                        </definition>
+                        <definition>
+                        Each group is responsible for logging information at different priority levels.
+                        Code that uses your logger will choose a level according to the importance of the
+                        logged information. How the chosen level is expressed in the logger is up to you
+                        as the implementer.
+                    </definition>
+                    <definition>
+                        The following code shows how the
+                        <codeEntityReference qualifyHint="false">T:DemiCode.Logging.ConsoleLogger</codeEntityReference>
+                        is implemented. Note that each level, e.g. Fatal, have two methods. Both accept
+                        a <legacyBold>message</legacyBold> and <legacyBold>args</legacyBold> parameter. The logger user
+                        expect these to support string format notation. One overload accepts an <legacyBold>exception</legacyBold>
+                        object which enables us to format exception information explicitly.
+                    </definition>
+                    <definition>
+                        <code language="c#">
+public class ConsoleLogger : ILogger
+{
+    void ILogger.Fatal(string message, params object[] args)
+    {
+        Console.BackgroundColor = ConsoleColor.Red;
+        Console.WriteLine(message, args);
+    }
+
+    void ILogger.Fatal(string message, Exception exception, params object[] args)
+    {
+        Console.WriteLine(message, args);
+        WriteException(exception);
+    }
+
+    void ILogger.Error(string message, params object[] args)
+    {
+        Console.BackgroundColor = ConsoleColor.Red;
+        Console.WriteLine(message, args);
+    }
+
+    void ILogger.Error(string message, Exception exception, params object[] args)
+    {
+        Console.WriteLine(message, args);
+        WriteException(exception);
+    }
+
+    void ILogger.Warn(string message, params object[] args)
+    {
+        Console.WriteLine(message, args);
+    }
+
+    void ILogger.Warn(string message, Exception exception, params object[] args)
+    {
+        Console.WriteLine(message, args);
+        WriteException(exception);
+    }
+
+    void ILogger.Info(string message, params object[] args)
+    {
+        Console.WriteLine(message, args);
+    }
+
+    void ILogger.Info(string message, Exception exception, params object[] args)
+    {
+        Console.WriteLine(message, args);
+        WriteException(exception);
+    }
+
+    void ILogger.Debug(string message, params object[] args)
+    {
+        Console.WriteLine(message, args);
+    }
+
+    void ILogger.Debug(string message, Exception exception, params object[] args)
+    {
+        Console.WriteLine(message, args);
+        WriteException(exception);
+    }
+
+    private static void WriteException(Exception e)
+    {
+        Console.WriteLine(&quot;{0}: {1}&quot;, e.GetType().Name, e.Message);
+        Console.WriteLine(e.StackTrace);
+    }
+}
+               			</code>
+                    </definition>
+                </definitionTable>
+  </content>
+</section>
+            
+               
+            
+            
+ 
+<section>
+  <title>Implementing a simple NDC</title>
+  <content>
+    <definitionTable>
+                    <definition>
+                        A Nested Diagnostic Context object is used to provide additional context to loggers.
+                        You can read more on <externalLink>
+  <linkText>how log4net uses contexts</linkText>
+  <linkUri>http://logging.apache.org/log4net/release/manual/contexts.html</linkUri>
+  <linkTarget>_blank</linkTarget>
+</externalLink>.
+                    </definition>
+                    <definition>
+                        For our console logger we will implement a dummy NDC called SimpleNDC. The only
+                        requirement for a Scheduler NDC is that it supports the IDisposable interface.
+					<code language="c#">
+public class SimpleNDC : IDisposable
+{
+    private string _message;
+    public SimpleNDC(string message)
+    {
+        _message = message;
+    }
+
+    private bool _disposed = false;
+    private void Dispose(bool disposing)
+    {
+        if (!_disposed)
+        {
+            _disposed = true;
+        }
+    }
+
+    public void Dispose()
+    {
+        Dispose(true);
+        GC.SuppressFinalize(this);
+    }
+}               
+               		</code>
+                    </definition>
+	</definitionTable>
+  </content>
+</section>
+               
+            
+            
+ 
+<section>
+  <title>Whats next?</title>
+  <content>
+    <para>Read up on how to enable <link xlink:href="2ae78a2b-2f6e-447c-9188-7483bd116e74">your logger in configuration</link> and then use the <link xlink:href="f0361e4e-a359-4f54-a200-6e8a11b94dff">SchedulerService</link> sample to try it out.</para>
+  </content>
+</section>
+               
+            
+            
+   
+
+    <relatedTopics>
+    </relatedTopics>
+
+  </developerConceptualDocument>
+</topic>

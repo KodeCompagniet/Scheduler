@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="57ebeffe-d9b1-4b6c-84a2-36657f326a57" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <introduction>
+		<para>The
+				<codeEntityReference qualifyHint="false">T:DemiCode.Scheduling.Schedules.IntervalCountedSchedule</codeEntityReference>
+				will fire a finite number of times at a given interval from a specified starttime.
+		</para>
+    </introduction>
+
+	
+									
+	
+<section>
+  <content>
+    <code language="xml">
+			&lt;IntervalCountedSchedule name=&quot;ThirtyOneIntervals&quot;&gt;
+				&lt;start&gt;2006-11-30 15:50:00&lt;/start&gt;
+				&lt;occurrences&gt;31&lt;/occurrences&gt;
+				&lt;interval&gt;00:00:05&lt;/interval&gt;
+			&lt;/IntervalCountedSchedule&gt;
+	</code>
+  </content>
+</section>
+
+		
+			
+
+<section>
+  <title>Attributes and Elements</title>
+  <content>
+  	<table>
+		<title>Attributes</title>
+		<tableHeader>
+			<row>
+				<entry>Attribute</entry>
+				<entry>Description</entry>
+			</row>
+		</tableHeader>	
+			<row>
+				<entry>
+					<legacyBold>name</legacyBold>
+			</entry>
+			<entry>
+					Optional attribute<para/>
+					Name of the scheduler configuration element. This value can later be used to reference
+					the desired configuration when creating instances of the
+					<codeEntityReference qualifyHint="false">T:DemiCode.Scheduling.Scheduler</codeEntityReference>
+					.
+			</entry>
+		</row>
+	</table>
+				
+	<table>
+		<title>Child Elements</title>
+		<tableHeader>
+			<row>
+				<entry>Element</entry>
+				<entry>Description</entry>
+			</row>
+		</tableHeader>	
+			<row>
+				<entry>
+					<legacyBold>start</legacyBold></entry>
+				<entry>
+					The date and time on which the scedule will start. The schedule will fire at the
+					specified time and on subsequent intervals.
+				</entry>
+			</row>
+			<row>
+				<entry>
+					<legacyBold>occurences</legacyBold>
+				</entry>
+				<entry>
+					The number of intervals that will be fired.
+				</entry>
+			</row>
+			<row>
+				<entry>
+					<legacyBold>interval</legacyBold>
+				</entry>
+				<entry>
+					The interval measured in hours, minutes and seconds.
+				</entry>
+			</row>
+	</table>
+				
+	<table>
+		<title>Parent Elements</title>
+		<tableHeader>
+			<row>
+				<entry>Element</entry>
+				<entry>Description</entry>
+			</row>
+		</tableHeader>	
+			<row>
+				<entry>
+					<legacyBold><link xlink:href="6204c862-a7b7-45a5-b870-08b3771a7308">scheduler</link></legacyBold>
+				</entry>
+				<entry>
+					Collection of one or more <legacyBold>schedule</legacyBold> elements.
+				</entry>
+			</row>
+	</table>
+  </content>
+</section>
+			
+			
+	
+
+    <relatedTopics>
+    </relatedTopics>
+
+  </developerConceptualDocument>
+</topic>

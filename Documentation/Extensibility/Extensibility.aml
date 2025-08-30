@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="487cf5db-4b22-4ca2-b7ef-4d1254f06eab" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <introduction>
+      <para>DemiCode Scheduler can be extended with new tasks, additional schedules and support for new logging frameworks.</para>
+    </introduction>
+
+	
+									
+
+<section>
+  <title>In this section</title>
+  <content>
+	<definitionTable>
+                    <definedTerm><link xlink:href="252dfa96-85bf-4da0-917e-6f837a2b746d" /></definedTerm>
+                    <definition>
+                        <para>
+                            How to implement tasks.</para>
+                    </definition>
+                    <definedTerm><link xlink:href="ddedb7a8-083f-4647-8c5d-61657ac8f430" /></definedTerm>
+                    <definition>
+                        <para>
+                            How to implement schedules.</para>
+                    </definition>
+                    <definedTerm><link xlink:href="25a5da19-1b26-467d-9e5d-627b075e47c5" /></definedTerm>
+                    <definition>
+                        <para>
+                            How to implement support for new logging frameworks.</para>
+                    </definition>
+	</definitionTable>
+  </content>
+</section>
+	
+		
+			
+	
+
+    <relatedTopics>
+    </relatedTopics>
+
+  </developerConceptualDocument>
+</topic>

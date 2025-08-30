@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="252dfa96-85bf-4da0-917e-6f837a2b746d" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <introduction>
+		<para>With DemiCode Scheduler one usually want to perform a task when a schedule fires.
+                If <link xlink:href="f592f4a7-ecd8-4de0-949c-8c45dcf87b59">the built-in tasks</link> does not cover
+                your needs you can easily implement your own task. This section describes the necessary
+                steps to create and start using your own task.</para>
+    </introduction>
+
+   
+                                    
+    
+ 
+<section>
+  <title>Implementing the ITask interface</title>
+  <content>
+    <para>Every task must implement the
+                <codeEntityReference qualifyHint="false">T:DemiCode.Scheduling.Tasks.ITask</codeEntityReference>
+                interface. This interface is simple and requires only the
+                <codeEntityReference qualifyHint="false" autoUpgrade="true">M:DemiCode.Scheduling.Tasks.ITask.Execute(DemiCode.Logging.ILoggerFactory)</codeEntityReference>
+                method.</para>
+		<code language="c#">
+public class MyTask : ITask
+{
+    public void Execute(IDictionary parameters, ILoggerFactory loggerFactory)
+    {
+        // Do some work... 
+    }
+}
+		</code>
+                <para>
+                    The class can be placed in either a standalone .NET library or in the application
+                    that will host the scheduler. We decide to place the class in a library called TaskLibrary.
+                </para>
+  </content>
+</section>
+      
+            
+            
+
+<section>
+  <title>Hooking the task to a schedule</title>
+  <content>
+    <para>You assign tasks to schedules through configuration. Here is a sample configuration
+                that configures a scheduler that executes our task every five seconds.
+                <code language="xml">
+&lt;scheduler&gt;
+    &lt;tasks&gt;
+        &lt;task type=&quot;MyTask, TaskLibrary&quot; /&gt;
+    &lt;/tasks&gt;
+    &lt;IntervalSchedule&gt;
+          &lt;start&gt;2007-11-01 12:00:00&lt;/start&gt;
+          &lt;interval&gt;00:00:05&lt;/interval&gt;
+    &lt;/IntervalSchedule&gt;
+&lt;/scheduler&gt;
+				</code>
+	</para>
+  </content>
+</section>
+                
+            
+            
+ 
+<section>
+  <title>Passing parameters to your task</title>
+  <content>
+    <para>
+    			<para>
+                    Parameters can be passed to the task by adding name/value attributes in the configuration
+                    XML. The parameter name can be any valid attribute name.
+                </para>
+                <para>
+                    The following sample shows how to configure the parameter and then some code to
+                    retreive it.
+                </para>
+                <code langugae="xml">
+&lt;scheduler&gt;
+    &lt;tasks&gt;
+        &lt;task type=&quot;MyTask, TaskLibrary&quot; server=&quot;machine-001&quot; /&gt;
+    &lt;/tasks&gt;
+    &lt;IntervalSchedule&gt;
+          &lt;start&gt;2007-11-01 12:00:00&lt;/start&gt;
+          &lt;interval&gt;00:00:05&lt;/interval&gt;
+    &lt;/IntervalSchedule&gt;
+&lt;/scheduler&gt;
+				</code>
+                <code language="c#">
+public class MyTask : ITask
+{
+    public void Execute(IDictionary parameters, ILoggerFactory loggerFactory)
+    {
+        string server = (string)parameters[&quot;server&quot;];
+        
+        // Do some work...
+    }
+}
+            	</code>
+	</para>
+  </content>
+</section>
+               
+            
+            
+ 
+<section>
+  <title>Logging from your task</title>
+  <content>
+    <para>
+    			<para>
+                    Often it is usefull to log status or error messages during task execution. To integrate
+                    logging with the same logging framework used by the Scheduler you should use the
+                    provided
+                    <codeEntityReference qualifyHint="false">T:DemiCode.Logging.ILoggerFactory</codeEntityReference>
+                    object. The factory creates a logger provided a logger name or a type. The type
+                    overload uses the type name as logger name.
+				</para>
+                <para>
+                    <legacyBold>Note:</legacyBold>&#160;DemiCode Scheduler will automatically log the task start,
+                    task end and any unhandled exception thrown during task execution.</para>
+                <para>
+                    Here is a sample that logs the provided parameter value:</para>
+                <code language="c#">
+public class MyTask : ITask
+{
+    public void Execute(IDictionary parameters, ILoggerFactory loggerFactory)
+    {
+        string server = (string)parameters[&quot;server&quot;];
+        
+        ILogger logger = loggerFactory.Create(typeof(MyTask));
+        logger.Info(&quot;Executing using server name {0}&quot;, server);
+        
+        // Do some work...
+    }
+}
+            </code>
+    </para>
+  </content>
+</section>
+               
+            
+            
+ 
+<section>
+  <title>Whats next?</title>
+  <content>
+    <para>Use the <link xlink:href="f0361e4e-a359-4f54-a200-6e8a11b94dff">SchedulerService</link> sample to
+                try out your new task or write your own host.</para>
+  </content>
+</section>
+               
+            
+    
+
+    <relatedTopics>
+      <link xlink:href="f592f4a7-ecd8-4de0-949c-8c45dcf87b59" topicType_id="3272D745-2FFC-48C4-9E9D-CF2B2B784D5F">Configuring Tasks</link>
+        <link xlink:href="a82cc791-a9fe-45a3-8135-4bb30f8af656" topicType_id="3272D745-2FFC-48C4-9E9D-CF2B2B784D5F">Configuring Loggers</link>
+    </relatedTopics>
+
+  </developerConceptualDocument>
+</topic>

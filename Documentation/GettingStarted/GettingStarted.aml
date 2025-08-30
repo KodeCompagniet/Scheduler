@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="f3e5c0d1-beec-42fe-859a-2331662441bf" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+				<definitionTable>
+					<definition>
+						The installer copies the DemiCode Scheduler component assemblies and
+						documentation for use on a development workstation or a build server. The installer
+						can optionally install the component assembly in the Global Assembly Cache
+						(GAC).
+					</definition>
+					<definition>
+						Once installed, you can start using DemiCode Scheduler in your project by adding
+						a reference to the DemiCode.Scheduling assembly (DemiCode.Scheduling.dll). The
+						file is by default installed in the <legacyBold>DemiCode\Scheduler 1.1</legacyBold> folder in
+						your <legacyBold>Program Files</legacyBold> folder. (For a computer running an english copy of Windows,
+						this would usually be <legacyBold>C:\Program Files\DemiCode\Scheduler 1.1</legacyBold>.)
+					</definition>
+					<definition>
+						Use the classes in the DemiCode.Scheduling assembly to create the scheduling functionality
+						you want, and compile your project. DemiCode Scheduler can be initialized either
+						<link xlink:href="c2259bf9-d765-4b73-afda-cbae2bf81a86">automatically using a configuration (.config) file</link>
+						or plain XML, or <link xlink:href="2d6be93e-3019-45b3-aee0-4e5589703421">programmatically using the class library</link> from any .NET 2.0 compliant language. See <link xlink:href="ac8cf6b9-a48f-4b86-b13d-2303a63255aa">samples</link>, <link xlink:href="d9a6a49a-098b-4d25-aa79-eb78b4634e34" />
+						and <externalLink>
+                    		<linkText>class library reference</linkText>
+    						<linkUri>R_Project.htm</linkUri>
+    						<linkTarget>_self</linkTarget>
+						</externalLink> sections for more information
+						on this.
+					</definition>
+					<definition>
+						When deploying your application, you must make sure the DemiCode.Scheduling assembly
+						is available from your assembly. The DemiCode.Scheduling assembly should automatically
+						be copied to the project output directory when you compile your application. (If
+						you have installed the DemiCode.Scheduling assembly in the GAC on your development
+						workstation or build server, you may need to perform special steps.) See the <link xlink:href="0de6046f-c5e3-4dc8-abd8-1b9a8d7d68c7">deployment</link> section for more information.
+					</definition>
+				</definitionTable>
+				
+							
+			<section>
+		<title>Skip right to the code</title>
+		<content>
+				
+			
+				<link xlink:href="c2259bf9-d765-4b73-afda-cbae2bf81a86">Set up the scheduler using a configuration file.</link><para/>
+				<link xlink:href="2d6be93e-3019-45b3-aee0-4e5589703421">Set up the scheduler programmatically using the class library.</link>
+			
+			</content>
+				</section>
+				
+
+    <relatedTopics>
+    </relatedTopics>
+
+  </developerConceptualDocument>
+</topic>

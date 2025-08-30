@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="d89af9ef-56cd-4dd7-bc4e-db4f236357f4" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+   
+
+  
+    
+        
+            
+            
+                <para>
+                    DemiCode Scheduler is the .NET 2.0 task scheduling component for your applications
+                    and services. It is easily set up to raise events on given schedules that will call
+                    into your application to run your code.
+                </para>
+                <para>
+                    Typically you need to use schedules in your application to automate regular maintenance
+                    tasks such as creating reports, backups, data import or export, data cleansing,
+                    checking and sending out emails or other notifying about statuses and other tasks.
+                </para>
+                <para>
+                    Built-in schedules and tasks can be set up to call your code a single time, at intervals or
+                    on specific times every day or only named weekdays, specific dates and more. These
+                    schedules can be combined to create new schedules, or you can easily create your
+                    own classes to represent even more complex recurrence patterns.
+                </para>
+                <para>
+                    The schedules can be initialized either automatically through the use of a configuration
+                    file (.config file) or some other XML store, or programatically using any .NET compliant
+                    programming language. You will find examples on how to do either one in the <link xlink:href="ac8cf6b9-a48f-4b86-b13d-2303a63255aa">                         samples section</link>.
+                </para>
+                <para>
+                    See the <link xlink:href="5c63cb15-8536-4738-8fea-5062096071a2">DemiCode Scheduler documentation</link> for more information.
+                </para>
+            
+            
+                
+                   
+                
+            
+        
+    
+
+    <relatedTopics>
+    </relatedTopics>
+
+  </developerConceptualDocument>
+</topic>

@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="d283d9a7-faef-42f8-ab24-8f479cafd4fc" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <introduction>
+      <para>
+      			<legacyBold>WeeklySchedule</legacyBold> element holds configuration for the
+				<codeEntityReference qualifyHint="false">T:DemiCode.Scheduling.Schedules.WeeklySchedule</codeEntityReference>
+				class.
+		</para>
+    </introduction>
+
+	
+
+<section>
+  <content>
+    <code language="xml">
+            &lt;WeeklySchedule name=&quot;WeeklyMondayToWednesday&quot;&gt;
+                &lt;fromDate&gt;2006-01-01&lt;/fromDate&gt;
+                &lt;toDate&gt;2006-12-31&lt;/toDate&gt;
+                &lt;timeOfDay&gt;22:00:00&lt;/timeOfDay&gt;
+                &lt;days&gt;
+                    &lt;day&gt;monday&lt;/day&gt;
+                    &lt;day&gt;tuesday&lt;/day&gt;
+                    &lt;day&gt;wednesday&lt;/day&gt;
+                &lt;/days&gt;
+            &lt;/WeeklySchedule&gt;
+	</code>
+  </content>
+</section>
+									
+	
+		
+
+<section>
+  <title>Attributes and Elements</title>
+  <content>
+  	<table>
+   		<title>Attributes</title>
+		<tableHeader>
+			<row>
+				<entry>Attribute</entry>
+				<entry>Description</entry>
+			</row>
+		</tableHeader>
+			<row>
+				<entry>
+					<legacyBold>name</legacyBold>
+				</entry>
+				<entry>
+					Optional.<para/>
+					Name of the scheduler configuration element. This value can later be used to reference
+					the desired configuration when creating instances of the
+					<codeEntityReference qualifyHint="false">T:DemiCode.Scheduling.Scheduler</codeEntityReference>.
+				</entry>
+			</row>
+	</table>
+				
+	<table>
+   		<title>Child Elements</title>
+		<tableHeader>
+			<row>
+				<entry>Element</entry>
+				<entry>Description</entry>
+			</row>
+		</tableHeader>
+			<row>
+				<entry>
+					<legacyBold>fromDate</legacyBold></entry>
+				<entry>
+					Optional.
+					The date from where to start scheduling. If the element is omitted, the schedule will start immediately.
+				</entry>
+			</row>
+			<row>
+				<entry>
+					<legacyBold>toDate</legacyBold>
+				</entry>
+				<entry>
+					Optional.
+					The date from where to stop scheduling. If the element is omitted, the
+					schedule will run infinitely.
+				</entry>
+			</row>
+			<row>
+				<entry>
+					<legacyBold>timeOfDay</legacyBold>
+				</entry>
+				<entry>
+					The time of day when the schedule will fire.
+				</entry>
+			</row>
+			<row>
+				<entry>
+					<legacyBold>days</legacyBold>
+				</entry>
+				<entry>
+								
+									Contains one or more days on which the schedule will fire. Each day is placed within
+									a <legacyBold>day</legacyBold> child element. Valid element values are:
+									<list class="bullet">
+										<listItem>monday</listItem>
+										<listItem>tuesday</listItem>
+										<listItem>wednesday</listItem>
+										<listItem>thursday</listItem>
+										<listItem>friday</listItem>
+										<listItem>saturday</listItem>
+										<listItem>sunday</listItem>
+									</list>
+								
+				</entry>
+			</row>
+	</table>
+				
+	<table>
+   		<title>Parent Elements</title>
+		<tableHeader>
+			<row>
+				<entry>Element</entry>
+				<entry>Description</entry>
+			</row>
+		</tableHeader>
+			<row>
+				<entry>
+					<legacyBold><link xlink:href="6204c862-a7b7-45a5-b870-08b3771a7308">scheduler</link></legacyBold>
+				</entry>
+				<entry>
+					Collection of one or more <legacyBold>schedule</legacyBold> elements.
+				</entry>
+			</row>
+	</table>
+  </content>
+</section>
+			
+			
+	
+
+    <relatedTopics>
+    </relatedTopics>
+
+  </developerConceptualDocument>
+</topic>

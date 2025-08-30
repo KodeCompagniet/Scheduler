@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="a82cc791-a9fe-45a3-8135-4bb30f8af656" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <introduction>
+      <para>The <legacyBold>loggers</legacyBold> element is used to configure a collection of loggers used by the scheduler. A logger enables information from schedules 
+               and tasks to be output to various channels and formats depending on the logger implementation. 
+                Supported elements are shown below.</para>
+    </introduction>
+
+    
+ 
+<section>
+  <content>
+    <code language="xml">
+            &lt;scheduler name=&quot;myscheduler&quot;&gt;
+                &lt;loggers&gt;
+                    &lt;logger type="MyLoggerFactory, MyLoggerLibrary" /&gt;
+                    &lt;Log4netLogger /&gt;
+                    &lt;ConsoleLogger /&gt;
+                &lt;/loggers&gt;
+            &lt;/scheduler&gt;
+	</code>
+  </content>
+</section>
+                                 
+    
+
+<section>
+  <title>Attributes and Elements</title>
+  <content>
+  
+  <table>
+    <title>Attributes</title>
+         <para>None</para>
+  </table>
+                
+  <table>
+  	<title>Child Elements</title>
+		<tableHeader>
+			<row>
+				<entry>Element</entry>
+				<entry>Description</entry>
+			</row>
+		</tableHeader>
+			<row>
+				<entry><legacyBold><link xlink:href="2ae78a2b-2f6e-447c-9188-7483bd116e74">logger</link> </legacyBold></entry>
+				<entry>
+					A custom or third-party logger factory.
+				</entry>
+			</row>
+			<row>
+				<entry><legacyBold><link xlink:href="7ea930d8-a47c-401a-929d-f95040cca53d">Log4netLogger</link> </legacyBold></entry>
+				<entry>
+					Represents the built-in <codeEntityReference qualifyHint="false">T:DemiCode.Logging.log4net.Log4netLogger</codeEntityReference> logger factory.
+				</entry>
+			</row>
+			<row>
+				<entry><legacyBold><link xlink:href="c2317c88-a041-4ee6-86d1-067f8030d878">ConsoleLogger</link> </legacyBold></entry>
+				<entry>
+					Represents the built-in <codeEntityReference qualifyHint="false">T:DemiCode.Logging.ConsoleLogger</codeEntityReference> logger factory.
+				</entry>
+			</row>
+	</table>
+  </content>
+</section>
+        
+            
+        
+    
+
+    <relatedTopics>
+    </relatedTopics>
+
+  </developerConceptualDocument>
+</topic>

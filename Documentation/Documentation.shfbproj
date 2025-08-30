@@ -1,0 +1,223 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <!-- The configuration and platform will be used to determine which
+         assemblies to include from solution and project documentation
+         sources -->
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7643926c-5745-4aba-b0d0-bf3bdcb09b1d}</ProjectGuid>
+    <SHFBSchemaVersion>1.8.0.0</SHFBSchemaVersion>
+    <!-- AssemblyName, Name, and RootNamespace are not used by SHFB but Visual
+         Studio adds them anyway -->
+    <AssemblyName>Documentation</AssemblyName>
+    <RootNamespace>Documentation</RootNamespace>
+    <Name>Documentation</Name>
+    <!-- SHFB properties -->
+    <OutputPath>..\Help\</OutputPath>
+    <HtmlHelpName>SchedulerDocumentation</HtmlHelpName>
+    <ProjectSummary>Documentation for the DemiCode Scheduler component and related libraries. To get started, review the SchedulerFactory documentation in the DemiCode.Scheduling namespace.</ProjectSummary>
+    <SandcastlePath>C:\Program Files\Sandcastle\</SandcastlePath>
+    <HtmlHelp1xCompilerPath>
+    </HtmlHelp1xCompilerPath>
+    <HtmlHelp2xCompilerPath>
+    </HtmlHelp2xCompilerPath>
+    <CleanIntermediates>False</CleanIntermediates>
+    <FrameworkVersion>2.0.50727</FrameworkVersion>
+    <IncludeFavorites>True</IncludeFavorites>
+    <RootNamespaceContainer>True</RootNamespaceContainer>
+    <HelpTitle>DemiCode Scheduler Reference</HelpTitle>
+    <CopyrightHref>http://www.demicode.com/scheduler</CopyrightHref>
+    <CopyrightText>Copyright KodeCompagniet AS 2010</CopyrightText>
+    <FeedbackEMailAddress>scheduler%40demicode.com</FeedbackEMailAddress>
+    <PresentationStyle>vs2005</PresentationStyle>
+    <NamingMethod>MemberName</NamingMethod>
+    <SyntaxFilters>CSharp, VisualBasic</SyntaxFilters>
+    <MissingTags>Summary, Parameter, Returns, AutoDocumentCtors, Namespace, TypeParameter</MissingTags>
+    <VisibleItems>Attributes, InheritedMembers, InheritedFrameworkMembers, Protected, SealedProtected</VisibleItems>
+    <ComponentConfigurations>
+      <ComponentConfig id="IntelliSense Component" enabled="True">
+        <component id="IntelliSense Component" type="SandcastleBuilder.Components.IntelliSenseComponent" assembly="{@SHFBFolder}SandcastleBuilder.Components.dll">
+          <!-- Output options (optional)
+                 Attributes:
+                    Include Namespaces (false by default)
+                    Namespaces filename ("Namespaces" if not specified or empty)
+                    Directory (current folder if not specified or empty) -->
+          <output includeNamespaces="false" namespacesFile="Namespaces" folder="{@OutputFolder}" />
+        </component>
+      </ComponentConfig>
+      <ComponentConfig id="Code Block Component" enabled="True">
+        <component id="Code Block Component" type="SandcastleBuilder.Components.CodeBlockComponent" assembly="{@SHFBFolder}SandcastleBuilder.Components.dll">
+          <basePath value="{@ProjectFolder}" />
+          <languageFilter value="true" />
+          <allowMissingSource value="false" />
+          <removeRegionMarkers value="false" />
+          <colorizer syntaxFile="{@SHFBFolder}Colorizer\highlight.xml" styleFile="{@SHFBFolder}Colorizer\highlight.xsl" copyImageUrl="../icons/CopyCode.gif" language="cs" tabSize="0" numberLines="false" outlining="false" keepSeeTags="false" defaultTitle="true" />
+        </component>
+      </ComponentConfig>
+      <ComponentConfig id="Post-transform Component" enabled="True">
+        <component id="Post-transform Component" type="SandcastleBuilder.Components.PostTransformComponent" assembly="{@SHFBFolder}SandcastleBuilder.Components.dll">
+          <!-- Code colorizer files (required).
+                 Attributes:
+                    Stylesheet file (required)
+                    Script file (required)
+                    "Copy" image file (required) -->
+          <colorizer stylesheet="{@SHFBFolder}Colorizer\highlight.css" scriptFile="{@SHFBFolder}Colorizer\highlight.js" copyImage="{@SHFBFolder}Colorizer\CopyCode.gif" />
+          <!-- Base output path for the files (required).  This should match
+                 the parent folder of the output path of the HTML files (see
+                 SaveComponent). -->
+          <outputPath value="Output\" />
+          <!-- Logo image file (optional).  Filename is required. The height,
+                 width, altText, placement, and alignment attributes are
+                 optional. -->
+          <logoFile filename="{@ProjectFolder}Media\Scheduler_100x100.png" height="0" width="0" altText="DemiCode Scheduler" placement="left" alignment="left" />
+        </component>
+      </ComponentConfig>
+      <ComponentConfig id="Cached MSDN URL References" enabled="True">
+        <component id="Cached MSDN URL References" type="SandcastleBuilder.Components.CachedResolveReferenceLinksComponent" assembly="{@SHFBFolder}SandcastleBuilder.Components.dll" locale="{@Locale}" linkTarget="{@SdkLinkTarget}">
+          <cache filename="{@LocalDataFolder}Cache\MsdnUrl.cache" />
+          <targets base="{@SandcastlePath}Data\Reflection" recurse="true" files="*.xml" type="{@SDKLinks}" />
+          <targets files="reflection.xml" type="{@ProjectLinks}" />
+        </component>
+      </ComponentConfig>
+      <ComponentConfig id="Cached Reflection Index Data" enabled="True">
+        <component id="Cached Reflection Index Data" type="SandcastleBuilder.Components.CachedCopyFromIndexComponent" assembly="{@SHFBFolder}SandcastleBuilder.Components.dll">
+          <index name="reflection" value="/reflection/apis/api" key="@id" cache="10">
+            <cache base="{@SandcastlePath}Data\Reflection" recurse="true" files="*.xml" cacheFile="{@LocalDataFolder}Cache\Reflection.cache" />
+            <data files="reflection.xml" />
+          </index>
+          <copy name="reflection" source="*" target="/document/reference" />
+        </component>
+      </ComponentConfig>
+      <ComponentConfig id="Cached Framework Comments Index Data" enabled="True">
+        <component id="Cached Framework Comments Index Data" type="SandcastleBuilder.Components.CachedCopyFromIndexComponent" assembly="{@SHFBFolder}SandcastleBuilder.Components.dll">
+          <index name="comments" value="/doc/members/member" key="@name" cache="100">
+{@CachedFrameworkCommentList}
+{@CommentFileList}
+            </index>
+          <copy name="comments" source="*" target="/document/comments" />
+        </component>
+      </ComponentConfig>
+    </ComponentConfigurations>
+    <DocumentationSources>
+      <DocumentationSource sourceFile="lib\DemiCode.Scheduling.dll" xmlns="" />
+      <DocumentationSource sourceFile="lib\DemiCode.Scheduling.xml" xmlns="" />
+      <DocumentationSource sourceFile="lib\DemiCode.Logging.log4net.dll" xmlns="" />
+      <DocumentationSource sourceFile="lib\DemiCode.Logging.log4net.xml" xmlns="" />
+      <DocumentationSource sourceFile="lib\DemiCode.Shared.dll" xmlns="" />
+      <DocumentationSource sourceFile="lib\DemiCode.Shared.xml" xmlns="" />
+    </DocumentationSources>
+    <NamespaceSummaries>
+      <NamespaceSummaryItem name="(global)" isDocumented="False" />
+      <NamespaceSummaryItem name="DemiCode.Scheduling" isDocumented="True">All Scheduling related classes including the main Scheduler class. Start creating scheduler instances with the SchedulerFactory.</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="DemiCode.Scheduling.Alarms" isDocumented="True">Alarms are classes used by Scheduler in order to provide events at specific times.</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="DemiCode.Scheduling.Configuration" isDocumented="True">Classes for reading and writing sections of scheduler configuration in .config files.</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="DemiCode.Scheduling.Configuration.Schedules" isDocumented="True">This namespace contains classes for handling schedule configuration in .config files.</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="DemiCode.Scheduling.Configuration.Tasks" isDocumented="True">This namespace contains classes for handling task configuration in .config files.</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="DemiCode.Scheduling.Schedules" isDocumented="True">Schedules are the classes that implement the various event firing schemes, e.g. "once per hour" or "monday every week".
+Use ISchedule or ScheduleBase to implement your own schedule.</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="DemiCode.Scheduling.Tasks" isDocumented="True">Tasks are the "doers" in DemiCode Scheduler. You can either implement your own tasks using the ITask interface or use any of the built-in tasks for executing code and applications.</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="DemiCode.Scheduling.Time" isDocumented="False" />
+      <NamespaceSummaryItem name="DemiCode.Configuration" isDocumented="True">Shared classes for configuration object models.</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="DemiCode.Shared.Factories" isDocumented="False">Shared classes for configuration object models.</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="DemiCode.Logging" isDocumented="True">DemiCode logging framework related classes.</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="DemiCode.Logging.Configuration" isDocumented="True">Classes for reading sections of logger configuration in .config files.</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="DemiCode.Logging.log4net" isDocumented="True">Classes enabling the DemiCode logging framework to log via log4net.</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="DemiCode.Logging.log4net.Configuration" isDocumented="True">Configuration classes for using log4net in the DemiCode logging framework.</NamespaceSummaryItem>
+      <NamespaceSummaryItem name="Microsoft.VisualStudio.Coverage" isDocumented="False" />
+    </NamespaceSummaries>
+    <HelpFileFormat>HtmlHelp1x</HelpFileFormat>
+    <RootNamespaceTitle>Reference</RootNamespaceTitle>
+    <ShowFeedbackControl>True</ShowFeedbackControl>
+    <HelpFileVersion>1.1.0.0</HelpFileVersion>
+    <PlugInConfigurations>
+      <PlugInConfig id="Hierarchical Table of Contents" enabled="True" xmlns="">
+        <configuration>
+          <toc minParts="2" insertBelow="False" />
+        </configuration>
+      </PlugInConfig>
+      <PlugInConfig id="Table of Contents Exclusion" enabled="True" xmlns="">
+        <configuration />
+      </PlugInConfig>
+    </PlugInConfigurations>
+  </PropertyGroup>
+  <!-- There are no properties for these two groups but they need to appear in
+       order for Visual Studio to perform the build. -->
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="Media\Scheduler_100x100.jpg" />
+    <Content Include="Scripts\jquery-1.3.2.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Configuration\Configuration.aml" />
+    <None Include="Configuration\Scheduler_element.aml" />
+    <None Include="Configuration\Schedulers_element.aml" />
+    <None Include="Configuration\Scheduling_element.aml" />
+    <None Include="Configuration\Scheduling_section.aml" />
+    <None Include="Configuration\Scheduling_xml.aml" />
+    <None Include="Configuration\Tasks\ApplicationTask_element.aml" />
+    <None Include="Configuration\Tasks\CodeTask_element.aml" />
+    <None Include="Configuration\Tasks\Task_element.aml" />
+    <None Include="Configuration\Tasks\Task_scheduleref_element.aml" />
+    <None Include="Configuration\Tasks\Tasks.aml" />
+    <None Include="Configuration\Schedules\IntervalCountedSchedule_element.aml" />
+    <None Include="Configuration\Schedules\IntervalSchedule_element.aml" />
+    <None Include="Configuration\Schedules\OneShotSchedule_element.aml" />
+    <None Include="Configuration\Schedules\Schedule_element.aml" />
+    <None Include="Configuration\Schedules\WeeklySchedule_element.aml" />
+    <None Include="Configuration\Loggers\ConsoleLogger_element.aml" />
+    <None Include="Configuration\Loggers\Log4netLogger_element.aml" />
+    <None Include="Configuration\Loggers\Logger_element.aml" />
+    <None Include="Configuration\Loggers\Loggers.aml" />
+    <None Include="Contact.aml" />
+    <None Include="Debugging.aml" />
+    <None Include="Deployment.aml" />
+    <None Include="Samples\SchedulerConfiguration.aml" />
+    <None Include="Introduction.aml" />
+    <None Include="Frontpage.aml" />
+    <None Include="Extensibility\Extensibility_Tasks.aml" />
+    <None Include="Extensibility\Extensibility_Schedules.aml" />
+    <None Include="Extensibility\Extensibility_Loggers.aml" />
+    <None Include="Extensibility\Extensibility.aml" />
+    <None Include="GettingStarted\GettingStarted.aml" />
+    <None Include="GettingStarted\CreateProgrammatically.aml" />
+    <None Include="GettingStarted\CreatebyConfiguration.aml" />
+    <None Include="Media\_MediaFiles.xml" />
+    <None Include="Samples\SchedulerService.aml" />
+    <None Include="Samples\SchedulerConsole.aml" />
+    <None Include="Samples\Samples.aml" />
+    <None Include="Samples\ApplicationTaskConsoleSample.aml" />
+    <None Include="LanguageResources\en-US\shared_content.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>lib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="System.ServiceProcess, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Configuration\" />
+    <Folder Include="Configuration\Tasks\" />
+    <Folder Include="Configuration\Schedules\" />
+    <Folder Include="Configuration\Loggers\" />
+    <Folder Include="Media\" />
+    <Folder Include="Scripts\" />
+    <Folder Include="LanguageResources\" />
+    <Folder Include="LanguageResources\en-US\" />
+    <Folder Include="Samples\" />
+    <Folder Include="GettingStarted\" />
+    <Folder Include="Extensibility\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ContentLayout Include="_ContentLayout.content" />
+  </ItemGroup>
+  <ItemGroup>
+    <Tokens Include="Tokens.tokens" />
+  </ItemGroup>
+  <!-- Import the SHFB build targets -->
+  <Import Project="$(SHFBROOT)\SandcastleHelpFileBuilder.targets" />
+</Project>

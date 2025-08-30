@@ -1,0 +1,283 @@
+﻿<html xmlns:mshelp="http://msdn.microsoft.com/mshelp">
+<head>
+    <title>&lt;configuration&gt; Element</title>
+    <link rel="stylesheet" type="text/css" href="../styles/presentation.css" />
+    <link rel="stylesheet" type="text/css" href="ms-help://Hx/HxRuntime/HxLink.css" />
+
+    <script type="text/javascript" src="../scripts/EventUtilities.js"></script>
+
+    <script type="text/javascript" src="../scripts/SplitScreen.js"></script>
+
+    <script type="text/javascript" src="../scripts/Dropdown.js"></script>
+
+    <script type="text/javascript" src="../scripts/script_manifold.js"></script>
+
+    <meta name="guid" content="T_Configura_Scheduling_Configuration" />
+    <xml><MSHelp:Attr Name="AssetID" Value="T:Configura.Scheduling.Configuration" /><MSHelp:Keyword Index="A" Term="T:Configura.Scheduling.Configuration" /><MSHelp:Keyword Index="K" Term="Configuration class"></MSHelp:Keyword><MSHelp:Keyword Index="K" Term=".Configuration class"></MSHelp:Keyword><MSHelp:Keyword Index="F" Term="Configuration" /><MSHelp:Keyword Index="F" Term="Configura.Scheduling.Configuration" /><MSHelp:Attr Name="TopicType" Value="apiref" /><MSHelp:Attr Name="APIType" Value="Managed" /><MSHelp:Attr Name="APILocation" Value="Configura.Scheduling.dll" /><MSHelp:Attr Name="APIName" Value=".Configuration" /><MSHelp:Attr Name="Locale" Value="en-us"></MSHelp:Attr><MSHelp:Attr Name="Abstract" Value="This class will fire an event each time one of the schedules in the ISchedule collection occurs." /></xml>
+</head>
+<body>
+    <input type="hidden" id="userDataCache" class="userDataStyle" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5"
+        xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:msxsl="urn:schemas-microsoft-com:xslt" /><input
+            type="hidden" id="hiddenScrollOffset" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5"
+            xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:msxsl="urn:schemas-microsoft-com:xslt" /><img
+                id="collapseImage" style="display: none; height: 0; width: 0;" alt="Collapse image"
+                xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:msxsl="urn:schemas-microsoft-com:xslt" src="../icons/collapse_all.gif"></img><img
+                    id="expandImage" style="display: none; height: 0; width: 0;" alt="Expand image"
+                    xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xmlns:msxsl="urn:schemas-microsoft-com:xslt" src="../icons/expand_all.gif"></img><img
+                        id="collapseAllImage" style="display: none; height: 0; width: 0;" alt="CollapseAll image"
+                        xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink"
+                        xmlns:msxsl="urn:schemas-microsoft-com:xslt" src="../icons/collall.gif"></img><img
+                            id="expandAllImage" style="display: none; height: 0; width: 0;" alt="ExpandAll image"
+                            xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            xmlns:msxsl="urn:schemas-microsoft-com:xslt" src="../icons/expall.gif"></img><img
+                                id="dropDownImage" style="display: none; height: 0; width: 0;" alt="DropDown image"
+                                xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                xmlns:msxsl="urn:schemas-microsoft-com:xslt" src="../icons/drpdown.gif"></img><img
+                                    id="dropDownHoverImage" style="display: none; height: 0; width: 0;" alt="DropDownHover image"
+                                    xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    xmlns:msxsl="urn:schemas-microsoft-com:xslt" src="../icons/drpdown_orange.gif"></img><img
+                                        id="copyImage" style="display: none; height: 0; width: 0;" alt="Copy image" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:msxsl="urn:schemas-microsoft-com:xslt"
+                                        src="../icons/copycode.gif"></img><img id="copyHoverImage" style="display: none;
+                                            height: 0; width: 0;" alt="CopyHover image" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:msxsl="urn:schemas-microsoft-com:xslt"
+                                            src="../icons/copycodeHighlight.gif"></img><div id="header" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+                                                <table width="100%" id="topTable">
+                                                    <tr id="headerTableRow1">
+                                                        <td align="left">
+                                                            <span id="runningHeaderText">Reference Library</span></td>
+                                                    </tr>
+                                                    <tr id="headerTableRow2">
+                                                        <td align="left">
+                                                            <span id="nsrTitle">Configuration Class</span></td>
+                                                    </tr>
+                                                    <tr id="headerTableRow3">
+                                                        <td />
+                                                    </tr>
+                                                </table>
+                                                <table width="100%" id="bottomTable" cellspacing="0" cellpadding="0">
+                                                    <tr>
+                                                        <td>
+                                                            <span onclick="ExpandCollapseAll(toggleAllImage)" style="cursor: default;" onkeypress="ExpandCollapseAll_CheckKey(toggleAllImage)"
+                                                                tabindex="0">
+                                                                <img id="toggleAllImage" class="toggleAll" alt="CollapseAll image" src="../icons/collall.gif"></img><label
+                                                                    id="collapseAllLabel" for="toggleAllImage" style="display: none;">Collapse All</label><label
+                                                                        id="expandAllLabel" for="toggleAllImage" style="display: none;">Expand All</label>
+                                                            </span><span id="languageFilterToolTip" style="cursor: default;" onmouseover="languageFilterImage.src=dropDownHoverImage.src;"
+                                                                onmouseout="languageFilterImage.src=dropDownImage.src;" tabindex="0">
+                                                                <img id="languageFilterImage" alt="DropDown image" src="../icons/drpdown.gif"></img><label
+                                                                    id="showAllLabel" for="languageFilterImage" style="display: none;">Language Filter:
+                                                                    All</label><label id="multipleLabel" for="languageFilterImage" style="display: none;">Language
+                                                                        Filter: Multiple</label><label id="vbLabel" for="languageFilterImage" style="display: none;">Language
+                                                                            Filter: Visual Basic</label><label id="csLabel" for="languageFilterImage" style="display: none;">Language
+                                                                                Filter: C#</label><label id="cLabel" for="languageFilterImage" style="display: none;">Language
+                                                                                    Filter: C++</label><label id="jsharpLabel" for="languageFilterImage" style="display: none;">Language
+                                                                                        Filter: J#</label><label id="jsLabel" for="languageFilterImage" style="display: none;">Language
+                                                                                            Filter: JScript</label><label id="xamlLabel" for="languageFilterImage" style="display: none;">Language
+                                                                                                Filter: XAML</label></span></td>
+                                                    </tr>
+                                                </table>
+                                                <div id="languageSpan">
+                                                    <input id="vbDeclarationCheckbox" type="checkbox" name="languageFilter" onclick="SetLanguage(this)" /><label
+                                                        class="languageFilter" for="vbDeclarationCheckbox">Visual Basic (Declaration)</label><br />
+                                                    <input id="vbUsageCheckbox" type="checkbox" name="languageFilter" onclick="SetLanguage(this)" /><label
+                                                        class="languageFilter" for="vbUsageCheckbox">Visual Basic (Usage)</label><br />
+                                                    <input id="csCheckbox" type="checkbox" name="languageFilter" onclick="SetLanguage(this)" /><label
+                                                        class="languageFilter" for="csCheckbox">C#</label><br />
+                                                    <input id="cCheckbox" type="checkbox" name="languageFilter" onclick="SetLanguage(this)" /><label
+                                                        class="languageFilter" for="cCheckbox">C++</label><br />
+                                                    <input id="jsharpCheckbox" type="checkbox" name="languageFilter" onclick="SetLanguage(this)" /><label
+                                                        class="languageFilter" for="jsharpCheckbox">J#</label><br />
+                                                    <input id="jsCheckbox" type="checkbox" name="languageFilter" onclick="SetLanguage(this)" /><label
+                                                        class="languageFilter" for="jsCheckbox">JScript</label><br />
+                                                    <input id="xamlCheckbox" type="checkbox" name="languageFilter" onclick="SetLanguage(this)" /><label
+                                                        class="languageFilter" for="xamlCheckbox">XAML</label><br />
+                                                </div>
+                                            </div>
+    <div id="mainSection">
+        <div id="mainBody">
+            <div id="allHistory" class="saveHistory" onsave="saveAll()" onload="loadAll()" />
+            <div id="Div1">
+            </div>
+            <div class="summary">
+                This class will fire an event each time one of the schedules in the ISchedule collection
+                occurs.
+            </div>
+            <p />
+            <p><b>&lt;configuration&gt;</b></p>
+            <div id="syntaxSection" class="section">
+                <div id="syntaxCodeBlocks" class="code">
+                    <span codelanguage="other">
+                        <table width="100%" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <th align="left">
+                                </th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <pre>
+<b>&lt;configuration&gt;</b> 
+<b> &lt;!-- configuration settings --&gt;</b> 
+<b>&lt;/configuration&gt;</b></pre>
+                                </td>
+                            </tr>
+                        </table>
+                    </span>
+                </div>
+            </div>
+
+            <h1 class="heading">
+                <span onclick="ExpandCollapse(sectionToggle0)" style="cursor: default;" onkeypress="ExpandCollapse_CheckKey(sectionToggle0)"
+                    tabindex="0">
+                    <img id="sectionToggle0" onload="OnLoadImage()" class="toggle" name="toggleSwitch"
+                        alt="Expand image" src="../local/expand_all.gif"></img>Child Elements</span></h1>
+            <div id="sectionSection0" class="section" name="collapseableSection" style="display: none;">
+                <div class="labelheading">
+                    <b></b>
+                </div>
+                <div class="tableSection">
+                    <table width="100%" cellspacing="2" cellpadding="5">
+                        <tr>
+                            <th>
+                                Element
+                            </th>
+                            <th>
+                                Description
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>
+                                    <a href="03de6972-442a-4648-9f3e-efa654e3b949.htm">Startup Settings Schema</a></p>
+                            </td>
+                            <td>
+                                <p>
+                                    All elements in the startup settings schema.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>
+                                    <a href="f04816ab-110d-4e28-9283-845d6d9a4a68.htm">Runtime Settings Schema</a></p>
+                            </td>
+                            <td>
+                                <p>
+                                    All elements in the runtime settings schema.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>
+                                    <a href="dc2d1e62-9af7-4ca1-99fd-98b93bb4db9e.htm">Remoting Settings Schema</a></p>
+                            </td>
+                            <td>
+                                <p>
+                                    All elements in the remoting settings schema.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>
+                                    <a href="f1de5a0f-76c5-4833-819f-5222b8146340.htm">Network Settings Schema</a></p>
+                            </td>
+                            <td>
+                                <p>
+                                    All elements in the network settings schema.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>
+                                    <a href="1f55050a-b2a3-4868-a3c0-da20826150f3.htm">Cryptography Settings Schema</a></p>
+                            </td>
+                            <td>
+                                <p>
+                                    All elements in the crypto settings schema.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>
+                                    <a href="6e4cc793-c526-4007-b4e9-37d56295f2cb.htm">Configuration Sections Schema</a></p>
+                            </td>
+                            <td>
+                                <p>
+                                    All elements in the configuration section settings schema.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>
+                                    <a href="277ca5f6-e1c4-41b6-a47f-3a67ce5b94ac.htm">Trace and Debug Settings Schema</a></p>
+                            </td>
+                            <td>
+                                <p>
+                                    All elements in the trace and debug settings schema.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>
+                                    <mshelp:link keywords="116608F3-C03D-4413-9FC7-978703E18B0F" tabindex="0">ASP.NET Settings Schema</mshelp:link></p>
+                            </td>
+                            <td>
+                                <p>
+                                    All elements in the ASP.NET configuration schema.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>
+                                    <a href="f84d6d55-1add-4eb7-ae46-33df5833ea2e.htm">XML Web Services Settings Schema</a></p>
+                            </td>
+                            <td>
+                                <p>
+                                    All elements in the Web services settings schema.</p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <h1 class="heading">
+                <span onclick="ExpandCollapse(remarksToggle)" style="cursor: default;" onkeypress="ExpandCollapse_CheckKey(remarksToggle)"
+                    tabindex="0">
+                    <img id="remarksToggle" onload="OnLoadImage()" class="toggle" name="toggleSwitch"
+                        alt="Expand image" src="../local/expand_all.gif"></img>Remarks</span></h1>
+            <div id="remarksSection" class="section" name="collapseableSection" style="display: none;">
+                <p>
+                    Each configuration file must contain exactly one <b>&lt;configuration&gt;</b> element.</p>
+            </div>
+            <h1 class="heading">
+                <span onclick="ExpandCollapse(seeAlsoToggle)" style="cursor: default;" onkeypress="ExpandCollapse_CheckKey(seeAlsoToggle)"
+                    tabindex="0">
+                    <img id="seeAlsoToggle" onload="OnLoadImage()" class="toggle" name="toggleSwitch"
+                        alt="Expand image" src="../local/expand_all.gif"></img>See Also</span></h1>
+            <div id="seeAlsoSection" class="section" name="collapseableSection" style="display: none;">
+                <h4 class="subHeading">
+                    Other Resources</h4>
+                <a href="69003d39-dc8a-460c-a6be-e6d93e690b38.htm">Configuration File Schema for the
+                    .NET Framework</a><br />
+                <br />
+            </div>
+
+            <div id="footer">
+                <div class="footerLine">
+                    <img alt="Footer image" width="100%" height="3px" src="../icons/footer.gif"></img></div>
+                <div id="Div2">
+                    <p />
+                    <p />
+                    Send comments on this topic to <a href="mailto:scheduler%40configura.no?Subject=Configura Scheduler Reference">
+                        scheduler@configura.no</a>
+                    <p />
+                    <p />
+                    <a href="http://www.configura.no/products/scheduler/copyright.htm">Copyright Configura
+                        AS 2006</a></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

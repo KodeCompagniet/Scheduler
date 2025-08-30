@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="d790b6d8-8d98-4af9-9de0-70d22e267cba" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <introduction>
+      <para>The <legacyBold>task</legacyBold> element is used to configure custom or third-party tasks.</para>
+    </introduction>
+
+    
+
+<section>
+   <content>
+    <code language="xml">
+            &lt;task type=&quot;MyTask, TaskLibrary&quot; /&gt;
+	</code>
+  </content>
+</section>
+                                    
+    
+ 
+<section>
+  <title>Attributes and Elements</title>
+  <content>
+  
+  <table>
+    <title>Attributes</title>
+    <tableHeader>
+		<row>
+			<entry>Attribute</entry>
+			<entry>Description</entry>
+		</row>
+	</tableHeader>
+			<row>
+				<entry><legacyBold>type</legacyBold></entry>
+				<entry>Fully qualified type name of a class that implements this task. The class must implement the <codeEntityReference qualifyHint="false">T:DemiCode.Scheduling.Tasks.ITask</codeEntityReference> interface.
+				</entry>
+			</row>
+			<row>
+				<entry><legacyBold>parameter</legacyBold></entry>
+				<entry>Optional attribute(s).<para/>This attribute can be any valid attribute name (other than &quot;type&quot;) and represents
+                                    parameters passed to the task during execution. One or more attributes can be declared as long as the names are unique.
+				</entry>
+			</row>
+	</table>
+                
+                
+	<table>
+		<title>Child Elements</title>
+		<tableHeader>
+			<row>
+				<entry>Element</entry>
+				<entry>Description</entry>
+			</row>
+		</tableHeader>
+			<row>
+				<entry><legacyBold>
+					<link xlink:href="100acdd4-daa3-4e8d-b09d-ad27d242a4af">scheduleref</link></legacyBold>
+				</entry>
+				<entry>
+					Reference to a schedule that this task should be associated with.
+				</entry>
+			</row>
+	</table>
+                
+
+
+	<table>
+		<title>Parent Elements</title>
+		<tableHeader>
+			<row>
+				<entry>Element</entry>
+				<entry>Description</entry>
+			</row>
+		</tableHeader>
+			<row>
+				<entry><legacyBold>
+					<link xlink:href="6204c862-a7b7-45a5-b870-08b3771a7308">tasks</link></legacyBold>
+				</entry>
+				<entry>
+					Collection of one or more <legacyBold>task</legacyBold> elements.
+				</entry>
+			</row>
+	</table>
+  </content>
+</section>
+           
+            
+
+    <relatedTopics>
+    </relatedTopics>
+
+  </developerConceptualDocument>
+</topic>

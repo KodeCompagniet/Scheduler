@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Topics defaultTopic="5c63cb15-8536-4738-8fea-5062096071a2">
+  <Topic id="5c63cb15-8536-4738-8fea-5062096071a2" visible="True" title="Welcome to DemiCode Scheduler" />
+  <Topic id="d89af9ef-56cd-4dd7-bc4e-db4f236357f4" visible="True" title="Introducing DemiCode Scheduler" />
+  <Topic id="f3e5c0d1-beec-42fe-859a-2331662441bf" visible="True" title="Getting started">
+    <Topic id="c2259bf9-d765-4b73-afda-cbae2bf81a86" visible="True" title="Creating a Scheduler using a configuration file" />
+    <Topic id="2d6be93e-3019-45b3-aee0-4e5589703421" visible="True" title="Creating a Scheduler programmatically" />
+  </Topic>
+  <Topic id="ac8cf6b9-a48f-4b86-b13d-2303a63255aa" visible="True" title="Samples">
+    <Topic id="0f5a09a1-60d5-4059-8bae-075eaf192191" visible="True" title="The SchedulerConsole sample project" />
+    <Topic id="f0361e4e-a359-4f54-a200-6e8a11b94dff" visible="True" title="The SchedulerService sample project" />
+    <Topic id="345714a3-e403-4388-8cba-619008e75b6f" visible="True" title="The ApplicationTaskConsole sample project" />
+    <Topic id="7451DB08-3678-4263-BF51-AB5D88E6E93C" visible="True" title="The SchedulerConfiguration sample project" />
+  </Topic>
+  <Topic id="d9a6a49a-098b-4d25-aa79-eb78b4634e34" visible="True" title="Configuration">
+    <Topic id="85482458-faf3-4de0-95c0-ef0b3709a1ea" visible="True" title="Scheduler configuration using .NET configuration files" />
+    <Topic id="adf89252-faed-4c5c-b4dc-6321223e6da3" visible="True" title="Scheduler configuration using XML (deprecated)" />
+    <Topic id="0ad38964-0c44-4e15-86aa-0a121c1741af" visible="True" title="scheduling element" />
+    <Topic id="c00e0fbf-4063-47bc-8423-b8dc4e52fd27" visible="True" title="schedulers element" />
+    <Topic id="6204c862-a7b7-45a5-b870-08b3771a7308" visible="True" title="scheduler element" />
+    <Topic id="f592f4a7-ecd8-4de0-949c-8c45dcf87b59" visible="True" title="tasks Element">
+      <Topic id="d790b6d8-8d98-4af9-9de0-70d22e267cba" visible="True" title="task Element" />
+      <Topic id="9473b45f-5001-4440-a0ca-c4adddb69235" visible="True" title="CodeTask element" />
+      <Topic id="80913175-28b9-46b1-ae4c-455d8fc75d46" visible="True" title="ApplicationTask element" />
+      <Topic id="100acdd4-daa3-4e8d-b09d-ad27d242a4af" visible="True" title="scheduleref element" />
+    </Topic>
+    <Topic id="a82cc791-a9fe-45a3-8135-4bb30f8af656" visible="True" title="loggers element">
+      <Topic id="2ae78a2b-2f6e-447c-9188-7483bd116e74" visible="True" title="logger Element" />
+      <Topic id="7ea930d8-a47c-401a-929d-f95040cca53d" visible="True" title="Log4netLogger element" />
+      <Topic id="c2317c88-a041-4ee6-86d1-067f8030d878" visible="True" title="ConsoleLogger element" />
+    </Topic>
+    <Topic id="2323318c-b595-4998-ac6b-380fc85ab248" visible="True" noFile="True" title="Schedules">
+      <Topic id="c7ca10b4-86cf-4f36-a961-826165893353" visible="True" title="schedule Element" />
+      <Topic id="2d9af591-a413-41ca-9c27-4de9f6eae086" visible="True" title="OneShotSchedule element" />
+      <Topic id="124cbec8-fb1b-4074-a861-84173910a32c" visible="True" title="IntervalSchedule element" />
+      <Topic id="57ebeffe-d9b1-4b6c-84a2-36657f326a57" visible="True" title="IntervalCountedSchedule Element" />
+      <Topic id="d283d9a7-faef-42f8-ab24-8f479cafd4fc" visible="True" title="WeeklySchedule element" />
+    </Topic>
+  </Topic>
+  <Topic id="487cf5db-4b22-4ca2-b7ef-4d1254f06eab" visible="True" title="Extensibility">
+    <Topic id="252dfa96-85bf-4da0-917e-6f837a2b746d" visible="True" title="Implementing ITask" />
+    <Topic id="ddedb7a8-083f-4647-8c5d-61657ac8f430" visible="True" title="Implementing ISchedule" />
+    <Topic id="25a5da19-1b26-467d-9e5d-627b075e47c5" visible="True" title="Implementing loggers" />
+  </Topic>
+  <Topic id="27d2bee2-065b-489b-ac2e-e3b9106b5325" visible="True" title="Debugging DemiCode Scheduler" />
+  <Topic id="0de6046f-c5e3-4dc8-abd8-1b9a8d7d68c7" visible="True" title="Deployment with your application" />
+  <Topic id="6f6e0381-6914-4357-a53f-915dff7e0305" visible="True" title="Contact information" />
+</Topics>

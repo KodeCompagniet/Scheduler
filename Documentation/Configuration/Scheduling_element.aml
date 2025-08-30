@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="0ad38964-0c44-4e15-86aa-0a121c1741af" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <introduction>
+      <para>The <legacyBold>scheduling</legacyBold> element is the root for the scheduling configuration section in a .config or xml file. The element defines a default scheduler.</para>
+    </introduction>
+
+
+            <code language="xml">
+            &lt;scheduling defaultScheduler=&quot;...&quot;&gt;
+                &lt;schedulers /&gt;
+            &lt;/scheduling&gt;
+            </code>
+
+            
+<section>
+  <title>Attributes and Elements</title>
+  <content>
+    <table>
+   		<title>Attributes</title>
+        <tableHeader>
+        	<row>
+        		<entry>Attribute</entry>
+                <entry>Description</entry>
+            </row>
+            </tableHeader>
+                    
+                    <row>
+                        <entry>
+                            <legacyBold>defaultScheduler</legacyBold></entry>
+                        <entry>
+                            
+                                Name of a scheduler element to use as default configuration. The name must correspond to
+                                a scheduler element in the schedulers collection.<para/>
+                                The named configuration will be used by <codeEntityReference qualifyHint="false" autoUpgrade="true">M:DemiCode.Scheduling.Scheduler.CreateFromConfig(System.String)</codeEntityReference> and can be 
+                                accessed via <codeEntityReference qualifyHint="false">P:DemiCode.Scheduling.Configuration.SchedulerSettings.DefaultScheduler</codeEntityReference> property.
+                        </entry>
+                    </row>
+                </table>
+                
+                
+                <table>
+                	<title>Child Elements</title>
+                    <tableHeader>
+                        <row>
+                            <entry>Element</entry>
+                            <entry>Description</entry>
+                     	</row>
+                     </tableHeader>
+                        
+                        <row>
+                            <entry>
+                                <legacyBold><link xlink:href="c00e0fbf-4063-47bc-8423-b8dc4e52fd27">schedulers</link> </legacyBold>
+                            </entry>
+                            <entry>
+                                
+                                    Collection of scheduler elements.
+                            </entry>
+                        </row>
+                    </table>
+  </content>
+</section>
+
+
+    <relatedTopics>
+    </relatedTopics>
+
+  </developerConceptualDocument>
+</topic>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<stockSharedContentDefinitions fileAssetGuid="4f2140b5-0e29-420e-a495-3fe10ad08be2" assetTypeId="MediaContent">
+  <item id="Scheduler_100x100">
+    <image file="Scheduler_100x100.png">
+      <altText>DemiCode Scheduler</altText>
+    </image>
+  </item>
+  <item id="Scheduler_164x312">
+    <image file="Scheduler_164x312.png">
+      <altText>DemiCode Scheduler</altText>
+    </image>
+  </item>
+  <item id="Scheduler_320x240">
+    <image file="Scheduler_320x240.png">
+      <altText>DemiCode Scheduler</altText>
+    </image>
+  </item>
+</stockSharedContentDefinitions>

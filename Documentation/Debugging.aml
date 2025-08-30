@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="27d2bee2-065b-489b-ac2e-e3b9106b5325" revisionNumber="1">
+  <developerTroubleshootingDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <introduction>
+      		<para>
+      					DemiCode Scheduler executables are protected to prevent theft of intellectual property.
+                        Debugging these executables using Win32 debuggers will therefore be hard or impossible.
+                        Extensive logging capabilities have therefore been built into Scheduler to enable
+                        error condition diagnostics.
+			</para>
+			<para>
+						<legacyBold>Note:</legacyBold> In case you receive exceptions that originate from the DemiCode.Scheduling
+                        assembly the stack traces from these exceptions should be reported to <externalLink>
+						<linkText>support@demicode.com</linkText>
+						<linkUri>mailto:support@demicode.com</linkUri>
+						</externalLink> for further analysis of the error condition.
+			</para>
+    </introduction>
+                                    
+ 
+<section>
+  <title>Diagnostics using logging</title>
+  <content>
+    <para>
+      DemiCode Scheduler comes with support for logging using the log4net framework. This
+      framework enables simple yet powerfull logging capabilities.
+      Internally, the Scheduler logs both exceptions and verbose debug information during schedule and task execution.
+      The same framework is exposed to third-party tasks.
+    </para>
+  </content>
+  <sections>
+    <section>
+      <title>Enable logging using code</title>
+      <content>
+        The Scheduling system uses the notion of a logger factory to provide access to logger frameworks. To enable logging in a scheduler we must pass a logger factory 
+        implementation instance to <codeEntityReference qualifyHint="false">T:DemiCode.Scheduling.SchedulerFactory</codeEntityReference> when calling Create.
+        The following sample shows how to do this with the built-in <codeEntityReference qualifyHint="false">T:DemiCode.Logging.log4net.Log4netLoggerFactory</codeEntityReference>.
+      <code language="c#">
+        ILoggerFactory loggerFactory = new Log4netLoggerFactory();
+        using (Scheduler scheduler = SchedulerFactory.Create(loggerFactory))
+        {
+          // ... start scheduler processing
+        }
+      </code>
+      </content>
+    </section>
+    <section>
+      <title>Enable logging using configuration</title>
+      <content>
+        <para>
+                        Default configuration
+                        for applications like the Scheduler Service uses an EventLog appender to log errors
+                        and warnings to the Windows Event Log. Other appenders, like FileAppender and AdoNetAppender,
+                        can easily be configured to enable logging to files and databases.
+			</para>
+			<para>
+                        The following configuration sample can be used to diagnose problems in a Scheduler-powered application. 
+                        Errors and warnings will be logged to the Windows Event log. All other information is logged
+                        to a rolling log file. The "root level" with value "ALL" ensures that all information
+                        levels will be passed through to the appenders.
+			</para>
+
+			<code language="xml">
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot; ?&gt;
+&lt;configuration&gt;
+	&lt;configSections&gt;
+		&lt;section name=&quot;scheduling&quot; type=&quot;DemiCode.Scheduling.Configuration.SchedulerSettings, DemiCode.Scheduling&quot;/&gt;
+		&lt;section name=&quot;log4net&quot; type=&quot;log4net.Config.Log4NetConfigurationSectionHandler, log4net&quot; /&gt;
+	&lt;/configSections&gt;
+
+	&lt;scheduling defaultScheduler=&quot;prod&quot;&gt;
+		&lt;schedulers&gt;
+			&lt;scheduler name=&quot;prod&quot;&gt;
+			    ...
+				&lt;loggers&gt;
+					&lt;Log4netLogger /&gt;
+				&lt;/loggers&gt;
+				...
+			&lt;/scheduler&gt;
+		&lt;/schedulers&gt;
+	&lt;/scheduling&gt;
+
+	&lt;log4net&gt;
+
+		&lt;root&gt;
+			&lt;level value=&quot;ALL&quot; /&gt;
+			&lt;appender-ref ref=&quot;EventLog&quot; /&gt;
+			&lt;appender-ref ref=&quot;FileLog&quot; /&gt;
+		&lt;/root&gt;
+
+		&lt;appender name=&quot;FileLog&quot; type=&quot;log4net.Appender.RollingFileAppender, log4net&quot; &gt;
+			&lt;file value=&quot;.\\Schedulerlog.txt&quot; /&gt;
+			&lt;appendToFile value=&quot;true&quot; /&gt;
+			&lt;lockingModel type=&quot;log4net.Appender.FileAppender+MinimalLock&quot; /&gt;
+			&lt;rollingStyle value=&quot;Date&quot; /&gt;
+			&lt;datePattern value=&quot;yyyyMMdd-HHmm&quot; /&gt;
+			&lt;layout type=&quot;log4net.Layout.PatternLayout&quot;&gt;
+				&lt;conversionPattern value=&quot;%date [%thread] %-5level %logger [%ndc] - %message%newline&quot; /&gt;
+			&lt;/layout&gt;
+		&lt;/appender&gt;
+
+		&lt;appender name=&quot;EventLog&quot; type=&quot;log4net.Appender.EventLogAppender, log4net&quot; &gt;
+			&lt;filter type=&quot;log4net.Filter.LevelRangeFilter&quot;&gt;
+				&lt;levelMin value=&quot;WARN&quot; /&gt;
+				&lt;levelMax value=&quot;FATAL&quot; /&gt;
+			&lt;/filter&gt;
+			&lt;applicationName value=&quot;DemiCode Scheduler Service&quot; /&gt;
+			&lt;layout type=&quot;log4net.Layout.PatternLayout&quot;&gt;
+				&lt;conversionPattern value=&quot;%date [%thread] %-5level %logger [%property{NDC}] - %message%newline&quot; /&gt;
+			&lt;/layout&gt;
+		&lt;/appender&gt;
+	&lt;/log4net&gt;
+&lt;/configuration>                
+			</code>
+      </content>
+    </section>
+    
+  </sections>
+</section>
+   
+            
+
+<section>
+  <title>See Also</title>
+  <content>
+  	<para>Logging from your own task in <link xlink:href="252dfa96-85bf-4da0-917e-6f837a2b746d">Implementing ITask</link>.</para>
+  	<para>For more information on configuring loggers and appenders go to the <token>log4netWeb</token>.</para>
+  </content>
+</section>
+           
+            
+            
+      
+    
+
+    <relatedTopics>
+    </relatedTopics>
+
+  </developerTroubleshootingDocument>
+</topic>

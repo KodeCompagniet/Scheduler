@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="2ae78a2b-2f6e-447c-9188-7483bd116e74" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <introduction>
+      <para>The <legacyBold>logger</legacyBold> element is used to configure a custom or third-party logger factory. Logger factories are used internally by 
+               DemiCode Scheduler to create logger instances but is also passed to tasks when executed.</para>
+    </introduction>
+
+
+ 
+<section>
+  <content>
+    <code language="xml">
+            &lt;loggers&gt;
+                &lt;logger type=&quot;MyLoggerFactory, MyLibrary&quot; /&gt;
+            &lt;/loggers&gt; 
+     </code>
+  </content>
+</section>
+                                   
+    
+
+<section>
+  <title>Attributes and Elements</title>
+  <content>
+  
+  <table>
+    <title>Attributes</title>
+  		<tableHeader>
+			<row>
+				<entry>Attribute</entry>
+				<entry>Description</entry>
+			</row>
+ 		</tableHeader>
+			
+			<row>
+				<entry>
+					<legacyBold>type</legacyBold>
+				</entry>
+				<entry>
+					Fully qualified type name of the class that implements this logger factory. The class must implement the <codeEntityReference qualifyHint="false">T:DemiCode.Logging.ILoggerFactory</codeEntityReference> interface.
+				</entry>
+			</row>
+	</table>
+                
+	<table>
+    	<title>Child Elements</title>
+  			<para>
+                None.
+			</para>
+	</table>
+	<table>
+    <title>Parent Elements</title>
+  		<tableHeader>
+			<row>
+				<entry>Element</entry>
+				<entry>Description</entry>
+			</row>
+ 		</tableHeader>
+
+			<row>
+ 				<entry><legacyBold>
+					<link xlink:href="a82cc791-a9fe-45a3-8135-4bb30f8af656">loggers</link></legacyBold>
+				</entry>
+				<entry>
+					Collection of one or more <legacyBold>logger</legacyBold> elements.
+				</entry>
+			</row>
+	</table>
+  </content>
+</section>
+        
+            
+     
+
+    <relatedTopics>
+    </relatedTopics>
+
+  </developerConceptualDocument>
+</topic>

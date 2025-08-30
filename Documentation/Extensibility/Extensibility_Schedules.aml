@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="ddedb7a8-083f-4647-8c5d-61657ac8f430" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <introduction>
+      <para>DemiCode Scheduler can be extended with additional schedules, either provided by
+				third parties or created by you. This section describe the basics of how to create
+				a custom schedule.</para>
+    </introduction>
+
+	
+									
+
+<section>
+  <title>Defining your schedule</title>
+  <content>
+    <para>Before you set out to implement a new schedule you probably have some idea of how
+				the schedule should behave. For this walktrough let us imagine that we have the
+				need to alert our employees that it is lunch time. Our schedule must be able to
+				get the time of day for lunch and to differentiate between workdays and weekends.</para>
+  </content>
+</section>
+	
+		
+		
+
+<section>
+  <title>Implementing the basics</title>
+  <content>
+    <para>Every schedule must implement the
+				<codeEntityReference qualifyHint="false">T:DemiCode.Scheduling.Schedules.ISchedule</codeEntityReference>
+				interface. To save you from having to write the basic implementation to support
+				this interface, we have placed some common functionality in the
+				<codeEntityReference qualifyHint="false">T:DemiCode.Scheduling.Schedules.ScheduleBase</codeEntityReference> 
+				class. To get started quickly we will go ahead and subclass ScheduleBase, and at
+				the same time add a property to store our lunch time.</para>
+			
+			<code language="c#">
+public class LunchSchedule : ScheduleBase
+{
+    private readonly TimeSpan _lunchTimeOfDay;
+    public TimeSpan LunchTimeOfDay
+    {
+        get { return _lunchTimeOfDay; }
+    }
+}
+            </code>
+  </content>
+</section>
+			
+			
+				
+
+<section>
+  <title>Calculating events</title>
+  <content>
+		<para>The next thing is to override the key method that keeps a schedule "moving":
+				<codeEntityReference qualifyHint="false" autoUpgrade="true">M:DemiCode.Scheduling.Schedules.ISchedule.MoveToFirstFrom(System.DateTime)</codeEntityReference>
+				. The responsibility of this method is: given an arbitrary point in time T, calculate
+				the future point in time, closest to T, at which the schedule should alarm. The
+				method must also return true if there are any future points ahead; false if there
+				are none.</para>
+		<para>The implementation handles the first requirement, calculating a point in time based
+				on the lunch time. By using <legacyBold>time.Date</legacyBold> we're effectively removing the arbitrary
+				timespan. We can then add our LunchTimeOfDay timespan to get a combined date and
+				lunch time.</para>
+  
+  		<code language="c#">
+public override bool MoveToFirstFrom(DateTime time)
+{
+	if (time.TimeOfDay > LunchTimeOfDay)
+	{
+		//If we're over lunch time, move to next workday
+		time = time.Date.AddDays(1);
+	}
+
+	while ((time.DayOfWeek == DayOfWeek.Saturday) || time.DayOfWeek == DayOfWeek.Sunday)
+	{
+		//If we're on a saturday or a sunday, we move to the following monday
+		time.date.AddDays(1);
+	}
+
+	//Set our lunch time as exact time of day
+	CurrentOccurrence = time.Date.Add(LunchTimeOfDay);
+
+	return true;
+}
+		</code>
+  </content>
+</section>
+			
+			
+				
+
+<section>
+  <title>Constructors</title>
+  <content>
+		<para>Finally, we need a way to instantiate an instance of our class. here we create two
+				constructors for our schedule. One for constructing the schedule in code and one
+				for configuring the schedule from XML.
+		</para>
+		<para>The code-based constructor can have any signature you like, e.g. like this:</para>
+ 
+ 		<code language="c#">public LunchSchedule(TimeSpan lunchTimeOfDay)
+{
+    _lunchTimeOfDay = lunchTimeOfDay;
+}
+				</code>
+				The xml constructor must have the following signature, taking in a single XmlNode
+				parameter. It is also necessary to call the base
+				<codeEntityReference qualifyHint="false" autoUpgrade="true">M:DemiCode.Scheduling.Schedules.ScheduleBase.#ctor(System.Xml.XmlNode)</codeEntityReference>
+				constructor in order to properly initialize the schedule name.
+				<code lang="c#">public LunchSchedule(XmlNode config) : base(config)
+{
+    _lunchTimeOfDay = TimeSpan.Parse(config["lunchTimeOfDay"].InnerText);
+}
+		</code>
+ </content>
+</section>
+			
+			
+				
+
+<section>
+  <title>Using the new schedule</title>
+  <content>
+    <para>To use the schedule, you need to create an instance of it and . You can do this
+				by adding it to the Scheduler programatically:</para>
+  
+  		<code language="c#">
+Scheduler s = new Scheduler();
+LunchSchedule lunch = new LunchSchedule();
+s.Add(lunch);
+		</code>
+				<para>See also <link xlink:href="2d6be93e-3019-45b3-aee0-4e5589703421">Create a Scheduler programatically</link>.</para>
+				<para>Or you can add it to the configuration file under the &lt;scheduler&gt; element:</para>
+		<code language="xml">
+&lt;schedule name="myLunchSchedule" type="LunchSchedule, MyAssembly"&gt;
+    &lt;lunchTimeOfDay&gt;11:30:00&lt;/lunchTimeOfDay&gt;
+&lt;/schedule&gt;
+		</code>
+				Where you replace the type attribute of the &lt;schedule&gt; element with the fully qualified class name and the name of the assembly holding our custom scheduler.<para/>
+				See also <link xlink:href="c2259bf9-d765-4b73-afda-cbae2bf81a86">Create a Scheduler using a configuration file</link>.
+  </content>
+</section>
+			
+				
+	
+
+    <relatedTopics>
+    </relatedTopics>
+
+  </developerConceptualDocument>
+</topic>

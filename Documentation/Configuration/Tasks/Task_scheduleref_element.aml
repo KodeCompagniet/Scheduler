@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="100acdd4-daa3-4e8d-b09d-ad27d242a4af" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <introduction>
+      <para>The <legacyBold>scheduleref</legacyBold> element is usefull in cases where several schedules are configured
+                and a task should only be executed when one of the schedules fire.
+               </para>
+               <para>The sample configuration below illustrates this by having one task executed every five seconds while the other task 
+               executes every one hour.</para>
+    </introduction>
+
+    
+
+<section>
+	<content>
+    	<code language="xml">
+&lt;scheduler&gt;
+    &lt;tasks&gt;
+        &lt;task type=&quot;KeepAliveTask, MyLibrary&quot;&gt;
+            &lt;scheduleref name=&quot;fivesec&quot; /&gt;
+        &lt;/task&gt;
+        &lt;CodeTask class=&quot;Importer, MyLibrary&quot; method=&quot;ImportOrders&quot;&gt;
+            &lt;scheduleref name=&quot;onehour&quot; /&gt;
+        &lt;/CodeTask&gt;
+    &lt;/tasks&gt;
+    &lt;IntervalSchedule name=&quot;fivesec&quot;&gt;
+        &lt;start&gt;2006-01-01 00:00:00&lt;/start&gt;
+        &lt;interval&gt;00:00:05&lt;/interval&gt;
+    &lt;/IntervalSchedule&gt;
+    &lt;IntervalSchedule name=&quot;onehour&quot;&gt;
+        &lt;start&gt;2006-01-01 00:00:00&lt;/start&gt;
+        &lt;interval&gt;01:00:00&lt;/interval&gt;
+    &lt;/IntervalSchedule&gt;
+&lt;/scheduler&gt;            
+        </code>
+  </content>
+</section>
+
+
+
+<section>
+	<title>Attributes and Elements</title>
+	<content>
+	
+	<table>
+		<title>Attributes</title>
+		<tableHeader>	
+			<row>
+				<entry>Attribute</entry>
+				<entry>Description</entry>
+			</row>
+		</tableHeader>
+			<row>
+				<entry>
+					<legacyBold>name</legacyBold>
+				</entry>
+				<entry>
+					Name of a schedule to associate the task with. This value must match a configured schedule.
+				</entry>
+			</row>
+	</table>
+	
+	<table>
+		<title>Child Elements</title>
+			<para>
+                    None.
+                </para>
+	</table>
+	
+	<table>
+		<title>Parent Elements</title>
+		<tableHeader>	
+			<row>
+				<entry>Element</entry>
+				<entry>Description</entry>
+			</row>
+		</tableHeader>
+			<row>
+				<entry><legacyBold><link xlink:href="d790b6d8-8d98-4af9-9de0-70d22e267cba">task</link> </legacyBold></entry>
+				<entry>
+					A custom or third-party task.
+				</entry>
+			</row>
+			<row>
+				<entry><legacyBold><link xlink:href="9473b45f-5001-4440-a0ca-c4adddb69235">CodeTask</link> </legacyBold></entry>
+				<entry>
+					Represents the built-in <codeEntityReference qualifyHint="false">T:DemiCode.Scheduling.Tasks.CodeTask</codeEntityReference> task.
+				</entry>
+			</row>
+			<row>
+				<entry>
+					<legacyBold><link xlink:href="80913175-28b9-46b1-ae4c-455d8fc75d46">ApplicationTask</link> </legacyBold>
+				</entry>
+				<entry>
+					Represents the built-in <codeEntityReference qualifyHint="false">T:DemiCode.Scheduling.Tasks.ApplicationTask</codeEntityReference> task.
+				</entry>
+			</row>
+	</table>
+	</content>
+</section>
+            
+       
+    
+
+    <relatedTopics>
+    </relatedTopics>
+
+  </developerConceptualDocument>
+</topic>

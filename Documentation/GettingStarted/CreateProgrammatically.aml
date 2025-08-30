@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="2d6be93e-3019-45b3-aee0-4e5589703421" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    
+                                    
+    
+        
+            
+            
+                <definitionTable>
+                    <definition>
+                        This sample shows how to create a Scheduler programmatically using C#.
+                    </definition>
+                    <definition>
+                        <legacyBold>Note:</legacyBold> You need to add a reference to the DemiCode.Scheduling.dll to make
+                        this work. (DemiCode.Scheduling.dll can be found in the /DemiCode/Scheduler&#160;1.1
+                        directory in your systems Program&#160;Files folder.
+                    </definition>
+                </definitionTable>
+            
+            
+<section>
+  <title>Sample code</title>
+  <content>
+    <para><code language="c#">
+using System;
+using DemiCode.Scheduling;
+using DemiCode.Scheduling.Alarms;
+using DemiCode.Scheduling.Schedules;
+
+public class Sample
+{
+	private Scheduler _scheduler;
+
+	public void StartHere()
+	{
+		// 1. Create a scheduler
+		_scheduler = SchedulerFactory.Create();
+
+		// 2. Create a schedule
+		ISchedule schedule = new OneShotSchedule(new DateTime(2007, 7, 1, 15, 30, 0));
+
+		// 3. and add it to the scheduler
+		_scheduler.Add(schedule);
+
+		// 4. Hook up to events
+		_scheduler.ScheduledAlarm += new EventHandler&lt;AlarmEventArgs&gt;(OneShot_Alarm);
+
+		// 5. Start the engine
+		_scheduler.Start();
+	}
+
+	private void OneShot_Alarm(object sender, AlarmEventArgs e)
+	{
+		Console.WriteLine(&quot;Scheduler. Event alarm time {0}, signaled at {1:yyyy-MM-dd HH:mm:ss:ff}&quot;, e.SignalTime, e.ActualSignalTime);
+	}
+}
+				</code>
+            
+            
+                To use the code, create an instance of the Sample class, and call the StartHere
+                method.
+                <code language="c#">
+Sample s = new Sample();
+s.StartHere();
+				</code></para>
+  </content>
+</section>
+
+            
+                
+            
+            
+                <link xlink:href="f3e5c0d1-beec-42fe-859a-2331662441bf">Back to Getting Started</link>
+            
+        
+        
+            
+               
+            
+        
+    
+
+    <relatedTopics>
+    </relatedTopics>
+
+  </developerConceptualDocument>
+</topic>

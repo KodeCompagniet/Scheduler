@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="6204c862-a7b7-45a5-b870-08b3771a7308" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <introduction>
+      <para>The <legacyBold>scheduler</legacyBold> element stores configuration for one instance of the <codeEntityReference qualifyHint="false">T:DemiCode.Scheduling.Scheduler</codeEntityReference> class. It is primarily 
+                a collection of tasks and schedules. The schedules can be either strong-typed
+                schedules, representing built-in schedules, or custom schedules. Supported elements are shown below.</para>
+    </introduction>
+
+   
+                                    
+ 
+<section>
+  <content>
+   <code language="xml">
+            &lt;scheduler name=&quot;myscheduler&quot;&gt;
+                &lt;tasks&gt; ... &lt;/tasks&gt;
+                &lt;loggers&gt; ... &lt;/loggers&gt; 
+                &lt;schedule name="name1" type=&quot;...&quot; /&gt;
+                &lt;OneShotSchedule name="name2" /&gt;
+                &lt;IntervalSchedule name="name3" /&gt;
+                &lt;IntervalCountedSchedule name="name4" /&gt;
+                &lt;WeeklySchedule name="name5" /&gt;
+            &lt;/scheduler&gt;
+            </code>
+  </content>
+</section>
+   
+            
+<section>
+	<title>Attributes and Elements</title>
+	<content>
+		
+		<table>
+		<title>Attributes</title>
+			<tableHeader>
+				<row>
+					<entry>Attribute</entry>
+					<entry>Description</entry>
+				</row>
+			</tableHeader>
+			
+                        <row>
+                            <entry>
+                                <legacyBold>name</legacyBold>
+                            </entry>
+                            <entry>
+                                
+                                    Name of the scheduler configuration element. This value can later be used to reference the desired configuration when
+                                    creating instances of the <codeEntityReference qualifyHint="false">T:DemiCode.Scheduling.Scheduler</codeEntityReference>.
+                            </entry>
+                        </row>
+                    </table>
+                
+                
+		<table>
+		<title>Child Elements</title>
+			<tableHeader>
+				<row>
+					<entry>Element</entry>
+					<entry>Description</entry>
+				</row>
+			</tableHeader>
+			
+			
+                        <row>
+                            <entry><legacyBold><link xlink:href="f592f4a7-ecd8-4de0-949c-8c45dcf87b59">tasks</link> </legacyBold></entry>
+                            <entry>
+                                
+                                    A collection of tasks to execute on schedule. This element is optional.
+                                    
+                            </entry>
+                        </row>
+                        <row>
+                            <entry><legacyBold><link xlink:href="a82cc791-a9fe-45a3-8135-4bb30f8af656">loggers</link> </legacyBold></entry>
+                            <entry>
+                                
+                                    A collection of loggers. This element is optional.
+                                    
+                            </entry>
+                        </row>
+                        <row>
+                            <entry><legacyBold><link xlink:href="c7ca10b4-86cf-4f36-a961-826165893353">schedule</link> </legacyBold></entry>
+                            <entry>
+                                
+                                    A custom or third-party schedule.
+                                    
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <legacyBold><link xlink:href="2d9af591-a413-41ca-9c27-4de9f6eae086">OneShotSchedule</link> </legacyBold>
+                            </entry>
+                            <entry>
+                                
+                                    Represents the built-in <codeEntityReference qualifyHint="false">T:DemiCode.Scheduling.Schedules.OneShotSchedule</codeEntityReference> schedule.
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <legacyBold><link xlink:href="124cbec8-fb1b-4074-a861-84173910a32c">IntervalSchedule</link> </legacyBold>
+                            </entry>
+                            <entry>
+                                
+                                Represents the built-in <codeEntityReference qualifyHint="false">T:DemiCode.Scheduling.Schedules.IntervalSchedule</codeEntityReference> schedule.
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <legacyBold><link xlink:href="57ebeffe-d9b1-4b6c-84a2-36657f326a57">IntervalCountedSchedule</link> </legacyBold>
+                            </entry>
+                            <entry>
+                                
+                                    Represents the built-in <codeEntityReference qualifyHint="false">T:DemiCode.Scheduling.Schedules.IntervalCountedSchedule</codeEntityReference> schedule.
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <legacyBold><link xlink:href="d283d9a7-faef-42f8-ab24-8f479cafd4fc">WeeklySchedule</link> </legacyBold>
+                            </entry>
+                            <entry>
+                                
+                                    Represents the built-in <codeEntityReference qualifyHint="false">T:DemiCode.Scheduling.Schedules.WeeklySchedule</codeEntityReference> schedule.
+                            </entry>
+                        </row>
+                    </table>
+  </content>
+</section>
+
+            
+    
+
+    <relatedTopics>
+    </relatedTopics>
+
+  </developerConceptualDocument>
+</topic>

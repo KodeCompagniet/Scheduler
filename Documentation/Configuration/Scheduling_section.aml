@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="85482458-faf3-4de0-95c0-ef0b3709a1ea" revisionNumber="1">
+  <developerHowToDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+
+
+    <section>
+      <content>
+        <para>
+          To configure schedulers using a standard .NET configuration file, the first thing
+          you need in your .config file is a <legacyBold>configuration section</legacyBold>.
+        </para>
+        <para>
+          The section will contain one or more blocks for each scheduler you need in your
+          application. A sample section is shown below.
+        </para>
+
+        <code language="xml">
+          &lt;configSections&gt;
+            &lt;section name=&quot;scheduling&quot; type=&quot;DemiCode.Scheduling.Configuration.SchedulerSettings, DemiCode.Scheduling, Culture=neutral, PublicKeyToken=069d10bcdee4c3e4&quot; /&gt;
+          &lt;/configsections&gt;
+          &lt;scheduling defaultScheduler=&quot;schedulerName&quot;&gt;
+            &lt;!-- ... --&gt;
+          &lt;/scheduling&gt;
+        </code>
+
+        <para/>
+        Assuming the above configuration is placed in your application .config file, the following code will load the configuration and return an initialized scheduler.
+
+        <code language="c#">
+          using (Scheduler scheduler = SchedulerFactory.CreateFromConfig("scheduling"))
+          {
+            // ... start scheduler processing
+          }
+        </code>
+
+        <para/>
+        The same configuration section can be placed in an arbitrary .config file. Assuming this file is called Schedulersettings.config, the following code will load the configuration from that file.
+
+        <code language="c#">
+          using (Scheduler scheduler = SchedulerFactory.CreateFromConfigFile(".\\Schedulersettings.config", "scheduling"))
+          {
+            // ... start scheduler processing
+          }
+        </code>
+      </content>
+    </section>
+
+    <section>
+      <title>Attributes and Elements</title>
+      <content>
+        <table>
+          <title>Attributes</title>
+          <tableHeader>
+            <row>
+              <entry>
+                Attribute
+              </entry>
+              <entry>
+                Description
+              </entry>
+            </row>
+          </tableHeader>
+          <row>
+            <entry>
+              <legacyBold>name</legacyBold>
+            </entry>
+            <entry>
+              Name of the section. This value must correspond to an xml element in the configuration
+              file.
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <legacyBold>type</legacyBold>
+            </entry>
+            <entry>
+              <para>
+                This is the fully qualified class name of the type that handles section
+                loading.
+              </para>
+              <para>
+                To use the built-in <codeEntityReference qualifyHint="false">T:DemiCode.Scheduling.Configuration.SchedulerSettings</codeEntityReference> section handler use the following value:<para/>
+                <legacyBold>DemiCode.Scheduling.Configuration.SchedulerSettings, DemiCode.Scheduling, Culture=neutral, PublicKeyToken=069d10bcdee4c3e4</legacyBold>
+              </para>
+            </entry>
+          </row>
+        </table>
+
+        <table>
+          <title>Elements</title>
+          <tableHeader>
+            <row>
+              <entry>Element</entry>
+              <entry>Description</entry>
+            </row>
+          </tableHeader>
+          <row>
+            <entry>
+              <legacyBold>
+                <link xlink:href="0ad38964-0c44-4e15-86aa-0a121c1741af">scheduling</link>
+              </legacyBold>
+            </entry>
+            <entry>
+
+              Root element for the scheduling configuration section. The actual name of this element
+              could be changed specifying a different name in the &lt;section&gt; element.
+
+            </entry>
+          </row>
+        </table>
+      </content>
+    </section>
+
+
+    <relatedTopics>
+    </relatedTopics>
+
+  </developerHowToDocument>
+</topic>

@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="ac8cf6b9-a48f-4b86-b13d-2303a63255aa" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <introduction>
+      <para>The following samples showcase some of the functionality in DemiCode Scheduler.</para>
+    </introduction>
+
+	
+									
+	
+		
+			
+			
+			
+            
+            
+            
+<section>
+  <title>In this section</title>
+  <content>
+    <para>   <definitionTable>
+                    <definedTerm><link xlink:href="0f5a09a1-60d5-4059-8bae-075eaf192191" /></definedTerm>
+                    <definition>
+                        The SchedulerConsole project shows a regular Console application using DemiCode Scheduler to output messages to the console.</definition>
+                        
+                    <definedTerm><link xlink:href="f0361e4e-a359-4f54-a200-6e8a11b94dff" /></definedTerm>
+                    <definition>
+                        The SchedulerService project shows a Windows Service using DemiCode Scheduler to log information to the Application event log.</definition>
+                        
+                        <definedTerm><link xlink:href="345714a3-e403-4388-8cba-619008e75b6f" /></definedTerm>
+                    <definition>
+                        The <codeEntityReference qualifyHint="false">T:DemiCode.Scheduling.Tasks.ApplicationTask</codeEntityReference> is part of the task system in DemiCode Scheduler. 
+                        This sample shows how the ApplicationTask is implemented and is usefull as a starting point for implementing your own tasks.</definition>
+
+                    <definedTerm>
+                      <link xlink:href="7451DB08-3678-4263-BF51-AB5D88E6E93C" />
+                    </definedTerm>
+                    <definition>
+                      The SchedulerConfiguration project shows a .NET WinForms application that reads configuration files, dislays configuration controls and writes changes 
+                      back to disk.
+                    </definition>
+      
+                </definitionTable>
+			
+            
+            Additional samples will be made available at <externalLink>
+  <linkText>www.demicode.com/products/scheduler/samples</linkText>
+  <linkUri>http://www.demicode.com/products/scheduler/samples</linkUri>
+  <linkTarget>_blank</linkTarget>
+</externalLink>. Check our site regularly for tips, tricks and code.</para>
+  </content>
+</section>
+
+            
+             
+            
+		
+			
+				
+		
+	
+    
+
+    <relatedTopics>
+    </relatedTopics>
+
+  </developerConceptualDocument>
+</topic>

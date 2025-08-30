@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="0f5a09a1-60d5-4059-8bae-075eaf192191" revisionNumber="1">
+  <developerSampleDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <introduction>
+      <para>The SchedulerConsole project shows a regular .NET Console application using DemiCode Scheduler,
+                reading in the configuration from a configuration file. The application uses a five-second
+                interval timer in order to issue messages to the console.</para>
+    </introduction>
+
+   
+            
+            
+            
+                
+            
+            
+<section>
+  <title>Prerequisites</title>
+  <content>
+    <para>Navigate to the <legacyBold>DemiCode Scheduler 1.1\Samples</legacyBold> folder. Unzip the <legacyBold>SchedulerSamples.zip</legacyBold>
+                    in the Samples folder.</para>
+  </content>
+</section>
+            
+            
+<section>
+  <title>To build the sample using the Command Prompt</title>
+  <content>
+    <list class="ordered">
+                    <listItem>
+                        <para>
+                            Open the Visual Studio 2005 Command Prompt window and navigate to the <legacyBold>DemiCode Scheduler
+                                1.1\Samples</legacyBold> folder.</para>
+                    </listItem>
+                    <listItem>
+                        <para>
+                            Type <legacyBold>msbuild SchedulerConsole.sln</legacyBold> at the command line.</para>
+                    </listItem>
+                </list>
+  </content>
+</section>
+       
+                
+            
+            
+<section>
+  <title>To build the sample using Visual Studio</title>
+  <content>
+    <list class="ordered">
+                    <listItem>
+                        <para>
+                            Open Windows Explorer and navigate to the <legacyBold>DemiCode Scheduler 1.1\Samples</legacyBold>
+                            folder.</para>
+                    </listItem>
+                    <listItem>
+                        <para>
+                            Double-click the <legacyBold>SchedulerConsole.sln</legacyBold> to open the file in Visual Studio.</para>
+                    </listItem>
+                    <listItem>
+                        <para>
+                            In the <legacyBold>Build</legacyBold> menu, select <legacyBold>Build Solution</legacyBold>.</para>
+                    </listItem>
+                </list>
+  </content>
+</section>
+
+                
+            
+            
+<section>
+  <title>To run the sample</title>
+  <content>
+    <definitionTable>
+                    <definition>
+                        Follow these steps to run the sample console application:
+                        <list class="ordered">
+                            <listItem>Open a Command Prompt and navigate to the directory that contains the new
+                                executable. <para/>
+                                This will usually be <legacyBold>Samples\SchedulerConsole\bin\Debug</legacyBold></listItem>
+                            <listItem>Run the application by typing:
+                            <code language="other">
+                            SchedulerConsole.exe [Enter]
+                            </code>
+                            </listItem>
+                            <listItem>Let the application run for at least 5 seconds before pressing [ENTER]. Messages from the scheduler should appear in the console.</listItem>
+                        </list>
+                    </definition>
+                </definitionTable>
+  </content>
+</section>
+
+                
+            
+            
+<section>
+  <title>Requirements</title>
+  <content>
+    <para>DemiCode Scheduler 1.1 and .NET Framework 2.0.</para>
+  </content>
+</section>
+
+            
+            
+<section>
+  <title>Remarks</title>
+  <content>
+    <definitionTable>
+                    <definition>
+                        This sample demonstrates the use of the .NET configuration system to configure our
+                        scheduler. Also the ability to hook event handlers to the scheduler, either at the
+                        top level (recieving events from all schedules) or at a specific schedule.
+                    </definition>
+                    <definition>
+                        With a few lines of code we are able to create a simple application taking advantage of the scheduling capabilities in DemiCode Scheduler.
+                        <code language="c#">
+static void Main()
+{
+    // 1. Create default scheduler from configuration
+    using (Scheduler _scheduler = SchedulerFactory.CreateFromConfig("scheduling"))
+    {
+        // 2. Hook up to events
+        _scheduler.ScheduledAlarm += new EventHandler&lt;AlarmEventArgs&gt;(_scheduler_ScheduledAlarm);
+        _scheduler[&quot;FiveSecInterval&quot;].Alarm += new EventHandler&lt;AlarmEventArgs&gt;(fiveSecInterval_Alarm);
+
+        // 3. Start the engine
+        _scheduler.Start();
+
+        // 4. Wait for user input
+        Console.WriteLine(&quot;Press [ENTER] to exit&quot;);
+        Console.ReadLine();
+
+        // 5. Stop the engine
+        _scheduler.Stop();
+    }
+}                        </code>
+                    </definition>
+                    <definition>
+                        One thing to pay attention to is how we <codeEntityReference qualifyHint="false" autoUpgrade="true">M:DemiCode.Scheduling.Scheduler.Dispose</codeEntityReference>
+                        our scheduler instance with the simple <legacyBold>using</legacyBold> syntax. This is important since we're holding on to a valuable timer
+                        resource.
+                    </definition>
+                </definitionTable>
+  </content>
+</section>
+
+            
+        
+    
+
+    <relatedTopics>
+    </relatedTopics>
+
+  </developerSampleDocument>
+</topic>
