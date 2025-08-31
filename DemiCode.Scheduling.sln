@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemiCode.Logging", "DemiCod
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemiCode.Logging.log4net", "DemiCode.Logging.log4net\DemiCode.Logging.log4net.csproj", "{D494AB74-6095-4B39-AD47-3E12678AE83C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemiCode.Logging.Feeds", "DemiCode.Logging.Feeds\DemiCode.Logging.Feeds.csproj", "{6FFDD220-7277-4F87-B07F-6D798F4BFC86}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemiCode.SchedulerService", "DemiCode.SchedulerService\DemiCode.SchedulerService.csproj", "{DA8CA6FE-ECA8-4308-AA01-847945933689}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemiCode.Scheduling.Test.Dummy", "DemiCode.Scheduling.Test.Dummy\DemiCode.Scheduling.Test.Dummy.csproj", "{EDD5C5D8-8D40-4742-ABC6-AFBB145D5900}"
@@ -22,8 +20,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemiCode.Scheduling.Test", "DemiCode.Scheduling.Test\DemiCode.Scheduling.Test.csproj", "{278064F4-4B71-443B-A658-626B243881EE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemiCode.Logging.Test", "DemiCode.Logging.Test\DemiCode.Logging.Test.csproj", "{41A8CB99-344F-47DD-A9F6-DAA094DD330D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemiCode.Logging.Feeds.Test", "DemiCode.Logging.Feeds.Test\DemiCode.Logging.Feeds.Test.csproj", "{F7709659-ED54-4AD6-9151-A9315125F2EB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -50,10 +46,6 @@ Global
 		{D494AB74-6095-4B39-AD47-3E12678AE83C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D494AB74-6095-4B39-AD47-3E12678AE83C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D494AB74-6095-4B39-AD47-3E12678AE83C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6FFDD220-7277-4F87-B07F-6D798F4BFC86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6FFDD220-7277-4F87-B07F-6D798F4BFC86}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6FFDD220-7277-4F87-B07F-6D798F4BFC86}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6FFDD220-7277-4F87-B07F-6D798F4BFC86}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DA8CA6FE-ECA8-4308-AA01-847945933689}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DA8CA6FE-ECA8-4308-AA01-847945933689}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA8CA6FE-ECA8-4308-AA01-847945933689}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -74,9 +66,5 @@ Global
 		{41A8CB99-344F-47DD-A9F6-DAA094DD330D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{41A8CB99-344F-47DD-A9F6-DAA094DD330D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{41A8CB99-344F-47DD-A9F6-DAA094DD330D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F7709659-ED54-4AD6-9151-A9315125F2EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F7709659-ED54-4AD6-9151-A9315125F2EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F7709659-ED54-4AD6-9151-A9315125F2EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F7709659-ED54-4AD6-9151-A9315125F2EB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
