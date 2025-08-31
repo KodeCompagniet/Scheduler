@@ -44,7 +44,7 @@ namespace DemiCode.Scheduling.Test
         [Test]
         public void CreateDefaultSchedulerFromConfigFileTest()
         {
-            using (var scheduler = SchedulerFactory.CreateFromConfigFile(".\\DemiCode.Scheduling.test.dll.config", "scheduling"))
+            using (var scheduler = SchedulerFactory.CreateFromConfigFile("DemiCode.Scheduling.Test.dll.config", "scheduling"))
             {
                 Assert.IsNotNull(scheduler, "CreateFromConfigFile did not return the expected value.");
                 Assert.AreEqual(2, scheduler.Count);
@@ -54,7 +54,7 @@ namespace DemiCode.Scheduling.Test
         [Test]
         public void CreateNamedSchedulerFromConfigFileTest()
         {
-            using (var scheduler = SchedulerFactory.CreateFromConfigFile(".\\DemiCode.Scheduling.test.dll.config", "scheduling", "lunch"))
+            using (var scheduler = SchedulerFactory.CreateFromConfigFile("DemiCode.Scheduling.Test.dll.config", "scheduling", "lunch"))
             {
                 Assert.IsNotNull(scheduler, "CreateFromConfigFile did not return the expected value.");
                 Assert.AreEqual(1, scheduler.Count);

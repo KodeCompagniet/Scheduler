@@ -126,3 +126,6 @@
 /home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/obj/Debug/net8.0/DemiCode.Scheduling.Test.genruntimeconfig.cache
 /home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/obj/Debug/net8.0/ref/DemiCode.Scheduling.Test.dll
 /home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/obj/Debug/net8.0/DemiCode.1D463C5C.Up2Date
+/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/bin/Debug/net8.0/TestData/FactoryConfiguration.xml
+/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/bin/Debug/net8.0/TestData/ScheduleConfiguration.xml
+/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/bin/Debug/net8.0/TestData/ScheduleSamples.xml

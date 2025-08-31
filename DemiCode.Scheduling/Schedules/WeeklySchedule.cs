@@ -276,7 +276,7 @@ namespace DemiCode.Scheduling.Schedules
                 strDays += d;
             }
 
-            return String.Format(CultureInfo.InvariantCulture, "{0}(\"{4}\")\nCurrentOccurence = {1}\nTimeOfDay = {2:hh:mm:ss}\nDays = {3}",
+            return String.Format(CultureInfo.InvariantCulture, "{0}(\"{4}\")\nCurrentOccurence = {1}\nTimeOfDay = {2:hh\\:mm\\:ss}\nDays = {3}",
                 GetType(), CurrentOccurrence, _timeOfDay, strDays, Name);
         }
     }

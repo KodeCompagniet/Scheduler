@@ -1,4 +1,4 @@
-using DemiCode.Logging.Loggers;
+using DemiCode.Logging;  // Use ILogger and ILoggerFactory from DemiCode.Shared
 using DemiCode.Logging.log4net;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 

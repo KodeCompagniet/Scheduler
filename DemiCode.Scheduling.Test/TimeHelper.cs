@@ -6,6 +6,11 @@ namespace DemiCode.Scheduling.Test
 {
     public static class TimeHelper
     {
+        /// <summary>
+        /// Indicates whether system time manipulation is supported on the current platform
+        /// </summary>
+        public static bool IsTimeManipulationSupported => RuntimeInformation.IsOSPlatform(OSPlatform.Windows);
+
         [DllImport("kernel32.dll")]
         private extern static void GetSystemTime(ref SYSTEMTIME lpSystemTime);
 
@@ -49,6 +54,9 @@ namespace DemiCode.Scheduling.Test
 
         public static DateTime GetTime()
         {
+            if (!IsTimeManipulationSupported)
+                throw new PlatformNotSupportedException("System time manipulation is only supported on Windows");
+
             // Call the native GetSystemTime method
             // with the defined structure.
             SYSTEMTIME stime = new SYSTEMTIME();
@@ -59,6 +67,9 @@ namespace DemiCode.Scheduling.Test
 
         public static void SetTime(DateTime date)
         {
+            if (!IsTimeManipulationSupported)
+                throw new PlatformNotSupportedException("System time manipulation is only supported on Windows");
+
             // Call the native SetSystemTime method
             // with the defined structure.
             SYSTEMTIME systime = SYSTEMTIME.FromDateTime(date);
@@ -71,6 +82,9 @@ namespace DemiCode.Scheduling.Test
         /// </summary>
         public static IDisposable Change(DateTime toDate)
         {
+            if (!IsTimeManipulationSupported)
+                throw new PlatformNotSupportedException("System time manipulation is only supported on Windows");
+
             DateTime original = GetTime();
             Stopwatch sw = Stopwatch.StartNew();
             Cargo c = new Cargo(original, sw);

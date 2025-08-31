@@ -2,6 +2,7 @@
 using DemiCode.Scheduling.Test;
 using NUnit.Framework;
 using System;
+using System.IO;
 
 namespace DemiCode.Scheduling.Configuration.Test
 {
@@ -58,7 +59,7 @@ namespace DemiCode.Scheduling.Configuration.Test
 
             try
             {
-                FileHelper.ReplaceConfigFile(".\\TestData\\ConfigCacheTest.config");
+                FileHelper.ReplaceConfigFile(Path.Combine("TestData", "ConfigCacheTest.config"));
 
                 ss = SchedulerSettingsManager.GetConfigurationSection(sectionName);
                 schedule = (IntervalSchedule)ss.Schedulers[ss.DefaultScheduler].GetScheduleInstances()[0];
@@ -84,7 +85,7 @@ namespace DemiCode.Scheduling.Configuration.Test
 
             try
             {
-                FileHelper.ReplaceConfigFile(".\\TestData\\ConfigCacheTest.config");
+                FileHelper.ReplaceConfigFile(Path.Combine("TestData", "ConfigCacheTest.config"));
 
                 ss = SchedulerSettingsManager.GetConfigurationSection(sectionName, true);
                 schedule = (IntervalSchedule)ss.Schedulers[ss.DefaultScheduler].GetScheduleInstances()[0];

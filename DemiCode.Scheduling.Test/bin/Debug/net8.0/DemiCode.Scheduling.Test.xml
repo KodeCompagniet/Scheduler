@@ -692,6 +692,11 @@
             Assembly-wide setup
             </summary>
         </member>
+        <member name="P:DemiCode.Scheduling.Test.TimeHelper.IsTimeManipulationSupported">
+            <summary>
+            Indicates whether system time manipulation is supported on the current platform
+            </summary>
+        </member>
         <member name="M:DemiCode.Scheduling.Test.TimeHelper.Change(System.DateTime)">
             <summary>
             Change system time to the specified date/time and restore system time upon disposing.
