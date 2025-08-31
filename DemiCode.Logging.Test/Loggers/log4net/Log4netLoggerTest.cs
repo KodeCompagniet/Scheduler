@@ -1,5 +1,5 @@
 ﻿using System;
-using DemiCode.Logging.Loggers;
+using DemiCode.Logging;  // Use ILogger from DemiCode.Shared
 using DemiCode.Logging.log4net;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -77,6 +77,8 @@ namespace DemiCode.Scheduling.Loggers.log4net.Test
         public void LogTest()
         {
             Exception e = new ApplicationException("Unit testing");
+            // NOTE: Cast required but fails at runtime - possible assembly version mismatch
+            // See TESTDATA_INVESTIGATION_RESULTS.md for details
             ILogger logger = (ILogger)new Log4netLogger("testlogger");
             
             logger.Debug("Debug {0}", 1);

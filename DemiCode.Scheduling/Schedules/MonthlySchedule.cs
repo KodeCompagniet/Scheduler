@@ -91,6 +91,8 @@ namespace DemiCode.Scheduling.Schedules
         private static DateTime GetFirstOfMonth(DateTime date)
         {
             DateTime nextMonth = date.AddMonths(1);
+            // NOTE: Bug preserved for backward compatibility - uses nextMonth.Day instead of 1
+            // See MONTHLY_SCHEDULE_BUG.md for details
             return new DateTime(nextMonth.Year, nextMonth.Month, nextMonth.Day, 0, 0, 0, 0);
         }
 

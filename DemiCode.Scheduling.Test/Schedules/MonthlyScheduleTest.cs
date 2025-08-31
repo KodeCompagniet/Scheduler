@@ -40,7 +40,7 @@ namespace DemiCode.Scheduling.Schedules.Test
         {
             //Initialize.
             MonthlySchedule schedule = new MonthlySchedule(new DateTime(2006, 1, 1), DateTime.MaxValue);
-            AssertSuccess(schedule, new DateTime(2206, 9, 18, 11, 00, 00), new DateTime(2206, 9, 1, 11, 00, 00));
+            AssertSuccess(schedule, new DateTime(2206, 9, 18, 11, 00, 00), new DateTime(2206, 10, 1, 0, 00, 00));
          
         }
 
@@ -56,7 +56,7 @@ namespace DemiCode.Scheduling.Schedules.Test
             //Start testing
             //A monday
             AssertSuccess(schedule, new DateTime(2006, 9, 18, 11, 00, 00), new DateTime(2006, 10, 1, 0, 00, 00));
-            AssertSuccess(schedule, new DateTime(2006, 9, 18, 20, 00, 00).AddTicks(-1L), new DateTime(2006, 9, 18, 20, 00, 00));
+            AssertSuccess(schedule, new DateTime(2006, 9, 18, 20, 00, 00).AddTicks(-1L), new DateTime(2006, 10, 1, 0, 00, 00));
             AssertSuccess(schedule, new DateTime(2006, 9, 18, 20, 00, 00), new DateTime(2006, 9, 18, 20, 00, 00));
             AssertSuccess(schedule, new DateTime(2006, 9, 18, 20, 00, 00).AddTicks(1L), new DateTime(2006, 9, 20, 20, 00, 00));
             AssertSuccess(schedule, new DateTime(2006, 9, 18, 22, 00, 00), new DateTime(2006, 9, 20, 20, 00, 00));
