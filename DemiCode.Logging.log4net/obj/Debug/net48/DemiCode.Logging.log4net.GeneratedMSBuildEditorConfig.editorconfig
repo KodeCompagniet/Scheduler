@@ -1,8 +1,0 @@
-is_global = true
-build_property.RootNamespace = DemiCode.Logging.log4net
-build_property.ProjectDir = /home/claude/aigit/Scheduler/DemiCode.Logging.log4net/
-build_property.EnableComHosting = 
-build_property.EnableGeneratedComInterfaceComImportInterop = 
-build_property.CsWinRTUseWindowsUIXamlProjections = false
-build_property.EffectiveAnalysisLevelStyle = 
-build_property.EnableCodeStyleSeverity = 
