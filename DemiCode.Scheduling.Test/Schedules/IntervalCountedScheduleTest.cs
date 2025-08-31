@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using System;
+using System.IO;
 using System.Xml;
 
 namespace DemiCode.Scheduling.Schedules.Test
@@ -237,7 +238,7 @@ namespace DemiCode.Scheduling.Schedules.Test
 		private static void TestXmlConstructor(string nodePath)
 		{
 			XmlDocument xd = new XmlDocument();
-			xd.Load(@"TestData\ScheduleConfiguration.xml");
+			xd.Load(Path.Combine("TestData", "ScheduleConfiguration.xml"));
 			XmlNode node = xd.SelectSingleNode(nodePath);
 
 			IntervalCountedSchedule target = new IntervalCountedSchedule(node);

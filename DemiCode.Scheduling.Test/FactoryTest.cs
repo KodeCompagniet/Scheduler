@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Reflection;
 using System.Xml;
 using DemiCode.Scheduling.Test.Mocks;
@@ -250,7 +251,7 @@ namespace DemiCode.Scheduling.Test
         private static XmlNode LoadConfigurationNode(string xpath)
         {
             XmlDocument xd = new XmlDocument();
-            xd.Load(@"TestData\FactoryConfiguration.xml");
+            xd.Load(Path.Combine("TestData", "FactoryConfiguration.xml"));
             XmlNode configurationNode = xd.SelectSingleNode(xpath);
             return configurationNode;
         }

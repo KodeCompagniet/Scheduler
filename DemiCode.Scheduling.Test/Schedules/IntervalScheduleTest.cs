@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Threading;
 using System.Xml;
 using DemiCode.Scheduling.Alarms;
@@ -537,7 +538,7 @@ namespace DemiCode.Scheduling.Schedules.Test
         private static IntervalSchedule TestXmlConstructor(string nodePath)
         {
             var xd = new XmlDocument();
-            xd.Load(@"TestData\ScheduleConfiguration.xml");
+            xd.Load(Path.Combine("TestData", "ScheduleConfiguration.xml"));
             XmlNode node = xd.SelectSingleNode(nodePath);
 
             return new IntervalSchedule(node);
