@@ -31,4 +31,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+
+  <!-- Copy config file for testhost to fix runtime configuration issues -->
+  <Target Name="CopyConfigForTestHost" AfterTargets="Build">
+    <Copy SourceFiles="$(OutDir)$(AssemblyName).dll.config" 
+          DestinationFiles="$(OutDir)testhost.dll.config" 
+          SkipUnchangedFiles="true" 
+          Condition="Exists('$(OutDir)$(AssemblyName).dll.config')" />
+  </Target>
 </Project>

@@ -92,7 +92,7 @@ namespace DemiCode.Scheduling.Loggers.Test
         [TestMethod]
         public void AddTest()
         {
-            ILoggerFactory factory = new LoggerFactoryMock();
+            ILoggerFactory factory = (ILoggerFactory)new LoggerFactoryMock();
             LoggerFactoryCollection target = new LoggerFactoryCollection();
             target.Add(factory);
         }
