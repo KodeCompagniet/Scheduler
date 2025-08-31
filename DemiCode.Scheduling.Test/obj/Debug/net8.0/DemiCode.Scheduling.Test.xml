@@ -1,0 +1,1388 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DemiCode.Scheduling.Test</name>
+    </assembly>
+    <members>
+        <member name="T:DemiCode.Scheduling.Alarms.Test.AlarmEventArgsTest">
+             <summary>
+            This is a test class for DemiCode.Scheduling.AlarmEventArgs and is intended
+            to contain all DemiCode.Scheduling.AlarmEventArgs Unit Tests
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Alarms.Test.AlarmEventArgsTest.AdditionalDataTest">
+             <summary>
+            A test for AdditionalData
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Alarms.Test.AlarmEventArgsTest.CopyConstructorTest">
+             <summary>
+            A test for the AlarmEventArgs copy constructor.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Alarms.Test.AlarmEventArgsTest.ConstructorTest">
+             <summary>
+            A test for AlarmEventArgs (DateTime, object)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Alarms.Test.AlarmEventArgsTest.SignalTimeTest">
+             <summary>
+            A test for SignalTime
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Alarms.Test.AlarmTimer2Test.FinalizerTest">
+             <summary>
+            A test for ~AlarmTimer2 ()
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Alarms.Test.AlarmTimer2Test.AdditionalDataTest">
+             <summary>
+            A test for AdditionalData
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Alarms.Test.AlarmTimer2Test.AlarmTimeTest">
+             <summary>
+            A test for AlarmTime
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Alarms.Test.AlarmTimer2Test.AlarmTimeWhenEnabledTest">
+             <summary>
+            A test for AlarmTime on an active alarm.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Alarms.Test.AlarmTimer2Test.AlarmTimeWhenDisposedTest">
+             <summary>
+            A test for AlarmTime on a disposed alarm.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Alarms.Test.AlarmTimer2Test.ConstructorTest">
+             <summary>
+            A test for AlarmTimer2 ()
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Alarms.Test.AlarmTimer2Test.ConstructorTest1">
+             <summary>
+            A test for AlarmTimer2 (object)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Alarms.Test.AlarmTimer2Test.DisableTest">
+             <summary>
+            A test for Disable ()
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Alarms.Test.AlarmTimer2Test.DisposeTest">
+             <summary>
+            A test for Dispose ()
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Alarms.Test.AlarmTimer2Test.EnableTest">
+             <summary>
+            A test for Enable ()
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Alarms.Test.AlarmTimer2Test.EnableWithDateTimeTest">
+             <summary>
+            A test for Enable (DateTime)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Alarms.Test.AlarmTimer2Test.EnabledWithoutAlarmTimeTest">
+             <summary>
+            A test for Enabled=true without initializing AlarmTime. This yields immediate alarm "ring" 
+             and thus Enabled = false as result.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Alarms.Test.AlarmTimer2Test.DisabledWithoutAlarmTimeTest">
+             <summary>
+            A test for Enabled=false.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Alarms.Test.AlarmTimer2Test.TicksToMillisecondsTest">
+             <summary>
+            A test for TicksToMilliseconds (long)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Alarms.Test.AlarmTimer2Test.ElapsedEventTest">
+             <summary>
+            A test for ElapsedEvent
+            </summary>
+        </member>
+        <member name="T:DemiCode.Scheduling.Test.AlarmTimerMockTest">
+            <summary>
+            Summary description for AlarmTimerMockTest
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.AlarmTimerMockTest.ElapsedEventMockTest">
+             <summary>
+            A test for ElapsedEvent in AlarmTimerMock
+            </summary>
+        </member>
+        <member name="T:DemiCode.Scheduling.Test.AssertLog">
+            <summary>
+            Perform asserts on the current log4net MemoryAppender.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.AssertLog.Configure(System.String)">
+            <summary>
+            Configure log4net with the given config file and clear out the memory appender.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.AssertLog.GetEvent(System.Int32)">
+            <summary>
+            Get the event at the specified index.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.AssertLog.GetEvents">
+            <summary>
+            Get all events.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.AssertLog.GetMemoryAppender">
+            <summary>
+            Get our current memory appender
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.AssertLog.ClearLog">
+            <summary>
+            Clear any events from the current log.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.AssertLog.EventCountIsEqual(System.Int32)">
+            <summary>
+            Assert that the current number of events in the log is equal to the expected value.
+            </summary>
+            <param name="expected"></param>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.AssertLog.ErrorCountIsEqual(System.Int32)">
+            <summary>
+            Assert that the current number of Error events in the log is equal to the expected value.
+            </summary>
+            <param name="expected"></param>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.AssertLog.EventCountIsNotEqual(System.Int32)">
+            <summary>
+            Assert that the current number of events in the log is different from the expected value.
+            </summary>
+            <param name="expected"></param>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.DateTimeTest.AddHoursTest">
+            <summary>
+            Confirm that adding a 24 hour timespan yields the same time of day the next day.
+            </summary>
+        </member>
+        <member name="T:DemiCode.Scheduling.Test.EventHelperTest">
+             <summary>
+            This is a test class for DemiCode.Scheduling.EventHelper and is intended
+            to contain all DemiCode.Scheduling.EventHelper Unit Tests
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.EventHelperTest.RaiseEventsTest">
+             <summary>
+            A test for RaiseEvents&lt;&gt; (object, EventHandler&lt;TEventArgs&gt;, TEventArgs)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.EventHelperTest.RaiseEventsSynchronizedTest">
+             <summary>
+            A test for RaiseEvents&lt;&gt; (object, EventHandler&lt;TEventArgs&gt;, TEventArgs, bool)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.EventHelperTest.RaiseEventsFailingTest">
+            <summary>
+            This test uses a failing event handler to test that we get correct results from <see cref="M:DemiCode.Scheduling.EventHelper.RaiseEvents``1(System.Object,System.EventHandler{``0},``0)"/>.
+            </summary>
+        </member>
+        <member name="T:DemiCode.Scheduling.Test.FactoryConfigurationExceptionTest">
+             <summary>
+            This is a test class for DemiCode.Scheduling.FactoryConfigurationException and is intended
+            to contain all DemiCode.Scheduling.FactoryConfigurationException Unit Tests
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.FactoryConfigurationExceptionTest.ConstructorTest">
+             <summary>
+            A test for FactoryConfigurationException ()
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.FactoryConfigurationExceptionTest.ConstructorTest2">
+             <summary>
+            A test for FactoryConfigurationException (string)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.FactoryConfigurationExceptionTest.ConstructorTest3">
+             <summary>
+            A test for FactoryConfigurationException (string, Exception)
+            </summary>
+        </member>
+        <member name="T:DemiCode.Scheduling.Test.FactoryExceptionTest">
+             <summary>
+            This is a test class for DemiCode.Scheduling.FactoryException and is intended
+            to contain all DemiCode.Scheduling.FactoryException Unit Tests
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.FactoryExceptionTest.ConstructorTest">
+             <summary>
+            A test for FactoryException ()
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.FactoryExceptionTest.ConstructorTest2">
+             <summary>
+            A test for FactoryException (string)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.FactoryExceptionTest.ConstructorTest3">
+             <summary>
+            A test for FactoryException (string, Exception)
+            </summary>
+        </member>
+        <member name="T:DemiCode.Scheduling.Test.FactoryTest">
+             <summary>
+            This is a test class for DemiCode.Scheduling.Factory and is intended
+            to contain all DemiCode.Scheduling.Factory Unit Tests
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.FactoryTest.CreateInstanceFromGACedAssemblyTest">
+            <summary>
+            A test for creating instances from types in GAC'ed assemblies.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.FactoryTest.CreateInstanceTest">
+             <summary>
+            A test for CreateInstance&lt;&gt; (string, XmlNode)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.FactoryTest.CreateInstanceWithNullTypeTest">
+             <summary>
+            A test for CreateInstance&lt;&gt; (Type, XmlNode) with type parameter == null
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.FactoryTest.CreateInstanceWithNullType2Test">
+             <summary>
+            A test for CreateInstance&lt;&gt; (Type, XmlNode) with type parameter == null
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.FactoryTest.CreateInstanceWithNullConfigTest">
+             <summary>
+            A test for CreateInstance&lt;&gt; (Type, XmlNode) with type config == null
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.FactoryTest.CreateInstanceTest1">
+             <summary>
+            A test for CreateInstance&lt;&gt; (Type, XmlNode)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.FactoryTest.CreateInstanceTest2">
+             <summary>
+            A test for CreateInstance&lt;&gt; (XmlNode)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.FactoryTest.CreateTypeWithoutInterfaceTest">
+            <summary>
+            The type configured in our xml does not implement ISecondConfigurableMock
+            and should thus fail.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.FactoryTest.CreateTypeWithTargetInvocationExceptionConstructorTest">
+            <summary>
+            The configured class throws a <see cref="T:System.Reflection.TargetInvocationException"/> and thus provoces running
+            the exception handler.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.FactoryTest.CreateTypeWithBadConstructorTest">
+            <summary>
+            The configured class throws a <see cref="T:System.InvalidOperationException"/> and thus provoces running
+            the exception handler.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.FileHelper.TouchFile(System.String)">
+            <summary>
+            Update the file last modified timestamp to now.
+            </summary>
+        </member>
+        <member name="T:DemiCode.Scheduling.Test.InvalidConfigurationExceptionTest">
+             <summary>
+            This is a test class for DemiCode.Scheduling.Configuration.InvalidConfigurationException and is intended
+            to contain all DemiCode.Scheduling.Configuration.InvalidConfigurationException Unit Tests
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.InvalidConfigurationExceptionTest.ConstructorTest">
+             <summary>
+            A test for InvalidConfigurationException ()
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.InvalidConfigurationExceptionTest.ConstructorTest2">
+             <summary>
+            A test for InvalidConfigurationException (string)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.InvalidConfigurationExceptionTest.ConstructorTest3">
+             <summary>
+            A test for InvalidConfigurationException (string, Exception)
+            </summary>
+        </member>
+        <member name="T:DemiCode.Scheduling.Test.MessageLoggerTest">
+             <summary>
+            This is a test class for DemiCode.Scheduling.MessageLogger and is intended
+            to contain all DemiCode.Scheduling.MessageLogger Unit Tests
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.MessageLoggerTest.LogCommentTest">
+             <summary>
+            A test for LogComment (string, params object[])
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.MessageLoggerTest.LogErrorTest">
+             <summary>
+            A test for LogError (string, params object[])
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.MessageLoggerTest.LogInfoTest">
+             <summary>
+            A test for LogInfo (string, params object[])
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.MessageLoggerTest.LogWarningTest">
+             <summary>
+            A test for LogWarning (string, params object[])
+            </summary>
+        </member>
+        <member name="T:DemiCode.Scheduling.Test.Mocks.AlarmTimerMock">
+            <summary>
+            A basic implementation of <seealso cref="T:DemiCode.Scheduling.Alarms.IAlarmTimer"/> that enables simulation of triggered
+            alarms. The alarm is configured with an <see cref="P:DemiCode.Scheduling.Alarms.IAlarmTimer.AlarmTime"/> and will fire
+            the <see cref="E:DemiCode.Scheduling.Alarms.IAlarmTimer.Elapsed"/> event immediately upon calling <see cref="M:DemiCode.Scheduling.Test.Mocks.AlarmTimerMock.Enable(System.DateTime)"/>.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.Mocks.AlarmTimerMock.SetLogger(DemiCode.Logging.ILogger)">
+            <summary>
+            Set a logger object to use for diagnostics.
+            </summary>
+        </member>
+        <member name="T:DemiCode.Scheduling.Test.Mocks.BadConstructorMock">
+            <summary>
+            Class that enables testing of Factory.CreateInstance.
+            </summary>
+        </member>
+        <member name="T:DemiCode.Scheduling.Test.Mocks.ConfigurableMock">
+            <summary>
+            Class that enables testing of Factory.CreateInstance.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.Mocks.LoggerFactoryMock.CreateLogger(System.String)">
+            <summary>
+            Create a logger.
+            </summary>
+            <param name="name">Name of the logger</param>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.Mocks.LoggerFactoryMock.CreateLogger(System.Type)">
+            <summary>
+            Create a logger.
+            </summary>
+            <param name="type">The full name of the type will be used as name for the logger</param>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.Mocks.LoggerFactoryMock.CreateNDC(System.String)">
+            <summary>
+            Create a Nested Diagnostic Context.
+            </summary>
+            <param name="message">Message or context of the NDC</param>
+            <returns>An object that serves as holder for the NDC. Must be disposed when the NDC goes out of scope. </returns>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.Mocks.LoggerMock.Fatal(System.String,System.Exception,System.Object[])">
+            <summary>
+            Log a fatal message with exception information.
+            </summary>
+            <param name="message">Message with optional format parameters</param>
+            <param name="exception">Exception</param>
+            <param name="args">Optional format arguments</param>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.Mocks.LoggerMock.Error(System.String,System.Exception,System.Object[])">
+            <summary>
+            Log an error message with exception information.
+            </summary>
+            <param name="message">Message with optional format parameters</param>
+            <param name="exception">Exception</param>
+            <param name="args">Optional format arguments</param>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.Mocks.LoggerMock.Warn(System.String,System.Exception,System.Object[])">
+            <summary>
+            Log a warning with exception information.
+            </summary>
+            <param name="message">Message with optional format parameters</param>
+            <param name="exception">Exception</param>
+            <param name="args">Optional format arguments</param>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.Mocks.LoggerMock.Info(System.String,System.Exception,System.Object[])">
+            <summary>
+            Log information with exception information.
+            </summary>
+            <param name="message">Message with optional format parameters</param>
+            <param name="exception">Exception</param>
+            <param name="args">Optional format arguments</param>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.Mocks.LoggerMock.Debug(System.String,System.Exception,System.Object[])">
+            <summary>
+            Log debug information with exception information.
+            </summary>
+            <param name="message">Message with optional format parameters</param>
+            <param name="exception">Exception</param>
+            <param name="args">Optional format arguments</param>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.Mocks.ScheduleMock.MoveToFirstFrom(System.DateTime)">
+            <summary>
+            Changes <see cref="!:CurrentOccurrence"/> to the first possible occurence from the supplied time.
+            </summary>
+            <param name="time">The time to calculate from.</param>
+            <returns>True if new time found, false if schedule is ended.</returns>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.Mocks.SchedulerMock.Create">
+            <summary>
+            Create an empy <see cref="T:DemiCode.Scheduling.Scheduler"/> with testing lic.
+            </summary>
+        </member>
+        <member name="T:DemiCode.Scheduling.Test.Mocks.SimpleClass">
+            <summary>
+            Class that enables testing of Factory.CreateInstance.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.Mocks.SimpleClass.#ctor(System.Boolean)">
+            <summary>
+            Bad constructor
+            </summary>
+        </member>
+        <member name="T:DemiCode.Scheduling.Test.Mocks.SynchronizedObject">
+            <summary>
+            A simple synchronized object for doing sync event testing.
+            The <seealso cref="T:System.ComponentModel.ISynchronizeInvoke"/> implementation delegates its work to Juval Lowy's <see cref="T:Synchronizer"/> class.
+            
+            
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.Mocks.SynchronizedObject.RaiseEventSynchronized(System.Threading.AutoResetEvent)">
+            <summary>
+            This method uses <see cref="M:DemiCode.Scheduling.EventHelper.RaiseEvents``1(System.Object,System.EventHandler{``0},``0)"/> and its own event handler
+            to simulate raising an event on a target object that requires synchronization.
+            </summary>
+            <param name="trigger">The <see cref="T:System.Threading.AutoResetEvent"/> trigger is used to signal successfull event execution.</param>
+            <returns>The array of potetially failed event handlers returned from <see cref="M:DemiCode.Scheduling.EventHelper.RaiseEvents``1(System.Object,System.EventHandler{``0},``0)"/> </returns>
+        </member>
+        <member name="P:DemiCode.Scheduling.Test.Mocks.SynchronizedObject.InvokeRequired">
+            <summary>
+            Always returns true in order to force synchronization.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.Mocks.SynchronizedObject.Finalize">
+            <summary>
+            Destructor
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.Mocks.SynchronizedObject.Dispose">
+            <summary>
+            Disposes the AlarmTimer
+            </summary>
+        </member>
+        <member name="T:DemiCode.Scheduling.Test.Mocks.TargetInvocationConstructorMock">
+            <summary>
+            Class that enables testing of Factory.CreateInstance.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.Mocks.DisposableTask.Execute(DemiCode.Logging.ILoggerFactory)">
+            <summary>
+            Execute the task with the given parameters.
+            </summary>
+            <param name="loggerFactory">A logger factory which the task can use to create loggers for logging information, warnings and errors</param>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.ScheduledAlarmListener.#ctor(DemiCode.Scheduling.Scheduler)">
+            <summary>
+            Listen for the <see cref="E:DemiCode.Scheduling.Scheduler.ScheduledAlarm"/> and <see cref="E:DemiCode.Scheduling.Scheduler.EndOfSchedule"/> alarms.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.ScheduledAlarmListener.#ctor(DemiCode.Scheduling.Scheduler,System.Int32,System.Int32)">
+            <summary>
+            Listen for the <see cref="E:DemiCode.Scheduling.Scheduler.ScheduledAlarm"/> and <see cref="E:DemiCode.Scheduling.Scheduler.EndOfSchedule"/> alarms.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.ScheduledAlarmListener.#ctor(DemiCode.Scheduling.Scheduler,System.String)">
+            <summary>
+            Listen for the <see cref="E:DemiCode.Scheduling.Schedules.ISchedule.Alarm"/> on the named schedule.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.ScheduledAlarmListener.#ctor(DemiCode.Scheduling.Scheduler,System.String,System.Int32,System.Int32)">
+            <summary>
+            Listen for the <see cref="E:DemiCode.Scheduling.Schedules.ISchedule.Alarm"/> on the named schedule.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.ScheduledAlarmListener.Wait(System.Int32)">
+            <summary>
+            Wait for <see cref="E:DemiCode.Scheduling.Scheduler.ScheduledAlarm"/> and <see cref="E:DemiCode.Scheduling.Scheduler.EndOfSchedule"/>.
+            Only use with the <see cref="M:DemiCode.Scheduling.Test.ScheduledAlarmListener.#ctor(DemiCode.Scheduling.Scheduler)"/> constructor.
+            </summary>
+            <param name="milliseconds">Milliseconds to wait</param>
+            <returns>true if both events was fired, false if not or timeout occured</returns>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.ScheduledAlarmListener.WaitForScheduledAlarm(System.Int32)">
+            <summary>
+            Wait for <see cref="E:DemiCode.Scheduling.Scheduler.ScheduledAlarm"/> or <see cref="E:DemiCode.Scheduling.Schedules.ISchedule.Alarm"/>.
+            </summary>
+            <param name="milliseconds">Milliseconds to wait</param>
+            <returns>true if the event was fired, false if not or timeout occured</returns>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.ScheduledAlarmListener.AssertScheduledAlarm(System.Int32)">
+            <summary>
+            Assert that <see cref="E:DemiCode.Scheduling.Scheduler.ScheduledAlarm"/> or <see cref="E:DemiCode.Scheduling.Schedules.ISchedule.Alarm"/> is fired within the given timeout.
+            </summary>
+            <param name="milliseconds">Timeout in milliseconds</param>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.ScheduledAlarmListener.WaitForEndOfSchedule(System.Int32)">
+            <summary>
+            Wait for <see cref="E:DemiCode.Scheduling.Scheduler.EndOfSchedule"/>.
+            </summary>
+            <param name="milliseconds">Milliseconds to wait</param>
+            <returns>true if the event was fired, false if not or timeout occured</returns>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.ScheduledAlarmListener.AssertExpectedTriggerCount">
+            <summary>
+            Assert on <see cref="P:DemiCode.Scheduling.Test.ScheduledAlarmListener.DidMatchExpectedTriggerCount"/>.
+            </summary>
+        </member>
+        <member name="T:DemiCode.Scheduling.Test.SchedulerFactoryTest">
+             <summary>
+            This is a test class for DemiCode.Scheduling.SchedulerFactory and is intended
+            to contain all DemiCode.Scheduling.SchedulerFactory Unit Tests
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.SchedulerFactoryTest.CreateDefaultSchedulerFromConfigTest">
+             <summary>
+            Create Scheduler from config. Uses the defaultScheduler attribute.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.SchedulerFactoryTest.CreateFromConfig_CreateNamedScheduler">
+             <summary>
+            Create Scheduler from config. Uses a named scheduler overriding default scheduler.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.SchedulerFactoryTest.CreateNamedSchedulerFromConfigTest">
+             <summary>
+            Create Scheduler from config. Uses a named scheduler.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.SchedulerTest.Stop_CalledDuringOccurence_StopsTheScheduler">
+            <summary>
+            This test checks that <see cref="M:DemiCode.Scheduling.Scheduler.Stop"/> can be called from a schedule event handler.
+            Proves that case 9080 is fixed.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.SchedulerTest.SchedulesDifferingByTicksTest">
+            <summary>
+            This test checks that two schedules that <i>almost</i> matches on occurence is actually fired.
+            The test proves that case 1190 is fixed.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.SchedulerTest.AddTest">
+             <summary>
+            A test for Add (ISchedule)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.SchedulerTest.AddToEnabledSchedulerTest">
+             <summary>
+            A test for Add (ISchedule)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.SchedulerTest.AddRangeToEnabledScheduler">
+             <summary>
+            A test for Add (ISchedule)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.SchedulerTest.AddRangeTest">
+             <summary>
+            A test for AddRange (IEnumerable&lt;ISchedule&gt;)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.SchedulerTest.IsRunningGivesFalseWhenNoSchedules">
+            <summary>
+            No schedules should immediately stop the Scheduler.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.SchedulerTest.CreateDefaultSchedulerFromConfigTest">
+             <summary>
+            Create Scheduler from config. Uses the defaultScheduler attribute.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.SchedulerTest.MemoryUsageTest">
+            <summary>
+            Use this test to measure memory consumption during repeatedly allocation/disposal of schedulers.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.SchedulerTest.CreateNamedSchedulerFromConfigTest">
+             <summary>
+            Create Scheduler from config. Uses a named scheduler.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.SchedulerTest.CreateFromShortFormatConfigTest">
+             <summary>
+             Create Scheduler from config. Uses a named scheduler defined with the 
+             short format.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.SchedulerTest.ScheduleByNameIndexerTest">
+             <summary>
+            Test schedule-by-name indexer
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.SchedulerTest.EnabledTest">
+             <summary>
+            A test for Enabled
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.SchedulerTest.EnumeratorTest">
+            <summary>
+            Test both generic and standard IEnumerable interfaces.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.SchedulerTest.IndexerTest">
+            <summary>
+            Test schedule indexer.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.SchedulerTest.ConstructorTest">
+             <summary>
+            A test for Scheduler ()
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.SchedulerTest.AlarmConstructorTest">
+             <summary>
+            A test for Scheduler (IAlarmTimer alarmTimer)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.SchedulerTest.ConstructorWithScheduleArrayTest">
+             <summary>
+            A test for Scheduler (IEnumerable&lt;ISchedule&gt;)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.SchedulerTest.ConstructorWithOneScheduleTest">
+             <summary>
+            A test for Scheduler (ISchedule)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.SchedulerTest.ConstructorWithXmlNodeConfigurationTest">
+             <summary>
+            A test for Scheduler (XmlNode)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.SchedulerTest.StartTest">
+             <summary>
+            A test for Start ()
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.SchedulerTest.StopTest">
+             <summary>
+            A test for Stop ()
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.SchedulerTest.ToStringTest">
+             <summary>
+            A test for ToString ()
+            </summary>
+        </member>
+        <member name="T:DemiCode.Scheduling.Test.Scheduler_DisposeInEventHandlerTest">
+            <summary>
+            This test proves case 7797 fixed. Originally, one could not dispose and recreate a scheduler from with eg the <see cref="E:DemiCode.Scheduling.Scheduler.ScheduledAlarm"/> event.
+            This would cause the disposed instance to live on and invoke its schedules.
+            </summary>
+        </member>
+        <member name="T:DemiCode.Scheduling.Test.TestAssemblySetup">
+            <summary>
+            Assembly-wide setup
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.TimeHelper.Change(System.DateTime)">
+            <summary>
+            Change system time to the specified date/time and restore system time upon disposing.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Test.TimeHelper.Cargo.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="T:DemiCode.Scheduling.Configuration.Test.SchedulerElementCollectionTest">
+             <summary>
+            This is a test class for DemiCode.Scheduling.Configuration.SchedulerElementCollection and is intended
+            to contain all DemiCode.Scheduling.Configuration.SchedulerElementCollection Unit Tests
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Configuration.Test.SchedulerElementCollectionTest.CreateNewElementTest">
+             <summary>
+            A test for CreateNewElement ()
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Configuration.Test.SchedulerElementCollectionTest.ItemTest">
+             <summary>
+            A test for this[int index]
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Configuration.Test.SchedulerElementCollectionTest.SetItemWithReadOnlyCollectionTest">
+             <summary>
+            A test for setting this[int index]. Should give an exception since our collection is readonly.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Configuration.Test.SchedulerElementCollectionTest.SetItemTest">
+             <summary>
+            A test for setting this[int index]. 
+            </summary>
+        </member>
+        <member name="T:DemiCode.Scheduling.Configuration.Test.SchedulerElementTest">
+             <summary>
+            This is a test class for DemiCode.Scheduling.Configuration.SchedulerElement and is intended
+            to contain all DemiCode.Scheduling.Configuration.SchedulerElement Unit Tests
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Configuration.Test.SchedulerSettingsManagerTest.GetConfigurationSectionTest">
+             <summary>
+            A test for GetConfigurationSection (string)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Configuration.Test.SchedulerSettingsManagerTest.LoadConfigFromCacheTest">
+            <summary>
+            Test that config is read from cache even though we change the config file on disk.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Configuration.Test.SchedulerSettingsManagerTest.LoadConfigFromDiskTest">
+            <summary>
+            Test that config is read from disk invalidating the cached version.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Configuration.Test.SchedulerSettingsSavingTest.SaveConfigurationSection_CreateNewConfigFileTest">
+            <summary>
+            Test creating a new config file gives us the basic XML required for config files and a <c>SchedulerSettings</c> section.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Configuration.Test.SchedulerSettingsSavingTest.DummyMethod">
+            <summary>
+            Supports the CreateNewAndReloadSchedulerSettingsTest test.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Configuration.Test.SchedulerSettingsSavingTest.DummyMethod2">
+            <summary>
+            Supports the CreateNewAndReloadSchedulerSettingsTest test.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Configuration.Test.SchedulerSettingsSavingTest.DummyMethodWithParams(System.String,System.String)">
+            <summary>
+            Supports the CreateNewAndReloadSchedulerSettingsTest test.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Configuration.Test.SchedulerSettingsTest.DefaultSchedulerTest">
+             <summary>
+            A test for DefaultScheduler
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Configuration.Test.SchedulerSettingsTest.LoadSectionWithGenericSchedulesTest">
+            <summary>
+            Test that we're loading our schedules right.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Configuration.Test.SchedulerSettingsTest.LoadSectionWithBuiltInSchedulesTest">
+            <summary>
+            Test that we're loading our schedules right.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Configuration.Test.SchedulerSettingsTest.DeserializeInvalidSectionTest">
+             <summary>
+             A test for PostDeserialize (). 
+             We'll provoke some exceptions by loading an invalid section
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Configuration.Test.SchedulerSettingsTest.LoadSectionWithJobConfigTest">
+             <summary>
+             Test loading a scheduler section with task config.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Configuration.Test.SchedulerSettingsTest.LoadSectionWithLoggerConfigTest">
+             <summary>
+             Test loading a scheduler section with logger config.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Configuration.Test.SchedulerSettingsTest.LoadSectionWithInvalidLoggerConfigTest">
+             <summary>
+             Test loading a scheduler section with invalid logger config.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Configuration.Test.SchedulerSettingsTest.LoadSectionWithLog4netLoggerConfigTest">
+             <summary>
+             Test loading a scheduler section with log4net logger config.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Configuration.Test.SchedulerSettingsTest.LoadSectionWithConsoleLoggerConfigTest">
+             <summary>
+             Test loading a scheduler section with ConsoleLogger config.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Configuration.Test.SchedulerSettingsTest.LoadSectionWithParameterizedLoggerConfigTest">
+             <summary>
+             Test loading a scheduler section with logger with parameters config.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Configuration.Test.SchedulerSettingsTest.LoadSectionWithCodeTaskWithParametersConfigTest">
+             <summary>
+             Test loading a scheduler section with CodeTask config containing parameters.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Configuration.Test.SchedulerSettingsTest.TaskElementMissingTypeTest">
+            <summary>
+            Test loading a section with an invalid task element config.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Configuration.Test.SchedulerSettingsTest.LoadSectionWithInvalidCodeTaskConfigTest">
+             <summary>
+             Test loading a scheduler section with invalid CodeTask config.
+            </summary>
+        </member>
+        <member name="T:DemiCode.Scheduling.Configuration.Test.TaskSequenceElementTest">
+             <summary>
+            This is a test class for DemiCode.Scheduling.Configuration.TaskSequenceElement and is intended
+            to contain all DemiCode.Scheduling.Configuration.TaskSequenceElement Unit Tests
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Configuration.Test.TaskSequenceElementTest.InstanceTest">
+             <summary>
+            A test for Instance
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Configuration.Test.TaskSequenceElementTest.ConstructorTest">
+             <summary>
+            A test for TaskSequenceElement ()
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Configuration.Test.TaskSequenceElementTest.LoadSectionWithTaskSequenceTest">
+             <summary>
+             Test loading a scheduler section with TaskSequence.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Configuration.Test.TaskSequenceElementTest.LoadSectionWithTaskSequenceScheduleRefTest">
+             <summary>
+             Test loading a scheduler section with TaskSequence and tasks with schedulerefs.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Configuration.Test.TaskSequenceElementTest.LoadSectionWithEmptyTaskSequenceTest">
+             <summary>
+             Test loading a scheduler section with TaskSequence without tasks.
+            </summary>
+        </member>
+        <member name="T:DemiCode.Scheduling.Configuration.Tasks.Test.ScheduleReferenceCollectionTest">
+             <summary>
+            This is a test class for DemiCode.Scheduling.Configuration.ScheduleReferenceCollection and is intended
+            to contain all DemiCode.Scheduling.Configuration.ScheduleReferenceCollection Unit Tests
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Configuration.Tasks.Test.ScheduleReferenceCollectionTest.ConstructorTest">
+             <summary>
+            A test for ScheduleReferenceCollection ()
+            </summary>
+        </member>
+        <member name="T:DemiCode.Scheduling.Configuration.Tasks.Test.ScheduleReferenceElementTest">
+             <summary>
+            This is a test class for DemiCode.Scheduling.Configuration.ScheduleReferenceElement and is intended
+            to contain all DemiCode.Scheduling.Configuration.ScheduleReferenceElement Unit Tests
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Configuration.Tasks.Test.ScheduleReferenceElementTest.ConstructorTest">
+             <summary>
+            A test for ScheduleReferenceElement ()
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Configuration.Tasks.Test.ScheduleReferenceElementTest.Constructor2Test">
+             <summary>
+            A test for ScheduleReferenceElement ()
+            </summary>
+        </member>
+        <member name="T:DemiCode.Scheduling.Configuration.Tasks.Test.TaskElementTest">
+             <summary>
+            This is a test class for DemiCode.Scheduling.Configuration.TaskElement and is intended
+            to contain all DemiCode.Scheduling.Configuration.TaskElement Unit Tests
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Configuration.Tasks.Test.TaskElementTest.InstanceTest">
+             <summary>
+            A test for Instance
+            </summary>
+        </member>
+        <member name="T:DemiCode.Scheduling.Configuration.Tasks.Test.TaskElementTest.TestableTaskElement">
+             <summary>
+            A test for OnDeserializeUnrecognizedAttribute (string, string)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Configuration.Tasks.Test.TaskElementTest.OnRequiredPropertyNotFoundTest">
+             <summary>
+            A test for OnRequiredPropertyNotFound (string)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Configuration.Tasks.Test.TaskElementTest.ParametersTest">
+             <summary>
+            A test for Parameters
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Configuration.Tasks.Test.TaskElementTest.ConstructorTest">
+             <summary>
+            A test for TaskElement ()
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Configuration.Tasks.Test.TaskElementTest.ConstructorTest3">
+             <summary>
+            A test for TaskElement (string)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Configuration.Tasks.Test.TaskElementTest.TaskTypeTest">
+             <summary>
+            A test for ScheduleType
+            </summary>
+        </member>
+        <member name="T:DemiCode.Scheduling.Tasks.Test.TaskElementCollectionTest">
+             <summary>
+            This is a test class for DemiCode.Scheduling.Configuration.TaskElementCollection and is intended
+            to contain all DemiCode.Scheduling.Configuration.TaskElementCollection Unit Tests
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Tasks.Test.TaskElementCollectionTest.CollectionTypeTest">
+             <summary>
+            A test for CollectionType
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Tasks.Test.TaskElementCollectionTest.CreateNewElementTest">
+             <summary>
+            A test for CreateNewElement ()
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Tasks.Test.TaskElementCollectionTest.CreateNewElementTest1">
+             <summary>
+            A test for CreateNewElement (string)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Tasks.Test.TaskElementCollectionTest.CreateInvalidElementTest">
+             <summary>
+            A test for CreateNewElement (string) with an unknown element name.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Tasks.Test.TaskElementCollectionTest.GetElementKeyTest">
+             <summary>
+            A test for GetElementKey (ConfigurationElement)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Tasks.Test.TaskElementCollectionTest.IsElementNameTest">
+             <summary>
+            A test for IsElementName (string)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Tasks.Test.TaskElementCollectionTest.ItemTest">
+             <summary>
+            A test for this[int index]
+            </summary>
+        </member>
+        <member name="T:DemiCode.Scheduling.Tasks.Test.ApplicationTaskTest">
+             <summary>
+            This is a test class for DemiCode.Scheduling.Tasks.ApplicationTask and is intended
+            to contain all DemiCode.Scheduling.Tasks.ApplicationTask Unit Tests
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Tasks.Test.ApplicationTaskTest.ExecuteTest">
+             <summary>
+            A test for Execute (IDictionary)
+            </summary>
+        </member>
+        <member name="T:DemiCode.Scheduling.Tasks.Test.CodeTaskTest">
+             <summary>
+            This is a test class for DemiCode.Scheduling.Tasks.CodeTask and is intended
+            to contain all DemiCode.Scheduling.Tasks.CodeTask Unit Tests
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Tasks.Test.CodeTaskTest.ExecuteTest">
+             <summary>
+            A test for Execute (IDictionary)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Tasks.Test.CodeTaskTest.CodeTaskDisposesCodeAfterExecuteTest">
+             <summary>
+            Does CodeTask dispose instances?
+            </summary>
+        </member>
+        <member name="T:DemiCode.Scheduling.Tasks.Test.TaskCollectionTest">
+             <summary>
+            This is a test class for DemiCode.Scheduling.Tasks.TaskCollection and is intended
+            to contain all DemiCode.Scheduling.Tasks.TaskCollection Unit Tests
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Tasks.Test.TaskCollectionTest.AddTest">
+             <summary>
+            A test for Add (ITask)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Tasks.Test.TaskCollectionTest.AddRange">
+             <summary>
+            A test for Add (ITask)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Tasks.Test.TaskCollectionTest.AddRangeToNamedSchedules">
+             <summary>
+            A test for Add (ITask)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Tasks.Test.TaskCollectionTest.AddTest1">
+             <summary>
+            A test for Add (ITask, IDictionary)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Tasks.Test.TaskCollectionTest.AddTest2">
+             <summary>
+            A test for Add (ITask, IDictionary, string)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Tasks.Test.TaskCollectionTest.ConstructorTest1">
+             <summary>
+            A test for TaskCollection (Scheduler)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Tasks.Test.TaskCollectionTest.ItemTest">
+             <summary>
+            A test for this[int index]
+            </summary>
+        </member>
+        <member name="T:DemiCode.Scheduling.Tasks.Test.TaskHandlerTest">
+             <summary>
+            This is a test class for DemiCode.Scheduling.Scheduler.TaskHandler.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Tasks.Test.TaskHandlerTest.ScheduledAlarmEventHandlerTest">
+             <summary>
+            A test for ScheduledAlarmEventHandler (object, AlarmEventArgs)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Tasks.Test.TaskHandlerTest.ConstructorTest">
+             <summary>
+            A test for TaskHandler (ITask, NameValueCollection)
+            </summary>
+        </member>
+        <member name="T:DemiCode.Scheduling.Tasks.Test.TaskSequenceTest">
+             <summary>
+            This is a test class for DemiCode.Scheduling.Tasks.TaskSequence and is intended
+            to contain all DemiCode.Scheduling.Tasks.TaskSequence Unit Tests
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Tasks.Test.TaskSequenceTest.TaskSequenceDisposesCodeAfterExecuteTest">
+             <summary>
+            Does TaskSequence dispose instances?
+            </summary>
+        </member>
+        <member name="T:DemiCode.Scheduling.Schedules.Test.IntervalCountedScheduleTest">
+             <summary>
+            This is a test class for DemiCode.Scheduling.IntervalCountedSchedule and is intended
+            to contain all DemiCode.Scheduling.IntervalCountedSchedule Unit Tests
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Schedules.Test.IntervalCountedScheduleTest.MoveToFirstFromTest1">
+             <summary>
+            A test for MoveToFirstFrom (DateTime)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Schedules.Test.IntervalCountedScheduleTest.MoveToFirstFromTest2">
+             <summary>
+            A test for MoveToFirstFrom (DateTime)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Schedules.Test.IntervalCountedScheduleTest.ConstructorTest4_1">
+             <summary>
+            A test for IntervalCountedSchedule(XmlNode)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Schedules.Test.IntervalCountedScheduleTest.ConstructorTest4_2">
+             <summary>
+            A test for IntervalCountedSchedule(XmlNode)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Schedules.Test.IntervalCountedScheduleTest.ConstructorTest4_3">
+             <summary>
+            A test for IntervalCountedSchedule(XmlNode)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Schedules.Test.IntervalCountedScheduleTest.ConstructorTest4_4">
+             <summary>
+            A test for IntervalCountedSchedule(XmlNode)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Schedules.Test.IntervalCountedScheduleTest.ConstructorTest4_5">
+             <summary>
+            A test for IntervalCountedSchedule(XmlNode)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Schedules.Test.IntervalCountedScheduleTest.ConstructorTest4_6">
+             <summary>
+            A test for IntervalCountedSchedule(XmlNode)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Schedules.Test.IntervalCountedScheduleTest.ConstructorTest4_7">
+             <summary>
+            A test for IntervalCountedSchedule(XmlNode)
+            </summary>
+        </member>
+        <member name="T:DemiCode.Scheduling.Schedules.Test.IntervalScheduleTest">
+             <summary>
+            This is a test class for DemiCode.Scheduling.IntervalSchedule and is intended
+            to contain all DemiCode.Scheduling.IntervalSchedule Unit Tests
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Schedules.Test.IntervalScheduleTest.TwentyFourHourIntervalTest">
+            <summary>
+            Test loading an 24-hour interval schedule from config and via construction.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Schedules.Test.IntervalScheduleTest.ChangeSystemClockDuringIntervalTest">
+            <summary>
+            This test is ment to excercise what happens if the system clock is changed during an interval.
+            If the clock is moved forward, eg 1 second, the observed events will fire as expected and SignalTime will
+            be "correct". ActualSignalTime +1 second and the real difference between the previous and next
+            event will be reduced by 1 second.
+            
+            If the clock is moved back one second, the observed events will for that interval seem to fire twice at one
+            event, thus the SignalTime will be equal for two consequtive events. The ActualSignalTime will be -1 second
+            compared to the expected time and the real difference between the previous and next
+            event will be reduced by 1 second.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Schedules.Test.IntervalScheduleTest.DaylightSavingCrossingTest">
+            <summary>
+            In the U.S., clocks change at 2:00 a.m. local time. 
+            In spring, clocks spring forward from 1:59 a.m. to 3:00 a.m.; in fall, clocks fall back from 1:59 a.m. to 1:00 a.m. 
+            
+            In the EU, clocks change at 1:00 a.m. Universal Time. 
+            In spring, clocks spring forward from 12:59 a.m. to 2:00 a.m.; in fall, clocks fall back from 1:59 a.m. to 1:00 a.m.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Schedules.Test.IntervalScheduleTest.IntervalScheduleElapsedTest">
+             <summary>
+            A test for Scheduler (IAlarmTimer)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Schedules.Test.IntervalScheduleTest.TestFirstOccurence">
+             <summary>
+            Test what time the first interval will fire
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Schedules.Test.IntervalScheduleTest.TestFirstOccurenceMoveNext">
+             <summary>
+            Test what time the first interval will fire
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Schedules.Test.IntervalScheduleTest.MoveToFirstFromTest">
+             <summary>
+            A test for MoveToFirstFrom (DateTime)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Schedules.Test.IntervalScheduleTest.ConstructorByConfigurationTest">
+             <summary>
+            A test for IntervalSchedule(XmlNode) with valid configuration data.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Schedules.Test.IntervalScheduleTest.ConstructorTest4_1">
+             <summary>
+            A test for IntervalSchedule(XmlNode)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Schedules.Test.IntervalScheduleTest.ConstructorTest4_2">
+             <summary>
+            A test for IntervalSchedule(XmlNode)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Schedules.Test.IntervalScheduleTest.ConstructorTest4_3">
+             <summary>
+            A test for IntervalSchedule(XmlNode)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Schedules.Test.IntervalScheduleTest.ConstructorTest4_4">
+             <summary>
+            A test for IntervalSchedule(XmlNode)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Schedules.Test.IntervalScheduleTest.ConstructorTest4_6">
+             <summary>
+            A test for IntervalSchedule(XmlNode)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Schedules.Test.IntervalScheduleTest.ConstructorTest4_7">
+             <summary>
+            A test for IntervalSchedule(XmlNode)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Schedules.Test.LongIntervalScheduleTest.LongIntervalTest">
+            <summary>
+            Test loading an 24-hour interval schedule from config and via construction.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Schedules.Test.MonthlyScheduleTest.GetFirstOfMonthTest">
+             <summary>
+            A test for the algoritm of GetFirstOfMonth 
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Schedules.Test.MonthlyScheduleTest.MoveToFirstFromTest1">
+             <summary>
+            A test for MoveToFirstFrom (DateTime)
+            </summary>
+        </member>
+        <member name="T:DemiCode.Scheduling.Schedules.Test.OneShotScheduleTest">
+             <summary>
+            This is a test class for DemiCode.Scheduling.OneShotSchedule and is intended
+            to contain all DemiCode.Scheduling.OneShotSchedule Unit Tests
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Schedules.Test.OneShotScheduleTest.MoveToFirstFromTest">
+             <summary>
+            A test for MoveToFirstFrom (DateTime)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Schedules.Test.OneShotScheduleTest.ConstructorTest3_1">
+             <summary>
+            A test for OneShotSchedule(XmlNode)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Schedules.Test.OneShotScheduleTest.ConstructorTest3_2">
+             <summary>
+            A test for OneShotSchedule(XmlNode)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Schedules.Test.OneShotScheduleTest.ConstructorTest3_3">
+             <summary>
+            A test for OneShotSchedule(XmlNode)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Schedules.Test.OneShotScheduleTest.ConstructorTest3_4">
+             <summary>
+            A test for OneShotSchedule(XmlNode)
+            </summary>
+        </member>
+        <member name="T:DemiCode.Scheduling.Schedules.Test.ScheduleBaseTest">
+             <summary>
+            This is a test class for DemiCode.Scheduling.ScheduleBase and is intended
+            to contain all DemiCode.Scheduling.ScheduleBase Unit Tests
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Schedules.Test.ScheduleBaseTest.PropertiesTest">
+             <summary>
+            A test for FirstOccurrence, CurrentOccurrence and AdditionalData properties
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Schedules.Test.ScheduleBaseTest.CompareToTest1">
+             <summary>
+            A test for CompareTo methods of IComparable interface
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Schedules.Test.ScheduleBaseTest.CompareToTest2">
+             <summary>
+            A test for CompareTo methods of IComparable interface
+            </summary>
+            <remarks>
+            Comparing to null should yield an exception
+            </remarks>
+        </member>
+        <member name="M:DemiCode.Scheduling.Schedules.Test.ScheduleBaseTest.ItsTimeEventTest">
+             <summary>
+            A test for the Alarm event
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Schedules.Test.ScheduleBaseTest.ItsTimeEventTestHandler(System.Object,DemiCode.Scheduling.Alarms.AlarmEventArgs)">
+            <summary>
+            Handler to receive the event
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:DemiCode.Scheduling.Schedules.Test.ScheduleBaseTest.EndOfScheduleEventTest">
+             <summary>
+            A test for the EndOfSchedule event
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Schedules.Test.ScheduleBaseTest.EndOfScheduleEventTestHandler(System.Object,System.EventArgs)">
+            <summary>
+            Handler to receive the event
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:DemiCode.Scheduling.Schedules.Test.ScheduleBaseTest.CreateFromXmlTest">
+             <summary>
+            A test for CreateFromXml (XmlNode)
+            </summary>
+        </member>
+        <member name="T:DemiCode.Scheduling.Schedules.Test.WeeklyScheduleTest">
+             <summary>
+            This is a test class for DemiCode.Scheduling.WeeklySchedule and is intended
+            to contain all DemiCode.Scheduling.WeeklySchedule Unit Tests
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Schedules.Test.WeeklyScheduleTest.NullDaysArrayTest">
+            <summary>
+            Provoke null argument exception when passing list of days.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Schedules.Test.WeeklyScheduleTest.MoveToFirstFromTest1">
+             <summary>
+            A test for MoveToFirstFrom (DateTime)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Schedules.Test.WeeklyScheduleTest.ConstructorTest5_1">
+             <summary>
+            A test for WeeklySchedule(XmlNode)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Schedules.Test.WeeklyScheduleTest.ConstructorTest5_2">
+             <summary>
+            A test for WeeklySchedule(XmlNode)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Schedules.Test.WeeklyScheduleTest.ConstructorTest5_3">
+             <summary>
+            A test for WeeklySchedule(XmlNode)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Schedules.Test.WeeklyScheduleTest.ConstructorTest5_4">
+             <summary>
+            A test for WeeklySchedule(XmlNode)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Schedules.Test.WeeklyScheduleTest.ConstructorTest5_5">
+             <summary>
+            A test for WeeklySchedule(XmlNode)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Schedules.Test.WeeklyScheduleTest.ConstructorTest5_7">
+             <summary>
+            A test for WeeklySchedule(XmlNode)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Schedules.Test.WeeklyScheduleTest.ConstructorTest5_8">
+             <summary>
+            A test for WeeklySchedule(XmlNode)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Schedules.Test.WeeklyScheduleTest.ConstructorTest5_9">
+             <summary>
+            A test for WeeklySchedule(XmlNode)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Schedules.Test.WeeklyScheduleTest.ConstructorTest5_10">
+             <summary>
+            A test for WeeklySchedule(XmlNode)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Schedules.Test.WeeklyScheduleTest.ConstructorTest5_11">
+             <summary>
+            A test for WeeklySchedule(XmlNode)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Schedules.Test.WeeklyScheduleTest.ConstructWithEmptyToDate">
+             <summary>
+            A test for WeeklySchedule(XmlNode)
+            </summary>
+        </member>
+        <member name="M:DemiCode.Scheduling.Service.Test.WatchConfigFileTest.InitTest">
+            <summary>
+            This test asserts a file watcher event modifying a scheduler.
+            </summary>
+        </member>
+    </members>
+</doc>

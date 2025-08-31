@@ -11,6 +11,14 @@ namespace DemiCode.Scheduling.Configuration.Test
     [TestFixture]
     public class SchedulerElementCollectionTest
     {
+        // Test helper class to expose protected methods for testing
+        private class TestableSchedulerElementCollection : SchedulerElementCollection
+        {
+            public new ConfigurationElement CreateNewElement()
+            {
+                return base.CreateNewElement();
+            }
+        }
 
         /// <summary>
         ///A test for CreateNewElement ()
@@ -19,10 +27,9 @@ namespace DemiCode.Scheduling.Configuration.Test
         [Test]
         public void CreateNewElementTest()
         {
-            SchedulerElementCollection target = new SchedulerElementCollection();
-            Configura_Scheduling_Configuration_SchedulerElementCollectionAccessor accessor = new Configura_Scheduling_Configuration_SchedulerElementCollectionAccessor(target);
+            var target = new TestableSchedulerElementCollection();
 
-            ConfigurationElement actual = accessor.CreateNewElement();
+            ConfigurationElement actual = target.CreateNewElement();
             Assert.IsNotNull(actual);
         }
 
@@ -45,20 +52,22 @@ namespace DemiCode.Scheduling.Configuration.Test
         ///A test for setting this[int index]. Should give an exception since our collection is readonly.
         ///</summary>
         [Test]
-        [ExpectedException(typeof(ConfigurationErrorsException))]
         public void SetItemWithReadOnlyCollectionTest()
         {
-            SchedulerSettings ss = ConfigurationManager.GetSection("scheduling") as SchedulerSettings;
-            Assert.IsNotNull(ss);
+            Assert.Throws<ConfigurationErrorsException>(() =>
+            {
+                SchedulerSettings ss = ConfigurationManager.GetSection("scheduling") as SchedulerSettings;
+                Assert.IsNotNull(ss);
 
-            SchedulerElementCollection target = ss.Schedulers;
+                SchedulerElementCollection target = ss.Schedulers;
 
-            SchedulerElement val = new SchedulerElement();
-            val.Name = "newelement";
+                SchedulerElement val = new SchedulerElement();
+                val.Name = "newelement";
 
-            int index = 0;
+                int index = 0;
 
-            target[index] = val;
+                target[index] = val;
+            });
         }
 
         /// <summary>

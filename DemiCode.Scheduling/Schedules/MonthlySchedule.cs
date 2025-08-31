@@ -58,10 +58,10 @@ namespace DemiCode.Scheduling.Schedules
 		/// <param name="toDate">The ending date for the schedule. The TimeOfDay part of this DateTime is ignored.</param>
 		/// <param name="additionalData">User-defined data associated with the object.</param>
 		public MonthlySchedule(DateTime fromDate, DateTime toDate, object additionalData)
-			: base(fromDate, additionalData)
+			: base(string.Format("Monthly_{0:yyyy-MM-dd}_to_{1:yyyy-MM-dd}", fromDate, toDate), fromDate, additionalData)
 		{
             if (fromDate.Date >= toDate.Date)
-                throw new ArgumentException("fromDate", "Argument 'fromDate' must be a date before argument 'toDate'.");
+                throw new ArgumentException("Argument 'fromDate' must be a date before argument 'toDate'.", "fromDate");
 
 			_fromDate = fromDate;
 			_toDate = toDate;

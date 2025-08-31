@@ -1,89 +1,25 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{41A8CB99-344F-47DD-A9F6-DAA094DD330D}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DemiCode.Logging.Test</RootNamespace>
+    <TargetFramework>net8.0</TargetFramework>
     <AssemblyName>DemiCode.Logging.Test</AssemblyName>
-    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <SccProjectName>SAK</SccProjectName>
-    <SccLocalPath>SAK</SccLocalPath>
-    <SccAuxPath>SAK</SccAuxPath>
-    <SccProvider>SAK</SccProvider>
-    <SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>..\DemiCodeStrongName.snk</AssemblyOriginatorKeyFile>
+    <RootNamespace>DemiCode.Logging.Test</RootNamespace>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <ProjectGuid>{41A8CB99-344F-47DD-A9F6-DAA094DD330D}</ProjectGuid>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
+
+
   <ItemGroup>
-    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
-    <Reference Include="System" />
-    <Reference Include="System.configuration" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
+    <ProjectReference Include="..\DemiCode.Shared\DemiCode.Shared.csproj" />
+    <ProjectReference Include="..\DemiCode.Logging\DemiCode.Logging.csproj" />
+    <ProjectReference Include="..\DemiCode.Logging.log4net\DemiCode.Logging.log4net.csproj" />
   </ItemGroup>
+
   <ItemGroup>
-    <Compile Include="Configuration\Loggers\ConsoleLoggerElementTest.cs" />
-    <Compile Include="Configuration\Loggers\Log4netLoggerElementTest.cs" />
-    <Compile Include="Configuration\Loggers\LoggerElementTest.cs" />
-    <Compile Include="Loggers\ConsoleLoggerFactoryTest.cs" />
-    <Compile Include="Loggers\ConsoleLoggerTest.cs" />
-    <Compile Include="Loggers\log4net\Log4netLoggerTest.cs" />
-    <Compile Include="Loggers\log4net\LoggerFactoryTest.cs" />
-    <Compile Include="Loggers\LoggerFactoryCollectionTest.cs" />
-    <Compile Include="Loggers\NilLoggerFactoryTest.cs" />
-    <Compile Include="Loggers\NilLoggerTest.cs" />
-    <Compile Include="Loggers\SimpleNDCTest.cs" />
-    <Compile Include="Mocks\LoggerFactoryMock.cs" />
-    <Compile Include="Mocks\LoggerMock.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
+    <PackageReference Include="MSTest.TestAdapter" Version="3.1.1" />
+    <PackageReference Include="MSTest.TestFramework" Version="3.1.1" />
+    <PackageReference Include="log4net" Version="2.0.15" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DemiCode.Logging\DemiCode.Logging.csproj">
-      <Project>{98200917-C5F4-4958-B262-D87DAC1DF321}</Project>
-      <Name>DemiCode.Logging</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DemiCode.Scheduling.Loggers.log4net\DemiCode.Logging.log4net.csproj">
-      <Project>{D494AB74-6095-4B39-AD47-3E12678AE83C}</Project>
-      <Name>DemiCode.Logging.log4net</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DemiCode.Shared\DemiCode.Shared.csproj">
-      <Project>{4950761D-AFFA-4A0E-B328-4CA6238FC786}</Project>
-      <Name>DemiCode.Shared</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\DemiCodeStrongName.snk">
-      <Link>DemiCodeStrongName.snk</Link>
-    </None>
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>

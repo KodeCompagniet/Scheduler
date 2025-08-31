@@ -1,0 +1,3 @@
+/home/claude/aigit/Scheduler/DemiCode.Logging.Test/obj/Debug/net8.0/DemiCode.Logging.Test.csproj.AssemblyReference.cache
+/home/claude/aigit/Scheduler/DemiCode.Logging.Test/obj/Debug/net8.0/DemiCode.Logging.Test.GeneratedMSBuildEditorConfig.editorconfig
+/home/claude/aigit/Scheduler/DemiCode.Logging.Test/obj/Debug/net8.0/DemiCode.Logging.Test.csproj.CoreCompileInputs.cache

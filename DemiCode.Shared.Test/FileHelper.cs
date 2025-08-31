@@ -15,7 +15,7 @@ namespace DemiCode.Shared.Test
 
         public static void BackupConfigFile()
         {
-            var configFile = AppDomain.CurrentDomain.SetupInformation.ConfigurationFile;
+            var configFile = System.Configuration.ConfigurationManager.OpenExeConfiguration(System.Configuration.ConfigurationUserLevel.None).FilePath;
             var configBackup = Path.ChangeExtension(configFile, "backup");
             File.Copy(configFile, configBackup, true);
         }
@@ -27,7 +27,7 @@ namespace DemiCode.Shared.Test
 
         public static void ReplaceConfigFile(string path, string file)
         {
-            var configFile = AppDomain.CurrentDomain.SetupInformation.ConfigurationFile;
+            var configFile = System.Configuration.ConfigurationManager.OpenExeConfiguration(System.Configuration.ConfigurationUserLevel.None).FilePath;
             var configBackup = Path.ChangeExtension(configFile, "backup");
 
             var absFile = file;
@@ -41,7 +41,7 @@ namespace DemiCode.Shared.Test
 
         public static void RestoreConfigFile()
         {
-            var configFile = AppDomain.CurrentDomain.SetupInformation.ConfigurationFile;
+            var configFile = System.Configuration.ConfigurationManager.OpenExeConfiguration(System.Configuration.ConfigurationUserLevel.None).FilePath;
             var configBackup = Path.ChangeExtension(configFile, "backup");
 
             if (File.Exists(configBackup))

@@ -65,11 +65,13 @@ namespace DemiCode.Scheduling.Schedules.Test
 		///Comparing to null should yield an exception
 		///</remarks>
 		[Test]
-        [ExpectedException(typeof(ArgumentNullException))]
 		public void CompareToTest2()
 		{
-			OneShotSchedule schedule1 = new OneShotSchedule(new DateTime(1999, 7, 27, 8, 30, 0));
-			schedule1.CompareTo(null);
+			Assert.Throws<ArgumentNullException>(() =>
+			{
+				OneShotSchedule schedule1 = new OneShotSchedule(new DateTime(1999, 7, 27, 8, 30, 0));
+				schedule1.CompareTo(null);
+			});
 		}
 
 		#region Test ScheduleBase's Alarm event
@@ -146,19 +148,23 @@ namespace DemiCode.Scheduling.Schedules.Test
 		///A test for CreateFromXml (XmlNode)
 		///</summary>
 		[Test]
-		[ExpectedException(typeof(NullReferenceException))]
 		public void CreateFromXmlTest()
 		{
-			ScheduleBase.CreateFromXml(null);
+			Assert.Throws<NullReferenceException>(() =>
+			{
+				ScheduleBase.CreateFromXml(null);
+			});
 		}
 
         
         [Test]
-        [ExpectedException(typeof (ArgumentNullException))]
         public void ConstructWithNullXmlNodeTest()
         {
-            XmlNode node = null;
-            new MockSchedule(node);
+            Assert.Throws<ArgumentNullException>(() =>
+            {
+                XmlNode node = null;
+                new MockSchedule(node);
+            });
         }
 
         private class MockSchedule : ScheduleBase

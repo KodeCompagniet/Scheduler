@@ -30,7 +30,7 @@ namespace DemiCode.Logging.Test
             LoggerFactoryCollection target = new LoggerFactoryCollection();
             ILoggerFactory loggerFactory = target.GetDefaultLoggerFactory();
             Assert.IsNotNull(loggerFactory);
-            Assert.IsInstanceOfType(typeof(NilLoggerFactory), loggerFactory);
+            Assert.IsInstanceOf<NilLoggerFactory>(loggerFactory);
         }
 
         [Test]
@@ -42,11 +42,10 @@ namespace DemiCode.Logging.Test
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void AddNullTest()
         {
             LoggerFactoryCollection target = new LoggerFactoryCollection();
-            target.Add(null);
+            Assert.Throws<ArgumentNullException>(() => target.Add(null));
         }
 
         [Test]
@@ -64,7 +63,7 @@ namespace DemiCode.Logging.Test
             collection.Add(new NilLoggerFactory());
             ((IList<ILoggerFactory>)collection).Insert(0, new ConsoleLoggerFactory());
             Assert.AreEqual(2, collection.Count);
-            Assert.IsInstanceOfType(typeof(ConsoleLoggerFactory), collection[0]);
+            Assert.IsInstanceOf<ConsoleLoggerFactory>(collection[0]);
         }
 
         [Test]

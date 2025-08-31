@@ -3,7 +3,6 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Security;
-using System.Security.Permissions;
 
 [assembly: AssemblyTitle("DemiCode Scheduler")]
 [assembly: AssemblyDescription("")]
@@ -17,5 +16,6 @@ using System.Security.Permissions;
 [assembly: GuidAttribute("acdc7a0e-21a4-41ff-a595-618e20e67d27")]
 
 [assembly: SecurityTransparent]
-[assembly: FileIOPermission(SecurityAction.RequestMinimum, AllLocalFiles=FileIOPermissionAccess.Read, AllFiles = FileIOPermissionAccess.NoAccess, Unrestricted = false)]
-[assembly: ReflectionPermission(SecurityAction.RequestMinimum, RestrictedMemberAccess=true)]
+// Obsolete security attributes - not needed in .NET Core/Standard
+// [assembly: FileIOPermission(SecurityAction.RequestMinimum, AllLocalFiles=FileIOPermissionAccess.Read, AllFiles = FileIOPermissionAccess.NoAccess, Unrestricted = false)]
+// [assembly: ReflectionPermission(SecurityAction.RequestMinimum, RestrictedMemberAccess=true)]

@@ -24,7 +24,7 @@ namespace DemiCode.Scheduling.Configuration.Schedules.Test
         public void ScheduleTypeTest()
         {
             var target = new ScheduleElement("weekly", typeof(ScheduleMock));
-            Assert.IsInstanceOfType(typeof(ScheduleMock), target.GetScheduleInstance());
+            Assert.IsInstanceOf<ScheduleMock>(target.GetScheduleInstance());
         }
 
         [Test]

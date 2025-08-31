@@ -56,12 +56,14 @@ namespace DemiCode.Scheduling.Configuration.Test
             Assert.IsNotNull(doc.SelectSingleNode(String.Format("/configuration/{0}", sectionName)));
         }
 
-        [ExpectedException(typeof(ConfigurationErrorsException))]
         [Test]
         public void SaveConfigurationSection_SaveValidatesConfiguration()
         {
-            var originalSettings = CreateSettingsWithInvalidDefaultScheduler();
-            SchedulerSettingsManager.SaveConfigurationSection(originalSettings);
+            Assert.Throws<ConfigurationErrorsException>(() =>
+            {
+                var originalSettings = CreateSettingsWithInvalidDefaultScheduler();
+                SchedulerSettingsManager.SaveConfigurationSection(originalSettings);
+            });
         }
 
         [Test]

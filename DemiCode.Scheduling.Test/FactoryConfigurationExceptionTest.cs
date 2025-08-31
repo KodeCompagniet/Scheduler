@@ -16,11 +16,13 @@ namespace DemiCode.Scheduling.Test
         ///A test for FactoryConfigurationException ()
         ///</summary>
         [Test]
-        [ExpectedException(typeof(FactoryConfigurationException))]
         public void ConstructorTest()
         {
-            FactoryConfigurationException target = new FactoryConfigurationException();
-            throw target;
+            Assert.Throws<FactoryConfigurationException>(() =>
+            {
+                FactoryConfigurationException target = new FactoryConfigurationException();
+                throw target;
+            });
         }
 
 

@@ -41,7 +41,7 @@ namespace DemiCode.Scheduling.Configuration.Schedules.Test
 
             var target = new WeeklyScheduleElement("weekly", now, ts, days);
 
-            Assert.IsInstanceOfType(typeof(WeeklySchedule), target.GetScheduleInstance());
+            Assert.IsInstanceOf<WeeklySchedule>(target.GetScheduleInstance());
         }
 
         [Test]

@@ -1,0 +1,1210 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DemiCode.Shared</name>
+    </assembly>
+    <members>
+        <member name="T:DemiCode.Configuration.DateElement">
+            <summary>
+            A configuration element for representing <see cref="T:System.DateTime"/> in XML elements.
+            </summary>
+            <remarks>Only the date part will be preserved with this element.</remarks>
+        </member>
+        <member name="M:DemiCode.Configuration.DateElement.#ctor">
+            <summary>
+            Initialize a new instance of <see cref="T:DemiCode.Configuration.DateElement"/>.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Configuration.DateElement.#ctor(System.DateTime)">
+            <summary>
+            Initialize a new instance of <see cref="T:DemiCode.Configuration.DateElement"/> with <see cref="P:DemiCode.Configuration.DateTimeElement.Value"/> set to <paramref name="value"/>.
+            </summary>
+            <param name="value">The value to use.</param>
+        </member>
+        <member name="T:DemiCode.Configuration.DateTimeElement">
+            <summary>
+            A configuration element for representing <see cref="T:System.DateTime"/> in XML elements.
+            </summary>
+        </member>
+        <member name="P:DemiCode.Configuration.DateTimeElement.IsEmpty">
+            <summary>
+            Return true if <see cref="P:DemiCode.Configuration.DateTimeElement.Value"/> is equal <see cref="F:System.DateTime.MinValue"/>, false if not.
+            </summary>
+        </member>
+        <member name="P:DemiCode.Configuration.DateTimeElement.Value">
+            <summary>
+            The <see cref="T:System.DateTime"/> value.
+            </summary>
+        </member>
+        <member name="P:DemiCode.Configuration.DateTimeElement.Format">
+            <summary>
+            The format to use when converting <see cref="P:DemiCode.Configuration.DateTimeElement.Value"/> to and from <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Configuration.DateTimeElement.#ctor">
+            <summary>
+            Initialize a new instance of <see cref="T:DemiCode.Configuration.DateTimeElement"/>.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Configuration.DateTimeElement.#ctor(System.DateTime)">
+            <summary>
+            Initialize a new instance of <see cref="T:DemiCode.Configuration.DateTimeElement"/> with <see cref="P:DemiCode.Configuration.DateTimeElement.Value"/> set to <paramref name="value"/>.
+            </summary>
+            <param name="value">The value to use.</param>
+        </member>
+        <member name="M:DemiCode.Configuration.DateTimeElement.#ctor(System.String)">
+            <summary>
+            Note to inheritors: override the format used to ParseExact the datetime structure.
+            </summary>
+            <param name="format">The format to use when parsing <see cref="P:DemiCode.Configuration.DateTimeElement.Value"/> to and from string.</param>
+        </member>
+        <member name="M:DemiCode.Configuration.DateTimeElement.DeserializeElement(System.Xml.XmlReader,System.Boolean)">
+             <summary>
+             Deserializing expects a simple text value in the current node of the reader. This value is then converted to <see cref="T:System.DateTime"/>.
+             </summary>
+            
+            <param name="reader">The <see cref="T:System.Xml.XmlReader"></see> that reads from the configuration file.</param>
+            <param name="serializeCollectionKey">true to serialize only the collection key properties; otherwise, false.</param>
+        </member>
+        <member name="M:DemiCode.Configuration.DateTimeElement.SerializeElement(System.Xml.XmlWriter,System.Boolean)">
+            <summary>
+            Writes the contents of this configuration element to the configuration file when implemented in a derived class.
+            </summary>
+            
+            <returns>
+            true if any data was actually serialized; otherwise, false.
+            </returns>
+            
+            <param name="writer">The <see cref="T:System.Xml.XmlWriter"></see> that writes to the configuration file. </param>
+            <param name="serializeCollectionKey">true to serialize only the collection key properties; otherwise, false. </param>
+        </member>
+        <member name="M:DemiCode.Configuration.DateTimeElement.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"></see> that represents the current <see cref="T:System.Object"></see>.
+            </summary>
+            
+            <returns>
+            A <see cref="T:System.String"></see> that represents the current <see cref="T:System.Object"></see>.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="M:DemiCode.Configuration.DateTimeElement.Equals(DemiCode.Configuration.DateTimeElement)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            
+            <returns>
+            true if the current object is equal to the other parameter; otherwise, false.
+            </returns>
+            
+            <param name="compareTo">An object to compare with this object.</param>
+        </member>
+        <member name="M:DemiCode.Configuration.DateTimeElement.Equals(System.Object)">
+            <summary>
+            Compares the current <see cref="T:System.Configuration.ConfigurationElement"></see> instance to the specified object.
+            </summary>
+            
+            <returns>
+            true if the object to compare with is equal to the current <see cref="T:System.Configuration.ConfigurationElement"></see> instance; otherwise, false. The default is false. 
+            </returns>
+            
+            <param name="compareTo">The object to compare with.</param>
+        </member>
+        <member name="T:DemiCode.Configuration.DaysElement">
+            <summary>
+            A configuration element for representing a list of <see cref="T:System.DayOfWeek"/> values.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Configuration.DaysElement.#ctor">
+            <summary>
+            Initialize a new instance of <see cref="T:DemiCode.Configuration.DaysElement"/>.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Configuration.DaysElement.#ctor(System.DayOfWeek[])">
+            <summary>
+            Initialize a new instance of <see cref="T:DemiCode.Configuration.DaysElement"/> with <see cref="P:DemiCode.Configuration.EnumElement`1.Value"/> set to <paramref name="days"/>.
+            </summary>
+            <param name="days">The value to use.</param>
+        </member>
+        <member name="T:DemiCode.Configuration.EnumElement`1">
+            <summary>
+            Represent a list of values. 
+            </summary>
+            <remarks>This class is intended for inheritance. Subclasses must provide <b>collection</b> and <b>item</b> element names.
+            These names will be used when loading and serializing values to configuration XML. See the <see cref="T:DemiCode.Configuration.DaysElement"/> class 
+            for an example implementation using <see cref="T:System.DayOfWeek"/> values.
+            </remarks>
+            <typeparam name="T">An enum type that represents the valid names this element can contain</typeparam>
+        </member>
+        <member name="P:DemiCode.Configuration.EnumElement`1.Value">
+            <summary>
+            The list of values.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Configuration.EnumElement`1.#ctor(System.String,System.String)">
+            <summary>
+            Construct a new <see cref="T:DemiCode.Configuration.EnumElement`1"/>.
+            </summary>
+            <param name="collectionElementName">The element name used to group values in configuration, e.g. "days".</param>
+            <param name="itemElementName">The element name used for each value, e.g. "day".</param>
+        </member>
+        <member name="M:DemiCode.Configuration.EnumElement`1.#ctor(`0[],System.String,System.String)">
+            <summary>
+            Construct a new <see cref="T:DemiCode.Configuration.EnumElement`1"/>.
+            </summary>
+            <param name="value">Initial list of values.</param>
+            <param name="collectionElementName">The element name used to group values in configuration, e.g. "days".</param>
+            <param name="itemElementName">The element name used for each value, e.g. "day".</param>
+        </member>
+        <member name="M:DemiCode.Configuration.EnumElement`1.DeserializeElement(System.Xml.XmlReader,System.Boolean)">
+             <summary>
+             Deserializing expects a single top node with a list of children as the current node of the reader. This value is then converted to a collection of enumerated values.
+             </summary>
+            
+            <param name="reader">The <see cref="T:System.Xml.XmlReader"></see> that reads from the configuration file.</param>
+            <param name="serializeCollectionKey">true to serialize only the collection key properties; otherwise, false.</param>
+        </member>
+        <member name="M:DemiCode.Configuration.EnumElement`1.SerializeElement(System.Xml.XmlWriter,System.Boolean)">
+            <summary>
+            Writes the contents of this configuration element to the configuration file.
+            </summary>
+            
+            <returns>
+            true if any data was actually serialized; otherwise, false.
+            </returns>
+            
+            <param name="writer">The <see cref="T:System.Xml.XmlWriter"></see> that writes to the configuration file. </param>
+            <param name="serializeCollectionKey">true to serialize only the collection key properties; otherwise, false. </param>
+        </member>
+        <member name="M:DemiCode.Configuration.EnumElement`1.Equals(DemiCode.Configuration.EnumElement{`0})">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            
+            <returns>
+            true if the current object is equal to the other parameter; otherwise, false.
+            </returns>
+            
+            <param name="compareTo">An object to compare with this object.</param>
+        </member>
+        <member name="M:DemiCode.Configuration.EnumElement`1.Equals(System.Object)">
+            <summary>
+            Compares the current <see cref="T:System.Configuration.ConfigurationElement"></see> instance to the specified object.
+            </summary>
+            
+            <returns>
+            true if the object to compare with is equal to the current <see cref="T:System.Configuration.ConfigurationElement"></see> instance; otherwise, false. The default is false. 
+            </returns>
+            
+            <param name="compareTo">The object to compare with.</param>
+        </member>
+        <member name="T:DemiCode.Configuration.ExtendedConfigurationElementCollection">
+            <summary>
+            This class simplifies implementing <see cref="T:System.Configuration.ConfigurationElementCollection"/> classes that also have <see cref="T:System.Configuration.ConfigurationProperty"/> properties
+            in addition to being a collection of <see cref="T:System.Configuration.ConfigurationElement"/> instances.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Configuration.ExtendedConfigurationElementCollection.Equals(System.Object)">
+            <summary>
+            Compares the <see cref="T:System.Configuration.ConfigurationElementCollection"></see> to the specified object.
+             Elements in this collection will be compared to elements in the <paramref name="compareTo"/> collection.
+             Additionally, any properties defined on this collection will be compared.
+            </summary>
+            
+            <returns>
+            true if the object to compare with is equal to the current <see cref="T:System.Configuration.ConfigurationElementCollection"></see> instance; otherwise, false. The default is false.
+            </returns>
+            
+            <param name="compareTo">The object to compare. </param>
+        </member>
+        <member name="T:DemiCode.Configuration.IElementTypeProvider">
+            <summary>
+            This interface is used in conjunction with <see cref="T:DemiCode.Configuration.PolymorphicElementCollection`1"/>. 
+            </summary>
+        </member>
+        <member name="M:DemiCode.Configuration.IElementTypeProvider.GetElementType(System.String)">
+            <summary>
+            Return the <see cref="T:System.Configuration.ConfigurationElement"/> class that implements the specified element name.
+            </summary>
+            <param name="elementName">The element name to get the type for.</param>
+            <returns>A type implementing the specified element name.</returns>
+        </member>
+        <member name="T:DemiCode.Configuration.IKeyedConfigurationElement">
+            <summary>
+            This interface is intended for use by DemiCode internally.
+            </summary>
+        </member>
+        <member name="P:DemiCode.Configuration.IKeyedConfigurationElement.ElementName">
+            <summary>
+            The name of the element.
+            </summary>
+        </member>
+        <member name="P:DemiCode.Configuration.IKeyedConfigurationElement.ElementKey">
+            <summary>
+            The key of the element corresponding to <see cref="P:DemiCode.Configuration.IKeyedConfigurationElement.ElementName"/>.
+            </summary>
+        </member>
+        <member name="T:DemiCode.Configuration.InvalidConfigurationException">
+            <summary>
+            An exception that is thrown when a configuration section encounter errors.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Configuration.InvalidConfigurationException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:DemiCode.Configuration.InvalidConfigurationException"/> class.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Configuration.InvalidConfigurationException.#ctor(System.String)">
+            <summary>
+            Initializes an instance of the <see cref="T:DemiCode.Configuration.InvalidConfigurationException"/> class with a specified error message. 
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="M:DemiCode.Configuration.InvalidConfigurationException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DemiCode.Configuration.InvalidConfigurationException"/> class with a
+            specified error message and a reference to the inner exception that is the cause of this exception.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception.</param>
+            <param name="innerException">The exception that is the cause of the current exception,
+            or a null reference (Nothing in Visual Basic) if no inner exception is specified.</param>
+        </member>
+        <member name="M:DemiCode.Configuration.InvalidConfigurationException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DemiCode.Configuration.InvalidConfigurationException"/> class with serialized data.
+            </summary>
+            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the serialized object data about the exception being thrown. </param>
+            <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains contextual information about the source or destination.</param>
+        </member>
+        <member name="T:DemiCode.Configuration.ISerializationStateProvider">
+            <summary>
+            Interface used with configuration section managers to handle state of serialization.
+            </summary>
+        </member>
+        <member name="P:DemiCode.Configuration.ISerializationStateProvider.IsSerializing">
+            <summary>
+            Return true if the section manager is in a serializing mode, false if not.
+            </summary>
+        </member>
+        <member name="T:DemiCode.Configuration.LongElement">
+            <summary>
+            Configuration element for storing integer numbers.
+            </summary>
+        </member>
+        <member name="P:DemiCode.Configuration.LongElement.Value">
+            <summary>
+            The integer value.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Configuration.LongElement.#ctor">
+            <summary>
+            Initialize a new instance of <see cref="T:DemiCode.Configuration.LongElement"/>.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Configuration.LongElement.#ctor(System.Int64)">
+            <summary>
+            Initialize a new instance of <see cref="T:DemiCode.Configuration.LongElement"/> with <see cref="P:DemiCode.Configuration.LongElement.Value"/> set to <paramref name="value"/>.
+            </summary>
+            <param name="value">The value to use.</param>
+        </member>
+        <member name="M:DemiCode.Configuration.LongElement.DeserializeElement(System.Xml.XmlReader,System.Boolean)">
+             <summary>
+             Deserializing expects a simple text value in the current node of the reader. This value is then converted to an integer.
+             </summary>
+            
+            <param name="reader">The <see cref="T:System.Xml.XmlReader"></see> that reads from the configuration file.</param>
+            <param name="serializeCollectionKey">true to serialize only the collection key properties; otherwise, false.</param>
+        </member>
+        <member name="M:DemiCode.Configuration.LongElement.SerializeElement(System.Xml.XmlWriter,System.Boolean)">
+            <summary>
+            Writes the contents of this configuration element to the configuration file when implemented in a derived class.
+            </summary>
+            
+            <returns>
+            true if any data was actually serialized; otherwise, false.
+            </returns>
+            
+            <param name="writer">The <see cref="T:System.Xml.XmlWriter"></see> that writes to the configuration file. </param>
+            <param name="serializeCollectionKey">true to serialize only the collection key properties; otherwise, false. </param>
+        </member>
+        <member name="M:DemiCode.Configuration.LongElement.Equals(DemiCode.Configuration.LongElement)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            
+            <returns>
+            true if the current object is equal to the other parameter; otherwise, false.
+            </returns>
+            
+            <param name="compareTo">An object to compare with this object.</param>
+        </member>
+        <member name="M:DemiCode.Configuration.LongElement.Equals(System.Object)">
+            <summary>
+            Compares the current <see cref="T:System.Configuration.ConfigurationElement"></see> instance to the specified object.
+            </summary>
+            
+            <returns>
+            true if the object to compare with is equal to the current <see cref="T:System.Configuration.ConfigurationElement"></see> instance; otherwise, false. The default is false. 
+            </returns>
+            
+            <param name="compareTo">The object to compare with.</param>
+        </member>
+        <member name="T:DemiCode.Configuration.PolymorphicElementCollection`1">
+            <summary>
+            This interface is intended for use by DemiCode internally.
+            </summary>
+            <typeparam name="V">A type that implements a class that will indicate wether configuration is being serialized or not.</typeparam>
+        </member>
+        <member name="M:DemiCode.Configuration.PolymorphicElementCollection`1.GetDefaultElementType">
+            <summary>
+            Override in subclass to return the default <see cref="T:System.Configuration.ConfigurationElement"/> class.
+            </summary>
+            <remarks>This type is used in <see cref="M:System.Configuration.ConfigurationElementCollection.CreateNewElement"/>.</remarks>
+            <returns>The default element type.</returns>
+        </member>
+        <member name="M:DemiCode.Configuration.PolymorphicElementCollection`1.GetElementType(System.String)">
+            <summary>
+            Override in subclass to return the <see cref="T:System.Configuration.ConfigurationElement"/> class that implements the specified element name.
+            </summary>
+            <remarks>The type is used in <see cref="M:System.Configuration.ConfigurationElementCollection.CreateNewElement(System.String)"/>.</remarks>
+            <param name="elementName">The element name to get the type for.</param>
+            <returns>The <see cref="T:System.Configuration.ConfigurationElement"/> type to use for <paramref name="elementName"/>.</returns>
+        </member>
+        <member name="M:DemiCode.Configuration.PolymorphicElementCollection`1.GetElementKey(System.Configuration.ConfigurationElement)">
+            <summary>
+            Get the key of the specified element in this collection.
+            </summary>
+            <param name="element">An element from this collection.</param>
+            <returns>The key of the element</returns>
+        </member>
+        <member name="M:DemiCode.Configuration.PolymorphicElementCollection`1.CreateNewElement">
+            <summary>
+            When overridden in a derived class, creates a new <see cref="T:System.Configuration.ConfigurationElement"></see>.
+            </summary>
+            
+            <returns>
+            A new <see cref="T:System.Configuration.ConfigurationElement"></see>.
+            </returns>
+            
+        </member>
+        <member name="M:DemiCode.Configuration.PolymorphicElementCollection`1.CreateNewElement(System.String)">
+            <summary>
+            Creates a new <see cref="T:System.Configuration.ConfigurationElement"></see> when overridden in a derived class.
+            </summary>
+            
+            <returns>
+            A new <see cref="T:System.Configuration.ConfigurationElement"></see>.
+            </returns>
+            
+            <param name="elementName">The name of the <see cref="T:System.Configuration.ConfigurationElement"></see> to create. </param>
+        </member>
+        <member name="M:DemiCode.Configuration.PolymorphicElementCollection`1.Equals(DemiCode.Configuration.PolymorphicElementCollection{`0})">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            
+            <returns>
+            true if the current object is equal to the other parameter; otherwise, false.
+            </returns>
+            
+            <param name="compareTo">An object to compare with this object.</param>
+        </member>
+        <member name="M:DemiCode.Configuration.PolymorphicElementCollection`1.Equals(System.Object)">
+            <summary>
+            Compares the <see cref="T:System.Configuration.ConfigurationElementCollection"></see> to the specified object.
+             Elements in this collection will be compared to elements in the <paramref name="compareTo"/> collection.
+             Additionally, any properties defined on this collection will be compared.
+            </summary>
+            
+            <returns>
+            true if the object to compare with is equal to the current <see cref="T:System.Configuration.ConfigurationElementCollection"></see> instance; otherwise, false. The default is false.
+            </returns>
+            
+            <param name="compareTo">The object to compare. </param>
+        </member>
+        <member name="M:DemiCode.Configuration.PolymorphicElementCollection`1.GetHashCode">
+            <summary>
+            Gets a unique value representing the <see cref="T:System.Configuration.ConfigurationElementCollection"></see> instance.
+            </summary>
+            
+            <returns>
+            A unique value representing the <see cref="T:System.Configuration.ConfigurationElementCollection"></see> current instance.
+            </returns>
+            
+        </member>
+        <member name="T:DemiCode.Configuration.StringDictionaryConverter">
+            <summary>
+            Converter class for <see cref="T:System.Collections.Generic.Dictionary`2"/> with key and value of type <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Configuration.StringDictionaryConverter.CanConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Type)">
+            <summary>
+            Determines whether the conversion is allowed.
+            </summary>
+            
+            <returns>
+            true if the conversion is allowed; otherwise, false. 
+            </returns>
+            
+            <param name="type">The type to convert to.</param>
+            <param name="ctx">The <see cref="T:System.ComponentModel.ITypeDescriptorContext"></see> object used for type conversion.</param>
+        </member>
+        <member name="M:DemiCode.Configuration.StringDictionaryConverter.CanConvertFrom(System.ComponentModel.ITypeDescriptorContext,System.Type)">
+            <summary>
+            Determines whether the conversion is allowed.
+            </summary>
+            
+            <returns>
+            true if the conversion is allowed; otherwise, false.
+            </returns>
+            
+            <param name="type">The <see cref="T:System.Type"></see> to convert from.</param>
+            <param name="ctx">The <see cref="T:System.ComponentModel.ITypeDescriptorContext"></see> object used for type conversions.</param>
+        </member>
+        <member name="M:DemiCode.Configuration.StringDictionaryConverter.ConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object,System.Type)">
+            <summary>
+            Converts the given value object to the specified type, using the specified context and culture information.
+            </summary>
+            
+            <returns>
+            An <see cref="T:System.Object"></see> that represents the converted value.
+            </returns>
+            
+            <param name="culture">A <see cref="T:System.Globalization.CultureInfo"></see>. If null is passed, the current culture is assumed. </param>
+            <param name="context">An <see cref="T:System.ComponentModel.ITypeDescriptorContext"></see> that provides a format context. </param>
+            <param name="destinationType">The <see cref="T:System.Type"></see> to convert the value parameter to. </param>
+            <param name="value">The <see cref="T:System.Object"></see> to convert. </param>
+            <exception cref="T:System.NotSupportedException">The conversion cannot be performed. </exception>
+            <exception cref="T:System.ArgumentNullException">The destinationType parameter is null. </exception>
+        </member>
+        <member name="M:DemiCode.Configuration.StringDictionaryConverter.ConvertFrom(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object)">
+            <summary>
+            Converts the given object to the type of this converter, using the specified context and culture information.
+            </summary>
+            
+            <returns>
+            An <see cref="T:System.Object"></see> that represents the converted value.
+            </returns>
+            
+            <param name="culture">The <see cref="T:System.Globalization.CultureInfo"></see> to use as the current culture. </param>
+            <param name="context">An <see cref="T:System.ComponentModel.ITypeDescriptorContext"></see> that provides a format context. </param>
+            <param name="value">The <see cref="T:System.Object"></see> to convert. </param>
+            <exception cref="T:System.NotSupportedException">The conversion cannot be performed. </exception>
+        </member>
+        <member name="T:DemiCode.Configuration.TimeSpanElement">
+            <summary>
+            Configuration element for storing <see cref="T:System.TimeSpan"/> values.
+            </summary>
+        </member>
+        <member name="P:DemiCode.Configuration.TimeSpanElement.Value">
+            <summary>
+            The time span.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Configuration.TimeSpanElement.#ctor">
+            <summary>
+            Initialize a new instance of <see cref="T:DemiCode.Configuration.TimeSpanElement"/>.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Configuration.TimeSpanElement.#ctor(System.TimeSpan)">
+            <summary>
+            Initialize a new instance of <see cref="T:DemiCode.Configuration.TimeSpanElement"/> with <see cref="P:DemiCode.Configuration.TimeSpanElement.Value"/> set to <paramref name="value"/>.
+            </summary>
+            <param name="value">The value to use.</param>
+        </member>
+        <member name="M:DemiCode.Configuration.TimeSpanElement.DeserializeElement(System.Xml.XmlReader,System.Boolean)">
+             <summary>
+             Deserializing expects a simple text value in the current node of the reader. This value is then converted to a <see cref="T:System.TimeSpan"/>.
+             </summary>
+            
+            <param name="reader">The <see cref="T:System.Xml.XmlReader"></see> that reads from the configuration file.</param>
+            <param name="serializeCollectionKey">true to serialize only the collection key properties; otherwise, false.</param>
+        </member>
+        <member name="M:DemiCode.Configuration.TimeSpanElement.SerializeElement(System.Xml.XmlWriter,System.Boolean)">
+            <summary>
+            Writes the contents of this configuration element to the configuration file when implemented in a derived class.
+            </summary>
+            
+            <returns>
+            true if any data was actually serialized; otherwise, false.
+            </returns>
+            
+            <param name="writer">The <see cref="T:System.Xml.XmlWriter"></see> that writes to the configuration file. </param>
+            <param name="serializeCollectionKey">true to serialize only the collection key properties; otherwise, false. </param>
+        </member>
+        <member name="M:DemiCode.Configuration.TimeSpanElement.Equals(DemiCode.Configuration.TimeSpanElement)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            
+            <returns>
+            true if the current object is equal to the other parameter; otherwise, false.
+            </returns>
+            
+            <param name="compareTo">An object to compare with this object.</param>
+        </member>
+        <member name="M:DemiCode.Configuration.TimeSpanElement.Equals(System.Object)">
+            <summary>
+            Compares the current <see cref="T:System.Configuration.ConfigurationElement"></see> instance to the specified object.
+            </summary>
+            
+            <returns>
+            true if the object to compare with is equal to the current <see cref="T:System.Configuration.ConfigurationElement"></see> instance; otherwise, false. The default is false. 
+            </returns>
+            
+            <param name="compareTo">The object to compare with.</param>
+        </member>
+        <member name="T:DemiCode.Shared.Factories.Factory">
+            <summary>
+            Methods to dynamically create objects of different types from XML
+            </summary>
+        </member>
+        <member name="M:DemiCode.Shared.Factories.Factory.CreateInstance``1(System.Xml.XmlNode)">
+            <summary>
+            Creates a new instance of a the type described in config's "type" attribute. That type must implement interface <typeparamref name="T"/>.
+            </summary>
+            <remarks>
+            The fully qualified typename includes the name of the types containing assembly without
+            the filename extension. (Like "namespaces.classname, assemblyname".)
+            </remarks>
+            <typeparam name="T">An interface supported of typeToCreate</typeparam>
+            <param name="config">The XmlNode containing a "type" attribute to describe what type to create. This inNode is also passed to the created type's constructor</param>
+            <returns>A interface reference to an object of type typeToCreate</returns>
+        </member>
+        <member name="M:DemiCode.Shared.Factories.Factory.CreateInstance``1(System.String)">
+            <summary>
+            Creates a new instance of typeName which implements interface <typeparamref name="T"/> or inherits from a base type <typeparamref name="T"/>.
+            </summary>
+            <remarks>
+            The fully qualified typename includes the name of the types containing assembly without
+            the filename extension. (Like "namespaces.classname, assemblyname".)
+            </remarks>
+            <typeparam name="T">An interface supported of typeName</typeparam>
+            <param name="typeName">The fully qualified name of the type to instantiate</param>
+            <returns>A interface reference to an object of type typeName</returns>
+        </member>
+        <member name="M:DemiCode.Shared.Factories.Factory.CreateInstance``1(System.String,System.Xml.XmlNode)">
+            <summary>
+            Creates a new instance of typeName which implements interface <typeparamref name="T"/>.
+            </summary>
+            <remarks>
+            The fully qualified typename includes the name of the types containing assembly without
+            the filename extension. (Like "namespaces.classname, assemblyname".)
+            </remarks>
+            <typeparam name="T">An interface supported of typeName</typeparam>
+            <param name="typeName">The fully qualified name of the type to instantiate</param>
+            <param name="config">The XML inNode to be passed to typeName's constructor</param>
+            <returns>A interface reference to an object of type typeName</returns>
+        </member>
+        <member name="M:DemiCode.Shared.Factories.Factory.CreateInstance``1(System.Type)">
+            <summary>
+            Creates a new instance of typeToCreate
+            </summary>
+            <typeparam name="T">An interface supported of typeToCreate</typeparam>
+            <param name="typeToCreate">The type to instantiate</param>
+            <returns>A interface reference to an object of type typeToCreate</returns>
+        </member>
+        <member name="M:DemiCode.Shared.Factories.Factory.CreateInstance``1(System.Type,System.Xml.XmlNode)">
+            <summary>
+            Creates a new instance of typeToCreate which implements interface <typeparamref name="T"/>.
+            </summary>
+            <typeparam name="T">An interface supported of typeToCreate</typeparam>
+            <param name="typeToCreate">The type to instantiate</param>
+            <param name="config">The XML inNode to be passed to typeToCreate's constructor</param>
+            <returns>A interface reference to an object of type typeToCreate</returns>
+        </member>
+        <member name="T:DemiCode.Shared.Factories.FactoryException">
+            <summary>
+            An Exception that is thrown when the Factory class can't create an object.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Shared.Factories.FactoryException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="!:DemiCode.Scheduling.FactoryException"/> class.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Shared.Factories.FactoryException.#ctor(System.String)">
+            <summary>
+            Initializes an instance of the <see cref="!:DemiCode.Scheduling.FactoryException"/> class with a specified error message. 
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="M:DemiCode.Shared.Factories.FactoryException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="!:DemiCode.Scheduling.FactoryException"/> class with a
+            specified error message and a reference to the inner exception that is the cause of this exception.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception.</param>
+            <param name="innerException">The exception that is the cause of the current exception,
+            or a null reference (Nothing in Visual Basic) if no inner exception is specified.</param>
+        </member>
+        <member name="M:DemiCode.Shared.Factories.FactoryException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="!:DemiCode.Scheduling.FactoryException"/> class with serialized data.
+            </summary>
+            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the serialized object data about the exception being thrown. </param>
+            <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains contextual information about the source or destination.</param>
+        </member>
+        <member name="T:DemiCode.Shared.Factories.FactoryConfigurationException">
+            <summary>
+            An Exception that is thrown when the configuration provided the Factory class is incorrect.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Shared.Factories.FactoryConfigurationException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="!:DemiCode.Scheduling.FactoryConfigurationException"/> class.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Shared.Factories.FactoryConfigurationException.#ctor(System.String)">
+            <summary>
+            Initializes an instance of the <see cref="!:DemiCode.Scheduling.FactoryConfigurationException"/> class with a specified error message. 
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="M:DemiCode.Shared.Factories.FactoryConfigurationException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="!:DemiCode.Scheduling.FactoryConfigurationException"/> class with a
+            specified error message and a reference to the inner exception that is the cause of this exception.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception.</param>
+            <param name="innerException">The exception that is the cause of the current exception,
+            or a null reference (Nothing in Visual Basic) if no inner exception is specified.</param>
+        </member>
+        <member name="M:DemiCode.Shared.Factories.FactoryConfigurationException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="!:DemiCode.Scheduling.FactoryConfigurationException"/> class with serialized data.
+            </summary>
+            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the serialized object data about the exception being thrown. </param>
+            <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains contextual information about the source or destination.</param>
+        </member>
+        <member name="T:DemiCode.Logging.Configuration.ConsoleLoggerElement">
+            <summary>
+            Strong typed class for containing a ConsoleLogger configuration element read from a configuration file.
+            </summary>
+            <remarks>This class is intended to be used by the <see cref="T:DemiCode.Logging.Configuration.LoggerElementCollection`1"/> class</remarks>
+        </member>
+        <member name="M:DemiCode.Logging.Configuration.ConsoleLoggerElement.#ctor">
+            <summary>
+            Construct a new <see cref="T:DemiCode.Logging.Configuration.ConsoleLoggerElement"/> object.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Logging.Configuration.ConsoleLoggerElement.GetLoggerInstance">
+            <summary>
+             Return an <see cref="T:DemiCode.Logging.ILoggerFactory"/> instance.
+            </summary>
+             <returns>An <see cref="T:DemiCode.Logging.ConsoleLoggerFactory"/> instance.</returns>
+        </member>
+        <member name="M:DemiCode.Logging.Configuration.ConsoleLoggerElement.Equals(DemiCode.Logging.Configuration.ConsoleLoggerElement)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            
+            <returns>
+            true if the current object is equal to the other parameter; otherwise, false.
+            </returns>
+            
+            <param name="compareTo">An object to compare with this object.</param>
+        </member>
+        <member name="M:DemiCode.Logging.Configuration.ConsoleLoggerElement.Equals(System.Object)">
+            <summary>
+            Compares the current <see cref="T:System.Configuration.ConfigurationElement"></see> instance to the specified object.
+            </summary>
+            
+            <returns>
+            true if the object to compare with is equal to the current <see cref="T:System.Configuration.ConfigurationElement"></see> instance; otherwise, false. The default is false. 
+            </returns>
+            
+            <param name="compareTo">The object to compare with.</param>
+        </member>
+        <member name="T:DemiCode.Logging.Configuration.LoggerElement">
+            <summary>
+            Strong typed class for containing a task element read from a configuration file.
+            All <c>logger</c> elements within the <c>scheduler/loggers</c> element will
+            be loaded and exposed as a collection of <see cref="T:DemiCode.Logging.ILoggerFactory"/> instances.
+            </summary>
+            <remarks>This class is intended to be used by the <see cref="T:DemiCode.Logging.Configuration.LoggerElementCollection`1"/> class</remarks>
+        </member>
+        <member name="M:DemiCode.Logging.Configuration.LoggerElement.GetLoggerInstance">
+            <summary>
+             Return an <see cref="T:DemiCode.Logging.ILoggerFactory"/> instance.
+            </summary>
+             <returns>An instance of the logger factory type in <see cref="P:DemiCode.Logging.Configuration.LoggerElement.LoggerType"/>.</returns>
+        </member>
+        <member name="M:DemiCode.Logging.Configuration.LoggerElement.#ctor">
+            <summary>
+            Construct an empty <see cref="T:DemiCode.Logging.Configuration.LoggerElement"/> instance.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Logging.Configuration.LoggerElement.#ctor(System.Type)">
+            <summary>
+            Construct an empty <see cref="T:DemiCode.Logging.Configuration.LoggerElement"/> instance.
+            </summary>
+            <param name="loggerType">The logger factory type. This type must implement the <see cref="T:DemiCode.Logging.ILoggerFactory"/> interface.</param>
+        </member>
+        <member name="P:DemiCode.Logging.Configuration.LoggerElement.LoggerType">
+            <summary>
+            The logger factory type.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Logging.Configuration.LoggerElement.Equals(DemiCode.Logging.Configuration.LoggerElement)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            
+            <returns>
+            true if the current object is equal to the other parameter; otherwise, false.
+            </returns>
+            
+            <param name="compareTo">An object to compare with this object.</param>
+        </member>
+        <member name="M:DemiCode.Logging.Configuration.LoggerElement.Equals(System.Object)">
+            <summary>
+            Compares the <see cref="T:System.Configuration.ConfigurationElementCollection"></see> to the specified object.
+            </summary>
+            
+            <returns>
+            true if the object to compare with is equal to the current <see cref="T:System.Configuration.ConfigurationElementCollection"></see> instance; otherwise, false. The default is false.
+            </returns>
+            
+            <param name="compareTo">The object to compare. </param>
+        </member>
+        <member name="T:DemiCode.Logging.Configuration.LoggerElementBase">
+            <summary>
+            The base class for all logger element configuration classes.
+            </summary>
+        </member>
+        <member name="P:DemiCode.Logging.Configuration.LoggerElementBase.LoggerElementName">
+            <summary>
+            The element name for this logger element. This name will be used when serializing and deserializing configuration XML.
+            </summary>
+        </member>
+        <member name="P:DemiCode.Logging.Configuration.LoggerElementBase.LoggerElementKey">
+            <summary>
+            A unique key assigned to this logger element. 
+            </summary>
+        </member>
+        <member name="P:DemiCode.Logging.Configuration.LoggerElementBase.Parameters">
+            <summary>
+            A collection of name/value pairs for this task loaded from configuration.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Logging.Configuration.LoggerElementBase.GetLoggerInstance">
+            <summary>
+             Return an <see cref="T:DemiCode.Logging.ILoggerFactory"/> instance.
+            </summary>
+             <returns>A <see cref="T:DemiCode.Logging.ILoggerFactory"/> instance.</returns>
+        </member>
+        <member name="M:DemiCode.Logging.Configuration.LoggerElementBase.OnDeserializeUnrecognizedAttribute(System.String,System.String)">
+            <summary>
+            Unrecongnized attributes will be collected in the <see cref="P:DemiCode.Logging.Configuration.LoggerElementBase.Parameters"/> collection.
+            </summary>
+            <param name="name">The name of the unrecognized attribute.</param>
+            <param name="value">The value of the unrecognized attribute.</param>
+            <returns>true when an unknown attribute is encountered while deserializing.</returns>
+        </member>
+        <member name="M:DemiCode.Logging.Configuration.LoggerElementBase.SerializeElement(System.Xml.XmlWriter,System.Boolean)">
+            <summary>
+            Writes the configuration data to an XML element in the configuration file when overridden in a derived class.
+            </summary>
+            
+            <returns>
+            true if the <see cref="T:System.Configuration.ConfigurationElementCollection"></see> was written to the configuration file successfully.
+            </returns>
+            
+            <param name="writer">Output stream that writes XML to the configuration file. </param>
+            <param name="serializeCollectionKey">true to serialize the collection key; otherwise, false. </param>
+        </member>
+        <member name="M:DemiCode.Logging.Configuration.LoggerElementBase.#ctor(System.String)">
+            <summary>
+            Construct an empty <see cref="T:DemiCode.Logging.Configuration.LoggerElementBase"/> instance.
+            </summary>
+            <remarks>Note to inheritors: use this contstructor to assign the element representing your logger type.</remarks>
+            <param name="elementName">The element name representing this logger.</param>
+        </member>
+        <member name="T:DemiCode.Logging.Configuration.LoggerElementCollection`1">
+            <summary>
+            A collection for <see cref="T:DemiCode.Logging.Configuration.LoggerElementBase"/> instances loaded from a scheduler/jobs configuration section.
+            </summary>
+            <typeparam name="V">A type that implements a class that will indicate wether configuration is serialized or not.</typeparam>
+        </member>
+        <member name="P:DemiCode.Logging.Configuration.LoggerElementCollection`1.Item(System.Int32)">
+            <summary>
+            Return <see cref="T:DemiCode.Logging.Configuration.LoggerElementBase"/> by its index in the collection.
+            </summary>
+            <param name="index">The index of the element to retrieve</param>
+        </member>
+        <member name="M:DemiCode.Logging.Configuration.LoggerElementCollection`1.IsElementName(System.String)">
+            <summary>
+            Returns true if the specified element name is a valid name for this collection type.
+            </summary>
+            <param name="elementName">Name of the element as read from the configuration file.</param>
+            <returns>true if the name is valid; otherwise, false.</returns>
+        </member>
+        <member name="P:DemiCode.Logging.Configuration.LoggerElementCollection`1.CollectionType">
+            <summary>
+            Collection type is <see cref="F:System.Configuration.ConfigurationElementCollectionType.BasicMapAlternate"/>.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Logging.Configuration.LoggerElementCollection`1.Add(DemiCode.Logging.Configuration.LoggerElementBase)">
+            <summary>
+            Add the specified <see cref="T:DemiCode.Logging.Configuration.LoggerElementBase"/> to this collection. If an element with the same name 
+            already exist the old element will be replaced.
+            </summary>
+            <param name="logger">The logger element to add.</param>
+        </member>
+        <member name="M:DemiCode.Logging.Configuration.LoggerElementCollection`1.Remove(System.Int32)">
+            <summary>
+            Removes the <see cref="T:DemiCode.Logging.Configuration.LoggerElementBase"/> at the specified index location.
+            </summary>
+            <param name="index">The index location of the <see cref="T:DemiCode.Logging.Configuration.LoggerElementBase"/> to remove.</param>
+        </member>
+        <member name="M:DemiCode.Logging.Configuration.LoggerElementCollection`1.Remove(System.String)">
+            <summary>
+            Removes the <see cref="T:DemiCode.Logging.Configuration.LoggerElementBase"/> with the specified name.
+            </summary>
+            <param name="name">The name of the <see cref="T:DemiCode.Logging.Configuration.LoggerElementBase"/> to remove.</param>
+        </member>
+        <member name="M:DemiCode.Logging.Configuration.LoggerElementCollection`1.GetElementType(System.String)">
+            <summary>
+            Override in subclass to return the <see cref="T:System.Configuration.ConfigurationElement"/> class that implements the specified element name.
+            </summary>
+            <param name="elementName">The element name to get the type for.</param>
+            <returns>An instance of the type to use for <paramref name="elementName"/>.</returns>
+        </member>
+        <member name="M:DemiCode.Logging.Configuration.LoggerElementCollection`1.GetDefaultElementType">
+            <summary>
+            Gets the default logger element type.
+            </summary>
+            <remarks>This type is used in <see cref="M:System.Configuration.ConfigurationElementCollection.CreateNewElement"/>.</remarks>
+            <returns>An instance of <see cref="T:DemiCode.Logging.Configuration.LoggerElement"/>.</returns>
+        </member>
+        <member name="T:DemiCode.Logging.ConsoleLogger">
+            <summary>
+            A simple logger that outputs messages to the console. This logger is usefull in console applications and debugging scenarios. 
+            </summary>
+        </member>
+        <member name="M:DemiCode.Logging.ConsoleLogger.#ctor">
+            <summary>
+            Initialize a new instance of <see cref="T:DemiCode.Logging.ConsoleLogger"/>.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Logging.ConsoleLogger.#ctor(System.String)">
+            <summary>
+            Initialize a new instance of <see cref="T:DemiCode.Logging.ConsoleLogger"/>.
+            </summary>
+            <param name="loggerName">The name of this logger.</param>
+        </member>
+        <member name="M:DemiCode.Logging.ConsoleLogger.DemiCode#Logging#ILogger#Fatal(System.String,System.Exception,System.Object[])">
+            <summary>
+            Log a fatal message with exception information.
+            </summary>
+            <param name="message">Message with optional format parameters</param>
+            <param name="exception">Exception</param>
+            <param name="args">Optional format arguments</param>
+        </member>
+        <member name="M:DemiCode.Logging.ConsoleLogger.DemiCode#Logging#ILogger#Error(System.String,System.Exception,System.Object[])">
+            <summary>
+            Log an error message with exception information.
+            </summary>
+            <param name="message">Message with optional format parameters</param>
+            <param name="exception">Exception</param>
+            <param name="args">Optional format arguments</param>
+        </member>
+        <member name="M:DemiCode.Logging.ConsoleLogger.DemiCode#Logging#ILogger#Warn(System.String,System.Exception,System.Object[])">
+            <summary>
+            Log a warning with exception information.
+            </summary>
+            <param name="message">Message with optional format parameters</param>
+            <param name="exception">Exception</param>
+            <param name="args">Optional format arguments</param>
+        </member>
+        <member name="M:DemiCode.Logging.ConsoleLogger.DemiCode#Logging#ILogger#Info(System.String,System.Exception,System.Object[])">
+            <summary>
+            Log information with exception information.
+            </summary>
+            <param name="message">Message with optional format parameters</param>
+            <param name="exception">Exception</param>
+            <param name="args">Optional format arguments</param>
+        </member>
+        <member name="M:DemiCode.Logging.ConsoleLogger.DemiCode#Logging#ILogger#Debug(System.String,System.Exception,System.Object[])">
+            <summary>
+            Log debug information with exception information.
+            </summary>
+            <param name="message">Message with optional format parameters</param>
+            <param name="exception">Exception</param>
+            <param name="args">Optional format arguments</param>
+        </member>
+        <member name="T:DemiCode.Logging.ConsoleLoggerFactory">
+            <summary>
+            Factory for constructing Console loggers and NDC instances (Nested Diagnostics Context).
+            </summary>
+        </member>
+        <member name="M:DemiCode.Logging.ConsoleLoggerFactory.DemiCode#Logging#ILoggerFactory#CreateLogger(System.String)">
+            <summary>
+            Create a logger.
+            </summary>
+            <param name="name">Name of the logger</param>
+        </member>
+        <member name="M:DemiCode.Logging.ConsoleLoggerFactory.DemiCode#Logging#ILoggerFactory#CreateLogger(System.Type)">
+            <summary>
+            Create a logger.
+            </summary>
+            <param name="type">The full name of the type will be used as name for the logger</param>
+        </member>
+        <member name="M:DemiCode.Logging.ConsoleLoggerFactory.DemiCode#Logging#ILoggerFactory#CreateNDC(System.String)">
+            <summary>
+            Create an NDC.
+            </summary>
+            <param name="message">Message or context of the NDC</param>
+            <returns>An object that serves as holder for the NDC. Must be disposed when the NDC goes out of scope. 
+            </returns>
+        </member>
+        <member name="T:DemiCode.Logging.ILogger">
+            <summary>
+            Interface for a logger.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Logging.ILogger.Fatal(System.String,System.Object[])">
+            <summary>
+            Log a fatal message.
+            </summary>
+            <param name="message">Message with optional format parameters</param>
+            <param name="args">Optional format arguments</param>
+        </member>
+        <member name="M:DemiCode.Logging.ILogger.Fatal(System.String,System.Exception,System.Object[])">
+            <summary>
+            Log a fatal message with exception information.
+            </summary>
+            <param name="message">Message with optional format parameters</param>
+            <param name="exception">Exception</param>
+            <param name="args">Optional format arguments</param>
+        </member>
+        <member name="M:DemiCode.Logging.ILogger.Error(System.String,System.Object[])">
+            <summary>
+            Log an error message.
+            </summary>
+            <param name="message">Message with optional format parameters</param>
+            <param name="args">Optional format arguments</param>
+        </member>
+        <member name="M:DemiCode.Logging.ILogger.Error(System.String,System.Exception,System.Object[])">
+            <summary>
+            Log an error message with exception information.
+            </summary>
+            <param name="message">Message with optional format parameters</param>
+            <param name="exception">Exception</param>
+            <param name="args">Optional format arguments</param>
+        </member>
+        <member name="M:DemiCode.Logging.ILogger.Warn(System.String,System.Object[])">
+            <summary>
+            Log a warning.
+            </summary>
+            <param name="message">Message with optional format parameters</param>
+            <param name="args">Optional format arguments</param>
+        </member>
+        <member name="M:DemiCode.Logging.ILogger.Warn(System.String,System.Exception,System.Object[])">
+            <summary>
+            Log a warning with exception information.
+            </summary>
+            <param name="message">Message with optional format parameters</param>
+            <param name="exception">Exception</param>
+            <param name="args">Optional format arguments</param>
+        </member>
+        <member name="M:DemiCode.Logging.ILogger.Info(System.String,System.Object[])">
+            <summary>
+            Log information.
+            </summary>
+            <param name="message">Message with optional format parameters</param>
+            <param name="args">Optional format arguments</param>
+        </member>
+        <member name="M:DemiCode.Logging.ILogger.Info(System.String,System.Exception,System.Object[])">
+            <summary>
+            Log information with exception information.
+            </summary>
+            <param name="message">Message with optional format parameters</param>
+            <param name="exception">Exception</param>
+            <param name="args">Optional format arguments</param>
+        </member>
+        <member name="M:DemiCode.Logging.ILogger.Debug(System.String,System.Object[])">
+            <summary>
+            Log debug information.
+            </summary>
+            <param name="message">Message with optional format parameters</param>
+            <param name="args">Optional format arguments</param>
+        </member>
+        <member name="M:DemiCode.Logging.ILogger.Debug(System.String,System.Exception,System.Object[])">
+            <summary>
+            Log debug information with exception information.
+            </summary>
+            <param name="message">Message with optional format parameters</param>
+            <param name="exception">Exception</param>
+            <param name="args">Optional format arguments</param>
+        </member>
+        <member name="T:DemiCode.Logging.ILoggerFactory">
+            <summary>
+            A logger factory is used to create loggers and NDCs (Nested Diagnostics Context).
+            </summary>
+        </member>
+        <member name="M:DemiCode.Logging.ILoggerFactory.CreateLogger(System.String)">
+            <summary>
+            Create a logger.
+            </summary>
+            <param name="name">Name of the logger</param>
+            <returns>The logger instance.</returns>
+        </member>
+        <member name="M:DemiCode.Logging.ILoggerFactory.CreateLogger(System.Type)">
+            <summary>
+            Create a logger.
+            </summary>
+            <param name="type">The full name of the type will be used as name for the logger</param>
+            <returns>The logger instance.</returns>
+        </member>
+        <member name="M:DemiCode.Logging.ILoggerFactory.CreateNDC(System.String)">
+            <summary>
+            Create a Nested Diagnostic Context.
+            </summary>
+            <param name="message">Message or context of the NDC</param>
+            <returns>An object that serves as holder for the NDC. Must be disposed when the NDC goes out of scope. </returns>
+        </member>
+        <member name="T:DemiCode.Logging.LoggerFactoryCollection">
+            <summary>
+            A collection of logger factories.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Logging.LoggerFactoryCollection.GetDefaultLoggerFactory">
+            <summary>
+            Get an <see cref="T:DemiCode.Logging.ILoggerFactory"/> instance for the default configured logger factory.
+            </summary>
+            <returns>The default logger from this collection. If the collection is empty, <see cref="T:DemiCode.Logging.NilLoggerFactory"/> is returned.</returns>
+        </member>
+        <member name="P:DemiCode.Logging.LoggerFactoryCollection.Item(System.Int32)">
+            <summary>
+            Return the task at the specified index.
+            </summary>
+        </member>
+        <member name="P:DemiCode.Logging.LoggerFactoryCollection.Count">
+            <summary>
+            Number of logger factories in the collection.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Logging.LoggerFactoryCollection.Add(DemiCode.Logging.ILoggerFactory)">
+            <summary>
+            Add a logger factory.
+            </summary>
+            <param name="loggerFactory">The logger factory</param>
+        </member>
+        <member name="T:DemiCode.Logging.NilLogger">
+            <summary>
+            Logger implementation that ignores logging data.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Logging.NilLogger.DemiCode#Logging#ILogger#Fatal(System.String,System.Object[])">
+            <summary>
+            Log a fatal message.
+            </summary>
+            <param name="message">Message with optional format parameters</param>
+            <param name="args">Optional format arguments</param>
+        </member>
+        <member name="M:DemiCode.Logging.NilLogger.DemiCode#Logging#ILogger#Fatal(System.String,System.Exception,System.Object[])">
+            <summary>
+            Log a fatal message with exception information.
+            </summary>
+            <param name="message">Message with optional format parameters</param>
+            <param name="exception">Exception</param>
+            <param name="args">Optional format arguments</param>
+        </member>
+        <member name="M:DemiCode.Logging.NilLogger.DemiCode#Logging#ILogger#Error(System.String,System.Object[])">
+            <summary>
+            Log an error message.
+            </summary>
+            <param name="message">Message with optional format parameters</param>
+            <param name="args">Optional format arguments</param>
+        </member>
+        <member name="M:DemiCode.Logging.NilLogger.DemiCode#Logging#ILogger#Error(System.String,System.Exception,System.Object[])">
+            <summary>
+            Log an error message with exception information.
+            </summary>
+            <param name="message">Message with optional format parameters</param>
+            <param name="exception">Exception</param>
+            <param name="args">Optional format arguments</param>
+        </member>
+        <member name="M:DemiCode.Logging.NilLogger.DemiCode#Logging#ILogger#Warn(System.String,System.Object[])">
+            <summary>
+            Log a warning.
+            </summary>
+            <param name="message">Message with optional format parameters</param>
+            <param name="args">Optional format arguments</param>
+        </member>
+        <member name="M:DemiCode.Logging.NilLogger.DemiCode#Logging#ILogger#Warn(System.String,System.Exception,System.Object[])">
+            <summary>
+            Log a warning with exception information.
+            </summary>
+            <param name="message">Message with optional format parameters</param>
+            <param name="exception">Exception</param>
+            <param name="args">Optional format arguments</param>
+        </member>
+        <member name="M:DemiCode.Logging.NilLogger.DemiCode#Logging#ILogger#Info(System.String,System.Object[])">
+            <summary>
+            Log information.
+            </summary>
+            <param name="message">Message with optional format parameters</param>
+            <param name="args">Optional format arguments</param>
+        </member>
+        <member name="M:DemiCode.Logging.NilLogger.DemiCode#Logging#ILogger#Info(System.String,System.Exception,System.Object[])">
+            <summary>
+            Log information with exception information.
+            </summary>
+            <param name="message">Message with optional format parameters</param>
+            <param name="exception">Exception</param>
+            <param name="args">Optional format arguments</param>
+        </member>
+        <member name="M:DemiCode.Logging.NilLogger.DemiCode#Logging#ILogger#Debug(System.String,System.Object[])">
+            <summary>
+            Log debug information.
+            </summary>
+            <param name="message">Message with optional format parameters</param>
+            <param name="args">Optional format arguments</param>
+        </member>
+        <member name="M:DemiCode.Logging.NilLogger.DemiCode#Logging#ILogger#Debug(System.String,System.Exception,System.Object[])">
+            <summary>
+            Log debug information with exception information.
+            </summary>
+            <param name="message">Message with optional format parameters</param>
+            <param name="exception">Exception</param>
+            <param name="args">Optional format arguments</param>
+        </member>
+        <member name="T:DemiCode.Logging.NilLoggerFactory">
+            <summary>
+            Logger implementation that ignores logging data.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Logging.NilLoggerFactory.DemiCode#Logging#ILoggerFactory#CreateLogger(System.String)">
+            <summary>
+            Create a logger.
+            </summary>
+            <param name="name">Name of the logger</param>
+        </member>
+        <member name="M:DemiCode.Logging.NilLoggerFactory.DemiCode#Logging#ILoggerFactory#CreateLogger(System.Type)">
+            <summary>
+            Create a logger.
+            </summary>
+            <param name="type">The full name of the type will be used as name for the logger</param>
+        </member>
+        <member name="M:DemiCode.Logging.NilLoggerFactory.CreateNDC(System.String)">
+            <summary>
+            Create a Nested Diagnostic Context.
+            </summary>
+            <param name="message">Message or context of the NDC</param>
+            <returns>An object that serves as holder for the NDC. Must be disposed when the NDC goes out of scope. </returns>
+        </member>
+        <member name="T:DemiCode.Logging.SimpleNDC">
+            <summary>
+            A simple Nested Diagnostic Context implementation.
+            </summary>
+        </member>
+        <member name="M:DemiCode.Logging.SimpleNDC.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+    </members>
+</doc>

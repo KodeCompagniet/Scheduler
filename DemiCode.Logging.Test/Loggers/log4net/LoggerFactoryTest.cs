@@ -1,5 +1,5 @@
 using DemiCode.Logging.Loggers;
-using DemiCode.Logging.Loggers.log4net;
+using DemiCode.Logging.log4net;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace DemiCode.Scheduling.Loggers.log4net.Test

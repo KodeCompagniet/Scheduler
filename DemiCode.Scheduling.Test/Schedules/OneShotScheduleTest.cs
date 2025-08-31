@@ -47,40 +47,48 @@ namespace DemiCode.Scheduling.Schedules.Test
 		///A test for OneShotSchedule(XmlNode)
 		///</summary>
 		[Test]
-		[ExpectedException(typeof(ArgumentException))]
 		public void ConstructorTest3_1()
 		{
-			TestXmlConstructor("TestData/OneShotScheduleTest/schedule[@name='fail_1']");
+			Assert.Throws<ArgumentException>(() =>
+			{
+				TestXmlConstructor("TestData/OneShotScheduleTest/schedule[@name='fail_1']");
+			});
 		}
 
 		/// <summary>
 		///A test for OneShotSchedule(XmlNode)
 		///</summary>
 		[Test]
-		[ExpectedException(typeof(ArgumentException))]
 		public void ConstructorTest3_2()
 		{
-			TestXmlConstructor("TestData/OneShotScheduleTest/schedule[@name='fail_2']");
+			Assert.Throws<ArgumentException>(() =>
+			{
+				TestXmlConstructor("TestData/OneShotScheduleTest/schedule[@name='fail_2']");
+			});
 		}
 
 		/// <summary>
 		///A test for OneShotSchedule(XmlNode)
 		///</summary>
 		[Test]
-		[ExpectedException(typeof(ArgumentException))]
 		public void ConstructorTest3_3()
 		{
-			TestXmlConstructor("TestData/OneShotScheduleTest/schedule[@name='fail_3']");
+			Assert.Throws<ArgumentException>(() =>
+			{
+				TestXmlConstructor("TestData/OneShotScheduleTest/schedule[@name='fail_3']");
+			});
 		}
 
 		/// <summary>
 		///A test for OneShotSchedule(XmlNode)
 		///</summary>
 		[Test]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void ConstructorTest3_4()
 		{
-			TestXmlConstructor("TestData/OneShotScheduleTest/schedule[@name='fail_4']");
+			Assert.Throws<ArgumentNullException>(() =>
+			{
+				TestXmlConstructor("TestData/OneShotScheduleTest/schedule[@name='fail_4']");
+			});
 		}
 
 		private static void TestXmlConstructor(string nodePath)

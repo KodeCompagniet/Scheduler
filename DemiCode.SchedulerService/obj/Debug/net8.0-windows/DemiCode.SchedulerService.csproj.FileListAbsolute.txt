@@ -1,0 +1,5 @@
+/home/claude/aigit/Scheduler/DemiCode.SchedulerService/obj/Debug/net8.0-windows/DemiCode.SchedulerService.csproj.AssemblyReference.cache
+/home/claude/aigit/Scheduler/DemiCode.SchedulerService/obj/Debug/net8.0-windows/DemiCode.SchedulerService.ServiceImplementation.resources
+/home/claude/aigit/Scheduler/DemiCode.SchedulerService/obj/Debug/net8.0-windows/DemiCode.SchedulerService.csproj.GenerateResource.cache
+/home/claude/aigit/Scheduler/DemiCode.SchedulerService/obj/Debug/net8.0-windows/DemiCode.SchedulerService.GeneratedMSBuildEditorConfig.editorconfig
+/home/claude/aigit/Scheduler/DemiCode.SchedulerService/obj/Debug/net8.0-windows/DemiCode.SchedulerService.csproj.CoreCompileInputs.cache

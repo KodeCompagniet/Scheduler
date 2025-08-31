@@ -1,0 +1,8 @@
+/home/claude/aigit/Scheduler/DemiCode.Shared/obj/Debug/net48/DemiCode.Shared.GeneratedMSBuildEditorConfig.editorconfig
+/home/claude/aigit/Scheduler/DemiCode.Shared/obj/Debug/net48/DemiCode.Shared.csproj.CoreCompileInputs.cache
+/home/claude/aigit/Scheduler/DemiCode.Shared/bin/Debug/net48/DemiCode.Shared.dll
+/home/claude/aigit/Scheduler/DemiCode.Shared/bin/Debug/net48/DemiCode.Shared.pdb
+/home/claude/aigit/Scheduler/DemiCode.Shared/bin/Debug/net48/DemiCode.Shared.xml
+/home/claude/aigit/Scheduler/DemiCode.Shared/obj/Debug/net48/DemiCode.Shared.dll
+/home/claude/aigit/Scheduler/DemiCode.Shared/obj/Debug/net48/DemiCode.Shared.xml
+/home/claude/aigit/Scheduler/DemiCode.Shared/obj/Debug/net48/DemiCode.Shared.pdb

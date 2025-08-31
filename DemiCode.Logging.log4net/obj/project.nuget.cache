@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "dgSpecHash": "0+qpl1cuaj8WjJ/uStkeXLOa9lobLluTdzNOzirEQffxJBAOuIL9PQXRmrPab7dprxgIr2Id6hhmR2i17HkWLg==",
+  "success": true,
+  "projectFilePath": "/home/claude/aigit/Scheduler/DemiCode.Logging.log4net/DemiCode.Logging.log4net.csproj",
+  "expectedPackageFiles": [
+    "/home/claude/.nuget/packages/log4net/2.0.15/log4net.2.0.15.nupkg.sha512",
+    "/home/claude/.nuget/packages/microsoft.netcore.platforms/1.1.0/microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "/home/claude/.nuget/packages/microsoft.netframework.referenceassemblies/1.0.3/microsoft.netframework.referenceassemblies.1.0.3.nupkg.sha512",
+    "/home/claude/.nuget/packages/microsoft.netframework.referenceassemblies.net48/1.0.3/microsoft.netframework.referenceassemblies.net48.1.0.3.nupkg.sha512",
+    "/home/claude/.nuget/packages/netstandard.library/2.0.3/netstandard.library.2.0.3.nupkg.sha512",
+    "/home/claude/.nuget/packages/system.buffers/4.5.1/system.buffers.4.5.1.nupkg.sha512",
+    "/home/claude/.nuget/packages/system.configuration.configurationmanager/8.0.0/system.configuration.configurationmanager.8.0.0.nupkg.sha512",
+    "/home/claude/.nuget/packages/system.memory/4.5.5/system.memory.4.5.5.nupkg.sha512",
+    "/home/claude/.nuget/packages/system.numerics.vectors/4.4.0/system.numerics.vectors.4.4.0.nupkg.sha512",
+    "/home/claude/.nuget/packages/system.runtime.compilerservices.unsafe/4.5.3/system.runtime.compilerservices.unsafe.4.5.3.nupkg.sha512",
+    "/home/claude/.nuget/packages/system.security.cryptography.protecteddata/8.0.0/system.security.cryptography.protecteddata.8.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

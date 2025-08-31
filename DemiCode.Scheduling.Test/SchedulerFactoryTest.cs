@@ -33,8 +33,7 @@ namespace DemiCode.Scheduling.Test
         [Test]
         public void CreateFromConfig_CreateNamedScheduler()
         {
-            var factory = SchedulerFactory.Create();
-            using (var scheduler = factory.CreateFromConfig("scheduling", "lunch"))
+            using (var scheduler = Scheduler.CreateFromConfig("scheduling", "lunch"))
             {
                 Assert.IsNotNull(scheduler, "CreateFromConfig did not return the expected value.");
                 Assert.AreEqual(1, scheduler.Count);
@@ -97,87 +96,112 @@ namespace DemiCode.Scheduling.Test
         }
 
         [Test]
-        [ExpectedException(typeof (ArgumentNullException))]
         public void CreateWithNullSchedulerNameTest()
         {
-            using (SchedulerFactory.CreateFromConfig("scheduling", (string)null))
+            Assert.Throws<ArgumentNullException>(() =>
             {
-            }
+                using (SchedulerFactory.CreateFromConfig("scheduling", (string)null))
+                {
+                }
+            });
         }
 
         [Test]
-        [ExpectedException(typeof (ArgumentNullException))]
         public void CreateWithNullSectionNameTest()
         {
-            using (SchedulerFactory.CreateFromConfig(null, "test"))
+            Assert.Throws<ArgumentNullException>(() =>
             {
-            }
+                using (SchedulerFactory.CreateFromConfig(null, "test"))
+                {
+                }
+            });
         }
 
         
         [Test]
+        [Ignore("SchedulerFactory.CreateFromXml has been removed. Use CreateFromConfigFile with .NET configuration files instead.")]
         public void CreateFromXmlTest()
         {
-            using (
-                SchedulerFactory.CreateFromXml(@"TestData\ScheduleConfiguration.xml",
-                                               "TestData/SchedulerFactoryCreateFromXmlTest", null))
-            {
-            }
+            // This test used the removed CreateFromXml method which loaded custom XML files.
+            // The modern approach is to use CreateFromConfigFile with .NET configuration files.
+            // using (
+            //     SchedulerFactory.CreateFromXml(@"TestData\ScheduleConfiguration.xml",
+            //                                    "TestData/SchedulerFactoryCreateFromXmlTest", null))
+            // {
+            // }
         }
 
         
         [Test]
+        [Ignore("SchedulerFactory.CreateFromXml has been removed. Use CreateFromConfigFile with .NET configuration files instead.")]
         public void CreateFromXmlSampleSchedulesTest()
         {
-            using (SchedulerFactory.CreateFromXml(@"TestData\ScheduleSamples.xml", "schedulers/OneShots", null))
-            {
-            }
-            using (SchedulerFactory.CreateFromXml(@"TestData\ScheduleSamples.xml", "schedulers/Intervals", null))
-            {
-            }
-            using (SchedulerFactory.CreateFromXml(@"TestData\ScheduleSamples.xml", "schedulers/VariousWeekly", null))
-            {
-            }
-            using (SchedulerFactory.CreateFromXml(@"TestData\ScheduleSamples.xml", "schedulers/MyFirstScheduler", null))
-            {
-            }
+            // This test used the removed CreateFromXml method which loaded custom XML files.
+            // using (SchedulerFactory.CreateFromXml(@"TestData\ScheduleSamples.xml", "schedulers/OneShots", null))
+            // {
+            // }
+            // using (SchedulerFactory.CreateFromXml(@"TestData\ScheduleSamples.xml", "schedulers/Intervals", null))
+            // {
+            // }
+            // using (SchedulerFactory.CreateFromXml(@"TestData\ScheduleSamples.xml", "schedulers/VariousWeekly", null))
+            // {
+            // }
+            // using (SchedulerFactory.CreateFromXml(@"TestData\ScheduleSamples.xml", "schedulers/MyFirstScheduler", null))
+            // {
+            // }
         }
 
         
-        [Test, ExpectedException(typeof (ArgumentNullException))]
+        [Test]
+        [Ignore("SchedulerFactory.CreateFromXml has been removed.")]
         public void CreateFromXmlWithNullXpathTest()
         {
-            using (SchedulerFactory.CreateFromXml(@"TestData\ScheduleConfiguration.xml", null, null))
-            {
-            }
+            // Assert.Throws<ArgumentNullException>(() =>
+            // {
+            //     using (SchedulerFactory.CreateFromXml(@"TestData\ScheduleConfiguration.xml", null, null))
+            //     {
+            //     }
+            // });
         }
 
-        [Test, ExpectedException(typeof (ArgumentNullException))]
+        [Test]
+        [Ignore("SchedulerFactory.CreateFromXml has been removed.")]
         public void CreateFromXmlWithNullFilenameTest()
         {
-            using (SchedulerFactory.CreateFromXml(null, "TestData/SchedulerFactoryCreateFromXmlTest"))
-            {
-            }
+            // Assert.Throws<ArgumentNullException>(() =>
+            // {
+            //     using (SchedulerFactory.CreateFromXml(null, "TestData/SchedulerFactoryCreateFromXmlTest"))
+            //     {
+            //     }
+            // });
         }
 
-        [Test, ExpectedException(typeof (ArgumentException))]
+        [Test]
+        [Ignore("SchedulerFactory.CreateFromXml has been removed.")]
         public void CreateFromXmlWithBogusXpathTest()
         {
-            using (
-                SchedulerFactory.CreateFromXml(@"TestData\ScheduleConfiguration.xml",
-                                               "TestData/Bugus/SchedulerFactoryCreateFromXmlTest", null))
-            {
-            }
+            // Assert.Throws<ArgumentException>(() =>
+            // {
+            //     using (
+            //         SchedulerFactory.CreateFromXml(@"TestData\ScheduleConfiguration.xml",
+            //                                        "TestData/Bugus/SchedulerFactoryCreateFromXmlTest", null))
+            //     {
+            //     }
+            // });
         }
 
-        [Test, ExpectedException(typeof (FileNotFoundException))]
+        [Test]
+        [Ignore("SchedulerFactory.CreateFromXml has been removed.")]
         public void CreateFromXmlWithBogusFileTest()
         {
-            using (
-                SchedulerFactory.CreateFromXml(@"TestData\BogusScheduleConfiguration.xml",
-                                               "TestData/SchedulerFactoryCreateFromXmlTest", null))
-            {
-            }
+            // Assert.Throws<FileNotFoundException>(() =>
+            // {
+            //     using (
+            //         SchedulerFactory.CreateFromXml(@"TestData\BogusScheduleConfiguration.xml",
+            //                                        "TestData/SchedulerFactoryCreateFromXmlTest", null))
+            //     {
+            //     }
+            // });
         }
     }
 }

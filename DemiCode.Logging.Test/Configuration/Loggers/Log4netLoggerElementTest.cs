@@ -1,9 +1,9 @@
-﻿using DemiCode.Logging.Configuration.Loggers.log4net;
+﻿using DemiCode.Logging.log4net.Configuration;
 using DemiCode.Logging.Loggers;
-using DemiCode.Logging.Loggers.log4net;
+using DemiCode.Logging.log4net;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace DemiCode.Logging.Configuration.Loggers.log4net.Test
+namespace DemiCode.Logging.Test.Configuration.Loggers
 {
     [TestClass]
     public class Log4netLoggerElementTest

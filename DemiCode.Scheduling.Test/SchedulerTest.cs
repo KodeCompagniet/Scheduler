@@ -12,7 +12,6 @@ using DemiCode.Scheduling.Tasks;
 using DemiCode.Scheduling.Test.Mocks;
 using log4net;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 
 namespace DemiCode.Scheduling.Test
 {
@@ -178,14 +177,16 @@ namespace DemiCode.Scheduling.Test
         }
 
         [Test]
-        [ExpectedException(typeof (ArgumentNullException))]
         public void AddNullTaskTest()
         {
-            using (var target = new Scheduler())
+            Assert.Throws<ArgumentNullException>(() =>
             {
-                const ITask task = null;
-                target.Tasks.Add(task);
-            }
+                using (var target = new Scheduler())
+                {
+                    const ITask task = null;
+                    target.Tasks.Add(task);
+                }
+            });
         }
 
         [Test]
@@ -202,35 +203,39 @@ namespace DemiCode.Scheduling.Test
         ///A test for Add (ISchedule)
         ///</summary>
         [Test]
-        [ExpectedException(typeof (InvalidOperationException))]
         public void AddToEnabledSchedulerTest()
         {
-            using (var target = SchedulerMock.Create())
+            Assert.Throws<InvalidOperationException>(() =>
             {
-                target.Add(new OneShotSchedule(DateTime.Now.AddDays(1)));
-                target.Start();
-                target.Add(new OneShotSchedule(DateTime.Now.AddDays(2)));
-            }
+                using (var target = SchedulerMock.Create())
+                {
+                    target.Add(new OneShotSchedule(DateTime.Now.AddDays(1)));
+                    target.Start();
+                    target.Add(new OneShotSchedule(DateTime.Now.AddDays(2)));
+                }
+            });
         }
 
         /// <summary>
         ///A test for Add (ISchedule)
         ///</summary>
         [Test]
-        [ExpectedException(typeof (InvalidOperationException))]
         public void AddRangeToEnabledScheduler()
         {
-            var list = new List<ISchedule>
-                           {
-                               new OneShotSchedule(DateTime.Now.AddDays(1)),
-                               new OneShotSchedule(DateTime.Now.AddDays(2))
-                           };
-            using (var target = SchedulerMock.Create())
+            Assert.Throws<InvalidOperationException>(() =>
             {
-                target.Add(new OneShotSchedule(DateTime.Now.AddDays(10)));
-                target.Start();
-                target.AddRange(list);
-            }
+                var list = new List<ISchedule>
+                               {
+                                   new OneShotSchedule(DateTime.Now.AddDays(1)),
+                                   new OneShotSchedule(DateTime.Now.AddDays(2))
+                               };
+                using (var target = SchedulerMock.Create())
+                {
+                    target.Add(new OneShotSchedule(DateTime.Now.AddDays(10)));
+                    target.Start();
+                    target.AddRange(list);
+                }
+            });
         }
 
         /// <summary>
@@ -304,11 +309,10 @@ namespace DemiCode.Scheduling.Test
 
             long memoryBefore = GC.GetTotalMemory(true);
 
-            var factory = SchedulerFactory.Create();
             int count = 100;
             while (--count > 0)
             {
-                using (var scheduler = factory.CreateFromConfig("scheduling"))
+                using (var scheduler = Scheduler.CreateFromConfig("scheduling"))
                 {
                     scheduler.Start();
                     Thread.Sleep(2);
@@ -439,16 +443,19 @@ namespace DemiCode.Scheduling.Test
         ///<summary>
         ///Test schedule indexer.
         ///</summary>
-        [Test, ExpectedException(typeof (ArgumentOutOfRangeException))]
+        [Test]
         public void IndexerTest()
         {
-            using (var target = new Scheduler())
+            Assert.Throws<ArgumentOutOfRangeException>(() =>
             {
-                target.Add(new OneShotSchedule(DateTime.Now));
-                target.Add(new OneShotSchedule(DateTime.Now.AddDays(1)));
+                using (var target = new Scheduler())
+                {
+                    target.Add(new OneShotSchedule(DateTime.Now));
+                    target.Add(new OneShotSchedule(DateTime.Now.AddDays(1)));
 
-                ISchedule schedule = target["somebogusschedule"];
-            }
+                    ISchedule schedule = target["somebogusschedule"];
+                }
+            });
         }
 
         /// <summary>
@@ -561,21 +568,24 @@ namespace DemiCode.Scheduling.Test
         ///A test for Scheduler (XmlNode)
         ///</summary>
         [Test]
+        [Ignore("Scheduler(XmlNode) constructor has been removed. Use configuration-based approach instead.")]
         public void ConstructorWithXmlNodeConfigurationTest()
         {
-            var xd = new XmlDocument();
-            xd.Load(@"TestData\ScheduleConfiguration.xml");
-            XmlNode schedulerNode = xd.SelectSingleNode("TestData/SchedulerTest/schedules");
-
-            using (var target = new Scheduler(schedulerNode))
-            {
-                Assert.AreEqual(3, target.Count);
-
-                foreach (ISchedule schedule in target)
-                {
-                    Assert.AreEqual(schedule.Name, schedule.GetType().Name);
-                }
-            }
+            // The XML-based constructor was deprecated and removed in favor of configuration-based approach
+            // Original test code:
+            // var xd = new XmlDocument();
+            // xd.Load(@"TestData\ScheduleConfiguration.xml");
+            // XmlNode schedulerNode = xd.SelectSingleNode("TestData/SchedulerTest/schedules");
+            //
+            // using (var target = new Scheduler(schedulerNode))
+            // {
+            //     Assert.AreEqual(3, target.Count);
+            //
+            //     foreach (ISchedule schedule in target)
+            //     {
+            //         Assert.AreEqual(schedule.Name, schedule.GetType().Name);
+            //     }
+            // }
         }
 
         /// <summary>
@@ -665,8 +675,7 @@ namespace DemiCode.Scheduling.Test
         [Test]
         public void ExecuteTaskFromConfigTest()
         {
-            var factory = SchedulerFactory.Create();
-            using (var scheduler = factory.CreateFromConfig("SimpleWithLogging"))
+            using (var scheduler = Scheduler.CreateFromConfig("SimpleWithLogging"))
             {
                 var alarmListener = new ScheduledAlarmListener(scheduler, 1, -1);
                 scheduler.Add(new OneShotSchedule(DateTime.Now.AddSeconds(1)));
@@ -691,9 +700,8 @@ namespace DemiCode.Scheduling.Test
         [Test]
         public void ExecuteTaskOnSpecificScheduleFromConfigTest()
         {
-            var factory = SchedulerFactory.Create();
             using (
-                var target = factory.CreateFromConfig("TaskAndLoggingSection",
+                var target = Scheduler.CreateFromConfig("TaskAndLoggingSection",
                                                                      "unittest_task_execution_withschedulerefs_unittest")
                 )
             {
@@ -714,9 +722,8 @@ namespace DemiCode.Scheduling.Test
         [Test]
         public void ExecuteWithLog4netLoggingTest()
         {
-            var factory = SchedulerFactory.Create();
             using (
-                var target = factory.CreateFromConfig("TaskAndLoggingSection",
+                var target = Scheduler.CreateFromConfig("TaskAndLoggingSection",
                                                                      "config_with_log4netlogger_used_in_unittests"))
             {
                 var alarmListener = new ScheduledAlarmListener(target, "interval", 1, -1);

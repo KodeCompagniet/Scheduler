@@ -19,7 +19,7 @@ namespace DemiCode.Logging.log4net.Configuration.Test
         {
             ILoggerFactory factory = new Log4netLoggerElement().GetLoggerInstance();
             Assert.IsNotNull(factory);
-            Assert.IsInstanceOfType(typeof(Log4netLoggerFactory), factory);
+            Assert.IsInstanceOf<Log4netLoggerFactory>(factory);
         }
 
         [Test]

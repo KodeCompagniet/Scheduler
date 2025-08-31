@@ -1,0 +1,13 @@
+/home/claude/aigit/Scheduler/DemiCode.Logging/obj/Debug/net48/DemiCode.Logging.csproj.AssemblyReference.cache
+/home/claude/aigit/Scheduler/DemiCode.Logging/obj/Debug/net48/DemiCode.Logging.GeneratedMSBuildEditorConfig.editorconfig
+/home/claude/aigit/Scheduler/DemiCode.Logging/obj/Debug/net48/DemiCode.Logging.csproj.CoreCompileInputs.cache
+/home/claude/aigit/Scheduler/DemiCode.Logging/bin/Debug/net48/DemiCode.Logging.dll
+/home/claude/aigit/Scheduler/DemiCode.Logging/bin/Debug/net48/DemiCode.Logging.pdb
+/home/claude/aigit/Scheduler/DemiCode.Logging/bin/Debug/net48/DemiCode.Logging.xml
+/home/claude/aigit/Scheduler/DemiCode.Logging/bin/Debug/net48/DemiCode.Shared.dll
+/home/claude/aigit/Scheduler/DemiCode.Logging/bin/Debug/net48/DemiCode.Shared.pdb
+/home/claude/aigit/Scheduler/DemiCode.Logging/bin/Debug/net48/DemiCode.Shared.xml
+/home/claude/aigit/Scheduler/DemiCode.Logging/obj/Debug/net48/DemiCode.Logging.dll
+/home/claude/aigit/Scheduler/DemiCode.Logging/obj/Debug/net48/DemiCode.Logging.xml
+/home/claude/aigit/Scheduler/DemiCode.Logging/obj/Debug/net48/DemiCode.Logging.pdb
+/home/claude/aigit/Scheduler/DemiCode.Logging/obj/Debug/net48/DemiCode.D5797ED2.Up2Date

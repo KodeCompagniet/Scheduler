@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Xml;
 using DemiCode.Logging.Loggers;
-using DemiCode.Shared.Configuration;
+using DemiCode.Configuration;
 
 namespace DemiCode.Logging.Configuration.Loggers
 {

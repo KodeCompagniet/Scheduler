@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "3FLOZyVMd0HZiUNI8LGNCmNFZP17qLkw98afNesci/vb6KU+2VSyWxZdT82484wURnLyvAzdQpkaUJx9pG1L5g==",
+  "success": true,
+  "projectFilePath": "/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test.Dummy/DemiCode.Scheduling.Test.Dummy.csproj",
+  "expectedPackageFiles": [
+    "/home/claude/.nuget/packages/system.configuration.configurationmanager/8.0.0/system.configuration.configurationmanager.8.0.0.nupkg.sha512",
+    "/home/claude/.nuget/packages/system.diagnostics.eventlog/8.0.0/system.diagnostics.eventlog.8.0.0.nupkg.sha512",
+    "/home/claude/.nuget/packages/system.security.cryptography.protecteddata/8.0.0/system.security.cryptography.protecteddata.8.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

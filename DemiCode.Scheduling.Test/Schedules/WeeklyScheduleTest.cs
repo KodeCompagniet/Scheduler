@@ -18,14 +18,16 @@ namespace DemiCode.Scheduling.Schedules.Test
         /// Provoke null argument exception when passing list of days.
         /// </summary>
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void NullDaysArrayTest()
         {
-            DateTime fromDate = new DateTime(2007, 1, 1);
-            DateTime toDate = new DateTime(2007, 1, 31);
-            TimeSpan timeOfDay = new TimeSpan(00, 00, 00);
-            List<DayOfWeek> days = null;
-            WeeklySchedule schedule = new WeeklySchedule(fromDate, toDate, timeOfDay, days);
+            Assert.Throws<ArgumentNullException>(() =>
+            {
+                DateTime fromDate = new DateTime(2007, 1, 1);
+                DateTime toDate = new DateTime(2007, 1, 31);
+                TimeSpan timeOfDay = new TimeSpan(00, 00, 00);
+                List<DayOfWeek> days = null;
+                WeeklySchedule schedule = new WeeklySchedule(fromDate, toDate, timeOfDay, days);
+            });
         }
 
 
@@ -203,43 +205,49 @@ namespace DemiCode.Scheduling.Schedules.Test
 		}
 
 		[Test]
-		[ExpectedException(typeof(ArgumentException))]
 		public void ConstructWithDuplicateDaysTest()
 		{
-			//Should fail because saturday is listed twice
-			TimeSpan timeOfDay = new TimeSpan(20, 00, 00);
-			List<DayOfWeek> days = new List<DayOfWeek>();
-			days.Add(DayOfWeek.Thursday);
-			days.Add(DayOfWeek.Wednesday);
-			days.Add(DayOfWeek.Saturday);
-			days.Add(DayOfWeek.Saturday);
-			days.Add(DayOfWeek.Monday);
-			WeeklySchedule schedule = new WeeklySchedule(timeOfDay, days);
+			Assert.Throws<ArgumentException>(() =>
+			{
+				//Should fail because saturday is listed twice
+				TimeSpan timeOfDay = new TimeSpan(20, 00, 00);
+				List<DayOfWeek> days = new List<DayOfWeek>();
+				days.Add(DayOfWeek.Thursday);
+				days.Add(DayOfWeek.Wednesday);
+				days.Add(DayOfWeek.Saturday);
+				days.Add(DayOfWeek.Saturday);
+				days.Add(DayOfWeek.Monday);
+				WeeklySchedule schedule = new WeeklySchedule(timeOfDay, days);
+			});
 		}
 
 		[Test]
-		[ExpectedException(typeof(ArgumentException))]
 		public void ConstructorTest2()
 		{
-			//Should fail because no days are selected
-			TimeSpan timeOfDay = new TimeSpan(20, 00, 00);
-			List<DayOfWeek> days = new List<DayOfWeek>();
-			WeeklySchedule schedule = new WeeklySchedule(timeOfDay, days);
+			Assert.Throws<ArgumentException>(() =>
+			{
+				//Should fail because no days are selected
+				TimeSpan timeOfDay = new TimeSpan(20, 00, 00);
+				List<DayOfWeek> days = new List<DayOfWeek>();
+				WeeklySchedule schedule = new WeeklySchedule(timeOfDay, days);
+			});
 		}
 
 		[Test]
-		[ExpectedException(typeof(ArgumentException))]
 		public void ConstructorTest3()
 		{
-			//Should fail because toDate is before fromDate
-			TimeSpan timeOfDay = new TimeSpan(20, 00, 00);
-			List<DayOfWeek> days = new List<DayOfWeek>();
-			days.Add(DayOfWeek.Monday);
-			days.Add(DayOfWeek.Tuesday);
-			days.Add(DayOfWeek.Wednesday);
-			DateTime fromDate = new DateTime(2006, 9, 23);
-			DateTime toDate = new DateTime(2006, 9, 21);
-			WeeklySchedule schedule = new WeeklySchedule(fromDate, toDate, timeOfDay, days);
+			Assert.Throws<ArgumentException>(() =>
+			{
+				//Should fail because toDate is before fromDate
+				TimeSpan timeOfDay = new TimeSpan(20, 00, 00);
+				List<DayOfWeek> days = new List<DayOfWeek>();
+				days.Add(DayOfWeek.Monday);
+				days.Add(DayOfWeek.Tuesday);
+				days.Add(DayOfWeek.Wednesday);
+				DateTime fromDate = new DateTime(2006, 9, 23);
+				DateTime toDate = new DateTime(2006, 9, 21);
+				WeeklySchedule schedule = new WeeklySchedule(fromDate, toDate, timeOfDay, days);
+			});
 		}
 
 		[Test]
@@ -255,100 +263,120 @@ namespace DemiCode.Scheduling.Schedules.Test
 		///A test for WeeklySchedule(XmlNode)
 		///</summary>
 		[Test]
-		[ExpectedException(typeof(ArgumentException))]
 		public void ConstructorTest5_1()
 		{
-			TestXmlConstructor("TestData/WeeklyScheduleTest/schedule[@name='fail_1']");
+			Assert.Throws<ArgumentException>(() =>
+			{
+				TestXmlConstructor("TestData/WeeklyScheduleTest/schedule[@name='fail_1']");
+			});
 		}
 
 		/// <summary>
 		///A test for WeeklySchedule(XmlNode)
 		///</summary>
 		[Test]
-		[ExpectedException(typeof(ArgumentException))]
 		public void ConstructorTest5_2()
 		{
-			TestXmlConstructor("TestData/WeeklyScheduleTest/schedule[@name='fail_2']");
+			Assert.Throws<ArgumentException>(() =>
+			{
+				TestXmlConstructor("TestData/WeeklyScheduleTest/schedule[@name='fail_2']");
+			});
 		}
 
 		/// <summary>
 		///A test for WeeklySchedule(XmlNode)
 		///</summary>
 		[Test]
-		[ExpectedException(typeof(ArgumentException))]
 		public void ConstructorTest5_3()
 		{
-			TestXmlConstructor("TestData/WeeklyScheduleTest/schedule[@name='fail_3']");
+			Assert.Throws<ArgumentException>(() =>
+			{
+				TestXmlConstructor("TestData/WeeklyScheduleTest/schedule[@name='fail_3']");
+			});
 		}
 
 		/// <summary>
 		///A test for WeeklySchedule(XmlNode)
 		///</summary>
 		[Test]
-		[ExpectedException(typeof(ArgumentException))]
 		public void ConstructorTest5_4()
 		{
-			TestXmlConstructor("TestData/WeeklyScheduleTest/schedule[@name='fail_4']");
+			Assert.Throws<ArgumentException>(() =>
+			{
+				TestXmlConstructor("TestData/WeeklyScheduleTest/schedule[@name='fail_4']");
+			});
 		}
 
 		/// <summary>
 		///A test for WeeklySchedule(XmlNode)
 		///</summary>
 		[Test]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void ConstructorTest5_5()
 		{
-			TestXmlConstructor("TestData/WeeklyScheduleTest/schedule[@name='fail_5']");
+			Assert.Throws<ArgumentNullException>(() =>
+			{
+				TestXmlConstructor("TestData/WeeklyScheduleTest/schedule[@name='fail_5']");
+			});
 		}
 
 		/// <summary>
 		///A test for WeeklySchedule(XmlNode)
 		///</summary>
 		[Test]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void ConstructorTest5_7()
 		{
-			TestXmlConstructor("TestData/WeeklyScheduleTest/schedule[@name='fail_7']");
+			Assert.Throws<ArgumentNullException>(() =>
+			{
+				TestXmlConstructor("TestData/WeeklyScheduleTest/schedule[@name='fail_7']");
+			});
 		}
 
 		/// <summary>
 		///A test for WeeklySchedule(XmlNode)
 		///</summary>
 		[Test]
-		[ExpectedException(typeof(ArgumentException))]
 		public void ConstructorTest5_8()
 		{
-			TestXmlConstructor("TestData/WeeklyScheduleTest/schedule[@name='fail_8']");
+			Assert.Throws<ArgumentException>(() =>
+			{
+				TestXmlConstructor("TestData/WeeklyScheduleTest/schedule[@name='fail_8']");
+			});
 		}
 
 		/// <summary>
 		///A test for WeeklySchedule(XmlNode)
 		///</summary>
 		[Test]
-		[ExpectedException(typeof(ArgumentException))]
 		public void ConstructorTest5_9()
 		{
-			TestXmlConstructor("TestData/WeeklyScheduleTest/schedule[@name='fail_9']");
+			Assert.Throws<ArgumentException>(() =>
+			{
+				TestXmlConstructor("TestData/WeeklyScheduleTest/schedule[@name='fail_9']");
+			});
 		}
 
 		/// <summary>
 		///A test for WeeklySchedule(XmlNode)
 		///</summary>
 		[Test]
-		[ExpectedException(typeof(ArgumentException))]
 		public void ConstructorTest5_10()
 		{
-			TestXmlConstructor("TestData/WeeklyScheduleTest/schedule[@name='fail_10']");
+			Assert.Throws<ArgumentException>(() =>
+			{
+				TestXmlConstructor("TestData/WeeklyScheduleTest/schedule[@name='fail_10']");
+			});
 		}
 
 		/// <summary>
 		///A test for WeeklySchedule(XmlNode)
 		///</summary>
 		[Test]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void ConstructorTest5_11()
 		{
-			TestXmlConstructor("TestData/WeeklyScheduleTest/schedule[@name='fail_11']");
+			Assert.Throws<ArgumentNullException>(() =>
+			{
+				TestXmlConstructor("TestData/WeeklyScheduleTest/schedule[@name='fail_11']");
+			});
 		}
 
         /// <summary>

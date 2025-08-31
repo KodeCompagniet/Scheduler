@@ -96,43 +96,51 @@ namespace DemiCode.Scheduling.Schedules.Test
 		}
 
 		[Test]
-		[ExpectedException(typeof(ArgumentException))]
 		public void ConstructorTest1()
 		{
-			//Should fail because the interval is 0
-			DateTime firstOccurence = new DateTime(2006, 9, 18, 12, 00, 00);
-			int numberOfOccurences = 6;
-			TimeSpan interval = new TimeSpan(0);
-			IntervalCountedSchedule schedule = new IntervalCountedSchedule(firstOccurence, numberOfOccurences, interval);
+			Assert.Throws<ArgumentException>(() =>
+			{
+				//Should fail because the interval is 0
+				DateTime firstOccurence = new DateTime(2006, 9, 18, 12, 00, 00);
+				int numberOfOccurences = 6;
+				TimeSpan interval = new TimeSpan(0);
+				IntervalCountedSchedule schedule = new IntervalCountedSchedule(firstOccurence, numberOfOccurences, interval);
+			});
 		}
 
 		[Test]
-		[ExpectedException(typeof(ArgumentException))]
 		public void ConstructorTest2()
 		{
-			//Should fail because numberOfOccurrences is set to 0 or lower than -1
-			DateTime firstOccurence = new DateTime(2006, 9, 18, 12, 00, 00);
-			int numberOfOccurences = 0;
-			TimeSpan interval = TimeSpan.FromMinutes(20);
-			IntervalCountedSchedule schedule = new IntervalCountedSchedule(firstOccurence, numberOfOccurences, interval);
+			Assert.Throws<ArgumentException>(() =>
+			{
+				//Should fail because numberOfOccurrences is set to 0 or lower than -1
+				DateTime firstOccurence = new DateTime(2006, 9, 18, 12, 00, 00);
+				int numberOfOccurences = 0;
+				TimeSpan interval = TimeSpan.FromMinutes(20);
+				IntervalCountedSchedule schedule = new IntervalCountedSchedule(firstOccurence, numberOfOccurences, interval);
+			});
 		}
 
 		[Test]
-		[ExpectedException(typeof(ArgumentException))]
 		public void ConstructorTest3()
 		{
-			//Should fail because numberOfOccurrences is set to 0 or lower than -1
-			DateTime firstOccurence = new DateTime(2006, 9, 18, 12, 00, 00);
-			int numberOfOccurences = -2;
-			TimeSpan interval = TimeSpan.FromMinutes(20);
-			IntervalCountedSchedule schedule = new IntervalCountedSchedule(firstOccurence, numberOfOccurences, interval);
+			Assert.Throws<ArgumentException>(() =>
+			{
+				//Should fail because numberOfOccurrences is set to 0 or lower than -1
+				DateTime firstOccurence = new DateTime(2006, 9, 18, 12, 00, 00);
+				int numberOfOccurences = -2;
+				TimeSpan interval = TimeSpan.FromMinutes(20);
+				IntervalCountedSchedule schedule = new IntervalCountedSchedule(firstOccurence, numberOfOccurences, interval);
+			});
 		}
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void NoLessThanSecondsIntervalTest()
         {
-            new IntervalCountedSchedule(DateTime.Now, 10, TimeSpan.FromTicks(1));
+            Assert.Throws<ArgumentException>(() =>
+            {
+                new IntervalCountedSchedule(DateTime.Now, 10, TimeSpan.FromTicks(1));
+            });
         }
 
         [Test]
@@ -146,70 +154,84 @@ namespace DemiCode.Scheduling.Schedules.Test
 		///A test for IntervalCountedSchedule(XmlNode)
 		///</summary>
 		[Test]
-		[ExpectedException(typeof(ArgumentException))]
 		public void ConstructorTest4_1()
 		{
-			TestXmlConstructor("TestData/IntervalCountedScheduleTest/schedule[@name='fail_1']");
+			Assert.Throws<ArgumentException>(() =>
+			{
+				TestXmlConstructor("TestData/IntervalCountedScheduleTest/schedule[@name='fail_1']");
+			});
 		}
 
 		/// <summary>
 		///A test for IntervalCountedSchedule(XmlNode)
 		///</summary>
 		[Test]
-		[ExpectedException(typeof(ArgumentException))]
 		public void ConstructorTest4_2()
 		{
-			TestXmlConstructor("TestData/IntervalCountedScheduleTest/schedule[@name='fail_2']");
+			Assert.Throws<ArgumentException>(() =>
+			{
+				TestXmlConstructor("TestData/IntervalCountedScheduleTest/schedule[@name='fail_2']");
+			});
 		}
 
 		/// <summary>
 		///A test for IntervalCountedSchedule(XmlNode)
 		///</summary>
 		[Test]
-		[ExpectedException(typeof(ArgumentException))]
 		public void ConstructorTest4_3()
 		{
-			TestXmlConstructor("TestData/IntervalCountedScheduleTest/schedule[@name='fail_3']");
+			Assert.Throws<ArgumentException>(() =>
+			{
+				TestXmlConstructor("TestData/IntervalCountedScheduleTest/schedule[@name='fail_3']");
+			});
 		}
 
 		/// <summary>
 		///A test for IntervalCountedSchedule(XmlNode)
 		///</summary>
 		[Test]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void ConstructorTest4_4()
 		{
-			TestXmlConstructor("TestData/IntervalCountedScheduleTest/schedule[@name='fail_4']");
+			Assert.Throws<ArgumentNullException>(() =>
+			{
+				TestXmlConstructor("TestData/IntervalCountedScheduleTest/schedule[@name='fail_4']");
+			});
 		}
 
 		/// <summary>
 		///A test for IntervalCountedSchedule(XmlNode)
 		///</summary>
 		[Test]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void ConstructorTest4_5()
 		{
-			TestXmlConstructor("TestData/IntervalCountedScheduleTest/schedule[@name='fail_5']");
+			Assert.Throws<ArgumentNullException>(() =>
+			{
+				TestXmlConstructor("TestData/IntervalCountedScheduleTest/schedule[@name='fail_5']");
+			});
 		}
 
 		/// <summary>
 		///A test for IntervalCountedSchedule(XmlNode)
 		///</summary>
 		[Test]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void ConstructorTest4_6()
 		{
-			TestXmlConstructor("TestData/IntervalCountedScheduleTest/schedule[@name='fail_6']");
+			Assert.Throws<ArgumentNullException>(() =>
+			{
+				TestXmlConstructor("TestData/IntervalCountedScheduleTest/schedule[@name='fail_6']");
+			});
 		}
 
 		/// <summary>
 		///A test for IntervalCountedSchedule(XmlNode)
 		///</summary>
 		[Test]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void ConstructorTest4_7()
 		{
-			TestXmlConstructor("TestData/IntervalCountedScheduleTest/schedule[@name='fail_7']");
+			Assert.Throws<ArgumentNullException>(() =>
+			{
+				TestXmlConstructor("TestData/IntervalCountedScheduleTest/schedule[@name='fail_7']");
+			});
 		}
 
 		private static void TestXmlConstructor(string nodePath)

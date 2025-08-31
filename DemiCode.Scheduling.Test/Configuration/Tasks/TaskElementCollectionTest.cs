@@ -13,6 +13,31 @@ namespace DemiCode.Scheduling.Tasks.Test
     [TestFixture]
     public class TaskElementCollectionTest
     {
+        // Test helper class to expose protected methods for testing
+        private class TestableTaskElementCollection : TaskElementCollection
+        {
+            public new ConfigurationElementCollectionType CollectionType => base.CollectionType;
+            
+            public new ConfigurationElement CreateNewElement()
+            {
+                return base.CreateNewElement();
+            }
+            
+            public new ConfigurationElement CreateNewElement(string elementName)
+            {
+                return base.CreateNewElement(elementName);
+            }
+            
+            public new object GetElementKey(ConfigurationElement element)
+            {
+                return base.GetElementKey(element);
+            }
+            
+            public new bool IsElementName(string elementName)
+            {
+                return base.IsElementName(elementName);
+            }
+        }
 
         /// <summary>
         ///A test for CollectionType
@@ -20,7 +45,7 @@ namespace DemiCode.Scheduling.Tasks.Test
         [Test]
         public void CollectionTypeTest()
         {
-            var target = DemiCode_Scheduling_Configuration_TaskElementCollectionAccessor.CreatePrivate();
+            var target = new TestableTaskElementCollection();
             var val = ConfigurationElementCollectionType.BasicMap;
 
             Assert.AreEqual(val, target.CollectionType, "DemiCode.Scheduling.Configuration.TaskElementCollection.CollectionType was not set correctly.");
@@ -32,12 +57,10 @@ namespace DemiCode.Scheduling.Tasks.Test
         [Test]
         public void CreateNewElementTest()
         {
-            TaskElementCollection target = DemiCode_Scheduling_Configuration_TaskElementCollectionAccessor.CreatePrivate();
+            var target = new TestableTaskElementCollection();
 
-            DemiCode_Scheduling_Configuration_TaskElementCollectionAccessor accessor = new DemiCode_Scheduling_Configuration_TaskElementCollectionAccessor(target);
-
-            ConfigurationElement actual = accessor.CreateNewElement();
-            Assert.IsInstanceOfType(typeof(TaskElement), actual);
+            ConfigurationElement actual = target.CreateNewElement();
+            Assert.IsInstanceOf<TaskElement>(actual);
         }
 
         /// <summary>
@@ -46,23 +69,21 @@ namespace DemiCode.Scheduling.Tasks.Test
         [Test]
         public void CreateNewElementTest1()
         {
-            TaskElementCollection target = DemiCode_Scheduling_Configuration_TaskElementCollectionAccessor.CreatePrivate();
-
-            DemiCode_Scheduling_Configuration_TaskElementCollectionAccessor accessor = new DemiCode_Scheduling_Configuration_TaskElementCollectionAccessor(target);
+            var target = new TestableTaskElementCollection();
 
             ConfigurationElement actual;
 
             string elementName = "task"; 
-            actual = accessor.CreateNewElement(elementName);
-            Assert.IsInstanceOfType(typeof(TaskElement), actual);
+            actual = target.CreateNewElement(elementName);
+            Assert.IsInstanceOf<TaskElement>(actual);
 
             elementName = "CodeTask";
-            actual = accessor.CreateNewElement(elementName);
-            Assert.IsInstanceOfType(typeof(CodeTaskElement), actual);
+            actual = target.CreateNewElement(elementName);
+            Assert.IsInstanceOf<CodeTaskElement>(actual);
 
             elementName = "ApplicationTask";
-            actual = accessor.CreateNewElement(elementName);
-            Assert.IsInstanceOfType(typeof(ApplicationTaskElement), actual);
+            actual = target.CreateNewElement(elementName);
+            Assert.IsInstanceOf<ApplicationTaskElement>(actual);
         }
 
         /// <summary>
@@ -70,15 +91,16 @@ namespace DemiCode.Scheduling.Tasks.Test
         ///</summary>
         
         [Test]
-        [ExpectedException(typeof(InvalidConfigurationException))]
         public void CreateInvalidElementTest()
         {
-            TaskElementCollection target = DemiCode_Scheduling_Configuration_TaskElementCollectionAccessor.CreatePrivate();
-            DemiCode_Scheduling_Configuration_TaskElementCollectionAccessor accessor = new DemiCode_Scheduling_Configuration_TaskElementCollectionAccessor(target);
+            Assert.Throws<InvalidConfigurationException>(() =>
+            {
+                var target = new TestableTaskElementCollection();
 
-            string elementName = "SomeTask";
+                string elementName = "SomeTask";
 
-            ConfigurationElement actual = accessor.CreateNewElement(elementName);
+                ConfigurationElement actual = target.CreateNewElement(elementName);
+            });
         }
 
 
@@ -88,12 +110,11 @@ namespace DemiCode.Scheduling.Tasks.Test
         [Test]
         public void GetElementKeyTest()
         {
-            TaskElementCollection target = DemiCode_Scheduling_Configuration_TaskElementCollectionAccessor.CreatePrivate();
-            DemiCode_Scheduling_Configuration_TaskElementCollectionAccessor accessor = new DemiCode_Scheduling_Configuration_TaskElementCollectionAccessor(target);
+            var target = new TestableTaskElementCollection();
 
             ConfigurationElement element = new TaskElement();
 
-            object actual = accessor.GetElementKey(element);
+            object actual = target.GetElementKey(element);
             Assert.IsNotNull(actual);
         }
 
@@ -103,15 +124,14 @@ namespace DemiCode.Scheduling.Tasks.Test
         [Test]
         public void IsElementNameTest()
         {
-            TaskElementCollection target = DemiCode_Scheduling_Configuration_TaskElementCollectionAccessor.CreatePrivate();
-            DemiCode_Scheduling_Configuration_TaskElementCollectionAccessor accessor = new DemiCode_Scheduling_Configuration_TaskElementCollectionAccessor(target);
+            var target = new TestableTaskElementCollection();
 
-            Assert.IsFalse(accessor.IsElementName(null));
-            Assert.IsFalse(accessor.IsElementName(""));
+            Assert.IsFalse(target.IsElementName(null));
+            Assert.IsFalse(target.IsElementName(""));
 
-            Assert.IsTrue(accessor.IsElementName("task"));
-            Assert.IsTrue(accessor.IsElementName("CodeTask"));
-            Assert.IsTrue(accessor.IsElementName("ApplicationTask"));
+            Assert.IsTrue(target.IsElementName("task"));
+            Assert.IsTrue(target.IsElementName("CodeTask"));
+            Assert.IsTrue(target.IsElementName("ApplicationTask"));
         }
 
         /// <summary>
@@ -120,7 +140,7 @@ namespace DemiCode.Scheduling.Tasks.Test
         [Test]
         public void ItemTest()
         {
-            TaskElementCollection target = DemiCode_Scheduling_Configuration_TaskElementCollectionAccessor.CreatePrivate();
+            TaskElementCollection target = new TaskElementCollection();
 
             TaskElement val = new TaskElement(); 
             int index = 0; 

@@ -19,7 +19,7 @@ namespace DemiCode.Scheduling.Test
         public void ConstructorTest()
         {
             InvalidConfigurationException target = new InvalidConfigurationException();
-            Assert.IsInstanceOfType(typeof(InvalidConfigurationException), target);
+            Assert.IsInstanceOf<InvalidConfigurationException>(target);
         }
 
         /// <summary>

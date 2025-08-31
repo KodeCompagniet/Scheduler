@@ -25,14 +25,13 @@ namespace DemiCode.Logging.Configuration.Test
         {
             var factory = new LoggerElement(typeof(NilLoggerFactory)).GetLoggerInstance();
             Assert.IsNotNull(factory);
-            Assert.IsInstanceOfType(typeof(NilLoggerFactory), factory);
+            Assert.IsInstanceOf<NilLoggerFactory>(factory);
         }
 
-        [ExpectedException(typeof(InvalidOperationException))]
         [Test]
         public void GetLogger2Test()
         {
-            new LoggerElement().GetLoggerInstance();
+            Assert.Throws<InvalidOperationException>(() => new LoggerElement().GetLoggerInstance());
         }
 
         [Test]

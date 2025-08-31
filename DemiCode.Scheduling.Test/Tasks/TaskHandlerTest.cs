@@ -51,26 +51,30 @@ namespace DemiCode.Scheduling.Tasks.Test
 
         
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ConstructorWithNullParametersTest1()
         {
-            ITask task = new TaskMock();
-            IDictionary parameters = new Dictionary<string, object>();
-            ILoggerFactory loggerFactory = null;   
+            Assert.Throws<ArgumentNullException>(() =>
+            {
+                ITask task = new TaskMock();
+                IDictionary parameters = new Dictionary<string, object>();
+                ILoggerFactory loggerFactory = null;   
 
-            TaskHandler target = new TaskHandler(task, parameters, loggerFactory);
+                TaskHandler target = new TaskHandler(task, parameters, loggerFactory);
+            });
         }
 
         
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void ConstructorWithNullParametersTest3()
         {
-            ITask task = null;
-            IDictionary parameters = new Dictionary<string, object>();
-            ILoggerFactory loggerFactory = new LoggerFactoryMock();
+            Assert.Throws<ArgumentNullException>(() =>
+            {
+                ITask task = null;
+                IDictionary parameters = new Dictionary<string, object>();
+                ILoggerFactory loggerFactory = new LoggerFactoryMock();
 
-            TaskHandler target = new TaskHandler(task, parameters, loggerFactory);
+                TaskHandler target = new TaskHandler(task, parameters, loggerFactory);
+            });
         }
     }
 }

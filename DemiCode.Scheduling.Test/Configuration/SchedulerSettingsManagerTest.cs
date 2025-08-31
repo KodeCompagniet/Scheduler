@@ -20,21 +20,27 @@ namespace DemiCode.Scheduling.Configuration.Test
             var actual = SchedulerSettingsManager.GetConfigurationSection(sectionName);
 
             Assert.IsNotNull(actual);
-            Assert.IsInstanceOfType(typeof(SchedulerSettings), actual);
+            Assert.IsInstanceOf<SchedulerSettings>(actual);
         }
 
-        [Test, ExpectedException(typeof(ArgumentNullException))]
+        [Test]
         public void GetNullConfigurationSectionTest()
         {
-            const string sectionName = null;
-            SchedulerSettingsManager.GetConfigurationSection(sectionName);
+            Assert.Throws<ArgumentNullException>(() =>
+            {
+                const string sectionName = null;
+                SchedulerSettingsManager.GetConfigurationSection(sectionName);
+            });
         }
 
-        [Test, ExpectedException(typeof(ArgumentException))]
+        [Test]
         public void GetNonExistentConfigurationSectionTest()
         {
-            const string sectionName = "somebogussectionname";
-            SchedulerSettingsManager.GetConfigurationSection(sectionName);
+            Assert.Throws<ArgumentException>(() =>
+            {
+                const string sectionName = "somebogussectionname";
+                SchedulerSettingsManager.GetConfigurationSection(sectionName);
+            });
         }
 
 
@@ -96,10 +102,13 @@ namespace DemiCode.Scheduling.Configuration.Test
             SchedulerSettingsManager.GetWritableConfigurationSection("writableSection");
         }
 
-        [Test, ExpectedException(typeof(InvalidOperationException))]
+        [Test]
         public void GetWritableConfigurationSection_OldSectionTest()
         {
-            SchedulerSettingsManager.GetWritableConfigurationSection("writableSection_old");
+            Assert.Throws<InvalidOperationException>(() =>
+            {
+                SchedulerSettingsManager.GetWritableConfigurationSection("writableSection_old");
+            });
         }
     }
 }
