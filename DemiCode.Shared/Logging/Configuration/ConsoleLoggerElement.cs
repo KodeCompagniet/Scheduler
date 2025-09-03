@@ -55,5 +55,10 @@ namespace DemiCode.Logging.Configuration
             if (ReferenceEquals(this, compareTo)) return true;
             return Equals(compareTo as ConsoleLoggerElement);
         }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }

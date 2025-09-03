@@ -11,14 +11,14 @@ namespace DemiCode.Shared.Factories
 	{
 		#region ctors
 		/// <summary>
-		/// Initializes a new instance of the <see cref="DemiCode.Scheduling.FactoryException"/> class.
+        /// Initializes a new instance of the <see cref="FactoryException"/> class.
 		/// </summary>
 		public FactoryException()
 			: base()
 		{ }
 
 		/// <summary>
-		/// Initializes an instance of the <see cref="DemiCode.Scheduling.FactoryException"/> class with a specified error message. 
+        /// Initializes an instance of the <see cref="FactoryException"/> class with a specified error message. 
 		/// </summary>
 		/// <param name="message">The message that describes the error.</param>
 		public FactoryException(string message)
@@ -26,7 +26,7 @@ namespace DemiCode.Shared.Factories
 		{ }
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="DemiCode.Scheduling.FactoryException"/> class with a
+        /// Initializes a new instance of the <see cref="FactoryException"/> class with a
 		/// specified error message and a reference to the inner exception that is the cause of this exception.
 		/// </summary>
 		/// <param name="message">The error message that explains the reason for the exception.</param>
@@ -37,7 +37,7 @@ namespace DemiCode.Shared.Factories
 		{ }
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="DemiCode.Scheduling.FactoryException"/> class with serialized data.
+        /// Initializes a new instance of the <see cref="FactoryException"/> class with serialized data.
 		/// </summary>
 		/// <param name="info">The <see cref="SerializationInfo"/> that holds the serialized object data about the exception being thrown. </param>
 		/// <param name="context">The <see cref="StreamingContext"/> that contains contextual information about the source or destination.</param>
@@ -55,14 +55,14 @@ namespace DemiCode.Shared.Factories
     {
         #region ctors
         /// <summary>
-        /// Initializes a new instance of the <see cref="DemiCode.Scheduling.FactoryConfigurationException"/> class.
+        /// Initializes a new instance of the <see cref="FactoryConfigurationException"/> class.
         /// </summary>
         public FactoryConfigurationException()
             : base()
         { }
 
         /// <summary>
-        /// Initializes an instance of the <see cref="DemiCode.Scheduling.FactoryConfigurationException"/> class with a specified error message. 
+        /// Initializes an instance of the <see cref="FactoryConfigurationException"/> class with a specified error message. 
         /// </summary>
         /// <param name="message">The message that describes the error.</param>
         public FactoryConfigurationException(string message)
@@ -70,7 +70,7 @@ namespace DemiCode.Shared.Factories
         { }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DemiCode.Scheduling.FactoryConfigurationException"/> class with a
+        /// Initializes a new instance of the <see cref="FactoryConfigurationException"/> class with a
         /// specified error message and a reference to the inner exception that is the cause of this exception.
         /// </summary>
         /// <param name="message">The error message that explains the reason for the exception.</param>
@@ -81,7 +81,7 @@ namespace DemiCode.Shared.Factories
         { }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DemiCode.Scheduling.FactoryConfigurationException"/> class with serialized data.
+        /// Initializes a new instance of the <see cref="FactoryConfigurationException"/> class with serialized data.
         /// </summary>
         /// <param name="info">The <see cref="SerializationInfo"/> that holds the serialized object data about the exception being thrown. </param>
         /// <param name="context">The <see cref="StreamingContext"/> that contains contextual information about the source or destination.</param>

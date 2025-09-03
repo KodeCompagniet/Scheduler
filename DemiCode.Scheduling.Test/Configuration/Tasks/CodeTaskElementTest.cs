@@ -19,7 +19,7 @@ namespace DemiCode.Scheduling.Configuration.Tasks.Test
         {
             var target = new CodeTaskElement(GetType(), "ConstructorTest3");
             var task = target.GetTaskInstance();
-            Assert.That(task, Is.InstanceOf<CodeTask>());
+            task.Should().BeOfType<CodeTask>();
         }
 
         [Test]
@@ -28,7 +28,7 @@ namespace DemiCode.Scheduling.Configuration.Tasks.Test
             var left = new CodeTaskElement();
             var right = new CodeTaskElement();
             var actual = left.Equals(right);
-            Assert.That(actual, Is.True);
+            actual.Should().BeTrue();
         }
 
         [Test]
@@ -37,7 +37,7 @@ namespace DemiCode.Scheduling.Configuration.Tasks.Test
             var left = new CodeTaskElement(typeof(SimpleClass), "SimpleMethod");
             var right = new CodeTaskElement(typeof(SimpleClass), "SimpleMethod");
             var actual = left.Equals(right);
-            Assert.That(actual, Is.True);
+            actual.Should().BeTrue();
         }
 
         [Test]
@@ -46,7 +46,7 @@ namespace DemiCode.Scheduling.Configuration.Tasks.Test
             var left = new CodeTaskElement(typeof(SimpleClass), "SimpleMethod");
             var right = new CodeTaskElement(typeof(SimpleClass), "ExtendedMethod");
             var actual = left.Equals(right);
-            Assert.That(actual, Is.False);
+            actual.Should().BeFalse();
         }
 
         [Test]
@@ -55,7 +55,7 @@ namespace DemiCode.Scheduling.Configuration.Tasks.Test
             var left = new CodeTaskElement {new ScheduleReferenceElement("first")};
             var right = new CodeTaskElement { new ScheduleReferenceElement("last") };
             var actual = left.Equals(right);
-            Assert.That(actual, Is.False);
+            actual.Should().BeFalse();
         }
 
         [Test]
@@ -64,7 +64,7 @@ namespace DemiCode.Scheduling.Configuration.Tasks.Test
             var left = new CodeTaskElement {new ScheduleReferenceElement("first")};
             var right = new CodeTaskElement {new ScheduleReferenceElement("first")};
             var actual = left.Equals(right);
-            Assert.That(actual, Is.True);
+            actual.Should().BeTrue();
         }
     }
 

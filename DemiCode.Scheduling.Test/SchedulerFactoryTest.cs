@@ -22,8 +22,8 @@ namespace DemiCode.Scheduling.Test
         {
             using (var scheduler = SchedulerFactory.CreateFromConfig("scheduling"))
             {
-                Assert.IsNotNull(scheduler, "CreateFromConfig did not return the expected value.");
-                Assert.AreEqual(2, scheduler.Count);
+                scheduler.Should().NotBeNull("CreateFromConfig did not return the expected value.");
+                scheduler.Count.Should().Be(2);
             }
         }
 
@@ -35,8 +35,8 @@ namespace DemiCode.Scheduling.Test
         {
             using (var scheduler = Scheduler.CreateFromConfig("scheduling", "lunch"))
             {
-                Assert.IsNotNull(scheduler, "CreateFromConfig did not return the expected value.");
-                Assert.AreEqual(1, scheduler.Count);
+                scheduler.Should().NotBeNull("CreateFromConfig did not return the expected value.");
+                scheduler.Count.Should().Be(1);
             }
         }
 
@@ -46,8 +46,8 @@ namespace DemiCode.Scheduling.Test
         {
             using (var scheduler = SchedulerFactory.CreateFromConfigFile("DemiCode.Scheduling.Test.dll.config", "scheduling"))
             {
-                Assert.IsNotNull(scheduler, "CreateFromConfigFile did not return the expected value.");
-                Assert.AreEqual(2, scheduler.Count);
+                scheduler.Should().NotBeNull("CreateFromConfigFile did not return the expected value.");
+                scheduler.Count.Should().Be(2);
             }
         }
 
@@ -56,8 +56,8 @@ namespace DemiCode.Scheduling.Test
         {
             using (var scheduler = SchedulerFactory.CreateFromConfigFile("DemiCode.Scheduling.Test.dll.config", "scheduling", "lunch"))
             {
-                Assert.IsNotNull(scheduler, "CreateFromConfigFile did not return the expected value.");
-                Assert.AreEqual(1, scheduler.Count);
+                scheduler.Should().NotBeNull("CreateFromConfigFile did not return the expected value.");
+                scheduler.Count.Should().Be(1);
             }
         }
 
@@ -69,8 +69,8 @@ namespace DemiCode.Scheduling.Test
         {
             using (var scheduler = SchedulerFactory.CreateFromConfig("scheduling", "test"))
             {
-                Assert.IsNotNull(scheduler, "CreateFromConfig did not return the expected value.");
-                Assert.AreEqual(0, scheduler.Count);
+                scheduler.Should().NotBeNull("CreateFromConfig did not return the expected value.");
+                scheduler.Count.Should().Be(0);
             }
         }
 
@@ -79,8 +79,8 @@ namespace DemiCode.Scheduling.Test
         {
             using (var scheduler = SchedulerFactory.Create())
             {
-                Assert.IsNotNull(scheduler, "Create did not return the expected value.");
-                Assert.AreEqual(0, scheduler.Count);
+                scheduler.Should().NotBeNull("Create did not return the expected value.");
+                scheduler.Count.Should().Be(0);
             }
         }
 
@@ -90,8 +90,8 @@ namespace DemiCode.Scheduling.Test
             var schedules = new List<ISchedule> {new OneShotSchedule(DateTime.Now.AddDays(1))};
             using (var scheduler = SchedulerFactory.Create(schedules))
             {
-                Assert.IsNotNull(scheduler, "Create did not return the expected value.");
-                Assert.AreEqual(1, scheduler.Count);
+                scheduler.Should().NotBeNull("Create did not return the expected value.");
+                scheduler.Count.Should().Be(1);
             }
         }
 

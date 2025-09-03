@@ -17,7 +17,7 @@ namespace TestConsole
         public void Execute(ILoggerFactory loggerFactory)
         {
             if (loggerFactory == null)
-                throw new ArgumentNullException("loggerFactory");
+                throw new ArgumentNullException(nameof(loggerFactory));
             
             var i = 0;
 

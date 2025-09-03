@@ -73,7 +73,7 @@ namespace DemiCode.Scheduling.Test
         public static void EventCountIsEqual(int expected)
         {
             var a = new EventCountAsserter(expected, false);
-            Assert.IsTrue(a.Test(), a.Message);
+            a.Test().Should().BeTrue();
         }
 
         /// <summary>
@@ -83,7 +83,7 @@ namespace DemiCode.Scheduling.Test
         public static void ErrorCountIsEqual(int expected)
         {
             var a = new EventCountAsserter(expected, Level.Error, false);
-            Assert.IsTrue(a.Test(), a.Message);
+            a.Test().Should().BeTrue();
         }
 
         /// <summary>
@@ -93,7 +93,7 @@ namespace DemiCode.Scheduling.Test
         public static void EventCountIsNotEqual(int expected)
         {
             var a = new EventCountAsserter(expected, true);
-            Assert.IsTrue(a.Test(), a.Message);
+            a.Test().Should().BeTrue();
         }
 
         private class EventCountAsserter

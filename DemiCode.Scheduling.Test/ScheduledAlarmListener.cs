@@ -126,8 +126,8 @@ namespace DemiCode.Scheduling.Test
         /// <param name="milliseconds">Timeout in milliseconds</param>
         public void AssertScheduledAlarm(int milliseconds)
         {
-            Assert.That(WaitForScheduledAlarm(milliseconds),
-                        "ScheduledAlarm/Alarm event not received within {0} milliseconds", milliseconds);
+            WaitForScheduledAlarm(milliseconds)
+                .Should().BeTrue("ScheduledAlarm/Alarm event not received within {0} milliseconds", milliseconds);
         }
 
         /// <summary>
@@ -145,7 +145,7 @@ namespace DemiCode.Scheduling.Test
         /// </summary>
         public void AssertExpectedTriggerCount()
         {
-            Assert.IsTrue(DidMatchExpectedTriggerCount, "ScheduledAlarm/Alarm triggered {0} times (expected {2}), EndOfSchedule triggered {1} times (expected {3})", ScheduledAlarmCount, EndOfScheduleCount, _expectedScheduledAlarmCount, _expectedEndOfScheduleCount);
+            DidMatchExpectedTriggerCount.Should().BeTrue();
         }
 
         public bool DidMatchExpectedTriggerCount

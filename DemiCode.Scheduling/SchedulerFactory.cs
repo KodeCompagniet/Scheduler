@@ -44,7 +44,7 @@ namespace DemiCode.Scheduling
             public Scheduler CreateFromConfig(string sectionName, bool reloadConfigFromDisk)
             {
                 if (sectionName == null)
-                    throw new ArgumentNullException("sectionName");
+                    throw new ArgumentNullException(nameof(sectionName));
 
                 return CreateFromConfigInternal(GetSchedulerSettingsSection(sectionName, reloadConfigFromDisk));
             }
@@ -72,10 +72,10 @@ namespace DemiCode.Scheduling
             public Scheduler CreateFromConfig(string sectionName, string schedulerName, bool reloadConfigFromDisk)
             {
                 if (sectionName == null)
-                    throw new ArgumentNullException("sectionName");
+                    throw new ArgumentNullException(nameof(sectionName));
 
                 if (schedulerName == null)
-                    throw new ArgumentNullException("schedulerName", "Scheduler name must be a valid scheduler in the configuration file");
+                    throw new ArgumentNullException(nameof(schedulerName), "Scheduler name must be a valid scheduler in the configuration file");
 
                 return CreateFromConfigInternal(schedulerName, GetSchedulerSettingsSection(sectionName, reloadConfigFromDisk));
             }
@@ -89,7 +89,7 @@ namespace DemiCode.Scheduling
             {
                 var schedulerElement = schedulerSettings.Schedulers[schedulerName];
                 if (schedulerElement == null)
-                    throw new ArgumentException("Scheduler name must correspond to a scheduler item in the specified configuration", "schedulerName");
+                    throw new ArgumentException("Scheduler name must correspond to a scheduler item in the specified configuration", nameof(schedulerName));
 
                 var scheduler = new Scheduler();
 
@@ -202,11 +202,11 @@ namespace DemiCode.Scheduling
             public Scheduler CreateFromConfigFile(string configFile, string sectionName)
             {
                 if (String.IsNullOrEmpty(configFile))
-                    throw new ArgumentNullException("configFile");
+                    throw new ArgumentNullException(nameof(configFile));
                 if (!File.Exists(configFile))
-                    throw new ArgumentException("Could not locate configuration file '" + configFile + "'", "configFile");
+                    throw new ArgumentException("Could not locate configuration file '" + configFile + "'", nameof(configFile));
                 if (String.IsNullOrEmpty(sectionName))
-                    throw new ArgumentNullException("sectionName");
+                    throw new ArgumentNullException(nameof(sectionName));
 
                 var ss = GetSchedulerSettingsSection(configFile, sectionName);
                 return CreateFromConfigInternal(ss);
@@ -224,13 +224,13 @@ namespace DemiCode.Scheduling
             public Scheduler CreateFromConfigFile(string configFile, string sectionName, string schedulerName)
             {
                 if (String.IsNullOrEmpty(configFile))
-                    throw new ArgumentNullException("configFile");
+                    throw new ArgumentNullException(nameof(configFile));
                 if (!File.Exists(configFile))
-                    throw new ArgumentException("Could not locate configuration file '" + configFile + "'", "configFile");
+                    throw new ArgumentException("Could not locate configuration file '" + configFile + "'", nameof(configFile));
                 if (String.IsNullOrEmpty(sectionName))
-                    throw new ArgumentNullException("sectionName");
+                    throw new ArgumentNullException(nameof(sectionName));
                 if (String.IsNullOrEmpty(schedulerName))
-                    throw new ArgumentNullException("schedulerName");
+                    throw new ArgumentNullException(nameof(schedulerName));
 
                 var ss = GetSchedulerSettingsSection(configFile, sectionName);
                 return CreateFromConfigInternal(schedulerName, ss);

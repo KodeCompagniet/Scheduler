@@ -16,15 +16,15 @@ namespace DemiCode.Scheduling.Test
             DateTime expetedNow = DateTime.Now.ToUniversalTime();
             DateTime now = TimeHelper.GetTime();
 
-            Assert.AreEqual(DateTimeKind.Utc, now.Kind);
+            now.Kind.Should().Be(DateTimeKind.Utc);
 
             Console.WriteLine("{0:yyyyMMdd hh:mm:ss:fffff}", now);
             Console.WriteLine("{0:yyyyMMdd hh:mm:ss:fffff}", now.ToLocalTime());
 
-            Assert.AreEqual(expetedNow.Date, now.Date);
-            Assert.AreEqual(expetedNow.TimeOfDay.Hours, now.TimeOfDay.Hours);
-            Assert.AreEqual(expetedNow.TimeOfDay.Minutes, now.TimeOfDay.Minutes);
-            Assert.AreEqual(expetedNow.TimeOfDay.Seconds, now.TimeOfDay.Seconds);
+            now.Date.Should().Be(expetedNow.Date);
+            now.TimeOfDay.Hours.Should().Be(expetedNow.TimeOfDay.Hours);
+            now.TimeOfDay.Minutes.Should().Be(expetedNow.TimeOfDay.Minutes);
+            now.TimeOfDay.Seconds.Should().Be(expetedNow.TimeOfDay.Seconds);
         }
 
         [Test]
@@ -41,7 +41,7 @@ namespace DemiCode.Scheduling.Test
             try
             {
                 DateTime currentNow = TimeHelper.GetTime();
-                Assert.AreEqual(modifiedNow.Hour, currentNow.Hour);
+                currentNow.Hour.Should().Be(modifiedNow.Hour);
             }
             finally
             {
@@ -61,11 +61,11 @@ namespace DemiCode.Scheduling.Test
             using (TimeHelper.Change(newDate))
             {
                 var now = DateTime.Now;
-                Assert.That(now.Year, Is.EqualTo(newDate.Year));
+                now.Year.Should().Be(newDate.Year);
             }
 
             var restoredNow = DateTime.Now;
-            Assert.That(restoredNow.Year, Is.EqualTo(originalDate.Year));
+            restoredNow.Year.Should().Be(originalDate.Year);
         }
     }
 }

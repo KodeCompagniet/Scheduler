@@ -24,17 +24,17 @@ namespace DemiCode.Scheduling.Tasks.Test
             var task = new CodeTask(typeof(SimpleClass),  "SimpleMethod");
             task.Execute(loggerFactory);
 
-            Assert.IsTrue(SimpleClass.SimpleMethodWasCalled);
+            SimpleClass.SimpleMethodWasCalled.Should().BeTrue();
 
             task = new CodeTask(typeof(SimpleClass), "SimpleMethod", "value1", "value2");
             task.Execute(loggerFactory);
 
-            Assert.IsTrue(SimpleClass.SimpleMethodWithParametersWasCalled);
+            SimpleClass.SimpleMethodWithParametersWasCalled.Should().BeTrue();
 
             task = new CodeTask(typeof(SimpleClass), "OtherMethodWithParameters", "value1", "value2");
             task.Execute(loggerFactory);
 
-            Assert.IsTrue(SimpleClass.OtherMethodWithParametersWasCalled);
+            SimpleClass.OtherMethodWithParametersWasCalled.Should().BeTrue();
         }
 
         /// <summary>
@@ -50,7 +50,7 @@ namespace DemiCode.Scheduling.Tasks.Test
             CodeTask task = new CodeTask(typeof(DisposableClass), "SimpleMethod");
             task.Execute(loggerFactory);
 
-            Assert.IsTrue(DisposableClass.DisposeWasCalled);
+            DisposableClass.DisposeWasCalled.Should().BeTrue();
         }
 
         [Test]
@@ -91,12 +91,12 @@ namespace DemiCode.Scheduling.Tasks.Test
             object[] values;
             CodeTask.SplitParameterTypesAndValues(parameters, out types, out values);
 
-            Assert.AreEqual(2, types.Length);
-            Assert.AreEqual(2, values.Length);
-            Assert.AreEqual(typeof(string), types[0]);
-            Assert.AreEqual(typeof(int), types[1]);
-            Assert.AreEqual("value1", values[0]);
-            Assert.AreEqual(2, values[1]);
+            types.Length.Should().Be(2);
+            values.Length.Should().Be(2);
+            types[0].Should().Be(typeof(string));
+            types[1].Should().Be(typeof(int));
+            values[0].Should().Be("value1");
+            values[1].Should().Be(2);
 
         }
     }

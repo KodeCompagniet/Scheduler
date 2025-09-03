@@ -39,20 +39,20 @@ namespace DemiCode.Scheduling.Tasks
         public CodeTask(Type codeClass, string method, params object[] parameters)
         {
             if (codeClass == null)
-                throw new ArgumentNullException("codeClass");
+                throw new ArgumentNullException(nameof(codeClass));
             if (String.IsNullOrEmpty(method))
-                throw new ArgumentException("Method name must be a valid static or non-static method", "method");
+                throw new ArgumentException("Method name must be a valid static or non-static method", nameof(method));
             if (parameters == null)
-                throw new ArgumentNullException("parameters");
+                throw new ArgumentNullException(nameof(parameters));
 
             SplitParameterTypesAndValues(parameters, out parameterTypes, out parameterValues);
 
             methodInstance = codeClass.GetMethod(method, parameterTypes);
             if (methodInstance == null)
-                throw new ArgumentException("Specified method does not exist on the class", "method");
+                throw new ArgumentException("Specified method does not exist on the class", nameof(method));
 
             if (!methodInstance.IsStatic && (codeClass.GetConstructor(new Type[0]) == null))
-                throw new ArgumentException("Specified class does not have a parameterless constructor", "codeClass");
+                throw new ArgumentException("Specified class does not have a parameterless constructor", nameof(codeClass));
 
             CodeClass = codeClass;
             Method = method;
@@ -66,7 +66,7 @@ namespace DemiCode.Scheduling.Tasks
         public void Execute(ILoggerFactory loggerFactory)
         {
             if (loggerFactory == null)
-                throw new ArgumentNullException("loggerFactory");
+                throw new ArgumentNullException(nameof(loggerFactory));
 
             var logger = loggerFactory.CreateLogger(typeof (CodeTask));
 

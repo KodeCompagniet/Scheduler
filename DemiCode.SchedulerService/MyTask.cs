@@ -20,7 +20,7 @@ namespace DemiCode.SchedulerService
         public void Execute(ILoggerFactory loggerFactory)
         {
             if (loggerFactory == null)
-                throw new ArgumentNullException("loggerFactory");
+                throw new ArgumentNullException(nameof(loggerFactory));
 
             var logger = loggerFactory.CreateLogger(GetType());
             if (String.IsNullOrEmpty(Message))

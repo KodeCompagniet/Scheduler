@@ -18,7 +18,7 @@ namespace DemiCode.Scheduling.Test
 
             DateTime expected = new DateTime(2007, 1, 2, 8, 0, 0);
 
-            Assert.AreEqual(expected, newDate);
+            newDate.Should().Be(expected);
         }
     }
 }

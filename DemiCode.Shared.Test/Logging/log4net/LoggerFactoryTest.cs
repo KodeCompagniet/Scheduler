@@ -13,7 +13,7 @@ namespace DemiCode.Scheduling.Loggers.log4net.Test
         {
             ILoggerFactory factory = new Log4netLoggerFactory();
             ILogger logger = factory.CreateLogger("test");
-            Assert.IsNotNull(logger);
+            logger.Should().NotBeNull();
         }
 
         [Test]
@@ -21,7 +21,7 @@ namespace DemiCode.Scheduling.Loggers.log4net.Test
         {
             ILoggerFactory factory = new Log4netLoggerFactory();
             ILogger logger = factory.CreateLogger(typeof(LoggerFactoryTest));
-            Assert.IsNotNull(logger);
+            logger.Should().NotBeNull();
         }
 
         [Test]

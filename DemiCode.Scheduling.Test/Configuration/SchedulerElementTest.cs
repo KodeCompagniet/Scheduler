@@ -28,7 +28,7 @@ namespace DemiCode.Scheduling.Configuration.Test
             var left = new SchedulerElement();
             var right = new SchedulerElement();
             var actual = left.Equals(right);
-            Assert.That(actual, Is.True);
+            actual.Should().BeTrue();
         }
 
         [Test]
@@ -37,7 +37,7 @@ namespace DemiCode.Scheduling.Configuration.Test
             var left = new SchedulerElement("first");
             var right = new SchedulerElement("first");
             var actual = left.Equals(right);
-            Assert.That(actual, Is.True);
+            actual.Should().BeTrue();
         }
 
         [Test]
@@ -46,7 +46,7 @@ namespace DemiCode.Scheduling.Configuration.Test
             var left = new SchedulerElement("first");
             var right = new SchedulerElement("last");
             var actual = left.Equals(right);
-            Assert.That(actual, Is.False);
+            actual.Should().BeFalse();
         }
 
         [Test]
@@ -55,7 +55,7 @@ namespace DemiCode.Scheduling.Configuration.Test
             var left = new SchedulerElement {new ScheduleElement("first", typeof(OneShotSchedule)) };
             var right = new SchedulerElement { new ScheduleElement("first", typeof(OneShotSchedule)) };
             var actual = left.Equals(right);
-            Assert.That(actual, Is.True);
+            actual.Should().BeTrue();
         }
 
         [Test]
@@ -64,7 +64,7 @@ namespace DemiCode.Scheduling.Configuration.Test
             var left = new SchedulerElement { new ScheduleElement("first", typeof(OneShotSchedule)) };
             var right = new SchedulerElement { new ScheduleElement("last", typeof(OneShotSchedule)) };
             var actual = left.Equals(right);
-            Assert.That(actual, Is.False);
+            actual.Should().BeFalse();
         }
 
         [Test]
@@ -76,7 +76,7 @@ namespace DemiCode.Scheduling.Configuration.Test
             right.Tasks.Add(new TaskElement(typeof(CodeTask)));
 
             var actual = left.Equals(right);
-            Assert.That(actual, Is.True);
+            actual.Should().BeTrue();
         }
 
         [Test]
@@ -88,7 +88,7 @@ namespace DemiCode.Scheduling.Configuration.Test
             right.Tasks.Add(new TaskElement(typeof(ApplicationTask)));
 
             var actual = left.Equals(right);
-            Assert.That(actual, Is.False);
+            actual.Should().BeFalse();
         }
 
         [Test]
@@ -100,7 +100,7 @@ namespace DemiCode.Scheduling.Configuration.Test
             right.Loggers.Add(new ConsoleLoggerElement());
 
             var actual = left.Equals(right);
-            Assert.That(actual, Is.True);
+            actual.Should().BeTrue();
         }
 
         [Test]
@@ -113,7 +113,7 @@ namespace DemiCode.Scheduling.Configuration.Test
             right.Loggers.Add(new ConsoleLoggerElement());
 
             var actual = left.Equals(right);
-            Assert.That(actual, Is.False);
+            actual.Should().BeFalse();
         }
     }
 

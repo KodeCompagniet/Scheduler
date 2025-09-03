@@ -19,7 +19,7 @@ namespace DemiCode.Configuration.Test
         {
             var value = 42;
             var element = new LongElement(value);
-            Assert.AreEqual(value, element.Value);
+            element.Value.Should().Be(value);
         }
 
         [Test]
@@ -30,7 +30,7 @@ namespace DemiCode.Configuration.Test
             var left = new LongElement(value);
             var right = new LongElement(value);
 
-            Assert.AreEqual(left, right);
+            right.Should().Be(left);
         }
 
         [Test]
@@ -39,7 +39,7 @@ namespace DemiCode.Configuration.Test
             var left = new LongElement(42);
             var right = new LongElement(43);
 
-            Assert.AreNotEqual(left, right);
+            right.Should().NotBe(left);
         }
 
         [Test]
@@ -48,7 +48,7 @@ namespace DemiCode.Configuration.Test
             var left = new LongElement();
             var right = new LongElement();
 
-            Assert.AreEqual(left, right);
+            right.Should().Be(left);
         }
 
     }

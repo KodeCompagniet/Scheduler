@@ -136,5 +136,16 @@ namespace DemiCode.Configuration
             return Equals(compareTo as DateTimeElement);
         }
 
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                var hash = base.GetHashCode();
+                hash = (hash * 397) ^ Value.GetHashCode();
+                hash = (hash * 397) ^ (_format?.GetHashCode() ?? 0);
+                return hash;
+            }
+        }
+
     }
 }

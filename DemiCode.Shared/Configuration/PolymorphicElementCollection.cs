@@ -41,7 +41,7 @@ namespace DemiCode.Configuration
         {
             var el = element as IKeyedConfigurationElement;
             if (el == null)
-                throw new ArgumentException("Unknown ConfigurationElement type", "element");
+                throw new ArgumentException("Unknown ConfigurationElement type", nameof(element));
 
             object key = el.ElementKey;
 

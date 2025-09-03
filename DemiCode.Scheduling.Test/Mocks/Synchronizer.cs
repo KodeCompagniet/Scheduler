@@ -7,8 +7,6 @@ using System.Diagnostics;
 using System.Collections;
 using System.ComponentModel;
 using System.Threading;
-using System.Security.Permissions;
-
 [Serializable]
 internal class WorkItem: IAsyncResult
 {
@@ -102,7 +100,7 @@ internal class WorkItem: IAsyncResult
 
    }
 }
-[SecurityPermission(SecurityAction.Demand,ControlThread = true)]
+
 public class Synchronizer: ISynchronizeInvoke,IDisposable
 {
    WorkerThread m_WorkerThread;

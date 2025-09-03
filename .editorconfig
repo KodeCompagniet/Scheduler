@@ -1,0 +1,23 @@
+root = true
+
+[*]
+# Suppress specific XML doc warnings across the repo
+dotnet_diagnostic.CS0419.severity = none   # Ambiguous cref
+dotnet_diagnostic.CS1574.severity = none   # cref could not be resolved
+
+[**/DemiCode.Scheduling.Test/**]
+# Suppress legacy/intentional warnings in tests
+dotnet_diagnostic.CS0618.severity = none   # Obsolete API usage (intentional in tests)
+dotnet_diagnostic.CS0728.severity = none   # Possibly incorrect assignment in using/lock (benign test pattern)
+
+[**/DemiCode.Shared.Test/**]
+dotnet_diagnostic.CS0618.severity = none
+dotnet_diagnostic.CS0728.severity = none
+
+[**/DemiCode.Logging.Test/**]
+dotnet_diagnostic.CS0618.severity = none
+dotnet_diagnostic.CS0728.severity = none
+
+[**/DemiCode.Scheduling.Test.Dummy/**]
+dotnet_diagnostic.CS0618.severity = none
+dotnet_diagnostic.CS0728.severity = none

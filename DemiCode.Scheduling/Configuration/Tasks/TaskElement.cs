@@ -48,11 +48,11 @@ namespace DemiCode.Scheduling.Configuration.Tasks
             : this()
         {
             if (taskType == null)
-                throw new ArgumentNullException("taskType");
+                throw new ArgumentNullException(nameof(taskType));
  
-            if (taskType.GetInterface(typeof(ITask).Name) == null)
+            if (!typeof(ITask).IsAssignableFrom(taskType))
             {
-                throw new ArgumentException("Task type must implement the DemiCode.Scheduling.Tasks.ITask interface", "taskType");
+                throw new ArgumentException("Task type must implement the DemiCode.Scheduling.Tasks.ITask interface", nameof(taskType));
             }
 
             for (int i = 0; i < parameters.Length; i++)
@@ -104,6 +104,16 @@ namespace DemiCode.Scheduling.Configuration.Tasks
         public override bool Equals(object compareTo)
         {
             return Equals(compareTo as TaskElement);
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                var hash = base.GetHashCode();
+                hash = (hash * 397) ^ (TaskType?.GetHashCode() ?? 0);
+                return hash;
+            }
         }
 
     }

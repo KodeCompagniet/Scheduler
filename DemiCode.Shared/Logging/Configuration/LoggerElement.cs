@@ -39,7 +39,7 @@ namespace DemiCode.Logging.Configuration
             : this()
         {
             if (loggerType == null)
-                throw new ArgumentNullException("loggerType");
+                throw new ArgumentNullException(nameof(loggerType));
 
             ValidateLoggerType(loggerType);
 
@@ -48,9 +48,9 @@ namespace DemiCode.Logging.Configuration
 
         private static void ValidateLoggerType(Type loggerType)
         {
-            if (loggerType.GetInterface(typeof(ILoggerFactory).Name) == null)
+            if (!typeof(ILoggerFactory).IsAssignableFrom(loggerType))
             {
-                throw new ArgumentException("Logger type must implement the DemiCode.Scheduling.Loggers.ILoggerFactory interface", "loggerType");
+                throw new ArgumentException("Logger type must implement the DemiCode.Scheduling.Loggers.ILoggerFactory interface", nameof(loggerType));
             }
         }
 
@@ -101,6 +101,11 @@ namespace DemiCode.Logging.Configuration
         {
             if (ReferenceEquals(this, compareTo)) return true;
             return Equals(compareTo as LoggerElement);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
     }
 }

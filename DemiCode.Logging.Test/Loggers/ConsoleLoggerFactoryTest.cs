@@ -44,7 +44,7 @@ namespace DemiCode.Scheduling.Loggers.Test
         {
             ILoggerFactory factory = new ConsoleLoggerFactory();
             ILogger logger = factory.CreateLogger("test");
-            Assert.IsNotNull(logger);
+            logger.Should().NotBeNull();
         }
 
         [TestMethod]
@@ -52,7 +52,7 @@ namespace DemiCode.Scheduling.Loggers.Test
         {
             ILoggerFactory factory = new ConsoleLoggerFactory();
             ILogger logger = factory.CreateLogger(typeof(ConsoleLoggerFactoryTest));
-            Assert.IsNotNull(logger);
+            logger.Should().NotBeNull();
         }
 
         [TestMethod]

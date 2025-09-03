@@ -31,10 +31,10 @@ namespace DemiCode.Scheduling.Tasks
         public ApplicationTask(string path, params string[] arguments)
         {
             if (String.IsNullOrEmpty(path))
-                throw new ArgumentException("Path cannot be an empty string", "path");
+                throw new ArgumentException("Path cannot be an empty string", nameof(path));
 
             if (arguments == null)
-                throw new ArgumentNullException("arguments");
+                throw new ArgumentNullException(nameof(arguments));
 
             Path = path;
             Arguments = arguments;

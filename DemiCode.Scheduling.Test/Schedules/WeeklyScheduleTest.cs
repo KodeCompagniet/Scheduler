@@ -82,14 +82,14 @@ namespace DemiCode.Scheduling.Schedules.Test
             days.Add(DayOfWeek.Friday);
 
             WeeklySchedule schedule = new WeeklySchedule(fromDate, toDate, timeOfDay, days);
-            Assert.AreEqual(fromDate, schedule.FromDate);
-            Assert.AreEqual(toDate, schedule.ToDate);
-            Assert.AreEqual(timeOfDay, schedule.TimeOfDay);
+            schedule.FromDate.Should().Be(fromDate);
+            schedule.ToDate.Should().Be(toDate);
+            schedule.TimeOfDay.Should().Be(timeOfDay);
             ReadOnlyCollection<DayOfWeek> daysCollection = schedule.Days;
-            Assert.AreEqual(days.Count, daysCollection.Count);
+            daysCollection.Count.Should().Be(days.Count);
             foreach (DayOfWeek dayOfWeek in days)
             {
-                Assert.IsTrue(daysCollection.Contains(dayOfWeek));
+                daysCollection.Contains(dayOfWeek).Should().BeTrue();
             }
         }
 
@@ -105,14 +105,14 @@ namespace DemiCode.Scheduling.Schedules.Test
 
             WeeklySchedule schedule = TestXmlConstructor("TestData/WeeklyScheduleTest/WeeklySchedule[@name='PropertiesTest']");
 
-            Assert.AreEqual(fromDate, schedule.FromDate);
-            Assert.AreEqual(toDate, schedule.ToDate);
-            Assert.AreEqual(timeOfDay, schedule.TimeOfDay);
+            schedule.FromDate.Should().Be(fromDate);
+            schedule.ToDate.Should().Be(toDate);
+            schedule.TimeOfDay.Should().Be(timeOfDay);
             ReadOnlyCollection<DayOfWeek> daysCollection = schedule.Days;
-            Assert.AreEqual(days.Count, daysCollection.Count);
+            daysCollection.Count.Should().Be(days.Count);
             foreach (DayOfWeek dayOfWeek in days)
             {
-                Assert.IsTrue(daysCollection.Contains(dayOfWeek));    
+                daysCollection.Contains(dayOfWeek).Should().BeTrue();    
             }
         }
 
@@ -169,23 +169,23 @@ namespace DemiCode.Scheduling.Schedules.Test
 			days.Add(DayOfWeek.Sunday);
 			WeeklySchedule schedule = new WeeklySchedule(fromDate, toDate, timeOfDay, days);
 
-			Assert.IsTrue(schedule.MoveToFirstFrom(DateTime.MinValue));
-			Assert.AreEqual(new DateTime(2000, 12, 24, 7, 59, 59), schedule.CurrentOccurrence);
+			schedule.MoveToFirstFrom(DateTime.MinValue).Should().BeTrue();
+			schedule.CurrentOccurrence.Should().Be(new DateTime(2000, 12, 24, 7, 59, 59));
 
-			Assert.IsTrue(schedule.MoveToNext());
-			Assert.AreEqual(new DateTime(2000, 12, 31, 7, 59, 59), schedule.CurrentOccurrence);
+			schedule.MoveToNext().Should().BeTrue();
+			schedule.CurrentOccurrence.Should().Be(new DateTime(2000, 12, 31, 7, 59, 59));
 
-			Assert.IsTrue(schedule.MoveToNext());
-			Assert.AreEqual(new DateTime(2001, 1, 7, 7, 59, 59), schedule.CurrentOccurrence);
+			schedule.MoveToNext().Should().BeTrue();
+			schedule.CurrentOccurrence.Should().Be(new DateTime(2001, 1, 7, 7, 59, 59));
 
-			Assert.IsTrue(schedule.MoveToNext());
-			Assert.AreEqual(new DateTime(2001, 1, 14, 7, 59, 59), schedule.CurrentOccurrence);
+			schedule.MoveToNext().Should().BeTrue();
+			schedule.CurrentOccurrence.Should().Be(new DateTime(2001, 1, 14, 7, 59, 59));
 
-			Assert.IsTrue(schedule.MoveToNext());
-			Assert.AreEqual(new DateTime(2001, 1, 21, 7, 59, 59), schedule.CurrentOccurrence);
+			schedule.MoveToNext().Should().BeTrue();
+			schedule.CurrentOccurrence.Should().Be(new DateTime(2001, 1, 21, 7, 59, 59));
 
-			Assert.IsFalse(schedule.MoveToNext());
-			Assert.AreEqual(DateTime.MaxValue, schedule.CurrentOccurrence);
+			schedule.MoveToNext().Should().BeFalse();
+			schedule.CurrentOccurrence.Should().Be(DateTime.MaxValue);
 		}
 
         [Test]
@@ -195,14 +195,14 @@ namespace DemiCode.Scheduling.Schedules.Test
             days.Add(DayOfWeek.Thursday);
             WeeklySchedule schedule = new WeeklySchedule(new DateTime(2006, 1, 1), new TimeSpan(22, 0, 0), days);
 
-            Assert.IsTrue(schedule.MoveToNext());
-            Assert.AreEqual(new DateTime(2006, 1, 12, 22, 0, 0), schedule.CurrentOccurrence);
+            schedule.MoveToNext().Should().BeTrue();
+            schedule.CurrentOccurrence.Should().Be(new DateTime(2006, 1, 12, 22, 0, 0));
         }
 
 		private static void TestMoveToFirstFrom(WeeklySchedule instance, DateTime targetTime, bool isExcpectedSuccess, DateTime expectedTime)
 		{
-			Assert.AreEqual(isExcpectedSuccess, instance.MoveToFirstFrom(targetTime));
-			Assert.AreEqual(expectedTime, instance.CurrentOccurrence);
+			instance.MoveToFirstFrom(targetTime).Should().Be(isExcpectedSuccess);
+			instance.CurrentOccurrence.Should().Be(expectedTime);
 		}
 
 		[Test]
@@ -387,7 +387,7 @@ namespace DemiCode.Scheduling.Schedules.Test
         public void ConstructWithEmptyToDate()
         {
             WeeklySchedule schedule = TestXmlConstructor("TestData/WeeklyScheduleTest/WeeklySchedule[@name='WithoutEndDate']");
-            Assert.AreEqual(DateTime.MaxValue, schedule.ToDate);
+            schedule.ToDate.Should().Be(DateTime.MaxValue);
         }
 
         private static WeeklySchedule TestXmlConstructor(string nodePath)
@@ -410,8 +410,8 @@ namespace DemiCode.Scheduling.Schedules.Test
 			WeeklySchedule schedule = new WeeklySchedule(timeOfDay, days);
 
 			string retval = schedule.ToString();
-			Assert.IsTrue(retval.StartsWith(schedule.GetType().ToString()));
-			Assert.AreNotEqual(retval, schedule.GetType().ToString());
+			retval.StartsWith(schedule.GetType().ToString()).Should().BeTrue();
+			schedule.GetType().ToString().Should().NotBe(retval);
 		}
 
 	}

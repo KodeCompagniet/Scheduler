@@ -159,5 +159,15 @@ namespace DemiCode.Scheduling.Configuration
             return Equals(compareTo as SchedulerElement);
         }
 
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                var hash = base.GetHashCode();
+                hash = (hash * 397) ^ (Name?.GetHashCode() ?? 0);
+                return hash;
+            }
+        }
+
     }
 }

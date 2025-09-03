@@ -45,7 +45,7 @@ namespace DemiCode.Scheduling.Configuration
         public static SchedulerSettings GetConfigurationSection(string sectionName, bool readConfigFromDisk)
         {
             if (sectionName == null)
-                throw new ArgumentNullException("sectionName", "Section name must be a valid section in the configuration file");
+                throw new ArgumentNullException(nameof(sectionName), "Section name must be a valid section in the configuration file");
 
             if (readConfigFromDisk)
             {
@@ -54,7 +54,7 @@ namespace DemiCode.Scheduling.Configuration
 
             var ss = ConfigurationManager.GetSection(sectionName) as SchedulerSettings;
             if (ss == null)
-                throw new ArgumentException(String.Format(CultureInfo.InvariantCulture, "Section '{0}' does not point to a valid SchedulerSettings section", sectionName), "sectionName");
+                throw new ArgumentException(String.Format(CultureInfo.InvariantCulture, "Section '{0}' does not point to a valid SchedulerSettings section", sectionName), nameof(sectionName));
 
             return ss;
         }
@@ -68,13 +68,13 @@ namespace DemiCode.Scheduling.Configuration
         public static SchedulerSettings GetConfigurationSection(string configFile, string sectionName)
         {
             if (sectionName == null)
-                throw new ArgumentNullException("sectionName", "Section name must be a valid section in the configuration file");
+                throw new ArgumentNullException(nameof(sectionName), "Section name must be a valid section in the configuration file");
 
             if (configFile == null)
-                throw new ArgumentNullException("configFile");
+                throw new ArgumentNullException(nameof(configFile));
 
             if (!File.Exists(configFile))
-                throw new ArgumentException("Specified configuration file does not exist", "configFile");
+                throw new ArgumentException("Specified configuration file does not exist", nameof(configFile));
 
             var map = new ExeConfigurationFileMap
             {
@@ -84,7 +84,7 @@ namespace DemiCode.Scheduling.Configuration
             var configuration = ConfigurationManager.OpenMappedExeConfiguration(map, ConfigurationUserLevel.None);
             var settings = configuration.GetSection(sectionName) as SchedulerSettings;
             if (settings == null)
-                throw new ArgumentException(String.Format(CultureInfo.InvariantCulture, "Section '{0}' does not point to a valid SchedulerSettings section", sectionName), "sectionName");
+                throw new ArgumentException(String.Format(CultureInfo.InvariantCulture, "Section '{0}' does not point to a valid SchedulerSettings section", sectionName), nameof(sectionName));
 
             return settings;
         }
@@ -113,7 +113,7 @@ namespace DemiCode.Scheduling.Configuration
         {
             if (configuration.Sections.Get(sectionName) != null)
             {
-                throw new InvalidOperationException(String.Format("Section '{0}' already exist but is not a compatible type.", sectionName));
+                throw new InvalidOperationException(String.Format(CultureInfo.InvariantCulture, "Section '{0}' already exist but is not a compatible type.", sectionName));
             }
 
             configuration.Sections.Add(sectionName, new SchedulerSettings());
@@ -143,13 +143,13 @@ namespace DemiCode.Scheduling.Configuration
         /// <summary>
         /// Save a configuration section to file.
         /// </summary>
-        /// <remarks>The settings object must have been opened using <see cref="GetWritableConfigurationSection"/>.</remarks>
+        /// <remarks>The settings object must have been opened using <see cref="GetWritableConfigurationSection(string)"/>.</remarks>
         /// <param name="settings">The settings to save.</param>
         /// <param name="saveAsConfigFile">Full path to the configuration file.</param>
         public static void SaveConfigurationSection(SchedulerSettings settings, string saveAsConfigFile)
         {
             if (settings.WritableConfiguration == null)
-                throw new ArgumentException("The settings section is not writable. Use GetWritableConfigurationSection to open a writable section", "settings");
+                throw new ArgumentException("The settings section is not writable. Use GetWritableConfigurationSection to open a writable section", nameof(settings));
 
             if (CheckFileOrigin(settings, saveAsConfigFile))
             {
@@ -184,7 +184,7 @@ namespace DemiCode.Scheduling.Configuration
         /// <summary>
         /// Save a configuration section.
         /// </summary>
-        /// <remarks>The settings object must have been opened using <see cref="GetWritableConfigurationSection"/>.</remarks>
+        /// <remarks>The settings object must have been opened using <see cref="GetWritableConfigurationSection(string)"/>.</remarks>
         /// <param name="settings">The settings to save.</param>
         public static void SaveConfigurationSection(SchedulerSettings settings)
         {
@@ -194,13 +194,13 @@ namespace DemiCode.Scheduling.Configuration
         /// <summary>
         /// Save a configuration section.
         /// </summary>
-        /// <remarks>The settings object must have been opened using <see cref="GetWritableConfigurationSection"/>.</remarks>
+        /// <remarks>The settings object must have been opened using <see cref="GetWritableConfigurationSection(string)"/>.</remarks>
         /// <param name="settings">The settings to save.</param>
         /// <param name="configurationSaveMode">A <see cref="ConfigurationSaveMode"/> value that determines which property values to save.</param>
         public static void SaveConfigurationSection(SchedulerSettings settings, ConfigurationSaveMode configurationSaveMode)
         {
             if (settings.WritableConfiguration == null)
-                throw new ArgumentException("The settings section is not writable. Use GetWritableConfigurationSection to open a writable section", "settings");
+                throw new ArgumentException("The settings section is not writable. Use GetWritableConfigurationSection to open a writable section", nameof(settings));
 
             _isSavingConfiguration = true;
             try

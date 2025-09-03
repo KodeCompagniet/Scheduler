@@ -29,7 +29,7 @@ namespace DemiCode.Scheduling.Alarms.Test
                 object val = "test data";
                 target.AdditionalData = val;
 
-                Assert.AreEqual(val, target.AdditionalData, "DemiCode.Scheduling.AlarmTimer2.AdditionalData was not set correctly.");
+                target.AdditionalData.Should().Be(val);
             }
         }
 
@@ -44,7 +44,7 @@ namespace DemiCode.Scheduling.Alarms.Test
                 DateTime val = DateTime.Now;
                 target.AlarmTime = val;
 
-                Assert.AreEqual(val, target.AlarmTime, "DemiCode.Scheduling.AlarmTimer2.AlarmTime was not set correctly.");
+                target.AlarmTime.Should().Be(val);
             }
         }
 
@@ -100,7 +100,7 @@ namespace DemiCode.Scheduling.Alarms.Test
 
             using (AlarmTimer target = new AlarmTimer(additionalData))
             {
-                Assert.AreEqual(additionalData, target.AdditionalData);
+                target.AdditionalData.Should().Be(additionalData);
             }
         }
 
@@ -113,7 +113,7 @@ namespace DemiCode.Scheduling.Alarms.Test
             using (AlarmTimer target = new AlarmTimer())
             {
                 target.Disable();
-                Assert.IsFalse(target.Enabled);
+                target.Enabled.Should().BeFalse();
             }
         }
 
@@ -138,7 +138,7 @@ namespace DemiCode.Scheduling.Alarms.Test
             {
                 target.AlarmTime = DateTime.Now.AddMilliseconds(5);
                 target.Enable();
-                Assert.IsTrue(target.Enabled);
+                target.Enabled.Should().BeTrue();
             }
         }
 
@@ -153,7 +153,7 @@ namespace DemiCode.Scheduling.Alarms.Test
                 DateTime alarmTime = DateTime.Now.AddMilliseconds(5);
 
                 target.Enable(alarmTime);
-                Assert.AreEqual(alarmTime, target.AlarmTime);
+                target.AlarmTime.Should().Be(alarmTime);
 
             }
         }
@@ -169,7 +169,7 @@ namespace DemiCode.Scheduling.Alarms.Test
             {
                 target.Enabled = true;
 
-                Assert.AreEqual(false, target.Enabled);
+                target.Enabled.Should().Be(false);
             }
         }
 
@@ -182,7 +182,7 @@ namespace DemiCode.Scheduling.Alarms.Test
             using (AlarmTimer target = new AlarmTimer())
             {
                 target.Enabled = false;
-                Assert.AreEqual(false, target.Enabled);
+                target.Enabled.Should().Be(false);
             }
         }
 
@@ -197,7 +197,7 @@ namespace DemiCode.Scheduling.Alarms.Test
             long expected = 1;
             long actual = AlarmTimer.TicksToMilliseconds(ticks);
 
-            Assert.AreEqual(expected, actual, "DemiCode.Scheduling.AlarmTimer2.TicksToMilliseconds did not return the expected value.");
+            actual.Should().Be(expected);
         }
 
 
@@ -217,7 +217,7 @@ namespace DemiCode.Scheduling.Alarms.Test
                     timer.Enable(alarmTime);
 
                     var receivedSignal = trigger.WaitOne(1000, true);
-                    Assert.IsTrue(receivedSignal, "Did not receive the expected event");
+                    receivedSignal.Should().BeTrue();
                 }
             }
         }
@@ -228,7 +228,7 @@ namespace DemiCode.Scheduling.Alarms.Test
             using (var timer = new AlarmTimer())
             {
                 var alarmTime = DateTime.Now.AddMilliseconds(-10);
-                Assert.IsFalse(timer.Enable(alarmTime));
+                timer.Enable(alarmTime).Should().BeFalse();
             }
         }
 
@@ -253,7 +253,7 @@ namespace DemiCode.Scheduling.Alarms.Test
 
                         var receivedSignal = trigger.WaitOne(timeout, true);
 
-                        Assert.IsTrue((receivedSignal || i < minimumAllowedDiff), "Did not receive the expected event. Trigger milliseconds={0}", i);
+                        (receivedSignal || i < minimumAllowedDiff).Should().BeTrue();
 
                         target.Elapsed -= eventHandler;
                     }

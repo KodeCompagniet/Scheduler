@@ -16,8 +16,8 @@ namespace DemiCode.Logging.Configuration.Test
         public void GetLoggerTest()
         {
             ILoggerFactory factory = new ConsoleLoggerElement().GetLoggerInstance();
-            Assert.IsNotNull(factory);
-            Assert.IsInstanceOf<ConsoleLoggerFactory>(factory);
+            factory.Should().NotBeNull();
+            factory.Should().BeOfType<ConsoleLoggerFactory>();
         }
 
         [Test]
@@ -25,7 +25,7 @@ namespace DemiCode.Logging.Configuration.Test
         {
             var left = new ConsoleLoggerElement();
             var right = new ConsoleLoggerElement();
-            Assert.AreEqual(left, right);
+            right.Should().Be(left);
         }
     }
 }

@@ -26,7 +26,7 @@ namespace TestConsole
         public void Execute(ILoggerFactory loggerFactory)
         {
             if (loggerFactory == null)
-                throw new ArgumentNullException("loggerFactory");
+                throw new ArgumentNullException(nameof(loggerFactory));
 
             var list = new List<byte[]>();
             for (var i = 0; i < KbToEat; i++)

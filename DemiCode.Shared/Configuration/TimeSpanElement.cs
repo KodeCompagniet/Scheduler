@@ -95,5 +95,15 @@ namespace DemiCode.Configuration
             if (ReferenceEquals(this, compareTo)) return true;
             return Equals(compareTo as TimeSpanElement);
         }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                var hash = base.GetHashCode();
+                hash = (hash * 397) ^ Value.GetHashCode();
+                return hash;
+            }
+        }
     }
 }

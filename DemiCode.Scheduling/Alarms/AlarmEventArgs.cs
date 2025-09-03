@@ -73,7 +73,7 @@ namespace DemiCode.Scheduling.Alarms
 		public AlarmEventArgs(AlarmEventArgs e)
 		{
             if (e == null)
-                throw new ArgumentNullException("e");
+                throw new ArgumentNullException(nameof(e));
             SignalTime = e.SignalTime;
             ActualSignalTime = e.ActualSignalTime;
             _additionalData = e.AdditionalData;

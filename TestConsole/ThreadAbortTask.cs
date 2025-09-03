@@ -18,7 +18,7 @@ namespace TestConsole
         public void Execute(ILoggerFactory loggerFactory)
         {
             if (loggerFactory == null)
-                throw new ArgumentNullException("loggerFactory");
+                throw new ArgumentNullException(nameof(loggerFactory));
 
             
             ILogger logger = loggerFactory.CreateLogger(this.GetType());

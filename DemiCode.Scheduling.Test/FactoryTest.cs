@@ -34,7 +34,7 @@ namespace DemiCode.Scheduling.Test
             XmlNode configurationNode = LoadConfigurationNode();
             IConfigurableMock target = Factory.CreateInstance<IConfigurableMock>("DemiCode.Scheduling.Test.Mocks.ConfigurableMock, DemiCode.Scheduling.Test", configurationNode);
 
-            Assert.IsNotNull(target);
+            target.Should().NotBeNull();
         }
 
         /// <summary>
@@ -81,7 +81,7 @@ namespace DemiCode.Scheduling.Test
         public void CreateWithTypeAsStringTest()
         {
             SimpleClass instance = Factory.CreateInstance<SimpleClass>(typeof(SimpleClass).AssemblyQualifiedName);
-            Assert.IsNotNull(instance);
+            instance.Should().NotBeNull();
         }
 
         [Test]
@@ -103,7 +103,7 @@ namespace DemiCode.Scheduling.Test
             XmlNode configurationNode = LoadConfigurationNode();
             IConfigurableMock target = Factory.CreateInstance<IConfigurableMock>(typeof(ConfigurableMock), configurationNode);
 
-            Assert.IsNotNull(target);
+            target.Should().NotBeNull();
         }
 
         /// <summary>
@@ -115,7 +115,7 @@ namespace DemiCode.Scheduling.Test
             XmlNode configurationNode = LoadConfigurationNode();
             IConfigurableMock target = Factory.CreateInstance<IConfigurableMock>(configurationNode);
 
-            Assert.IsNotNull(target);
+            target.Should().NotBeNull();
         }
 
         [Test]
@@ -163,7 +163,7 @@ namespace DemiCode.Scheduling.Test
         public void CreateFromNonInterfaceTypeTest()
         {
             SimpleClass target = Factory.CreateInstance<SimpleClass>(typeof(SimpleClass));
-            Assert.IsNotNull(target);
+            target.Should().NotBeNull();
         }
         /// <summary>
         /// The type configured in our xml does not implement ISecondConfigurableMock
@@ -213,8 +213,8 @@ namespace DemiCode.Scheduling.Test
         {
             SimpleClass simpleClass = 
                 Factory.CreateInstance<SimpleClass>(typeof (SimpleClass), "paramValue");
-            Assert.IsNotNull(simpleClass);
-            Assert.AreEqual("paramValue", simpleClass.ConstructorParameter1);
+            simpleClass.Should().NotBeNull();
+            simpleClass.ConstructorParameter1.Should().Be("paramValue");
         }
 
         [Test]
@@ -231,7 +231,7 @@ namespace DemiCode.Scheduling.Test
         {
             SimpleClass simpleClass =
                 Factory.CreateInstance<SimpleClass>(typeof(SimpleClass));
-            Assert.IsNotNull(simpleClass);
+            simpleClass.Should().NotBeNull();
         }
 
         [Test]

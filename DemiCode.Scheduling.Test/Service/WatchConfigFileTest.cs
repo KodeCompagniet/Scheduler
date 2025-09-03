@@ -40,8 +40,8 @@ namespace DemiCode.Scheduling.Service.Test
 
                         FileHelper.TouchFile(watcher.ConfigFile.FullName);
 
-                        Assert.IsTrue(trigger.WaitOne(2000, true));
-                        Assert.IsFalse(scheduler.IsRunning);
+                        trigger.WaitOne(2000, true).Should().BeTrue();
+                        scheduler.IsRunning.Should().BeFalse();
                     }
                 }
             }
@@ -65,15 +65,15 @@ namespace DemiCode.Scheduling.Service.Test
                     scheduler.Start();
 
                     Thread.Sleep(1000);
-                    Assert.IsTrue(SimpleClass.ExtendedMethodCalled);
-                    Assert.IsFalse(SimpleClass.ExtendedMethodWithOneParamCalled);
+                    SimpleClass.ExtendedMethodCalled.Should().BeTrue();
+                    SimpleClass.ExtendedMethodWithOneParamCalled.Should().BeFalse();
 
                     using (var trigger = new AutoResetEvent(false))
                     {
                         ConfigurationFileChangedEventHandler x = 
                             delegate
                             {
-                                Assert.IsNotNull(scheduler != null);
+                                scheduler.Should().NotBeNull();
 
                                 scheduler.Stop();
                                 scheduler.Dispose();
@@ -92,14 +92,14 @@ namespace DemiCode.Scheduling.Service.Test
                         FileHelper.ReplaceConfigFile(Path.Combine("TestData", "AddTaskAtRuntimeTest.config"));
 
                         // Wait for the watcher to trigger the change and reconfigure the scheduler
-                        Assert.IsTrue(trigger.WaitOne(2000, false));
+                        trigger.WaitOne(2000, true).Should().BeTrue();
                         watcher.ConfigurationFileChanged -= x;
 
                         // Let the schedules run...
                         Thread.Sleep(1200);
 
-                        Assert.IsFalse(SimpleClass.ExtendedMethodCalled);
-                        Assert.IsTrue(SimpleClass.ExtendedMethodWithOneParamCalled);
+                        SimpleClass.ExtendedMethodCalled.Should().BeFalse();
+                        SimpleClass.ExtendedMethodWithOneParamCalled.Should().BeTrue();
                     }
                 }
             }
@@ -161,7 +161,7 @@ namespace DemiCode.Scheduling.Service.Test
                         AssertLog.ClearLog();
 
                         // Wait for the watcher to trigger the change and reconfigure the scheduler
-                        Assert.IsTrue(trigger.WaitOne(4000, true));
+                        trigger.WaitOne(4000, true).Should().BeTrue();
 
                         // Let the schedules run...
                         Thread.Sleep(1500);
@@ -179,8 +179,8 @@ namespace DemiCode.Scheduling.Service.Test
                                 break;
                             }
                         }
-                        Assert.IsNotNull(testDummyEvent);
-                        Assert.AreEqual(Level.Debug, testDummyEvent.Level);               
+                        testDummyEvent.Should().NotBeNull();
+                        testDummyEvent.Level.Should().Be(Level.Debug);               
                     }
                 }
             }

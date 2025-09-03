@@ -22,7 +22,7 @@ namespace DemiCode.Scheduling.Configuration.Test
                     Thread.Sleep(50);
                     FileHelper.TouchFile(watcher.ConfigFile.FullName);
 
-                    Assert.IsTrue(trigger.WaitOne(2000, true));
+                    trigger.WaitOne(2000, true).Should().BeTrue();
                 }
             }
         }

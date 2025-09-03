@@ -27,7 +27,7 @@ namespace TestConsole
         public void Execute(ILoggerFactory loggerFactory)
         {
             if (loggerFactory == null)
-                throw new ArgumentNullException("loggerFactory");
+                throw new ArgumentNullException(nameof(loggerFactory));
 
             if (String.IsNullOrEmpty(Filename))
                 throw new InvalidOperationException("Configuration must provide the 'filename' attribute");

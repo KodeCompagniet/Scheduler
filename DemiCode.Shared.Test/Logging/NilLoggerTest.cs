@@ -14,7 +14,7 @@ namespace DemiCode.Logging.Test
         public void ConstructorTest()
         {
             NilLogger target = new NilLogger();
-            Assert.IsNotNull(target);
+            target.Should().NotBeNull();
         }
 
         /// <summary>
@@ -24,7 +24,7 @@ namespace DemiCode.Logging.Test
         public void ConstructorTest1()
         {
             NilLogger target = new NilLogger();
-            Assert.IsNotNull(target);
+            target.Should().NotBeNull();
         }
 
         [Test]

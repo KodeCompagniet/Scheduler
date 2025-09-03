@@ -173,7 +173,7 @@ namespace DemiCode.Scheduling.Schedules
         protected ScheduleBase(XmlNode config)
         {
             if (config == null)
-                throw new ArgumentNullException("config", "Config parameter cannot be null");
+                throw new ArgumentNullException(nameof(config), "Config parameter cannot be null");
 
             XmlAttribute name = config.Attributes["name"];
             if (name != null)
@@ -235,7 +235,7 @@ namespace DemiCode.Scheduling.Schedules
         {
             XPathNavigator element = inNode.CreateNavigator().SelectSingleNode(elementName);
             if (element == null)
-                throw new ArgumentNullException("inNode", String.Format(CultureInfo.InvariantCulture, "The '{0}' config doesn't exist.", elementName));
+                throw new ArgumentNullException(nameof(inNode), String.Format(CultureInfo.InvariantCulture, "The '{0}' config doesn't exist.", elementName));
 
             AssignElementValue(element, elementName, tryParseFunction, out outValue);
         }
@@ -244,7 +244,7 @@ namespace DemiCode.Scheduling.Schedules
         {
             string inValue = element.Value;
             if ((inValue == null) || (!tryParseFunction(inValue, out outValue)))
-                throw new ArgumentException(String.Format(CultureInfo.InvariantCulture, "The '{0}' config contains invalid data.", elementName), "element");
+                throw new ArgumentException(String.Format(CultureInfo.InvariantCulture, "The '{0}' config contains invalid data.", elementName), nameof(element));
         }
 
         /// <summary>
@@ -307,7 +307,7 @@ namespace DemiCode.Scheduling.Schedules
         public int CompareTo(ISchedule value)
         {
             if (value == null)
-                throw new ArgumentNullException("value", "Parameter can't be null.");
+                throw new ArgumentNullException(nameof(value), "Parameter can't be null.");
             return _currentOccurrence.CompareTo(value.CurrentOccurrence);
         }
 

@@ -26,16 +26,16 @@ namespace DemiCode.Scheduling.Schedules.Test
 			OneShotSchedule schedule = new OneShotSchedule(targetTime, additionalData);
 
 			//AdditionalData
-			Assert.AreSame(additionalData, schedule.AdditionalData);
+			schedule.AdditionalData.Should().BeSameAs(additionalData);
 			schedule.AdditionalData = "additional data test";
-			Assert.AreEqual("additional data test", schedule.AdditionalData);
+			schedule.AdditionalData.Should().Be("additional data test");
 
 			//FirstOccurrence
-			Assert.AreEqual(targetTime, schedule.FirstOccurrence);
+			schedule.FirstOccurrence.Should().Be(targetTime);
 
 			//CurrentOccurrence
 			schedule.MoveToFirstFrom(targetTime.AddSeconds(-1));
-			Assert.AreEqual(targetTime, schedule.CurrentOccurrence);
+			schedule.CurrentOccurrence.Should().Be(targetTime);
 		}
 
 		/// <summary>
@@ -53,9 +53,9 @@ namespace DemiCode.Scheduling.Schedules.Test
 			schedule2.MoveToFirstFrom(DateTime.MinValue);
 			schedule3.MoveToFirstFrom(DateTime.MinValue);
 
-			Assert.AreEqual(true, 0 > schedule1.CompareTo(schedule2));
-			Assert.AreEqual(true, 0 < schedule2.CompareTo(schedule1));
-			Assert.AreEqual(0, schedule2.CompareTo(schedule3));
+			(0 > schedule1.CompareTo(schedule2)).Should().BeTrue();
+			(0 < schedule2.CompareTo(schedule1)).Should().BeTrue();
+			schedule2.CompareTo(schedule3).Should().Be(0);
 		}
 
 		/// <summary>
@@ -93,7 +93,7 @@ namespace DemiCode.Scheduling.Schedules.Test
 
 				//Wait for event (max 0.5 sec)
 				bool receivedSignal = itsTimeEventTestWaitHandle.WaitOne(500, false);
-				Assert.IsTrue(receivedSignal, "Did not receive the expected event");
+				receivedSignal.Should().BeTrue();
 			}
 		}
 
@@ -128,7 +128,7 @@ namespace DemiCode.Scheduling.Schedules.Test
 
 				//Wait for event (max 0.5 sec)
 				bool receivedSignal = endOfScheduleEventTestWaitHandle.WaitOne(500, false);
-				Assert.IsTrue(receivedSignal, "Did not receive the expected event");
+				receivedSignal.Should().BeTrue();
 			}
 		}
 

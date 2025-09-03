@@ -75,7 +75,7 @@ namespace DemiCode.Shared.Factories
 			where T : class
 		{
 		    if (String.IsNullOrEmpty(typeName))
-		        throw new ArgumentNullException("typeName");
+		        throw new ArgumentNullException(nameof(typeName));
  
 			Type t = Type.GetType(typeName, false);	//~ArgumentNullException, TargetInvocationException, TypeLoadException
 			if (t == null)
@@ -123,7 +123,7 @@ namespace DemiCode.Shared.Factories
 			where T : class
 		{
             if (typeToCreate == null)
-                throw new ArgumentNullException("typeToCreate", "The value of typeToCreate cannot be null");
+                throw new ArgumentNullException(nameof(typeToCreate), "The value of typeToCreate cannot be null");
 
             return CreateInstanceInternal<T>(typeToCreate, null);
         }
@@ -139,10 +139,10 @@ namespace DemiCode.Shared.Factories
 			where T : class
 		{
             if (typeToCreate == null)
-                throw new ArgumentNullException("typeToCreate", "The value of typeToCreate cannot be null");
+                throw new ArgumentNullException(nameof(typeToCreate), "The value of typeToCreate cannot be null");
 
             if (config == null)
-                throw new ArgumentNullException("config", "The value of config cannot be null");
+                throw new ArgumentNullException(nameof(config), "The value of config cannot be null");
 
             return CreateInstanceInternal<T>(typeToCreate, config);
 		}
@@ -193,7 +193,7 @@ namespace DemiCode.Shared.Factories
 
 	            return createdType;
 	        }
-	        catch (FactoryException e)
+	        catch (FactoryException)
 	        {
 	            //MessageLogger.LogError(e.Message);
 	            throw;
@@ -256,7 +256,7 @@ namespace DemiCode.Shared.Factories
 
                 return createdType;
             }
-            catch (FactoryException e)
+            catch (FactoryException)
             {
                 //MessageLogger.LogError(e.Message);
                 throw;

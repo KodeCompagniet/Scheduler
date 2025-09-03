@@ -30,7 +30,7 @@ namespace DemiCode.Scheduling.Configuration.Test
             var target = new TestableSchedulerElementCollection();
 
             ConfigurationElement actual = target.CreateNewElement();
-            Assert.IsNotNull(actual);
+            actual.Should().NotBeNull();
         }
 
         /// <summary>
@@ -40,12 +40,12 @@ namespace DemiCode.Scheduling.Configuration.Test
         public void ItemTest()
         {
             SchedulerSettings ss = ConfigurationManager.GetSection("scheduling") as SchedulerSettings;
-            Assert.IsNotNull(ss);
+            ss.Should().NotBeNull();
 
             SchedulerElementCollection target = ss.Schedulers;
-            Assert.AreNotEqual(0, target.Count);
+            target.Count.Should().NotBe(0);
             SchedulerElement val = target[0];
-            Assert.AreEqual("prod", val.Name);
+            val.Name.Should().Be("prod");
         }
 
         /// <summary>
@@ -57,7 +57,7 @@ namespace DemiCode.Scheduling.Configuration.Test
             Assert.Throws<ConfigurationErrorsException>(() =>
             {
                 SchedulerSettings ss = ConfigurationManager.GetSection("scheduling") as SchedulerSettings;
-                Assert.IsNotNull(ss);
+                ss.Should().NotBeNull();
 
                 SchedulerElementCollection target = ss.Schedulers;
 
@@ -86,7 +86,7 @@ namespace DemiCode.Scheduling.Configuration.Test
 
             schedulers[index] = val;
 
-            Assert.AreEqual("defaultScheduler", schedulers[index].Name);
+            schedulers[index].Name.Should().Be("defaultScheduler");
         }
 
         [Test]
@@ -99,7 +99,7 @@ namespace DemiCode.Scheduling.Configuration.Test
             scheduler.Name = "defaultScheduler";
             schedulers.Add(scheduler);
 
-            Assert.AreEqual(1, schedulers.Count);
+            schedulers.Count.Should().Be(1);
         }
     }
 

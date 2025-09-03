@@ -19,7 +19,7 @@ namespace DemiCode.Scheduling.Configuration.Schedules.Test
         {
             var left = new ScheduleElementCollection();
             var right = new ScheduleElementCollection();
-            Assert.AreEqual(left, right);
+            right.Should().Be(left);
         }
 
         [Test]

@@ -22,7 +22,7 @@ namespace DemiCode.Scheduling.Tasks
         internal TaskCollection(Scheduler scheduler)
         {
             if (scheduler == null)
-                throw new ArgumentNullException("scheduler");
+                throw new ArgumentNullException(nameof(scheduler));
 
             _scheduler = scheduler;
         }
@@ -168,14 +168,14 @@ namespace DemiCode.Scheduling.Tasks
         public void Add(ITask task, string scheduleName)
         {
             if (task == null)
-                throw new ArgumentNullException("task");
+                throw new ArgumentNullException(nameof(task));
 
             ISchedule schedule = null;
             if (!String.IsNullOrEmpty(scheduleName))
             {
                 if (!_scheduler.TryGetSchedule(scheduleName, out schedule))
                 {
-                    throw new ArgumentException("The scheduleName parameter does not reference an existing schedule", "scheduleName");
+                    throw new ArgumentException("The scheduleName parameter does not reference an existing schedule", nameof(scheduleName));
                 }
             }
 
@@ -241,7 +241,7 @@ namespace DemiCode.Scheduling.Tasks
         public void AddRange(IEnumerable<ITask> tasks)
         {
             if (tasks == null)
-                throw new ArgumentNullException("tasks");
+                throw new ArgumentNullException(nameof(tasks));
 
             var loggerFactory = _scheduler.Loggers.GetDefaultLoggerFactory();
             foreach (var task in tasks)
@@ -258,14 +258,14 @@ namespace DemiCode.Scheduling.Tasks
         public void AddRange(IEnumerable<ITask> tasks, string scheduleName)
         {
             if (tasks == null)
-                throw new ArgumentNullException("tasks");
+                throw new ArgumentNullException(nameof(tasks));
             if (scheduleName == null)
-                throw new ArgumentNullException("scheduleName");
+                throw new ArgumentNullException(nameof(scheduleName));
 
             ISchedule schedule;
             if (!_scheduler.TryGetSchedule(scheduleName, out schedule))
             {
-                throw new ArgumentException("The scheduleName parameter does not reference an existing schedule", "scheduleName");
+                throw new ArgumentException("The scheduleName parameter does not reference an existing schedule", nameof(scheduleName));
             }
 
             var loggerFactory = _scheduler.Loggers.GetDefaultLoggerFactory();
@@ -278,7 +278,7 @@ namespace DemiCode.Scheduling.Tasks
         private void Add(ITask task, ILoggerFactory loggerFactory)
         {
             if (task == null)
-                throw new ArgumentNullException("task");
+                throw new ArgumentNullException(nameof(task));
 
             var handler = new TaskHandler(task, loggerFactory);
             _tasks.Add(task);
@@ -291,7 +291,7 @@ namespace DemiCode.Scheduling.Tasks
         private void Add(ITask task, ISchedule schedule, ILoggerFactory loggerFactory)
         {
             if (task == null)
-                throw new ArgumentNullException("task");
+                throw new ArgumentNullException(nameof(task));
 
             var handler = new TaskHandler(task, loggerFactory);
             _tasks.Add(task);

@@ -93,5 +93,15 @@ namespace DemiCode.Scheduling.Configuration.Tasks
             if (ReferenceEquals(this, compareTo)) return true;
             return Equals(compareTo as ApplicationTaskElement);
         }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                var hash = base.GetHashCode();
+                hash = (hash * 397) ^ (Path?.GetHashCode() ?? 0);
+                return hash;
+            }
+        }
     }
 }

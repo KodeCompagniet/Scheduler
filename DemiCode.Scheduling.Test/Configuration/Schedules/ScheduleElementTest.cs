@@ -17,14 +17,14 @@ namespace DemiCode.Scheduling.Configuration.Schedules.Test
         public void Constructor2Test()
         {
             var target = new ScheduleElement("generic", typeof(OneShotSchedule));
-            Assert.AreEqual("generic", target.Name);
+            target.Name.Should().Be("generic");
         }
 
         [Test]
         public void ScheduleTypeTest()
         {
             var target = new ScheduleElement("weekly", typeof(ScheduleMock));
-            Assert.IsInstanceOf<ScheduleMock>(target.GetScheduleInstance());
+            target.GetScheduleInstance().Should().BeOfType<ScheduleMock>();
         }
 
         [Test]
@@ -32,7 +32,7 @@ namespace DemiCode.Scheduling.Configuration.Schedules.Test
         {
             var left = new ScheduleElement();
             var right = new ScheduleElement();
-            Assert.AreEqual(left, right);
+            right.Should().Be(left);
         }
 
         [Test]
@@ -40,7 +40,7 @@ namespace DemiCode.Scheduling.Configuration.Schedules.Test
         {
             var left = new ScheduleElement("weekly", typeof(OneShotSchedule));
             var right = new ScheduleElement("weekly", typeof(OneShotSchedule));
-            Assert.AreEqual(left, right);
+            right.Should().Be(left);
         }
 
         [Test]
@@ -50,7 +50,7 @@ namespace DemiCode.Scheduling.Configuration.Schedules.Test
             left.AddAdditionalProperty("time", "2008-07-06 05:43:02");
             var right = new ScheduleElement("weekly", typeof(OneShotSchedule));
             right.AddAdditionalProperty("time", "2008-07-06 05:43:02");
-            Assert.AreEqual(left, right);
+            right.Should().Be(left);
         }
 
         [Test]
@@ -58,11 +58,11 @@ namespace DemiCode.Scheduling.Configuration.Schedules.Test
         {
             var left = new ScheduleElement("weekly", typeof(OneShotSchedule));
             var right = new ScheduleElement("weekie", typeof(OneShotSchedule));
-            Assert.AreNotEqual(left, right);
+            right.Should().NotBe(left);
 
             left = new ScheduleElement("weekly", typeof(OneShotSchedule));
             right = new ScheduleElement("weekly", typeof(IntervalSchedule));
-            Assert.AreNotEqual(left, right);
+            right.Should().NotBe(left);
         }
 
     }

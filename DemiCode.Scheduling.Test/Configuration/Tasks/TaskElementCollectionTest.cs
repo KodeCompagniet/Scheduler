@@ -48,7 +48,7 @@ namespace DemiCode.Scheduling.Tasks.Test
             var target = new TestableTaskElementCollection();
             var val = ConfigurationElementCollectionType.BasicMap;
 
-            Assert.AreEqual(val, target.CollectionType, "DemiCode.Scheduling.Configuration.TaskElementCollection.CollectionType was not set correctly.");
+            target.CollectionType.Should().Be(val);
         }
 
         /// <summary>
@@ -60,7 +60,7 @@ namespace DemiCode.Scheduling.Tasks.Test
             var target = new TestableTaskElementCollection();
 
             ConfigurationElement actual = target.CreateNewElement();
-            Assert.IsInstanceOf<TaskElement>(actual);
+            actual.Should().BeOfType<TaskElement>();
         }
 
         /// <summary>
@@ -75,15 +75,15 @@ namespace DemiCode.Scheduling.Tasks.Test
 
             string elementName = "task"; 
             actual = target.CreateNewElement(elementName);
-            Assert.IsInstanceOf<TaskElement>(actual);
+            actual.Should().BeOfType<TaskElement>();
 
             elementName = "CodeTask";
             actual = target.CreateNewElement(elementName);
-            Assert.IsInstanceOf<CodeTaskElement>(actual);
+            actual.Should().BeOfType<CodeTaskElement>();
 
             elementName = "ApplicationTask";
             actual = target.CreateNewElement(elementName);
-            Assert.IsInstanceOf<ApplicationTaskElement>(actual);
+            actual.Should().BeOfType<ApplicationTaskElement>();
         }
 
         /// <summary>
@@ -115,7 +115,7 @@ namespace DemiCode.Scheduling.Tasks.Test
             ConfigurationElement element = new TaskElement();
 
             object actual = target.GetElementKey(element);
-            Assert.IsNotNull(actual);
+            actual.Should().NotBeNull();
         }
 
         /// <summary>
@@ -126,12 +126,12 @@ namespace DemiCode.Scheduling.Tasks.Test
         {
             var target = new TestableTaskElementCollection();
 
-            Assert.IsFalse(target.IsElementName(null));
-            Assert.IsFalse(target.IsElementName(""));
+            target.IsElementName(null).Should().BeFalse();
+            target.IsElementName("").Should().BeFalse();
 
-            Assert.IsTrue(target.IsElementName("task"));
-            Assert.IsTrue(target.IsElementName("CodeTask"));
-            Assert.IsTrue(target.IsElementName("ApplicationTask"));
+            target.IsElementName("task").Should().BeTrue();
+            target.IsElementName("CodeTask").Should().BeTrue();
+            target.IsElementName("ApplicationTask").Should().BeTrue();
         }
 
         /// <summary>

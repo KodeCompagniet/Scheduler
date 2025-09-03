@@ -22,17 +22,17 @@ namespace DemiCode.Scheduling.Schedules.Test
             DateTime month = new DateTime(2006, 12, 1);
             DateTime expected = new DateTime(2006, 12, 1);
             DateTime first = month.Subtract(TimeSpan.FromDays(month.Day - 1));
-            Assert.AreEqual(expected, first);
+            first.Should().Be(expected);
 
             month = new DateTime(2006, 12, 3);
             expected = new DateTime(2006, 12, 1);
             first = month.Subtract(TimeSpan.FromDays(month.Day - 1));
-            Assert.AreEqual(expected, first);
+            first.Should().Be(expected);
 
             month = new DateTime(2006, 12, 31);
             expected = new DateTime(2006, 12, 1);
             first = month.Subtract(TimeSpan.FromDays(month.Day - 1));
-            Assert.AreEqual(expected, first);
+            first.Should().Be(expected);
         }
 
         [Test]
@@ -78,8 +78,8 @@ namespace DemiCode.Scheduling.Schedules.Test
 
         private void AssertSuccess(ISchedule instance, DateTime targetTime, DateTime expectedTime)
         {
-            Assert.IsTrue(instance.MoveToFirstFrom(targetTime));
-            Assert.AreEqual(expectedTime, instance.CurrentOccurrence);
+            instance.MoveToFirstFrom(targetTime).Should().BeTrue();
+            instance.CurrentOccurrence.Should().Be(expectedTime);
         }
 
     }

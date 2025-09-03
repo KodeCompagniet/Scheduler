@@ -33,9 +33,9 @@ namespace DemiCode.Scheduling.Test
 
                 bool result = trigger.WaitOne(500, true);
 
-                Assert.IsTrue(result, "Did not receive expected event");
-                Assert.IsNotNull(failedEvents);
-                Assert.AreEqual(0, failedEvents.Count, "Received incorrect amount of failing events");
+                result.Should().BeTrue();
+                failedEvents.Should().NotBeNull();
+                failedEvents.Count.Should().Be(0);
             }
         }
 
@@ -53,9 +53,9 @@ namespace DemiCode.Scheduling.Test
 
                     bool result = trigger.WaitOne(500, true);
 
-                    Assert.IsTrue(result, "Did not receive expected event");
-                    Assert.IsNotNull(failedEvents);
-                    Assert.AreEqual(0, failedEvents.Count, "Received incorrect amount of failing events");
+                    result.Should().BeTrue();
+                    failedEvents.Should().NotBeNull();
+                    failedEvents.Count.Should().Be(0);
                 }
             }
         }
@@ -73,8 +73,8 @@ namespace DemiCode.Scheduling.Test
 
             ReadOnlyCollection<object> failedEvents = EventHelper.RaiseEvents(this, evh, EventArgs.Empty);
 
-            Assert.IsNotNull(failedEvents);
-            Assert.AreEqual(1, failedEvents.Count, "Received incorrect amount of failing events");
+            failedEvents.Should().NotBeNull();
+            failedEvents.Count.Should().Be(1);
         }
     }
 

@@ -225,7 +225,7 @@ namespace DemiCode.Scheduling
                 ISchedule schedule;
                 if (!TryGetSchedule(scheduleName, out schedule))
                 {
-                    throw new ArgumentOutOfRangeException("scheduleName", scheduleName, "The specified schedule does not exist in this scheduler");
+                    throw new ArgumentOutOfRangeException(nameof(scheduleName), scheduleName, "The specified schedule does not exist in this scheduler");
                 }
                 return schedule;
             }
@@ -243,7 +243,7 @@ namespace DemiCode.Scheduling
             {
                 if (index < 0 || index >= _schedules.Count)
                 {
-                    throw new ArgumentOutOfRangeException("index", index, "The specified index is out of range");
+                    throw new ArgumentOutOfRangeException(nameof(index), index, "The specified index is out of range");
                 }
                 return _schedules[index];
             }

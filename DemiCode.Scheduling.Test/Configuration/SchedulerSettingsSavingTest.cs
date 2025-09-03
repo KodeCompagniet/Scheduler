@@ -34,7 +34,7 @@ namespace DemiCode.Scheduling.Configuration.Test
 
             var sectionName = "mySection";
             var settings = SchedulerSettingsManager.GetWritableConfigurationSection(sectionName, configFile);
-            Assert.IsNotNull(settings);
+            settings.Should().NotBeNull();
         }
 
         /// <summary>
@@ -57,12 +57,12 @@ namespace DemiCode.Scheduling.Configuration.Test
             var settings = SchedulerSettingsManager.GetWritableConfigurationSection(sectionName, _configFile);
             SchedulerSettingsManager.SaveConfigurationSection(settings);
 
-            Assert.IsTrue(File.Exists(_configFile));
+            File.Exists(_configFile).Should().BeTrue();
 
             var doc = new XmlDocument();
             doc.Load(_configFile);
-            Assert.IsNotNull(doc.SelectSingleNode(String.Format("/configuration/configSections/section[@name ='{0}']", sectionName)));
-            Assert.IsNotNull(doc.SelectSingleNode(String.Format("/configuration/{0}", sectionName)));
+            doc.SelectSingleNode(String.Format("/configuration/configSections/section[@name ='{0}']", sectionName)).Should().NotBeNull();
+            doc.SelectSingleNode(String.Format("/configuration/{0}", sectionName)).Should().NotBeNull();
         }
 
         [Test]
@@ -84,10 +84,10 @@ namespace DemiCode.Scheduling.Configuration.Test
 
             // Save and check that we get a physical file with our settings in it
             SchedulerSettingsManager.SaveConfigurationSection(originalSettings, ConfigurationSaveMode.Full);
-            Assert.IsTrue(File.Exists(_configFile));
+            File.Exists(_configFile).Should().BeTrue();
 
             var settings = SchedulerSettingsManager.GetConfigurationSection(_configFile, sectionName);
-            Assert.IsNotNull(settings);
+            settings.Should().NotBeNull();
 
             Dictionary<string, bool> d = new Dictionary<string, bool>(4);
             for (int scr = 0; scr < originalSettings.Schedulers.Count; scr++)
@@ -105,7 +105,7 @@ namespace DemiCode.Scheduling.Configuration.Test
                 }
             }
 
-            Assert.AreEqual(originalSettings, settings);
+            settings.Should().Be(originalSettings);
         }
 
         private static SchedulerSettings CreateSettingsWithInvalidDefaultScheduler()

@@ -63,5 +63,35 @@ namespace DemiCode.Configuration
             // Next, let the base collection compare
             return base.Equals(compareTo);
         }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                var hash = 17;
+
+                // Include properties
+                foreach (ConfigurationProperty property in Properties)
+                {
+                    var val = base[property.Name];
+                    if (val is Dictionary<string, string> dict)
+                    {
+                        foreach (var kv in dict)
+                        {
+                            hash = (hash * 31) ^ (kv.Key?.GetHashCode() ?? 0);
+                            hash = (hash * 31) ^ (kv.Value?.GetHashCode() ?? 0);
+                        }
+                    }
+                    else
+                    {
+                        hash = (hash * 31) ^ (val?.GetHashCode() ?? 0);
+                    }
+                }
+
+                // Include base hash (which may consider elements)
+                hash = (hash * 31) ^ base.GetHashCode();
+                return hash;
+            }
+        }
     }
 }

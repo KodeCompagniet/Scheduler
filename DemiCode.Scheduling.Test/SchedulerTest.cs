@@ -53,8 +53,8 @@ namespace DemiCode.Scheduling.Test
                 Thread.Sleep(3000);
                 alarmListener.AssertScheduledAlarm(5000);
 
-                Assert.That(wasStopped);
-                Assert.That(scheduler.IsRunning, Is.False);
+                wasStopped.Should().BeTrue();
+                scheduler.IsRunning.Should().BeFalse();
             }
         }
 
@@ -81,14 +81,14 @@ namespace DemiCode.Scheduling.Test
                 scheduler[1].Alarm += delegate { twoCount++; };
 
                 scheduler.Start();
-                Assert.IsTrue(alarmListener.WaitForEndOfSchedule(3000), "Did not receive expected event");
+                alarmListener.WaitForEndOfSchedule(3000).Should().BeTrue();
                 alarmListener.AssertExpectedTriggerCount();
 
                 scheduler.Stop();
             }
 
-            Assert.AreEqual(1, oneCount);
-            Assert.AreEqual(1, twoCount);
+            oneCount.Should().Be(1);
+            twoCount.Should().Be(1);
         }
 
         [Test]
@@ -125,12 +125,12 @@ namespace DemiCode.Scheduling.Test
                                           };
 
                 scheduler.Start();
-                Assert.IsTrue(alarmListener1.WaitForScheduledAlarm(2700), "Did not receive expected event");
+                alarmListener1.WaitForScheduledAlarm(2700).Should().BeTrue();
                 scheduler.Stop();
             }
 
-            Assert.IsTrue(oneCount >= 1 && oneCount < 3);
-            Assert.IsTrue(twoCount >= 1 && twoCount < 3);
+            (oneCount >= 1 && oneCount < 3).Should().BeTrue();
+            (twoCount >= 1 && twoCount < 3).Should().BeTrue();
         }
 
         [Test]
@@ -149,7 +149,7 @@ namespace DemiCode.Scheduling.Test
         private static void RoundToNearestSecondAssert(DateTime input, DateTime expected)
         {
             DateTime actual = Scheduler.RoundToNearestSecond(input);
-            Assert.AreEqual(expected, actual);
+            actual.Should().Be(expected);
         }
 
         /// <summary>
@@ -162,7 +162,7 @@ namespace DemiCode.Scheduling.Test
             {
                 target.Add(new OneShotSchedule(DateTime.Now));
 
-                Assert.AreEqual(1, target.Count);
+                target.Count.Should().Be(1);
             }
         }
 
@@ -172,7 +172,7 @@ namespace DemiCode.Scheduling.Test
             using (var target = new Scheduler())
             {
                 target.Tasks.Add(new TaskMock());
-                Assert.AreEqual(1, target.Tasks.Count);
+                target.Tasks.Count.Should().Be(1);
             }
         }
 
@@ -195,7 +195,7 @@ namespace DemiCode.Scheduling.Test
             using (var target = new Scheduler())
             {
                 target.Tasks.Add(new TaskMock());
-                Assert.AreEqual(1, target.Tasks.Count);
+                target.Tasks.Count.Should().Be(1);
             }
         }
 
@@ -252,7 +252,7 @@ namespace DemiCode.Scheduling.Test
                                                    };
             target.AddRange(schedules);
 
-            Assert.AreEqual(2, target.Count);
+            target.Count.Should().Be(2);
         }
 
         [Test]
@@ -261,13 +261,13 @@ namespace DemiCode.Scheduling.Test
             using (var target = SchedulerMock.Create())
             {
                 target.Add(new OneShotSchedule(DateTime.Now.AddDays(1)));
-                Assert.IsFalse(target.IsRunning);
+                target.IsRunning.Should().BeFalse();
 
                 target.Start();
-                Assert.IsTrue(target.IsRunning);
+                target.IsRunning.Should().BeTrue();
 
                 target.Stop();
-                Assert.IsFalse(target.IsRunning);
+                target.IsRunning.Should().BeFalse();
             }
         }
 
@@ -280,7 +280,7 @@ namespace DemiCode.Scheduling.Test
             using (var target = SchedulerMock.Create())
             {
                 target.Start();
-                Assert.IsFalse(target.IsRunning);
+                target.IsRunning.Should().BeFalse();
             }
         }
 
@@ -292,9 +292,8 @@ namespace DemiCode.Scheduling.Test
         {
             using (Scheduler actual = SchedulerFactory.CreateFromConfig("scheduling"))
             {
-                Assert.IsNotNull(actual,
-                                 "DemiCode.Scheduling.Scheduler.CreateFromConfig did not return the expected value.");
-                Assert.AreEqual(2, actual.Count);
+                actual.Should().NotBeNull("DemiCode.Scheduling.Scheduler.CreateFromConfig did not return the expected value.");
+                actual.Count.Should().Be(2);
             }
         }
 
@@ -324,7 +323,7 @@ namespace DemiCode.Scheduling.Test
             long memoryAfter = GC.GetTotalMemory(true);
 
             long diff = memoryAfter - memoryBefore;
-            Assert.IsTrue(diff < 70000, "Memory difference should be about or below 64K, was {0} bytes", diff);
+            (diff < 70000).Should().BeTrue();
         }
 
         /// <summary>
@@ -335,9 +334,8 @@ namespace DemiCode.Scheduling.Test
         {
             using (Scheduler actual = SchedulerFactory.CreateFromConfig("scheduling", "test"))
             {
-                Assert.IsNotNull(actual,
-                                 "DemiCode.Scheduling.Scheduler.CreateFromConfig did not return the expected value.");
-                Assert.AreEqual(0, actual.Count);
+                actual.Should().NotBeNull("DemiCode.Scheduling.Scheduler.CreateFromConfig did not return the expected value.");
+                actual.Count.Should().Be(0);
             }
         }
 
@@ -352,13 +350,13 @@ namespace DemiCode.Scheduling.Test
             using (Scheduler actual = SchedulerFactory.CreateFromConfig("shortformatconfig", "prod"))
             {
                 ISchedule schedule = actual["interval"];
-                Assert.IsNotNull(schedule);
+                schedule.Should().NotBeNull();
                 schedule = actual["counted"];
-                Assert.IsNotNull(schedule);
+                schedule.Should().NotBeNull();
                 schedule = actual["weekly"];
-                Assert.IsNotNull(schedule);
+                schedule.Should().NotBeNull();
                 schedule = actual["oneshot"];
-                Assert.IsNotNull(schedule);
+                schedule.Should().NotBeNull();
             }
         }
 
@@ -370,8 +368,8 @@ namespace DemiCode.Scheduling.Test
         {
             using (Scheduler actual = SchedulerFactory.CreateFromConfig("scheduling", "prod"))
             {
-                Assert.IsNotNull(actual["WeeklySchedule"]);
-                Assert.IsNotNull(actual["WeeklySchedule2"]);
+                actual["WeeklySchedule"].Should().NotBeNull();
+                actual["WeeklySchedule2"].Should().NotBeNull();
             }
         }
 
@@ -386,10 +384,10 @@ namespace DemiCode.Scheduling.Test
                 target.Add(new OneShotSchedule(DateTime.Now.AddSeconds(5)));
 
                 target.Enabled = false;
-                Assert.IsFalse(target.Enabled, "DemiCode.Scheduling.Scheduler.Enabled was not set correctly.");
+                target.Enabled.Should().BeFalse();
 
                 target.Enabled = true;
-                Assert.IsTrue(target.Enabled, "DemiCode.Scheduling.Scheduler.Enabled was not set correctly.");
+                target.Enabled.Should().BeTrue();
             }
         }
 
@@ -405,12 +403,12 @@ namespace DemiCode.Scheduling.Test
             {
                 foreach (ISchedule schedule in scheduler)
                 {
-                    Assert.IsNotNull(schedule as OneShotSchedule);
+                    (schedule as OneShotSchedule).Should().NotBeNull();
                 }
 
                 IEnumerator enumerator = ((IEnumerable) scheduler).GetEnumerator();
-                Assert.IsNotNull(enumerator);
-                Assert.IsTrue(enumerator.MoveNext());
+                enumerator.Should().NotBeNull();
+                enumerator.MoveNext().Should().BeTrue();
             }
         }
 
@@ -422,8 +420,8 @@ namespace DemiCode.Scheduling.Test
                 target.Add(new OneShotSchedule("FirstSchedule", DateTime.Now));
                 target.Add(new OneShotSchedule("SecondSchedule", DateTime.Now.AddDays(1)));
 
-                Assert.AreEqual("FirstSchedule", target["FirstSchedule"].Name);
-                Assert.AreEqual("SecondSchedule", target["SecondSchedule"].Name);
+                target["FirstSchedule"].Name.Should().Be("FirstSchedule");
+                target["SecondSchedule"].Name.Should().Be("SecondSchedule");
             }
         }
 
@@ -435,8 +433,8 @@ namespace DemiCode.Scheduling.Test
                 target.Add(new OneShotSchedule("FirstSchedule", DateTime.Now));
                 target.Add(new OneShotSchedule("SecondSchedule", DateTime.Now.AddDays(1)));
 
-                Assert.AreEqual("FirstSchedule", target[0].Name);
-                Assert.AreEqual("SecondSchedule", target[1].Name);
+                target[0].Name.Should().Be("FirstSchedule");
+                target[1].Name.Should().Be("SecondSchedule");
             }
         }
 
@@ -508,7 +506,7 @@ namespace DemiCode.Scheduling.Test
                         alarmTimer.FireEvent();
                 }
 
-                Assert.AreEqual(180, eventCounter);
+                eventCounter.Should().Be(180);
                 alarmListener.AssertExpectedTriggerCount();
             }
         }
@@ -532,8 +530,7 @@ namespace DemiCode.Scheduling.Test
                 int timeout = 3*triggerMilliseconds - (int) diff;
                 bool result = alarmListener.WaitForScheduledAlarm(timeout);
 
-                Assert.IsTrue(result, "Did not receive expected event within timeout {0} milliseconds. Diff was {1}",
-                              timeout, diff);
+                result.Should().BeTrue();
                 alarmListener.AssertExpectedTriggerCount();
             }
         }
@@ -547,7 +544,7 @@ namespace DemiCode.Scheduling.Test
             IEnumerable<ISchedule> schedules = new ISchedule[] {new OneShotSchedule(DateTime.Now)};
             using (var target = new Scheduler(schedules))
             {
-                Assert.AreEqual(1, target.Count);
+                target.Count.Should().Be(1);
             }
         }
 
@@ -560,7 +557,7 @@ namespace DemiCode.Scheduling.Test
             ISchedule schedule = new OneShotSchedule(DateTime.Now);
             using (var target = new Scheduler(schedule))
             {
-                Assert.AreEqual(1, target.Count);
+                target.Count.Should().Be(1);
             }
         }
 
@@ -579,7 +576,7 @@ namespace DemiCode.Scheduling.Test
             //
             // using (var target = new Scheduler(schedulerNode))
             // {
-            //     Assert.AreEqual(3, target.Count);
+            //     target.Count.Should().Be(3);
             //
             //     foreach (ISchedule schedule in target)
             //     {
@@ -598,7 +595,7 @@ namespace DemiCode.Scheduling.Test
             {
                 bool actual = target.Start();
 
-                Assert.IsFalse(actual, "DemiCode.Scheduling.Scheduler.Start did not return the expected value.");
+                actual.Should().BeFalse();
             }
         }
 
@@ -610,8 +607,8 @@ namespace DemiCode.Scheduling.Test
                 target.Add(new OneShotSchedule(DateTime.Now.AddDays(-1)));
                 bool actual = target.Start();
 
-                Assert.AreEqual(0, target.Count);
-                Assert.IsFalse(actual, "DemiCode.Scheduling.Scheduler.Start did not return the expected value.");
+                target.Count.Should().Be(0);
+                actual.Should().BeFalse();
             }
         }
 
@@ -624,7 +621,7 @@ namespace DemiCode.Scheduling.Test
             using (var target = SchedulerMock.Create())
             {
                 target.Stop();
-                Assert.IsFalse(target.Enabled, "DemiCode.Scheduling.Scheduler.Stop did not yield the expected state.");
+                target.Enabled.Should().BeFalse();
             }
         }
 
@@ -640,9 +637,8 @@ namespace DemiCode.Scheduling.Test
 
                 string actual = target.ToString();
 
-                Assert.IsNotNull(actual, "DemiCode.Scheduling.Scheduler.ToString did not return the expected value.");
-                Assert.IsTrue(actual.Length > 0,
-                              "DemiCode.Scheduling.Scheduler.ToString did not return the expected value.");
+                actual.Should().NotBeNull("DemiCode.Scheduling.Scheduler.ToString did not return the expected value.");
+                (actual.Length > 0).Should().BeTrue();
             }
         }
 
@@ -661,12 +657,12 @@ namespace DemiCode.Scheduling.Test
                 scheduler.Start();
 
                 // Wait for the schedule to trigger
-                Assert.IsTrue(alarmListener.WaitForScheduledAlarm(2000));
+                alarmListener.WaitForScheduledAlarm(2000).Should().BeTrue();
 
                 Thread.Sleep(500);
 
                 // Check that the task was executed
-                Assert.IsTrue(task.WasExecuted);
+                task.WasExecuted.Should().BeTrue();
 
                 alarmListener.AssertExpectedTriggerCount();
             }
@@ -686,13 +682,13 @@ namespace DemiCode.Scheduling.Test
                 scheduler.Start();
 
                 // Wait for the schedule to trigger
-                Assert.IsTrue(alarmListener.WaitForScheduledAlarm(2000));
+                alarmListener.WaitForScheduledAlarm(2000).Should().BeTrue();
 
                 // We must sleep for the events to finish handling BEFORE we dispose our Scheduler
                 Thread.Sleep(500);
 
                 // Check that the task was executed
-                Assert.IsTrue(task.WasExecuted);
+                task.WasExecuted.Should().BeTrue();
                 alarmListener.AssertExpectedTriggerCount();
             }
         }
@@ -711,11 +707,11 @@ namespace DemiCode.Scheduling.Test
                 target.Start();
 
                 // Wait for the schedule to trigger (wait max 6 seconds for the intervalschedule to trigger)
-                Assert.IsTrue(alarmListener.WaitForScheduledAlarm(6000));
+                alarmListener.WaitForScheduledAlarm(6000).Should().BeTrue();
                 alarmListener.AssertExpectedTriggerCount();
 
                 // Check that the task was executed
-                Assert.IsTrue(task.WasExecuted);
+                task.WasExecuted.Should().BeTrue();
             }
         }
 
@@ -731,7 +727,7 @@ namespace DemiCode.Scheduling.Test
                 target.Start();
 
                 // Wait for the schedule to trigger (wait max 6 seconds for the intervalschedule to trigger)
-                Assert.IsTrue(alarmListener.WaitForScheduledAlarm(6000));
+                alarmListener.WaitForScheduledAlarm(6000).Should().BeTrue();
                 alarmListener.AssertExpectedTriggerCount();
             }
         }

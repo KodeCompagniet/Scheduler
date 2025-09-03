@@ -16,7 +16,7 @@ namespace DemiCode.Scheduling.Test.Mocks
         }
 
         /// <summary>
-        /// Changes <see cref="CurrentOccurrence"/> to the first possible occurence from the supplied time.
+        /// Changes <see cref="DemiCode.Scheduling.Schedules.ScheduleBase.CurrentOccurrence"/> to the first possible occurence from the supplied time.
         /// </summary>
         /// <param name="time">The time to calculate from.</param>
         /// <returns>True if new time found, false if schedule is ended.</returns>

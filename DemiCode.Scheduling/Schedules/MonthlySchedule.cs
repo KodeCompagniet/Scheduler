@@ -97,7 +97,7 @@ namespace DemiCode.Scheduling.Schedules
         }
 
         /// <summary>
-        /// Changes <see cref="CurrentOccurrence"/> to the first possible occurence from the supplied time.
+        /// Changes <see cref="ScheduleBase.CurrentOccurrence"/> to the first possible occurence from the supplied time.
         /// </summary>
         /// <returns>True if new time found, false if schedule is ended.</returns>
         public override bool MoveToFirstFrom(DateTime time)

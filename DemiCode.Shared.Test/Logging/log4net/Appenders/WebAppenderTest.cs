@@ -36,7 +36,7 @@ namespace DemiCode.Logging.log4net.Appenders.Test
         public void ConstructorTest()
         {
             var target = new WebAppender();
-            Assert.IsNotNull(target);
+            target.Should().NotBeNull();
         }
 
         [Test]
@@ -96,8 +96,8 @@ namespace DemiCode.Logging.log4net.Appenders.Test
             var events = AssertLog.GetMemoryAppender(MemoryAppenderName).GetEvents();
             var loggingEvent = events[0];
             var result = loggingEvent.Properties["webappender:Result"] as string;
-            Assert.IsNotNull(result);
-            Assert.AreEqual("<?xml version=\"1.0\" ?><Success>Thanks for your submission</Success>", result);
+            result.Should().NotBeNull();
+            result.Should().Be("<?xml version=\"1.0\" ?><Success>Thanks for your submission</Success>");
         }
     }
 }

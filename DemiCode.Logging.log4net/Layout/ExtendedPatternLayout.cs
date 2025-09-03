@@ -136,8 +136,8 @@ namespace DemiCode.Logging.log4net.Layout
         /// <returns>The formatted description string</returns>
         private static string GetExceptionDescription(Exception ex, string versionFormat)
         {
-            if (ex == null) throw new ArgumentNullException("ex");
-            if (String.IsNullOrEmpty(versionFormat)) throw new ArgumentNullException("versionFormat");
+            if (ex == null) throw new ArgumentNullException(nameof(ex));
+            if (String.IsNullOrEmpty(versionFormat)) throw new ArgumentNullException(nameof(versionFormat));
 
             var desc = new StringBuilder();
 

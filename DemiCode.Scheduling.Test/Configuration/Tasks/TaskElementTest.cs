@@ -23,8 +23,8 @@ namespace DemiCode.Scheduling.Configuration.Tasks.Test
             var target = new TaskElement();
             target.TaskType = typeof(TaskMock);
             ITask val = target.GetTaskInstance();
-            Assert.IsNotNull(val);
-            Assert.IsInstanceOf<TaskMock>(val);
+            val.Should().NotBeNull();
+            val.Should().BeOfType<TaskMock>();
         }
 
         [Test]
@@ -32,8 +32,8 @@ namespace DemiCode.Scheduling.Configuration.Tasks.Test
         {
             var target = new TaskElement(typeof(TaskMock));
             ITask val = target.GetTaskInstance();
-            Assert.IsNotNull(val);
-            Assert.IsInstanceOf<TaskMock>(val);
+            val.Should().NotBeNull();
+            val.Should().BeOfType<TaskMock>();
         }
 
         [Test]
@@ -42,10 +42,10 @@ namespace DemiCode.Scheduling.Configuration.Tasks.Test
             var target = new TaskElement(typeof(TaskMock), "param0Value");
 
             var val = target.GetTaskInstance();
-            Assert.IsNotNull(val);
-            Assert.IsInstanceOf<TaskMock>(val);
+            val.Should().NotBeNull();
+            val.Should().BeOfType<TaskMock>();
             var task = (TaskMock)val;
-            Assert.AreEqual("param0Value", task.Param0);
+            task.Param0.Should().Be("param0Value");
         }
 
         /// <summary>
@@ -71,9 +71,9 @@ namespace DemiCode.Scheduling.Configuration.Tasks.Test
         {
             var target = new TestableTaskElement();
 
-            Assert.IsTrue(target.TestOnDeserializeUnrecognizedAttribute("attributeName", "attributeValue"));
-            Assert.IsTrue(target.Parameters.ContainsKey("attributeName"));
-            Assert.AreEqual("attributeValue", target.Parameters["attributeName"]);
+            target.TestOnDeserializeUnrecognizedAttribute("attributeName", "attributeValue").Should().BeTrue();
+            target.Parameters.ContainsKey("attributeName").Should().BeTrue();
+            target.Parameters["attributeName"].Should().Be("attributeValue");
         }
 
         /// <summary>
@@ -98,12 +98,12 @@ namespace DemiCode.Scheduling.Configuration.Tasks.Test
         {
             var target = new TestableTaskElement();
 
-            Assert.IsNotNull(target.Parameters);
+            target.Parameters.Should().NotBeNull();
 
             target.TestOnDeserializeUnrecognizedAttribute("attrib", "value");
 
             // The default Task parameter and our new 'attrib/value' parameter
-            Assert.AreEqual(2, target.Parameters.Count);
+            target.Parameters.Count.Should().Be(2);
         }
 
         /// <summary>
@@ -123,7 +123,7 @@ namespace DemiCode.Scheduling.Configuration.Tasks.Test
         {
             var target = new CodeTaskElement(GetType(), "ConstructorTest3");
             var task = target.GetTaskInstance();
-            Assert.AreEqual(typeof(CodeTask), task.GetType());
+            task.GetType().Should().Be(typeof(CodeTask));
         }
 
         /// <summary>
@@ -137,7 +137,7 @@ namespace DemiCode.Scheduling.Configuration.Tasks.Test
             var val = typeof(CodeTask);
             target.TaskType = val;
 
-            Assert.AreEqual(val, target.TaskType, "DemiCode.Scheduling.Configuration.TaskElement.ScheduleType was not set correctly.");
+            target.TaskType.Should().Be(val);
         }
 
         [Test]
@@ -146,7 +146,7 @@ namespace DemiCode.Scheduling.Configuration.Tasks.Test
             var left = new TaskElement();
             var right = new TaskElement();
             var actual = left.Equals(right);
-            Assert.That(actual, Is.True);
+            actual.Should().BeTrue();
         }
 
         [Test]
@@ -155,7 +155,7 @@ namespace DemiCode.Scheduling.Configuration.Tasks.Test
             var left = new TaskElement(typeof(CodeTask));
             var right = new TaskElement(typeof(CodeTask));
             var actual = left.Equals(right);
-            Assert.That(actual, Is.True);
+            actual.Should().BeTrue();
         }
 
         [Test]
@@ -164,7 +164,7 @@ namespace DemiCode.Scheduling.Configuration.Tasks.Test
             var left = new TaskElement(typeof(CodeTask));
             var right = new TaskElement(typeof(ApplicationTask));
             var actual = left.Equals(right);
-            Assert.That(actual, Is.False);
+            actual.Should().BeFalse();
         }
 
         [Test]
@@ -173,7 +173,7 @@ namespace DemiCode.Scheduling.Configuration.Tasks.Test
             var left = new TaskElement(typeof(CodeTask)) { new ScheduleReferenceElement("first") };
             var right = new TaskElement(typeof(CodeTask)) { new ScheduleReferenceElement("last") };
             var actual = left.Equals(right);
-            Assert.That(actual, Is.False);
+            actual.Should().BeFalse();
         }
 
         [Test]
@@ -182,7 +182,7 @@ namespace DemiCode.Scheduling.Configuration.Tasks.Test
             var left = new TaskElement { new ScheduleReferenceElement("first") };
             var right = new TaskElement { new ScheduleReferenceElement("first") };
             var actual = left.Equals(right);
-            Assert.That(actual, Is.True);
+            actual.Should().BeTrue();
         }
 
         [Test]
@@ -191,7 +191,7 @@ namespace DemiCode.Scheduling.Configuration.Tasks.Test
             var left = new TaskElement { new ScheduleReferenceElement("first") };
             var right = new TaskElement { new ScheduleReferenceElement("last"), new ScheduleReferenceElement("first") };
             var actual = left.Equals(right);
-            Assert.That(actual, Is.False);
+            actual.Should().BeFalse();
         }
     }
 

@@ -145,5 +145,16 @@ namespace DemiCode.Scheduling.Configuration
             if (ReferenceEquals(this, compareTo)) return true;
             return Equals(compareTo as SchedulerSettings);
         }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                var hash = base.GetHashCode();
+                hash = (hash * 397) ^ (DefaultScheduler?.GetHashCode() ?? 0);
+                hash = (hash * 397) ^ (Schedulers?.GetHashCode() ?? 0);
+                return hash;
+            }
+        }
     }
 }

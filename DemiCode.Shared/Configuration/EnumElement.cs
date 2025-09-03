@@ -169,5 +169,25 @@ namespace DemiCode.Configuration
             if (ReferenceEquals(this, compareTo)) return true;
             return Equals(compareTo as EnumElement<T>);
         }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                var hash = base.GetHashCode();
+                hash = (hash * 397) ^ (_collectionElementName?.GetHashCode() ?? 0);
+                hash = (hash * 397) ^ (_itemElementName?.GetHashCode() ?? 0);
+
+                if (Value != null)
+                {
+                    foreach (var item in Value)
+                    {
+                        hash = (hash * 397) ^ item.GetHashCode();
+                    }
+                }
+
+                return hash;
+            }
+        }
     }
 }

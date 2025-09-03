@@ -144,5 +144,10 @@ namespace DemiCode.Scheduling.Configuration.Schedules
             if (ReferenceEquals(this, compareTo)) return true;
             return Equals(compareTo as WeeklyScheduleElement);
         }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }

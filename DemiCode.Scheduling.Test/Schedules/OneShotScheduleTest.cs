@@ -39,8 +39,8 @@ namespace DemiCode.Scheduling.Schedules.Test
 
 		private void TestMoveToFirstFrom(OneShotSchedule instance, DateTime targetTime, bool isExpectedSuccess, DateTime expectedTime)
 		{
-			Assert.AreEqual(isExpectedSuccess, instance.MoveToFirstFrom(targetTime));
-			Assert.AreEqual(expectedTime, instance.CurrentOccurrence);
+			instance.MoveToFirstFrom(targetTime).Should().Be(isExpectedSuccess);
+			instance.CurrentOccurrence.Should().Be(expectedTime);
 		}
 
 
@@ -107,8 +107,8 @@ namespace DemiCode.Scheduling.Schedules.Test
 			OneShotSchedule schedule = new OneShotSchedule(new DateTime(2007, 5, 23, 08, 15, 00));
 
 			string retval = schedule.ToString();
-			Assert.IsTrue(retval.StartsWith(schedule.GetType().ToString()));
-			Assert.AreNotEqual(retval, schedule.GetType().ToString());
+			retval.StartsWith(schedule.GetType().ToString()).Should().BeTrue();
+			schedule.GetType().ToString().Should().NotBe(retval);
 		}
 	}
 }

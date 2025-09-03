@@ -18,8 +18,8 @@ namespace DemiCode.Logging.log4net.Configuration.Test
         public void GetLoggerTest()
         {
             ILoggerFactory factory = new Log4netLoggerElement().GetLoggerInstance();
-            Assert.IsNotNull(factory);
-            Assert.IsInstanceOf<Log4netLoggerFactory>(factory);
+            factory.Should().NotBeNull();
+            factory.Should().BeOfType<Log4netLoggerFactory>();
         }
 
         [Test]
@@ -27,7 +27,7 @@ namespace DemiCode.Logging.log4net.Configuration.Test
         {
             var left = new Log4netLoggerElement();
             var right = new Log4netLoggerElement();
-            Assert.AreEqual(left, right);
+            right.Should().Be(left);
         }
     }
 }

@@ -26,10 +26,10 @@ namespace DemiCode.Scheduling.Tasks
         public TaskSequence(ITask[] tasks)
         {
             if (tasks == null)
-                throw new ArgumentNullException("tasks");
+                throw new ArgumentNullException(nameof(tasks));
 
             if (tasks.Length == 0)
-                throw new ArgumentException("The tasks array must have one or more items", "tasks");
+                throw new ArgumentException("The tasks array must have one or more items", nameof(tasks));
  
             Tasks = tasks;
         }
@@ -41,7 +41,7 @@ namespace DemiCode.Scheduling.Tasks
         public void Execute(ILoggerFactory loggerFactory)
         {
             if (loggerFactory == null)
-                throw new ArgumentNullException("loggerFactory");
+                throw new ArgumentNullException(nameof(loggerFactory));
 
             var taskLogger = loggerFactory.CreateLogger(typeof(TaskSequence));
             for (var taskIndex = 0; taskIndex < Tasks.Length; taskIndex++)

@@ -17,7 +17,7 @@ namespace DemiCode.Configuration.Test
         {
             var now = DateTime.Now;
             var element = new DateElement(now);
-            Assert.AreEqual(now, element.Value);
+            element.Value.Should().Be(now);
         }
 
         [Test]
@@ -26,7 +26,7 @@ namespace DemiCode.Configuration.Test
             var now = new DateTime(2008, 7, 6);
             var element = new DateElement(now);
             var nowFormatted = element.ToString();
-            Assert.AreEqual("2008-07-06", nowFormatted);
+            nowFormatted.Should().Be("2008-07-06");
         }
     }
 }

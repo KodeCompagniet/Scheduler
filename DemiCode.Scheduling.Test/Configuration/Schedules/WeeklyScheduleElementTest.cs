@@ -23,13 +23,13 @@ namespace DemiCode.Scheduling.Configuration.Schedules.Test
 
             var target = new WeeklyScheduleElement("weekly", now, ts, days);
 
-            Assert.AreEqual("weekly", target.Name);
-            Assert.AreEqual(new DateTime(2008, 7, 6, 5, 4, 3, 2), target.FromDate.Value);
-            Assert.AreEqual(DateTime.MinValue, target.ToDate.Value);
-            Assert.AreEqual(TimeSpan.FromSeconds(5), target.TimeOfDay.Value);
-            Assert.AreEqual(2, target.Days.Value.Length);
-            Assert.AreEqual(DayOfWeek.Tuesday, target.Days.Value[0]);
-            Assert.AreEqual(DayOfWeek.Friday, target.Days.Value[1]);
+            target.Name.Should().Be("weekly");
+            target.FromDate.Value.Should().Be(now);
+            target.ToDate.Value.Should().Be(DateTime.MinValue);
+            target.TimeOfDay.Value.Should().Be(TimeSpan.FromSeconds(5));
+            target.Days.Value.Length.Should().Be(2);
+            target.Days.Value[0].Should().Be(DayOfWeek.Tuesday);
+            target.Days.Value[1].Should().Be(DayOfWeek.Friday);
         }
 
         [Test]
@@ -41,7 +41,7 @@ namespace DemiCode.Scheduling.Configuration.Schedules.Test
 
             var target = new WeeklyScheduleElement("weekly", now, ts, days);
 
-            Assert.IsInstanceOf<WeeklySchedule>(target.GetScheduleInstance());
+            target.GetScheduleInstance().Should().BeOfType<WeeklySchedule>();
         }
 
         [Test]
@@ -49,7 +49,7 @@ namespace DemiCode.Scheduling.Configuration.Schedules.Test
         {
             var left = new WeeklyScheduleElement();
             var right = new WeeklyScheduleElement();
-            Assert.AreEqual(left, right);
+            right.Should().Be(left);
         }
 
         [Test]
@@ -58,7 +58,7 @@ namespace DemiCode.Scheduling.Configuration.Schedules.Test
             var left = new WeeklyScheduleElement("weekly", new DateTime(2008, 7, 6, 5, 4, 3, 2), TimeSpan.FromSeconds(5), new[] { DayOfWeek.Tuesday, DayOfWeek.Friday });
             var right = new WeeklyScheduleElement("weekly", new DateTime(2008, 7, 6, 5, 4, 3, 2), TimeSpan.FromSeconds(5), new[] { DayOfWeek.Tuesday, DayOfWeek.Friday });
 
-            Assert.AreEqual(left, right);
+            right.Should().Be(left);
         }
 
         [Test]
@@ -67,7 +67,7 @@ namespace DemiCode.Scheduling.Configuration.Schedules.Test
             var left = new WeeklyScheduleElement("weekly", new DateTime(2008, 7, 6, 5, 4, 3, 2), new DateTime(2009, 7, 6, 5, 4, 3, 2), TimeSpan.FromSeconds(5), new[] { DayOfWeek.Tuesday, DayOfWeek.Friday });
             var right = new WeeklyScheduleElement("weekly", new DateTime(2008, 7, 6, 5, 4, 3, 2), new DateTime(2009, 7, 6, 5, 4, 3, 2), TimeSpan.FromSeconds(5), new[] { DayOfWeek.Tuesday, DayOfWeek.Friday });
 
-            Assert.AreEqual(left, right);
+            right.Should().Be(left);
         }
 
         [Test]
@@ -75,23 +75,23 @@ namespace DemiCode.Scheduling.Configuration.Schedules.Test
         {
             var left = new WeeklyScheduleElement("weekly", new DateTime(2008, 7, 6, 5, 4, 3, 2), new DateTime(2009, 7, 6, 5, 4, 3, 2), TimeSpan.FromSeconds(5), new[] { DayOfWeek.Tuesday, DayOfWeek.Friday });
             var right = new WeeklyScheduleElement("weeklie", new DateTime(2008, 7, 6, 5, 4, 3, 2), new DateTime(2009, 7, 6, 5, 4, 3, 2), TimeSpan.FromSeconds(5), new[] { DayOfWeek.Tuesday, DayOfWeek.Friday });
-            Assert.AreNotEqual(left, right);
+            right.Should().NotBe(left);
 
             left = new WeeklyScheduleElement("weekly", new DateTime(2008, 7, 6, 5, 4, 3, 2), new DateTime(2009, 7, 6, 5, 4, 3, 2), TimeSpan.FromSeconds(5), new[] { DayOfWeek.Tuesday, DayOfWeek.Friday });
             right = new WeeklyScheduleElement("weekly", new DateTime(2008, 8, 6, 5, 4, 3, 2), new DateTime(2009, 7, 6, 5, 4, 3, 2), TimeSpan.FromSeconds(5), new[] { DayOfWeek.Tuesday, DayOfWeek.Friday });
-            Assert.AreNotEqual(left, right);
+            right.Should().NotBe(left);
 
             left = new WeeklyScheduleElement("weekly", new DateTime(2008, 7, 6, 5, 4, 3, 2), new DateTime(2009, 7, 6, 5, 4, 3, 2), TimeSpan.FromSeconds(5), new[] { DayOfWeek.Tuesday, DayOfWeek.Friday });
             right = new WeeklyScheduleElement("weekly", new DateTime(2008, 7, 6, 5, 4, 3, 2), new DateTime(2010, 7, 6, 5, 4, 3, 2), TimeSpan.FromSeconds(5), new[] { DayOfWeek.Tuesday, DayOfWeek.Friday });
-            Assert.AreNotEqual(left, right);
+            right.Should().NotBe(left);
 
             left = new WeeklyScheduleElement("weekly", new DateTime(2008, 7, 6, 5, 4, 3, 2), new DateTime(2009, 7, 6, 5, 4, 3, 2), TimeSpan.FromSeconds(5), new[] { DayOfWeek.Tuesday, DayOfWeek.Friday });
             right = new WeeklyScheduleElement("weekly", new DateTime(2008, 7, 6, 5, 4, 3, 2), new DateTime(2009, 7, 6, 5, 4, 3, 2), TimeSpan.FromSeconds(10), new[] { DayOfWeek.Tuesday, DayOfWeek.Friday });
-            Assert.AreNotEqual(left, right);
+            right.Should().NotBe(left);
 
             left = new WeeklyScheduleElement("weekly", new DateTime(2008, 7, 6, 5, 4, 3, 2), new DateTime(2009, 7, 6, 5, 4, 3, 2), TimeSpan.FromSeconds(5), new[] { DayOfWeek.Tuesday, DayOfWeek.Friday });
             right = new WeeklyScheduleElement("weekly", new DateTime(2008, 7, 6, 5, 4, 3, 2), new DateTime(2009, 7, 6, 5, 4, 3, 2), TimeSpan.FromSeconds(5), new[] { DayOfWeek.Tuesday, DayOfWeek.Friday, DayOfWeek.Saturday });
-            Assert.AreNotEqual(left, right);
+            right.Should().NotBe(left);
         }
 
         [Test]

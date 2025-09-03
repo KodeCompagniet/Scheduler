@@ -52,7 +52,7 @@ namespace DemiCode.Scheduling.Loggers.Test
         public void ConstructorTest()
         {
             ConsoleLogger target = new ConsoleLogger();
-            Assert.IsNotNull(target);
+            target.Should().NotBeNull();
         }
 
         /// <summary>
@@ -63,7 +63,7 @@ namespace DemiCode.Scheduling.Loggers.Test
         public void ConstructorTest1()
         {
             ConsoleLogger target = new ConsoleLogger();
-            Assert.IsNotNull(target);
+            target.Should().NotBeNull();
         }
 
         [DeploymentItem("DemiCode.Scheduling.dll")]

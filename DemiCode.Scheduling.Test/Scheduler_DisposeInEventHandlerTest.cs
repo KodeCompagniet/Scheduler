@@ -43,8 +43,8 @@ namespace DemiCode.Scheduling.Test
                     _dispose_InAlarmEventHandler_scheduler.Dispose();
             }
 
-            Assert.That(_dispose_InAlarmEventHandler_dict["first"], Is.EqualTo(1));
-            Assert.That(_dispose_InAlarmEventHandler_dict["second"], Is.GreaterThan(0));
+            _dispose_InAlarmEventHandler_dict["first"].Should().Be(1);
+            _dispose_InAlarmEventHandler_dict["second"].Should().BeGreaterThan(0);
         }
 
         void Dispose_InAlarmEventHandler_EventHandler(object sender, AlarmEventArgs e)

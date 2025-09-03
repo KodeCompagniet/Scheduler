@@ -107,7 +107,7 @@ namespace DemiCode.Logging.Loggers
         public void Add(ILoggerFactory loggerFactory)
         {
             if (loggerFactory == null)
-                throw new ArgumentNullException("loggerFactory");
+                throw new ArgumentNullException(nameof(loggerFactory));
 
             _loggerFactories.Add(loggerFactory);
         }

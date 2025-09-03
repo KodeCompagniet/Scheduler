@@ -29,11 +29,11 @@ namespace DemiCode.Scheduling.Test.Mocks
         public event EventHandler<EventArgs> Event;
 
         /// <summary>
-        /// This method uses <see cref="EventHelper.RaiseEvents"/> and its own event handler
+        /// This method uses <see cref="DemiCode.Scheduling.EventHelper.RaiseEvents{TEventArgs}(object, System.EventHandler{TEventArgs}, TEventArgs)"/> and its own event handler
         /// to simulate raising an event on a target object that requires synchronization.
         /// </summary>
         /// <param name="trigger">The <see cref="AutoResetEvent"/> trigger is used to signal successfull event execution.</param>
-        /// <returns>The array of potetially failed event handlers returned from <see cref="EventHelper.RaiseEvents"/> </returns>
+        /// <returns>The array of potetially failed event handlers returned from <see cref="DemiCode.Scheduling.EventHelper.RaiseEvents{TEventArgs}(object, System.EventHandler{TEventArgs}, TEventArgs)"/> </returns>
         [MethodImpl(MethodImplOptions.Synchronized)]
         public ReadOnlyCollection<object> RaiseEventSynchronized(AutoResetEvent trigger)
         {

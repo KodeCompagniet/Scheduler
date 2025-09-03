@@ -31,7 +31,7 @@ namespace DemiCode.Scheduling.Tasks.Test
 
             target.ScheduledAlarmEventHandler(sender, e);
 
-            Assert.IsTrue(TaskMock.WasExecutedByThread);
+            TaskMock.WasExecutedByThread.Should().BeTrue();
         }
 
         /// <summary>
@@ -46,7 +46,7 @@ namespace DemiCode.Scheduling.Tasks.Test
 
             TaskHandler target = new TaskHandler(task, parameters, factory);
         
-            Assert.IsNotNull(target);
+            target.Should().NotBeNull();
         }
 
         

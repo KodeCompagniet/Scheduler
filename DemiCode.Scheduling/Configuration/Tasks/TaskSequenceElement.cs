@@ -120,6 +120,16 @@ namespace DemiCode.Scheduling.Configuration.Tasks
         {
             return Equals(compareTo as TaskSequenceElement);
         }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                var hash = base.GetHashCode();
+                hash = (hash * 397) ^ (Tasks?.GetHashCode() ?? 0);
+                return hash;
+            }
+        }
     }
 
     #region Method validator

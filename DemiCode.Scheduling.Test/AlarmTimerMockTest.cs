@@ -28,7 +28,7 @@ namespace DemiCode.Scheduling.Test
                 target.FireEvent();
 
                 bool receivedSignal = trigger.WaitOne(500, false);
-                Assert.IsTrue(receivedSignal, "Did not receive the expected event");
+                receivedSignal.Should().BeTrue();
             }
         }
     }

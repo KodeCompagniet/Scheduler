@@ -10,8 +10,8 @@ namespace DemiCode.Scheduling.Test
         [DebuggerStepThrough]
         public static void Success(ISchedule instance, DateTime targetTime, DateTime expectedTime)
         {
-            Assert.IsTrue(instance.MoveToFirstFrom(targetTime));
-            Assert.AreEqual(expectedTime, instance.CurrentOccurrence);
+            instance.MoveToFirstFrom(targetTime).Should().BeTrue();
+            instance.CurrentOccurrence.Should().Be(expectedTime);
         }
 
     }

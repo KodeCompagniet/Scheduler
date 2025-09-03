@@ -58,10 +58,10 @@ namespace DemiCode.Scheduling.Schedules.Test
             DateTime tuesdayLunch = new DateTime(2007, 1, 2, 12, 0, 0);
 
             schedule.MoveToFirstFrom(earlyMondayMorning);
-            Assert.AreEqual(mondayLunch, schedule.CurrentOccurrence);
+            schedule.CurrentOccurrence.Should().Be(mondayLunch);
 
             schedule.MoveToNext();
-            Assert.AreEqual(tuesdayLunch, schedule.CurrentOccurrence);
+            schedule.CurrentOccurrence.Should().Be(tuesdayLunch);
         }
 
         [Test]
@@ -72,15 +72,15 @@ namespace DemiCode.Scheduling.Schedules.Test
             using (Scheduler scheduler = Scheduler.CreateFromConfig("scheduling", "lunch"))
             {
                 ISchedule schedule = scheduler["lunchschedule"];
-                Assert.IsInstanceOf<LunchSchedule>(schedule);
+                schedule.Should().BeOfType<LunchSchedule>();
 
                 LunchSchedule lunch = (LunchSchedule)schedule;
-                Assert.AreEqual(lunchTime, lunch.LunchTimeOfDay);
+                lunch.LunchTimeOfDay.Should().Be(lunchTime);
 
                 scheduler.Start();
 
                 DateTime now = (DateTime.Now.TimeOfDay > lunchTime ? DateTime.Now.AddDays(1) : DateTime.Now);
-                Assert.AreEqual(now.Date.Add(lunchTime), lunch.CurrentOccurrence);
+                lunch.CurrentOccurrence.Should().Be(now.Date.Add(lunchTime));
                 
                 scheduler.Stop();
             }

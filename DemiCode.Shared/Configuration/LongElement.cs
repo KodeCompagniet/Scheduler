@@ -96,5 +96,14 @@ namespace DemiCode.Configuration
             return Equals(compareTo as LongElement);
         }
 
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                var hash = base.GetHashCode();
+                hash = (hash * 397) ^ Value.GetHashCode();
+                return hash;
+            }
+        }
     }
 }

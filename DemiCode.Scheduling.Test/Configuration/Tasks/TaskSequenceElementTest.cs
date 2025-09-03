@@ -23,8 +23,8 @@ namespace DemiCode.Scheduling.Configuration.Test
             var target = new TaskSequenceElement();
             target.Tasks.Add(new CodeTaskElement(typeof(SimpleClass), "SimpleMethod"));
             var val = target.GetTaskInstance();
-            Assert.IsNotNull(val);
-            Assert.IsInstanceOf<TaskSequence>(val);
+            val.Should().NotBeNull();
+            val.Should().BeOfType<TaskSequence>();
         }
 
         /// <summary>
@@ -44,17 +44,17 @@ namespace DemiCode.Scheduling.Configuration.Test
         {
             var ss = (SchedulerSettings)ConfigurationManager.GetSection("TaskSequenceConfigSection");
             var taskSequenceElement = (TaskSequenceElement)ss.Schedulers[ss.DefaultScheduler].Tasks[0];
-            Assert.AreEqual(3, taskSequenceElement.Tasks.Count);
+            taskSequenceElement.Tasks.Count.Should().Be(3);
 
-            Assert.AreEqual(typeof(CodeTaskElement), taskSequenceElement.Tasks[0].GetType());
-            Assert.IsTrue(taskSequenceElement.Tasks[0].Parameters.ContainsKey("param1"));
-            Assert.AreEqual("1", taskSequenceElement.Tasks[0].Parameters["param1"]);
+            taskSequenceElement.Tasks[0].GetType().Should().Be(typeof(CodeTaskElement));
+            taskSequenceElement.Tasks[0].Parameters.ContainsKey("param1").Should().BeTrue();
+            taskSequenceElement.Tasks[0].Parameters["param1"].Should().Be("1");
 
-            Assert.IsTrue(taskSequenceElement.Tasks[1].Parameters.ContainsKey("param1"));
-            Assert.AreEqual("0", taskSequenceElement.Tasks[1].Parameters["param1"]);
+            taskSequenceElement.Tasks[1].Parameters.ContainsKey("param1").Should().BeTrue();
+            taskSequenceElement.Tasks[1].Parameters["param1"].Should().Be("0");
 
-            Assert.IsTrue(taskSequenceElement.Tasks[2].Parameters.ContainsKey("param1"));
-            Assert.AreEqual("2", taskSequenceElement.Tasks[2].Parameters["param1"]);
+            taskSequenceElement.Tasks[2].Parameters.ContainsKey("param1").Should().BeTrue();
+            taskSequenceElement.Tasks[2].Parameters["param1"].Should().Be("2");
 
         }
 
@@ -88,7 +88,7 @@ namespace DemiCode.Scheduling.Configuration.Test
             var left = new TaskSequenceElement();
             var right = new TaskSequenceElement();
             var actual = left.Equals(right);
-            Assert.That(actual, Is.True);
+            actual.Should().BeTrue();
         }
 
         [Test]
@@ -99,7 +99,7 @@ namespace DemiCode.Scheduling.Configuration.Test
             var right = new TaskSequenceElement();
             right.Tasks.Add(new CodeTaskElement(typeof(SimpleClass), "SimpleMethod"));
             var actual = left.Equals(right);
-            Assert.That(actual, Is.True);
+            actual.Should().BeTrue();
         }
 
         [Test]
@@ -112,7 +112,7 @@ namespace DemiCode.Scheduling.Configuration.Test
 
             var actual = left.Equals(right);
             
-            Assert.That(actual, Is.False);
+            actual.Should().BeFalse();
         }
 
         [Test]
@@ -121,7 +121,7 @@ namespace DemiCode.Scheduling.Configuration.Test
             var left = new TaskSequenceElement { new ScheduleReferenceElement("first") };
             var right = new TaskSequenceElement { new ScheduleReferenceElement("last") };
             var actual = left.Equals(right);
-            Assert.That(actual, Is.False);
+            actual.Should().BeFalse();
         }
 
         [Test]
@@ -130,7 +130,7 @@ namespace DemiCode.Scheduling.Configuration.Test
             var left = new TaskSequenceElement { new ScheduleReferenceElement("first") };
             var right = new TaskSequenceElement { new ScheduleReferenceElement("first") };
             var actual = left.Equals(right);
-            Assert.That(actual, Is.True);
+            actual.Should().BeTrue();
         }
 
     }

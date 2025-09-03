@@ -34,7 +34,7 @@ namespace DemiCode.Scheduling.Test
             string message = "message";
             FactoryException target = new FactoryException(message);
 
-            Assert.AreEqual(message, target.Message);
+            target.Message.Should().Be(message);
         }
 
         /// <summary>
@@ -47,8 +47,8 @@ namespace DemiCode.Scheduling.Test
             Exception innerException = new ApplicationException();
             FactoryException target = new FactoryException(message, innerException);
 
-            Assert.AreEqual(message, target.Message);
-            Assert.AreSame(innerException, target.InnerException);
+            target.Message.Should().Be(message);
+            target.InnerException.Should().BeSameAs(innerException);
         }
 
     }

@@ -17,15 +17,15 @@ namespace DemiCode.Logging.Configuration.Loggers.Test
         public void Constructor2Test()
         {
             var element = new LoggerElement(typeof(NilLoggerFactory));
-            Assert.AreEqual(typeof (NilLoggerFactory), element.LoggerType);
+            element.LoggerType.Should().Be(typeof(NilLoggerFactory));
         }
 
         [TestMethod]
         public void GetLoggerTest()
         {
             var factory = new LoggerElement(typeof(NilLoggerFactory)).GetLoggerInstance();
-            Assert.IsNotNull(factory);
-            Assert.IsInstanceOfType(factory, typeof(NilLoggerFactory));
+            factory.Should().NotBeNull();
+            factory.Should().BeOfType<NilLoggerFactory>();
         }
 
         [ExpectedException(typeof(InvalidOperationException))]
@@ -40,7 +40,7 @@ namespace DemiCode.Logging.Configuration.Loggers.Test
         {
             var left = new LoggerElement();
             var right = new LoggerElement();
-            Assert.AreEqual(left, right);
+            right.Should().Be(left);
         }
 
         [TestMethod]
@@ -48,7 +48,7 @@ namespace DemiCode.Logging.Configuration.Loggers.Test
         {
             var left = new LoggerElement(typeof(NilLoggerFactory));
             var right = new LoggerElement(typeof(NilLoggerFactory));
-            Assert.AreEqual(left, right);
+            right.Should().Be(left);
         }
 
         [TestMethod]
@@ -56,7 +56,7 @@ namespace DemiCode.Logging.Configuration.Loggers.Test
         {
             var left = new LoggerElement(typeof(NilLoggerFactory));
             var right = new LoggerElement(typeof(ConsoleLoggerFactory));
-            Assert.AreNotEqual(left, right);
+            right.Should().NotBe(left);
         }
 
     }

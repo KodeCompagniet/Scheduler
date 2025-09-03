@@ -40,7 +40,7 @@ namespace DemiCode.Shared.Test
         /// </summary>
         public static void EventCountIsEqual(string appenderName, int expected)
         {
-            Assert.AreEqual(expected, GetMemoryAppender(appenderName).GetEvents().Length);
+            GetMemoryAppender(appenderName).GetEvents().Length.Should().Be(expected);
         }
 
         /// <summary>
@@ -48,7 +48,7 @@ namespace DemiCode.Shared.Test
         /// </summary>
         public static void ErrorCountIsEqual(string appenderName, int expected)
         {
-            Assert.AreEqual(expected, GetEventCount(GetMemoryAppender(appenderName), Level.Error));
+            GetEventCount(GetMemoryAppender(appenderName), Level.Error).Should().Be(expected);
         }
 
         /// <summary>
@@ -56,7 +56,7 @@ namespace DemiCode.Shared.Test
         /// </summary>
         public static void InfoCountIsEqual(string appenderName, int expected)
         {
-            Assert.AreEqual(expected, GetEventCount(GetMemoryAppender(appenderName), Level.Info));
+            GetEventCount(GetMemoryAppender(appenderName), Level.Info).Should().Be(expected);
         }
 
         private static int GetEventCount(MemoryAppender appender, Level level)
@@ -75,7 +75,7 @@ namespace DemiCode.Shared.Test
         /// </summary>
         public static void WarnCountIsEqual(string appenderName, int expected)
         {
-            Assert.AreEqual(expected, GetEventCount(GetMemoryAppender(appenderName), Level.Warn));
+            GetEventCount(GetMemoryAppender(appenderName), Level.Warn).Should().Be(expected);
         }
     }
 }

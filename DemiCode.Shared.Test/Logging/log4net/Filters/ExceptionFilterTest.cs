@@ -36,7 +36,7 @@ namespace DemiCode.Logging.log4net.Filters.Test
         public void ConstructorTest()
         {
             var target = new ExceptionFilter();
-            Assert.IsNotNull(target);
+            target.Should().NotBeNull();
         }
 
         [Test]

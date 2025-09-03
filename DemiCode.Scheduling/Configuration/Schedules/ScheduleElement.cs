@@ -70,10 +70,10 @@ namespace DemiCode.Scheduling.Configuration.Schedules
         public void AddAdditionalProperty(string name, string value)
         {
             if (name == null)
-                throw new ArgumentNullException("name");
+                throw new ArgumentNullException(nameof(name));
 
             if (value == null)
-                throw new ArgumentNullException("value");
+                throw new ArgumentNullException(nameof(value));
 
             _additionalProperties[name] = value;
         }
@@ -96,7 +96,7 @@ namespace DemiCode.Scheduling.Configuration.Schedules
         internal static bool IsValidElementName(string elementName)
         {
             if (elementName == null)
-                throw new ArgumentNullException("elementName");
+                throw new ArgumentNullException(nameof(elementName));
 
             return elementName == _elementName;
         }
@@ -130,9 +130,9 @@ namespace DemiCode.Scheduling.Configuration.Schedules
 
         private static void ValidateType(Type scheduleType)
         {
-            if (scheduleType.GetInterface(typeof(ISchedule).Name) == null)
+            if (!typeof(ISchedule).IsAssignableFrom(scheduleType))
             {
-                throw new ArgumentException("Schedule type must implement the DemiCode.Scheduling.Schedules.ISchedule interface", "scheduleType");
+                throw new ArgumentException("Schedule type must implement the DemiCode.Scheduling.Schedules.ISchedule interface", nameof(scheduleType));
             }
         }
 
@@ -361,4 +361,3 @@ namespace DemiCode.Scheduling.Configuration.Schedules
         }
     }
 }
-

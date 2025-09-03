@@ -20,8 +20,8 @@ namespace DemiCode.Scheduling.Configuration.Test
 
             var actual = SchedulerSettingsManager.GetConfigurationSection(sectionName);
 
-            Assert.IsNotNull(actual);
-            Assert.IsInstanceOf<SchedulerSettings>(actual);
+            actual.Should().NotBeNull();
+            actual.Should().BeOfType<SchedulerSettings>();
         }
 
         [Test]
@@ -55,7 +55,7 @@ namespace DemiCode.Scheduling.Configuration.Test
 
             var ss = SchedulerSettingsManager.GetConfigurationSection(sectionName);
             var schedule = (IntervalSchedule)ss.Schedulers[ss.DefaultScheduler].GetScheduleInstances()[0];
-            Assert.AreEqual(TimeSpan.FromSeconds(10), schedule.Interval);
+            schedule.Interval.Should().Be(TimeSpan.FromSeconds(10));
 
             try
             {
@@ -63,7 +63,7 @@ namespace DemiCode.Scheduling.Configuration.Test
 
                 ss = SchedulerSettingsManager.GetConfigurationSection(sectionName);
                 schedule = (IntervalSchedule)ss.Schedulers[ss.DefaultScheduler].GetScheduleInstances()[0];
-                Assert.AreEqual(TimeSpan.FromSeconds(10), schedule.Interval);
+                schedule.Interval.Should().Be(TimeSpan.FromSeconds(10));
             }
             finally
             {
@@ -81,7 +81,7 @@ namespace DemiCode.Scheduling.Configuration.Test
 
             var ss = SchedulerSettingsManager.GetConfigurationSection(sectionName);
             var schedule = (IntervalSchedule)ss.Schedulers[ss.DefaultScheduler].GetScheduleInstances()[0];
-            Assert.AreEqual(TimeSpan.FromSeconds(10), schedule.Interval);
+            schedule.Interval.Should().Be(TimeSpan.FromSeconds(10));
 
             try
             {
@@ -89,7 +89,7 @@ namespace DemiCode.Scheduling.Configuration.Test
 
                 ss = SchedulerSettingsManager.GetConfigurationSection(sectionName, true);
                 schedule = (IntervalSchedule)ss.Schedulers[ss.DefaultScheduler].GetScheduleInstances()[0];
-                Assert.AreEqual(TimeSpan.FromSeconds(50), schedule.Interval);
+                schedule.Interval.Should().Be(TimeSpan.FromSeconds(50));
             }
             finally
             {

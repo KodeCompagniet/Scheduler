@@ -47,13 +47,13 @@ namespace DemiCode.Scheduling.Schedules
             : base(name, firstOccurence, additionalData)
         {
             if (interval.Ticks <= 0)
-                throw new ArgumentException("Argument 'interval' can't be an empty or negative timespan.", "interval");
+                throw new ArgumentException("Argument 'interval' can't be an empty or negative timespan.", nameof(interval));
 
             if (interval.TotalSeconds < 1)
-                throw new ArgumentException("Argument 'interval' cannot be a timespan less than 1 second.", "interval");
+                throw new ArgumentException("Argument 'interval' cannot be a timespan less than 1 second.", nameof(interval));
 
             if ((numberOfOccurrences == 0) || (numberOfOccurrences < -1))
-                throw new ArgumentException("Argument 'numberOfOccurrences' must be a positive integer or -1 for indefinitly.", "numberOfOccurrences");
+                throw new ArgumentException("Argument 'numberOfOccurrences' must be a positive integer or -1 for indefinitly.", nameof(numberOfOccurrences));
 
             _numberOfOccurences = numberOfOccurrences;
             _interval = interval;
@@ -107,10 +107,10 @@ namespace DemiCode.Scheduling.Schedules
             TimeSpan interval = ParseElementValue<TimeSpan>(config, "interval", TimeSpan.TryParse);
 
             if (interval.Ticks <= 0)
-                throw new ArgumentException("Argument 'interval' can't be an empty or negative timespan.", "interval");
+                throw new ArgumentException("Argument 'interval' can't be an empty or negative timespan.", nameof(interval));
 
             if (interval.TotalSeconds < 1)
-                throw new ArgumentException("Argument 'interval' cannot be a timespan less than 1 second.", "interval");
+                throw new ArgumentException("Argument 'interval' cannot be a timespan less than 1 second.", nameof(interval));
 
             _interval = interval;
         }

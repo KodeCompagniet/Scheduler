@@ -35,7 +35,7 @@ namespace DemiCode.Logging.log4net.Filters
         {
             if (loggingEvent == null)
             {
-                throw new ArgumentNullException("loggingEvent");
+                throw new ArgumentNullException(nameof(loggingEvent));
             }
 
             var exception = loggingEvent.GetExceptionString();

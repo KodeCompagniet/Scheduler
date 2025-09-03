@@ -55,7 +55,7 @@ namespace DemiCode.Scheduling.Tasks.Test
                 }
             }
 
-            Assert.IsTrue(DisposableTask.DisposeWasCalled);
+            DisposableTask.DisposeWasCalled.Should().BeTrue();
         }
 
         /// <summary>
@@ -70,7 +70,7 @@ namespace DemiCode.Scheduling.Tasks.Test
                 ITask task = new TaskMock();
                 target.Add(task);
 
-                Assert.AreEqual(1, target.Count);
+                target.Count.Should().Be(1);
             }
         }
 
@@ -86,7 +86,7 @@ namespace DemiCode.Scheduling.Tasks.Test
                 var tasks = new[]{ new TaskMock(), new TaskMock() };
                 taskCollection.AddRange(tasks);
 
-                Assert.AreEqual(2, taskCollection.Count);
+                taskCollection.Count.Should().Be(2);
             }
         }
 
@@ -107,7 +107,7 @@ namespace DemiCode.Scheduling.Tasks.Test
                 taskCollection.AddRange(tasks, "s1");
                 taskCollection.AddRange(tasks, "s2");
 
-                Assert.AreEqual(4, taskCollection.Count);
+                taskCollection.Count.Should().Be(4);
             }
         }
 
@@ -126,7 +126,7 @@ namespace DemiCode.Scheduling.Tasks.Test
 
                 target.Add(task, parameters);
 
-                Assert.AreEqual(1, target.Count);
+                target.Count.Should().Be(1);
             }
         }
 
@@ -147,7 +147,7 @@ namespace DemiCode.Scheduling.Tasks.Test
 
                 target.Add(task, parameters, scheduleName);
 
-                Assert.AreEqual(1, target.Count);
+                target.Count.Should().Be(1);
             }
         }
 
@@ -241,9 +241,9 @@ namespace DemiCode.Scheduling.Tasks.Test
             TaskCollection collection;
              using (CreateSchedulerMock(out collection))
              {
-                 Assert.IsTrue(((ICollection<ITask>) collection).Contains(collection[0]));
+                 ((ICollection<ITask>) collection).Contains(collection[0]).Should().BeTrue();
                  ITask mock = new TaskMock();
-                 Assert.IsFalse(((ICollection<ITask>)collection).Contains(mock));
+                 ((ICollection<ITask>)collection).Contains(mock).Should().BeFalse();
              }
         }
 
@@ -258,7 +258,7 @@ namespace DemiCode.Scheduling.Tasks.Test
                 ((ICollection<ITask>)collection).CopyTo(tasks, 0);
                 foreach (ITask task in tasks)
                 {
-                    Assert.IsTrue(((ICollection<ITask>)collection).Contains(task));    
+                    ((ICollection<ITask>)collection).Contains(task).Should().BeTrue();    
                 }
             }
         }
@@ -270,7 +270,7 @@ namespace DemiCode.Scheduling.Tasks.Test
             using (CreateSchedulerMock(out collection))
             {
                 IEnumerator<ITask> enumerator = ((IEnumerable<ITask>) collection).GetEnumerator();
-                Assert.IsNotNull(enumerator);
+                enumerator.Should().NotBeNull();
             }
         }
 
@@ -280,7 +280,7 @@ namespace DemiCode.Scheduling.Tasks.Test
             TaskCollection collection;
             using (CreateSchedulerMock(out collection))
             {
-                Assert.AreEqual(0, ((IList<ITask>) collection).IndexOf(collection[0]));
+                ((IList<ITask>) collection).IndexOf(collection[0]).Should().Be(0);
             }
         }
 
@@ -312,8 +312,7 @@ namespace DemiCode.Scheduling.Tasks.Test
 
                 target.Add(val);
 
-                Assert.AreEqual(val, target[index],
-                                "DemiCode.Scheduling.Tasks.TaskCollection.this was not set correctly.");
+                target[index].Should().Be(val);
             }
         }
 

@@ -19,7 +19,7 @@ namespace DemiCode.Scheduling.Test
         public void ConstructorTest()
         {
             InvalidConfigurationException target = new InvalidConfigurationException();
-            Assert.IsInstanceOf<InvalidConfigurationException>(target);
+            target.Should().BeOfType<InvalidConfigurationException>();
         }
 
         /// <summary>
@@ -31,7 +31,7 @@ namespace DemiCode.Scheduling.Test
             string message = "Some message";
 
             InvalidConfigurationException target = new InvalidConfigurationException(message);
-            Assert.AreEqual(message, target.Message);
+            target.Message.Should().Be(message);
         }
 
         /// <summary>
@@ -44,8 +44,8 @@ namespace DemiCode.Scheduling.Test
             Exception innerException = new InvalidOperationException();
 
             InvalidConfigurationException target = new InvalidConfigurationException(message, innerException);
-            Assert.AreEqual(message, target.Message);
-            Assert.AreEqual(innerException, target.InnerException);
+            target.Message.Should().Be(message);
+            target.InnerException.Should().BeSameAs(innerException);
         }
 
     }

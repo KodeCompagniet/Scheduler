@@ -21,7 +21,7 @@ namespace DemiCode.Scheduling.Alarms.Test
             object val = "some additional data";
             target.AdditionalData = val;
 
-            Assert.AreEqual(val, target.AdditionalData, "DemiCode.Scheduling.AlarmEventArgs.AdditionalData was not set correctly.");
+            target.AdditionalData.Should().Be(val);
         }
 
         /// <summary>
@@ -33,9 +33,9 @@ namespace DemiCode.Scheduling.Alarms.Test
             AlarmEventArgs e = new AlarmEventArgs(DateTime.Now, DateTime.Now.AddTicks(2), "additional data");
             AlarmEventArgs target = new AlarmEventArgs(e);
 
-            Assert.AreEqual(e.SignalTime, target.SignalTime);
-            Assert.AreEqual(e.ActualSignalTime, target.ActualSignalTime);
-            Assert.AreEqual(e.AdditionalData, target.AdditionalData);
+            target.SignalTime.Should().Be(e.SignalTime);
+            target.ActualSignalTime.Should().Be(e.ActualSignalTime);
+            target.AdditionalData.Should().Be(e.AdditionalData);
         }
 
         [Test]
@@ -58,8 +58,8 @@ namespace DemiCode.Scheduling.Alarms.Test
 
             AlarmEventArgs target = new AlarmEventArgs(signalTime, signalTime, additionalData);
 
-            Assert.AreEqual(signalTime, target.SignalTime);
-            Assert.AreEqual(additionalData, target.AdditionalData);
+            target.SignalTime.Should().Be(signalTime);
+            target.AdditionalData.Should().Be(additionalData);
         }
 
         /// <summary>
@@ -71,7 +71,7 @@ namespace DemiCode.Scheduling.Alarms.Test
             DateTime val = DateTime.Now.AddDays(1);
             AlarmEventArgs target = new AlarmEventArgs(val, val, "additional data");
             
-            Assert.AreEqual(val, target.SignalTime, "DemiCode.Scheduling.AlarmEventArgs.SignalTime was not set correctly.");
+            target.SignalTime.Should().Be(val);
         }
     }
 

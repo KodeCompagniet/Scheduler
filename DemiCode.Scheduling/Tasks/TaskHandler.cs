@@ -23,9 +23,9 @@ namespace DemiCode.Scheduling.Tasks
         public TaskHandler(ITask task, ILoggerFactory loggerFactory)
         {
             if (task == null)
-                throw new ArgumentNullException("task");
+                throw new ArgumentNullException(nameof(task));
             if (loggerFactory == null)
-                throw new ArgumentNullException("loggerFactory");
+                throw new ArgumentNullException(nameof(loggerFactory));
 
             _task = task;
             _loggerFactory = loggerFactory;

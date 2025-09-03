@@ -53,14 +53,14 @@ namespace DemiCode.Scheduling.Schedules
             : base(name, fromDate, additionalData)
         {
             if (days == null)
-                throw new ArgumentNullException("days", "Days array cannot be null");
+                throw new ArgumentNullException(nameof(days), "Days array cannot be null");
 
             if (fromDate.Date >= toDate.Date)
-                throw new ArgumentException("Argument 'fromDate' must be a date before argument 'toDate'.", "fromDate");
+                throw new ArgumentException("Argument 'fromDate' must be a date before argument 'toDate'.", nameof(fromDate));
 
             var theDays = new List<DayOfWeek>(days);
             if (theDays.Count <= 0)
-                throw new ArgumentException("Argument 'days' must contain at least one DayOfWeek.", "days");
+                throw new ArgumentException("Argument 'days' must contain at least one DayOfWeek.", nameof(days));
 
             theDays.Sort();
 
@@ -218,7 +218,7 @@ namespace DemiCode.Scheduling.Schedules
             XmlNodeList dayNodes = config.SelectNodes("days/day");
             if (dayNodes == null || dayNodes.Count == 0)
             {
-                throw new ArgumentException("The 'days' element collection is empty or doesn't exist.", "config");
+                throw new ArgumentException("The 'days' element collection is empty or doesn't exist.", nameof(config));
             }
 
             foreach (XmlNode day in dayNodes)

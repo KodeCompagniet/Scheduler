@@ -18,11 +18,8 @@ namespace DemiCode.Scheduling.Test
         [Test]
         public void ConstructorTest()
         {
-            Assert.Throws<FactoryConfigurationException>(() =>
-            {
-                FactoryConfigurationException target = new FactoryConfigurationException();
-                throw target;
-            });
+            Action act = () => throw new FactoryConfigurationException();
+            act.Should().Throw<FactoryConfigurationException>();
         }
 
 
@@ -35,7 +32,7 @@ namespace DemiCode.Scheduling.Test
             string message = "Hello world";
             FactoryConfigurationException target = new FactoryConfigurationException(message);
 
-            Assert.AreEqual(message, target.Message);
+            target.Message.Should().Be(message);
         }
 
         /// <summary>
@@ -48,8 +45,8 @@ namespace DemiCode.Scheduling.Test
             Exception innerException = new ApplicationException();
             FactoryConfigurationException target = new FactoryConfigurationException(message, innerException);
 
-            Assert.AreEqual(message, target.Message);
-            Assert.AreSame(innerException, target.InnerException);
+            target.Message.Should().Be(message);
+            target.InnerException.Should().BeSameAs(innerException);
         }
 
     }

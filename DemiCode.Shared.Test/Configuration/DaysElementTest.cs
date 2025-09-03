@@ -18,7 +18,7 @@ namespace DemiCode.Configuration.Test
         {
             var days = new[] {DayOfWeek.Friday, DayOfWeek.Wednesday};
             var element = new DaysElement(days);
-            Assert.AreEqual(days, element.Value);
+            element.Value.Should().Equal(days);
         }
 
         [Test]
@@ -29,7 +29,7 @@ namespace DemiCode.Configuration.Test
             var left = new DaysElement(days);
             var right = new DaysElement(days);
 
-            Assert.AreEqual(left, right);
+            right.Should().Be(left);
         }
 
         [Test]
@@ -41,7 +41,7 @@ namespace DemiCode.Configuration.Test
             var left = new DaysElement(days);
             var right = new DaysElement(moreDays);
 
-            Assert.AreNotEqual(left, right);
+            right.Should().NotBe(left);
         }
 
         [Test]
@@ -50,7 +50,7 @@ namespace DemiCode.Configuration.Test
             var left = new DaysElement();
             var right = new DaysElement();
 
-            Assert.AreEqual(left, right);
+            right.Should().Be(left);
         }
 
     }

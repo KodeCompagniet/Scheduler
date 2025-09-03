@@ -167,6 +167,17 @@ namespace DemiCode.Scheduling.Configuration.Tasks
         {
             return Equals(compareTo as CodeTaskElement);
         }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                var hash = base.GetHashCode();
+                hash = (hash * 397) ^ (Class?.GetHashCode() ?? 0);
+                hash = (hash * 397) ^ (Method?.GetHashCode() ?? 0);
+                return hash;
+            }
+        }
     }
 
 }

@@ -11,7 +11,7 @@ namespace DemiCode.Logging.Test
         {
             ILoggerFactory factory = new ConsoleLoggerFactory();
             ILogger logger = factory.CreateLogger("test");
-            Assert.IsNotNull(logger);
+            logger.Should().NotBeNull();
         }
 
         [Test]
@@ -19,7 +19,7 @@ namespace DemiCode.Logging.Test
         {
             ILoggerFactory factory = new ConsoleLoggerFactory();
             ILogger logger = factory.CreateLogger(typeof(ConsoleLoggerFactoryTest));
-            Assert.IsNotNull(logger);
+            logger.Should().NotBeNull();
         }
 
         [Test]

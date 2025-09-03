@@ -17,7 +17,7 @@ namespace DemiCode.Loggers.log4net.Test
         {
             var name = "test"; 
             var target = new Log4netLogger(name);
-            Assert.IsNotNull(target);
+            target.Should().NotBeNull();
         }
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace DemiCode.Loggers.log4net.Test
         {
             var type = typeof (Log4netLoggerTest);
             var target = new Log4netLogger(type);
-            Assert.IsNotNull(target);
+            target.Should().NotBeNull();
         }
 
         [Test]

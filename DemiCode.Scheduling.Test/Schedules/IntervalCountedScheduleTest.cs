@@ -69,9 +69,9 @@ namespace DemiCode.Scheduling.Schedules.Test
 
 		private void TestMoveToFirstFrom(IntervalCountedSchedule instance, DateTime targetTime, bool isExpectedSuccess, DateTime expectedTime, long expectedRemainingOccurrences)
 		{
-			Assert.AreEqual(isExpectedSuccess, instance.MoveToFirstFrom(targetTime));
-			Assert.AreEqual(expectedTime, instance.CurrentOccurrence);
-			Assert.AreEqual(expectedRemainingOccurrences, instance.RemainingOccurences);
+			instance.MoveToFirstFrom(targetTime).Should().Be(isExpectedSuccess);
+			instance.CurrentOccurrence.Should().Be(expectedTime);
+			instance.RemainingOccurences.Should().Be(expectedRemainingOccurrences);
 		}
 
 		[Test]
@@ -83,17 +83,17 @@ namespace DemiCode.Scheduling.Schedules.Test
 			TimeSpan interval = TimeSpan.FromMinutes(15);
 			IntervalCountedSchedule schedule = new IntervalCountedSchedule(firstOccurence, numberOfOccurences, interval, new object());
 
-			Assert.IsTrue(schedule.MoveToFirstFrom(DateTime.MinValue));
-			Assert.AreEqual(firstOccurence, schedule.CurrentOccurrence);
+			schedule.MoveToFirstFrom(DateTime.MinValue).Should().BeTrue();
+			schedule.CurrentOccurrence.Should().Be(firstOccurence);
 
-			Assert.IsTrue(schedule.MoveToNext());
-			Assert.AreEqual(firstOccurence + interval, schedule.CurrentOccurrence);
+			schedule.MoveToNext().Should().BeTrue();
+			schedule.CurrentOccurrence.Should().Be(firstOccurence + interval);
 
-			Assert.IsTrue(schedule.MoveToNext());
-			Assert.AreEqual(firstOccurence + interval + interval, schedule.CurrentOccurrence);
+			schedule.MoveToNext().Should().BeTrue();
+			schedule.CurrentOccurrence.Should().Be(firstOccurence + interval + interval);
 
-			Assert.IsFalse(schedule.MoveToNext());
-			Assert.AreEqual(DateTime.MaxValue, schedule.CurrentOccurrence);
+			schedule.MoveToNext().Should().BeFalse();
+			schedule.CurrentOccurrence.Should().Be(DateTime.MaxValue);
 		}
 
 		[Test]
@@ -253,8 +253,8 @@ namespace DemiCode.Scheduling.Schedules.Test
 			IntervalCountedSchedule schedule = new IntervalCountedSchedule(firstOccurence, numberOfOccurences, interval);
 
 			string retval = schedule.ToString();
-			Assert.IsTrue(retval.StartsWith(schedule.GetType().ToString()));
-			Assert.AreNotEqual(retval, schedule.GetType().ToString());
+			retval.StartsWith(schedule.GetType().ToString()).Should().BeTrue();
+			schedule.GetType().ToString().Should().NotBe(retval);
 		}
 	}
 }

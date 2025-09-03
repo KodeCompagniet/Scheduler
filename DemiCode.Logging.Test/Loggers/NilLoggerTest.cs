@@ -58,7 +58,7 @@ namespace DemiCode.Scheduling.Loggers.Test
         public void ConstructorTest()
         {
             NilLogger target = new NilLogger();
-            Assert.IsNotNull(target);
+            target.Should().NotBeNull();
         }
 
         /// <summary>
@@ -69,7 +69,7 @@ namespace DemiCode.Scheduling.Loggers.Test
         public void ConstructorTest1()
         {
             NilLogger target = new NilLogger();
-            Assert.IsNotNull(target);
+            target.Should().NotBeNull();
         }
 
         [DeploymentItem("DemiCode.Scheduling.dll")]

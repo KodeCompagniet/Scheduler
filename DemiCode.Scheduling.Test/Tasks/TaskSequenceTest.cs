@@ -31,8 +31,8 @@ namespace DemiCode.Scheduling.Tasks.Test
 
             task.Execute(loggerFactory);
 
-            Assert.IsTrue(tasks[0].WasExecuted);
-            Assert.IsTrue(tasks[1].WasExecuted);
+            tasks[0].WasExecuted.Should().BeTrue();
+            tasks[1].WasExecuted.Should().BeTrue();
         }
 
         [Test]
@@ -45,8 +45,8 @@ namespace DemiCode.Scheduling.Tasks.Test
 
             task.Execute(loggerFactory);
 
-            Assert.IsTrue(((BadTaskMock)tasks[0]).WasExecuted);
-            Assert.IsFalse(((TaskMock)tasks[1]).WasExecuted);
+            ((BadTaskMock)tasks[0]).WasExecuted.Should().BeTrue();
+            ((TaskMock)tasks[1]).WasExecuted.Should().BeFalse();
         }
 
 
@@ -66,13 +66,13 @@ namespace DemiCode.Scheduling.Tasks.Test
                 var alarmListener = new ScheduledAlarmListener(scheduler);
                 scheduler.Start();
 
-                Assert.IsTrue(alarmListener.WaitForScheduledAlarm(2000));
+                alarmListener.WaitForScheduledAlarm(2000).Should().BeTrue();
             }
 
-            Assert.AreEqual(3, paramsAddedByTask.Count);
-            Assert.AreEqual("1", paramsAddedByTask[0]);
-            Assert.AreEqual("0", paramsAddedByTask[1]);
-            Assert.AreEqual("2", paramsAddedByTask[2]);
+            paramsAddedByTask.Count.Should().Be(3);
+            paramsAddedByTask[0].Should().Be("1");
+            paramsAddedByTask[1].Should().Be("0");
+            paramsAddedByTask[2].Should().Be("2");
         }
 
 
@@ -92,7 +92,7 @@ namespace DemiCode.Scheduling.Tasks.Test
 
             task.Execute(loggerFactory);
 
-            Assert.IsTrue(DisposableClass.DisposeWasCalled);
+            DisposableClass.DisposeWasCalled.Should().BeTrue();
         }
 
 

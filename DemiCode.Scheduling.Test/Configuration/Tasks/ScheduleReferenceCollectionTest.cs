@@ -24,7 +24,7 @@ namespace DemiCode.Scheduling.Configuration.Tasks.Test
         {
             var left = new ScheduleReferenceElementCollection();
             var right = new ScheduleReferenceElementCollection();
-            Assert.AreEqual(left, right);
+            right.Should().Be(left);
         }
 
         [Test]
@@ -32,7 +32,7 @@ namespace DemiCode.Scheduling.Configuration.Tasks.Test
         {
             var left = new ScheduleReferenceElementCollection {new ScheduleReferenceElement("first")};
             var right = new ScheduleReferenceElementCollection {new ScheduleReferenceElement("first")};
-            Assert.AreEqual(left, right);
+            right.Should().Be(left);
         }
 
         [Test]
@@ -40,7 +40,7 @@ namespace DemiCode.Scheduling.Configuration.Tasks.Test
         {
             var left = new ScheduleReferenceElementCollection {new ScheduleReferenceElement("first")};
             var right = new ScheduleReferenceElementCollection {new ScheduleReferenceElement("last")};
-            Assert.AreNotEqual(left, right);
+            right.Should().NotBe(left);
         }
 
     }

@@ -20,7 +20,7 @@ namespace DemiCode.Configuration.Test
         {
             var now = DateTime.Now;
             var element = new DateTimeElement(now);
-            Assert.AreEqual(now, element.Value);
+            element.Value.Should().Be(now);
         }
 
         [Test]
@@ -31,7 +31,7 @@ namespace DemiCode.Configuration.Test
             var left = new DateTimeElement(now);
             var right = new DateTimeElement(now);
 
-            Assert.AreEqual(left, right);
+            right.Should().Be(left);
         }
 
         [Test]
@@ -42,7 +42,7 @@ namespace DemiCode.Configuration.Test
             var left = new DateTimeElement(now);
             var right = new DateTimeElement(now.AddDays(1));
 
-            Assert.AreNotEqual(left, right);
+            right.Should().NotBe(left);
         }
 
         [Test]
@@ -51,7 +51,7 @@ namespace DemiCode.Configuration.Test
             var left = new DateTimeElement();
             var right = new DateTimeElement();
 
-            Assert.AreEqual(left, right);
+            right.Should().Be(left);
         }
 
         [Test]
@@ -60,7 +60,7 @@ namespace DemiCode.Configuration.Test
             var now = new DateTime(2008, 7, 6, 5, 4, 3, 2);
             var element = new DateTimeElement(now);
             var nowFormatted = element.ToString();
-            Assert.AreEqual("2008-07-06 05:04:03", nowFormatted);
+            nowFormatted.Should().Be("2008-07-06 05:04:03");
         }
 
         [Test]
@@ -68,7 +68,7 @@ namespace DemiCode.Configuration.Test
         {
             var left = new DateTimeElement();
             var right = new FormatTestElement();
-            Assert.AreNotEqual(left, right);
+            right.Should().NotBe(left);
         }
 
         private class FormatTestElement : DateTimeElement

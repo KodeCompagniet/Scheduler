@@ -58,7 +58,7 @@ namespace DemiCode.Scheduling.Loggers.log4net.Test
         {
             string name = "test"; 
             Log4netLogger target = new Log4netLogger(name);
-            Assert.IsNotNull(target);
+            target.Should().NotBeNull();
         }
 
         /// <summary>
@@ -70,7 +70,7 @@ namespace DemiCode.Scheduling.Loggers.log4net.Test
         {
             Type type = typeof (Log4netLoggerTest);
             Log4netLogger target = new Log4netLogger(type);
-            Assert.IsNotNull(target);
+            target.Should().NotBeNull();
         }
 
         [TestMethod]

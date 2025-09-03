@@ -102,7 +102,7 @@ namespace DemiCode.Scheduling.Schedules.Test
                     sw.Stop();
                 }
             }
-            Assert.IsFalse(invalidDiff);
+            invalidDiff.Should().BeFalse();
         }
 
         [Test, Category("SystemTimeChanges")]
@@ -144,7 +144,7 @@ namespace DemiCode.Scheduling.Schedules.Test
                 }
             }
 
-            Assert.IsFalse(invalidDiff);
+            invalidDiff.Should().BeFalse();
         }
 
         /// <summary>
@@ -195,7 +195,7 @@ namespace DemiCode.Scheduling.Schedules.Test
                 }
             }
 
-            Assert.IsFalse(invalidDiff);
+            invalidDiff.Should().BeFalse();
         }
 
         [Test]
@@ -240,7 +240,7 @@ namespace DemiCode.Scheduling.Schedules.Test
                 }
             }
 
-            Assert.IsFalse(invalidDiff);
+            invalidDiff.Should().BeFalse();
         }
 
         /// <summary>
@@ -266,8 +266,8 @@ namespace DemiCode.Scheduling.Schedules.Test
                 target.Start();
 
                 bool result = trigger.WaitOne(4000, true);
-                Assert.IsTrue(result, "Did not receive expected event");
-                Assert.AreEqual(0, count);
+                result.Should().BeTrue();
+                count.Should().Be(0);
             }
         }
 
@@ -335,7 +335,7 @@ namespace DemiCode.Scheduling.Schedules.Test
 
                 scheduler.Stop();
 
-                Assert.IsFalse(duplicateDetected);
+                duplicateDetected.Should().BeFalse();
             }
         }
 
@@ -408,8 +408,8 @@ namespace DemiCode.Scheduling.Schedules.Test
         private void TestMoveToFirstFrom(IntervalSchedule instance, DateTime targetTime, bool isExpectedSuccess,
                                          DateTime expectedTime)
         {
-            Assert.AreEqual(isExpectedSuccess, instance.MoveToFirstFrom(targetTime));
-            Assert.AreEqual(expectedTime, instance.CurrentOccurrence);
+            instance.MoveToFirstFrom(targetTime).Should().Be(isExpectedSuccess);
+            instance.CurrentOccurrence.Should().Be(expectedTime);
         }
 
         [Test]
@@ -420,15 +420,15 @@ namespace DemiCode.Scheduling.Schedules.Test
             TimeSpan interval = TimeSpan.FromMinutes(15);
             var schedule = new IntervalSchedule(firstOccurence, interval, new object());
 
-            Assert.IsTrue(schedule.MoveToFirstFrom(DateTime.MinValue));
-            Assert.AreEqual(firstOccurence, schedule.CurrentOccurrence);
+            schedule.MoveToFirstFrom(DateTime.MinValue).Should().BeTrue();
+            schedule.CurrentOccurrence.Should().Be(firstOccurence);
 
             DateTime expected = firstOccurence;
             for (int i = 10; i > 0; i--)
             {
                 expected += interval;
-                Assert.IsTrue(schedule.MoveToNext());
-                Assert.AreEqual(expected, schedule.CurrentOccurrence);
+                schedule.MoveToNext().Should().BeTrue();
+                schedule.CurrentOccurrence.Should().Be(expected);
             }
         }
 
@@ -440,15 +440,15 @@ namespace DemiCode.Scheduling.Schedules.Test
             TimeSpan interval = TimeSpan.FromSeconds(1);
             var schedule = new IntervalSchedule(firstOccurence, interval, new object());
 
-            Assert.IsTrue(schedule.MoveToFirstFrom(DateTime.MinValue));
-            Assert.AreEqual(firstOccurence, schedule.CurrentOccurrence);
+            schedule.MoveToFirstFrom(DateTime.MinValue).Should().BeTrue();
+            schedule.CurrentOccurrence.Should().Be(firstOccurence);
 
             DateTime expected = firstOccurence;
             for (int i = 180; i > 0; i--)
             {
                 expected += interval;
-                Assert.IsTrue(schedule.MoveToNext());
-                Assert.AreEqual(expected, schedule.CurrentOccurrence);
+                schedule.MoveToNext().Should().BeTrue();
+                schedule.CurrentOccurrence.Should().Be(expected);
                 Console.WriteLine("{0:yyyyMMdd HH:mm:ss.fffffff}", schedule.CurrentOccurrence);
             }
         }
@@ -472,8 +472,8 @@ namespace DemiCode.Scheduling.Schedules.Test
         public void ConstructorByConfigurationTest()
         {
             var scheduler = TestXmlConstructor("TestData/IntervalScheduleTest/schedule[@name='ok']");
-            Assert.AreEqual(DateTime.Parse("2006-01-01 12:00:00"), scheduler.FirstOccurrence);
-            Assert.AreEqual(TimeSpan.Parse("1.00:30:00"), scheduler.Interval);
+            scheduler.FirstOccurrence.Should().Be(DateTime.Parse("2006-01-01 12:00:00"));
+            scheduler.Interval.Should().Be(TimeSpan.Parse("1.00:30:00"));
         }
 
         /// <summary>
@@ -565,8 +565,8 @@ namespace DemiCode.Scheduling.Schedules.Test
             var schedule = new IntervalSchedule(firstOccurence, interval);
 
             string retval = schedule.ToString();
-            Assert.IsTrue(retval.StartsWith(schedule.GetType().ToString()));
-            Assert.AreNotEqual(retval, schedule.GetType().ToString());
+            retval.StartsWith(schedule.GetType().ToString()).Should().BeTrue();
+            schedule.GetType().ToString().Should().NotBe(retval);
         }
     }
 }

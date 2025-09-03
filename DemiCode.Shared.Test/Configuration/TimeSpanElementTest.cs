@@ -19,7 +19,7 @@ namespace DemiCode.Configuration.Test
         {
             var value = TimeSpan.FromMinutes(42);
             var element = new TimeSpanElement(value);
-            Assert.AreEqual(value, element.Value);
+            element.Value.Should().Be(value);
         }
 
         [Test]
@@ -30,7 +30,7 @@ namespace DemiCode.Configuration.Test
             var left = new TimeSpanElement(value);
             var right = new TimeSpanElement(value);
 
-            Assert.AreEqual(left, right);
+            right.Should().Be(left);
         }
 
         [Test]
@@ -39,7 +39,7 @@ namespace DemiCode.Configuration.Test
             var left = new TimeSpanElement(TimeSpan.FromMinutes(42));
             var right = new TimeSpanElement(TimeSpan.FromMinutes(43));
 
-            Assert.AreNotEqual(left, right);
+            right.Should().NotBe(left);
         }
 
         [Test]
@@ -48,7 +48,7 @@ namespace DemiCode.Configuration.Test
             var left = new TimeSpanElement();
             var right = new TimeSpanElement();
 
-            Assert.AreEqual(left, right);
+            right.Should().Be(left);
         }
     }
 }

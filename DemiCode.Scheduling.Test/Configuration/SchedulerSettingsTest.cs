@@ -28,7 +28,7 @@ namespace DemiCode.Scheduling.Configuration.Test
 
             target.DefaultScheduler = val;
 
-            Assert.AreEqual(val, target.DefaultScheduler, "DemiCode.Scheduling.Configuration.SchedulerSettings.DefaultScheduler was not set correctly.");
+            target.DefaultScheduler.Should().Be(val);
         }
 
         /// <summary>
@@ -39,32 +39,32 @@ namespace DemiCode.Scheduling.Configuration.Test
         {
             var ss = (SchedulerSettings)ConfigurationManager.GetSection("scheduling");
             var scheduler = ss.Schedulers[ss.DefaultScheduler];
-            Assert.AreEqual(2, scheduler.Count);
+            scheduler.Count.Should().Be(2);
 
             var element = scheduler.GetScheduleElementByName("WeeklySchedule") as ScheduleElement;
-            Assert.IsNotNull(element);
-            Assert.AreEqual(typeof(WeeklySchedule), element.ScheduleType);
+            element.Should().NotBeNull();
+            element.ScheduleType.Should().Be(typeof(WeeklySchedule));
             var weeklySchedule = element.GetScheduleInstance() as WeeklySchedule;
-            Assert.IsNotNull(weeklySchedule);
-            Assert.AreEqual("WeeklySchedule", weeklySchedule.Name);
-            Assert.AreEqual(new DateTime(2006, 1, 1), weeklySchedule.FromDate);
-            Assert.AreEqual(new DateTime(2006, 12, 31), weeklySchedule.ToDate);
-            Assert.AreEqual(new TimeSpan(22, 0, 0), weeklySchedule.TimeOfDay);
-            Assert.AreEqual(DayOfWeek.Monday, weeklySchedule.Days[0]);
-            Assert.AreEqual(DayOfWeek.Tuesday, weeklySchedule.Days[1]);
-            Assert.AreEqual(DayOfWeek.Wednesday, weeklySchedule.Days[2]);
+            weeklySchedule.Should().NotBeNull();
+            weeklySchedule.Name.Should().Be("WeeklySchedule");
+            weeklySchedule.FromDate.Should().Be(new DateTime(2006, 1, 1));
+            weeklySchedule.ToDate.Should().Be(new DateTime(2006, 12, 31));
+            weeklySchedule.TimeOfDay.Should().Be(new TimeSpan(22, 0, 0));
+            weeklySchedule.Days[0].Should().Be(DayOfWeek.Monday);
+            weeklySchedule.Days[1].Should().Be(DayOfWeek.Tuesday);
+            weeklySchedule.Days[2].Should().Be(DayOfWeek.Wednesday);
 
             element = scheduler.GetScheduleElementByName("WeeklySchedule2") as ScheduleElement;
-            Assert.IsNotNull(element);
-            Assert.AreEqual(typeof(WeeklySchedule), element.ScheduleType);
+            element.Should().NotBeNull();
+            element.ScheduleType.Should().Be(typeof(WeeklySchedule));
             weeklySchedule = element.GetScheduleInstance() as WeeklySchedule;
-            Assert.IsNotNull(weeklySchedule);
-            Assert.AreEqual("WeeklySchedule2", weeklySchedule.Name);
-            Assert.AreEqual(new DateTime(2006, 1, 1), weeklySchedule.FromDate);
-            Assert.AreEqual(new DateTime(2006, 12, 31), weeklySchedule.ToDate);
-            Assert.AreEqual(new TimeSpan(22, 0, 0), weeklySchedule.TimeOfDay);
-            Assert.AreEqual(DayOfWeek.Friday, weeklySchedule.Days[0]);
-            Assert.AreEqual(DayOfWeek.Tuesday, weeklySchedule.Days[1]);
+            weeklySchedule.Should().NotBeNull();
+            weeklySchedule.Name.Should().Be("WeeklySchedule2");
+            weeklySchedule.FromDate.Should().Be(new DateTime(2006, 1, 1));
+            weeklySchedule.ToDate.Should().Be(new DateTime(2006, 12, 31));
+            weeklySchedule.TimeOfDay.Should().Be(new TimeSpan(22, 0, 0));
+            weeklySchedule.Days[0].Should().Be(DayOfWeek.Friday);
+            weeklySchedule.Days[1].Should().Be(DayOfWeek.Tuesday);
         }
 
         /// <summary>
@@ -75,25 +75,26 @@ namespace DemiCode.Scheduling.Configuration.Test
         {
             var ss = (SchedulerSettings)ConfigurationManager.GetSection("shortformatconfig");
             var scheduler = ss.Schedulers[ss.DefaultScheduler];
-            Assert.AreEqual(4, scheduler.Count);
+            scheduler.Count.Should().Be(4);
 
             var interval = scheduler.GetScheduleElementByName("interval") as IntervalScheduleElement;
-            Assert.IsNotNull(interval);
-            Assert.AreEqual(new DateTime(2006, 11, 30, 15,50,0), interval.FirstOccurrence.Value);
+            interval.Should().NotBeNull();
+            interval.FirstOccurrence.Value.Should().Be(new DateTime(2006, 11, 30, 15, 50, 0));
+            interval.Interval.Value.Should().Be(new TimeSpan(0, 0, 5));
 
             var counted = scheduler.GetScheduleElementByName("counted") as IntervalCountedScheduleElement;
-            Assert.IsNotNull(counted);
-            Assert.AreEqual(31, counted.Occurrences.Value);
+            counted.Should().NotBeNull();
+            counted.Occurrences.Value.Should().Be(31);
 
             var weekly = scheduler.GetScheduleElementByName("weekly") as WeeklyScheduleElement;
-            Assert.IsNotNull(weekly);
-            Assert.AreEqual(2, weekly.Days.Value.Length);
-            Assert.AreEqual(DayOfWeek.Friday, weekly.Days.Value[0]);
-            Assert.AreEqual(DayOfWeek.Tuesday, weekly.Days.Value[1]);
+            weekly.Should().NotBeNull();
+            weekly.Days.Value.Length.Should().Be(2);
+            weekly.Days.Value[0].Should().Be(DayOfWeek.Friday);
+            weekly.Days.Value[1].Should().Be(DayOfWeek.Tuesday);
 
             var oneshot = scheduler.GetScheduleElementByName("oneshot") as OneShotScheduleElement;
-            Assert.IsNotNull(oneshot);
-            Assert.AreEqual(new DateTime(2007, 7, 1, 15, 20, 0), oneshot.Time.Value);
+            oneshot.Should().NotBeNull();
+            oneshot.Time.Value.Should().Be(new DateTime(2007, 7, 1, 15, 20, 0));
         }
 
         /// <summary>
@@ -111,7 +112,7 @@ namespace DemiCode.Scheduling.Configuration.Test
             }
             catch (ConfigurationErrorsException e)
             {
-                Assert.IsInstanceOf<InvalidConfigurationException>(e.InnerException);
+                e.InnerException.Should().BeOfType<InvalidConfigurationException>();
             }
         }
 
@@ -126,45 +127,45 @@ namespace DemiCode.Scheduling.Configuration.Test
             var scheduler = ss.Schedulers[ss.DefaultScheduler];
 
             var tasks = scheduler.Tasks;
-            Assert.IsNotNull(tasks);
-            Assert.AreNotEqual(0, tasks.Count);
+            tasks.Should().NotBeNull();
+            tasks.Count.Should().NotBe(0);
 
             // Validate tasks and properties are not null
             foreach (TaskElementBase task in tasks)
             {
-                Assert.IsNotNull(task);
-                Assert.IsNotNull(task.GetTaskInstance());
-                Assert.IsNotNull(task.Parameters);
+                task.Should().NotBeNull();
+                task.GetTaskInstance().Should().NotBeNull();
+                task.Parameters.Should().NotBeNull();
             }
 
             // Validate generic task with schedulerefs
             var genericTask = tasks[2];
-            Assert.IsNotNull(genericTask);
-            Assert.AreEqual(2, genericTask.Count);
+            genericTask.Should().NotBeNull();
+            genericTask.Count.Should().Be(2);
             var scheduleref = genericTask[0];
-            Assert.IsNotNull(scheduleref);
-            Assert.IsNotNull("interval", scheduleref.ScheduleName);
+            scheduleref.Should().NotBeNull();
+            scheduleref.ScheduleName.Should().Be("interval");
 
             // Validate the app task
             var codeTask = tasks[3] as CodeTaskElement;
-            Assert.IsNotNull(codeTask);
-            Assert.AreEqual(typeof(SimpleClass), codeTask.Class);
-            Assert.AreEqual("SimpleMethod", codeTask.Method);
+            codeTask.Should().NotBeNull();
+            codeTask.Class.Should().Be(typeof(SimpleClass));
+            codeTask.Method.Should().Be("SimpleMethod");
 
             // Validate the app task
             var appTask = tasks[5] as ApplicationTaskElement;
-            Assert.IsNotNull(appTask);
-            Assert.AreEqual(@"c:\mytestapplication.exe", appTask.Path);
-            Assert.AreEqual(@"c:\mytestapplication.exe", appTask.Parameters["path"]);
-            Assert.AreEqual(@"test1", appTask.Parameters["someArgument"]);
-            Assert.AreEqual(2, appTask.Parameters.Count);
+            appTask.Should().NotBeNull();
+            appTask.Path.Should().Be(@"c:\mytestapplication.exe");
+            appTask.Parameters["path"].Should().Be(@"c:\mytestapplication.exe");
+            appTask.Parameters["someArgument"].Should().Be(@"test1");
+            appTask.Parameters.Count.Should().Be(2);
 
             appTask = tasks[6] as ApplicationTaskElement;
-            Assert.IsNotNull(appTask);
-            Assert.AreEqual(@"c:\mytestapplication.exe", appTask.Path);
-            Assert.AreEqual(@"c:\mytestapplication.exe", appTask.Parameters["path"]);
-            Assert.AreEqual(@"test2", appTask.Parameters["someArgument"]);
-            Assert.AreEqual(3, appTask.Parameters.Count);
+            appTask.Should().NotBeNull();
+            appTask.Path.Should().Be(@"c:\mytestapplication.exe");
+            appTask.Parameters["path"].Should().Be(@"c:\mytestapplication.exe");
+            appTask.Parameters["someArgument"].Should().Be(@"test2");
+            appTask.Parameters.Count.Should().Be(3);
 
         }
 
@@ -177,24 +178,24 @@ namespace DemiCode.Scheduling.Configuration.Test
         {
             var ss = (SchedulerSettings)ConfigurationManager.GetSection("TaskAndLoggingSection");
             var scheduler = ss.Schedulers["config_with_loggers_used_in_unittests"];
-            Assert.IsNotNull(scheduler);
+            scheduler.Should().NotBeNull();
 
             var loggerElementCollection = scheduler.Loggers;
-            Assert.IsNotNull(loggerElementCollection);
-            Assert.AreNotEqual(0, loggerElementCollection.Count);
+            loggerElementCollection.Should().NotBeNull();
+            loggerElementCollection.Count.Should().NotBe(0);
 
             // Validate loggers and properties are not null
             foreach (LoggerElementBase loggerElement in loggerElementCollection)
             {
-                Assert.IsNotNull(loggerElement);
-                Assert.IsNotNull(loggerElement.GetLoggerInstance());
-                Assert.IsNotNull(loggerElement.Parameters);
+                loggerElement.Should().NotBeNull();
+                loggerElement.GetLoggerInstance().Should().NotBeNull();
+                loggerElement.Parameters.Should().NotBeNull();
             }
 
             // Validate generic logger
             var genericLogger = loggerElementCollection[0];
-            Assert.IsNotNull(genericLogger);
-            Assert.IsInstanceOf<LoggerFactoryMock>(genericLogger.GetLoggerInstance());
+            genericLogger.Should().NotBeNull();
+            genericLogger.GetLoggerInstance().Should().BeOfType<LoggerFactoryMock>();
         }
 
         /// <summary>
@@ -223,11 +224,11 @@ namespace DemiCode.Scheduling.Configuration.Test
 
             // Validate log4net logger
             LoggerElementBase log4netLogger = loggerElementCollection[0];
-            Assert.IsNotNull(log4netLogger);
+            log4netLogger.Should().NotBeNull();
             
             ILoggerFactory factory = log4netLogger.GetLoggerInstance();
-            Assert.IsNotNull(factory);
-            Assert.IsInstanceOf<Log4netLoggerFactory>(factory);
+            factory.Should().NotBeNull();
+            factory.Should().BeOfType<Log4netLoggerFactory>();
         }
 
         /// <summary>
@@ -242,11 +243,11 @@ namespace DemiCode.Scheduling.Configuration.Test
             LoggerElementCollection loggerElementCollection = scheduler.Loggers;
 
             LoggerElementBase loggerElement = loggerElementCollection[0];
-            Assert.IsNotNull(loggerElement);
+            loggerElement.Should().NotBeNull();
 
             ILoggerFactory factory = loggerElement.GetLoggerInstance();
-            Assert.IsNotNull(factory);
-            Assert.IsInstanceOf<ConsoleLoggerFactory>(factory);
+            factory.Should().NotBeNull();
+            factory.Should().BeOfType<ConsoleLoggerFactory>();
         }
 
         /// <summary>
@@ -261,12 +262,12 @@ namespace DemiCode.Scheduling.Configuration.Test
             var loggerElementCollection = scheduler.Loggers;
 
             var loggerElement = loggerElementCollection[0];
-            Assert.IsNotNull(loggerElement);
-            Assert.AreEqual(2, loggerElement.Parameters.Count);
+            loggerElement.Should().NotBeNull();
+            loggerElement.Parameters.Count.Should().Be(2);
 
             var factory = loggerElement.GetLoggerInstance();
-            Assert.IsNotNull(factory);
-            Assert.IsInstanceOf<LoggerFactoryMock>(factory);
+            factory.Should().NotBeNull();
+            factory.Should().BeOfType<LoggerFactoryMock>();
         }
 
         /// <summary>
@@ -278,13 +279,13 @@ namespace DemiCode.Scheduling.Configuration.Test
         {
             SchedulerSettings ss = (SchedulerSettings)ConfigurationManager.GetSection("CodeTaskWithParamsConfigSection");
             SchedulerElement schedulerElement = ss.Schedulers[ss.DefaultScheduler];
-            Assert.AreEqual(1, schedulerElement.Tasks.Count);
+            schedulerElement.Tasks.Count.Should().Be(1);
             CodeTaskElement codeTaskElement = schedulerElement.Tasks[0] as CodeTaskElement;
-            Assert.IsNotNull(codeTaskElement);
-            Assert.AreEqual(typeof (SimpleClass), codeTaskElement.Class);
-            Assert.AreEqual("OtherMethodWithParameters", codeTaskElement.Method);
-            Assert.IsTrue(codeTaskElement.Parameters.ContainsKey("param1"));
-            Assert.IsTrue(codeTaskElement.Parameters.ContainsKey("param2"));
+            codeTaskElement.Should().NotBeNull();
+            codeTaskElement.Class.Should().Be(typeof (SimpleClass));
+            codeTaskElement.Method.Should().Be("OtherMethodWithParameters");
+            codeTaskElement.Parameters.ContainsKey("param1").Should().BeTrue();
+            codeTaskElement.Parameters.ContainsKey("param2").Should().BeTrue();
         }
 
         [Test]
@@ -292,14 +293,14 @@ namespace DemiCode.Scheduling.Configuration.Test
         {
             SchedulerSettings ss = (SchedulerSettings)ConfigurationManager.GetSection("TaskAndLoggingSection");
             SchedulerElement schedulerElement = ss.Schedulers[ss.DefaultScheduler];
-            Assert.AreEqual(8, schedulerElement.Tasks.Count);
+            schedulerElement.Tasks.Count.Should().Be(8);
             TaskElement taskElement = schedulerElement.Tasks[1] as TaskElement;
-            Assert.IsNotNull(taskElement);
-            Assert.AreEqual(typeof(TaskMock), taskElement.TaskType);
-            Assert.AreEqual("someValue", taskElement.AdditionalProperties["someParameter"]);
+            taskElement.Should().NotBeNull();
+            taskElement.TaskType.Should().Be(typeof(TaskMock));
+            taskElement.AdditionalProperties["someParameter"].Should().Be("someValue");
             TaskMock task = taskElement.GetTaskInstance() as TaskMock;
-            Assert.IsNotNull(task);
-            Assert.AreEqual("someValue", task.Param0);
+            task.Should().NotBeNull();
+            task.Param0.Should().Be("someValue");
         }
 
         /// <summary>
@@ -333,7 +334,7 @@ namespace DemiCode.Scheduling.Configuration.Test
         {
             var left = new SchedulerSettings {DefaultScheduler = "left"};
             var right = new SchedulerSettings { DefaultScheduler = "right"};
-            Assert.AreNotEqual(left, right);
+            right.Should().NotBe(left);
         }
 
         [Test]
@@ -341,7 +342,7 @@ namespace DemiCode.Scheduling.Configuration.Test
         {
             var left = new SchedulerSettings { DefaultScheduler = "same" };
             var right = new SchedulerSettings { DefaultScheduler = "same" };
-            Assert.AreEqual(left, right);
+            right.Should().Be(left);
         }
 
     }
