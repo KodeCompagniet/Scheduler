@@ -1,4 +1,5 @@
 using System;
+using DemiCode.Scheduling.Time;
 using NUnit.Framework;
 
 namespace DemiCode.Scheduling.Test
