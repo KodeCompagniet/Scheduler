@@ -4,7 +4,6 @@ using System.Threading;
 using DemiCode.Scheduling.Alarms;
 using DemiCode.Scheduling.Schedules;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 
 namespace DemiCode.Scheduling.Test
 {

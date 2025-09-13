@@ -8,7 +8,7 @@ namespace DemiCode.Scheduling.Test
     [SetUpFixture]
     public class TestAssemblySetup
     {
-        [SetUp]
+        [OneTimeSetUp]
         public void SetUp()
         {
         }

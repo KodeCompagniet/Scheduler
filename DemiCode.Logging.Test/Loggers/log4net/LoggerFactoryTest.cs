@@ -1,5 +1,5 @@
-using DemiCode.Logging.Loggers;
-using DemiCode.Logging.Loggers.log4net;
+using DemiCode.Logging;  // Use ILogger and ILoggerFactory from DemiCode.Shared
+using DemiCode.Logging.log4net;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace DemiCode.Scheduling.Loggers.log4net.Test
@@ -43,7 +43,7 @@ namespace DemiCode.Scheduling.Loggers.log4net.Test
         [TestMethod]
         public void CreateTest()
         {
-            ILoggerFactory factory = new Log4netLoggerFactory();
+            ILoggerFactory factory = (ILoggerFactory)new Log4netLoggerFactory();
             ILogger logger = factory.CreateLogger("test");
             Assert.IsNotNull(logger);
         }
@@ -51,7 +51,7 @@ namespace DemiCode.Scheduling.Loggers.log4net.Test
         [TestMethod]
         public void CreateByTypeTest()
         {
-            ILoggerFactory factory = new Log4netLoggerFactory();
+            ILoggerFactory factory = (ILoggerFactory)new Log4netLoggerFactory();
             ILogger logger = factory.CreateLogger(typeof(LoggerFactoryTest));
             Assert.IsNotNull(logger);
         }
@@ -59,7 +59,7 @@ namespace DemiCode.Scheduling.Loggers.log4net.Test
         [TestMethod]
         public void CreateNDCTest()
         {
-            ILoggerFactory factory = new Log4netLoggerFactory();
+            ILoggerFactory factory = (ILoggerFactory)new Log4netLoggerFactory();
         
             using (factory.CreateNDC("context message"))
             {

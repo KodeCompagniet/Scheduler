@@ -111,7 +111,7 @@ namespace DemiCode.Scheduling.Configuration.Test
             }
             catch (ConfigurationErrorsException e)
             {
-                Assert.IsInstanceOfType(typeof(InvalidConfigurationException), e.InnerException);
+                Assert.IsInstanceOf<InvalidConfigurationException>(e.InnerException);
             }
         }
 
@@ -194,7 +194,7 @@ namespace DemiCode.Scheduling.Configuration.Test
             // Validate generic logger
             var genericLogger = loggerElementCollection[0];
             Assert.IsNotNull(genericLogger);
-            Assert.IsInstanceOfType(typeof(LoggerFactoryMock), genericLogger.GetLoggerInstance());
+            Assert.IsInstanceOf<LoggerFactoryMock>(genericLogger.GetLoggerInstance());
         }
 
         /// <summary>
@@ -202,10 +202,12 @@ namespace DemiCode.Scheduling.Configuration.Test
         ///</summary>
         
         [Test]
-        [ExpectedException(typeof(ConfigurationErrorsException))]
         public void LoadSectionWithInvalidLoggerConfigTest()
         {
-            SchedulerSettings ss = (SchedulerSettings)ConfigurationManager.GetSection("LoggerInvalidConfigSection");
+            Assert.Throws<ConfigurationErrorsException>(() =>
+            {
+                SchedulerSettings ss = (SchedulerSettings)ConfigurationManager.GetSection("LoggerInvalidConfigSection");
+            });
         }
 
         /// <summary>
@@ -225,7 +227,7 @@ namespace DemiCode.Scheduling.Configuration.Test
             
             ILoggerFactory factory = log4netLogger.GetLoggerInstance();
             Assert.IsNotNull(factory);
-            Assert.IsInstanceOfType(typeof(Log4netLoggerFactory), factory);
+            Assert.IsInstanceOf<Log4netLoggerFactory>(factory);
         }
 
         /// <summary>
@@ -244,7 +246,7 @@ namespace DemiCode.Scheduling.Configuration.Test
 
             ILoggerFactory factory = loggerElement.GetLoggerInstance();
             Assert.IsNotNull(factory);
-            Assert.IsInstanceOfType(typeof(ConsoleLoggerFactory), factory);
+            Assert.IsInstanceOf<ConsoleLoggerFactory>(factory);
         }
 
         /// <summary>
@@ -264,7 +266,7 @@ namespace DemiCode.Scheduling.Configuration.Test
 
             var factory = loggerElement.GetLoggerInstance();
             Assert.IsNotNull(factory);
-            Assert.IsInstanceOfType(typeof(LoggerFactoryMock), factory);
+            Assert.IsInstanceOf<LoggerFactoryMock>(factory);
         }
 
         /// <summary>
@@ -305,10 +307,12 @@ namespace DemiCode.Scheduling.Configuration.Test
         /// </summary>
         
         [Test]
-        [ExpectedException(typeof(ConfigurationErrorsException))]
         public void TaskElementMissingTypeTest()
         {
-            ConfigurationManager.GetSection("TaskInvalidConfigSection");
+            Assert.Throws<ConfigurationErrorsException>(() =>
+            {
+                ConfigurationManager.GetSection("TaskInvalidConfigSection");
+            });
         }
 
         /// <summary>
@@ -316,10 +320,12 @@ namespace DemiCode.Scheduling.Configuration.Test
         ///</summary>
         
         [Test]
-        [ExpectedException(typeof(ConfigurationErrorsException))]
         public void LoadSectionWithInvalidCodeTaskConfigTest()
         {
-            ConfigurationManager.GetSection("CodeTaskInvalidConfigSection");
+            Assert.Throws<ConfigurationErrorsException>(() =>
+            {
+                ConfigurationManager.GetSection("CodeTaskInvalidConfigSection");
+            });
         }
 
         [Test]

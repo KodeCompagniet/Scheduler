@@ -69,11 +69,10 @@ namespace DemiCode.Scheduling.Schedules.Test
         {
             TimeSpan lunchTime = new TimeSpan(16, 0, 0);
 
-            var factory = SchedulerFactory.Create();
-            using (Scheduler scheduler = factory.CreateFromConfig("scheduling", "lunch"))
+            using (Scheduler scheduler = Scheduler.CreateFromConfig("scheduling", "lunch"))
             {
                 ISchedule schedule = scheduler["lunchschedule"];
-                Assert.IsInstanceOfType(typeof(LunchSchedule), schedule);
+                Assert.IsInstanceOf<LunchSchedule>(schedule);
 
                 LunchSchedule lunch = (LunchSchedule)schedule;
                 Assert.AreEqual(lunchTime, lunch.LunchTimeOfDay);

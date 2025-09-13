@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
+using System.Runtime.InteropServices;
 using System.Threading;
 using System.Xml;
 using DemiCode.Scheduling.Alarms;
@@ -43,6 +45,9 @@ namespace DemiCode.Scheduling.Schedules.Test
         [Test, Category("SystemTimeChanges")]
         public void ChangeSystemClockDuringIntervalTest()
         {
+            if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+                Assert.Ignore("System time manipulation is only supported on Windows");
+
             DateTime previous = DateTime.MinValue;
             bool invalidDiff = false;
             var sw = new Stopwatch();
@@ -103,6 +108,9 @@ namespace DemiCode.Scheduling.Schedules.Test
         [Test, Category("SystemTimeChanges")]
         public void MidnightCrossingTest()
         {
+            if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+                Assert.Ignore("System time manipulation is only supported on Windows");
+
             DateTime previous = DateTime.MinValue;
             bool invalidDiff = false;
 
@@ -149,6 +157,9 @@ namespace DemiCode.Scheduling.Schedules.Test
         [Test, Category("SystemTimeChanges")]
         public void DaylightSavingCrossingTest()
         {
+            if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+                Assert.Ignore("System time manipulation is only supported on Windows");
+
             DateTime previous = DateTime.MinValue;
             bool invalidDiff = false;
 
@@ -190,6 +201,9 @@ namespace DemiCode.Scheduling.Schedules.Test
         [Test]
         public void TwoHourDaylightSavingCrossingTest()
         {
+            if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+                Assert.Ignore("System time manipulation is only supported on Windows");
+
             DateTime previous = DateTime.MinValue;
             bool invalidDiff = false;
 
@@ -259,10 +273,12 @@ namespace DemiCode.Scheduling.Schedules.Test
 
 
         [Test]
-        [ExpectedException(typeof (ArgumentException))]
         public void NoLessThanSecondsIntervalTest()
         {
-            new IntervalSchedule(DateTime.Now, TimeSpan.FromTicks(1));
+            Assert.Throws<ArgumentException>(() =>
+            {
+                new IntervalSchedule(DateTime.Now, TimeSpan.FromTicks(1));
+            });
         }
 
         [Test]
@@ -438,13 +454,15 @@ namespace DemiCode.Scheduling.Schedules.Test
         }
 
         [Test]
-        [ExpectedException(typeof (ArgumentException))]
         public void ConstructByParametersTest()
         {
-            //Should fail because the interval is 0
-            var firstOccurence = new DateTime(2006, 9, 18, 12, 00, 00);
-            var interval = new TimeSpan(0);
-            var schedule = new IntervalSchedule(firstOccurence, interval);
+            Assert.Throws<ArgumentException>(() =>
+            {
+                //Should fail because the interval is 0
+                var firstOccurence = new DateTime(2006, 9, 18, 12, 00, 00);
+                var interval = new TimeSpan(0);
+                var schedule = new IntervalSchedule(firstOccurence, interval);
+            });
         }
 
         /// <summary>
@@ -462,66 +480,78 @@ namespace DemiCode.Scheduling.Schedules.Test
         ///A test for IntervalSchedule(XmlNode)
         ///</summary>
         [Test]
-        [ExpectedException(typeof (ArgumentException))]
         public void ConstructorTest4_1()
         {
-            TestXmlConstructor("TestData/IntervalScheduleTest/schedule[@name='fail_1']");
+            Assert.Throws<ArgumentException>(() =>
+            {
+                TestXmlConstructor("TestData/IntervalScheduleTest/schedule[@name='fail_1']");
+            });
         }
 
         /// <summary>
         ///A test for IntervalSchedule(XmlNode)
         ///</summary>
         [Test]
-        [ExpectedException(typeof (ArgumentException))]
         public void ConstructorTest4_2()
         {
-            TestXmlConstructor("TestData/IntervalScheduleTest/schedule[@name='fail_2']");
+            Assert.Throws<ArgumentException>(() =>
+            {
+                TestXmlConstructor("TestData/IntervalScheduleTest/schedule[@name='fail_2']");
+            });
         }
 
         /// <summary>
         ///A test for IntervalSchedule(XmlNode)
         ///</summary>
         [Test]
-        [ExpectedException(typeof (ArgumentException))]
         public void ConstructorTest4_3()
         {
-            TestXmlConstructor("TestData/IntervalScheduleTest/schedule[@name='fail_3']");
+            Assert.Throws<ArgumentException>(() =>
+            {
+                TestXmlConstructor("TestData/IntervalScheduleTest/schedule[@name='fail_3']");
+            });
         }
 
         /// <summary>
         ///A test for IntervalSchedule(XmlNode)
         ///</summary>
         [Test]
-        [ExpectedException(typeof (ArgumentNullException))]
         public void ConstructorTest4_4()
         {
-            TestXmlConstructor("TestData/IntervalScheduleTest/schedule[@name='fail_4']");
+            Assert.Throws<ArgumentNullException>(() =>
+            {
+                TestXmlConstructor("TestData/IntervalScheduleTest/schedule[@name='fail_4']");
+            });
         }
 
         /// <summary>
         ///A test for IntervalSchedule(XmlNode)
         ///</summary>
         [Test]
-        [ExpectedException(typeof (ArgumentNullException))]
         public void ConstructorTest4_6()
         {
-            TestXmlConstructor("TestData/IntervalScheduleTest/schedule[@name='fail_6']");
+            Assert.Throws<ArgumentNullException>(() =>
+            {
+                TestXmlConstructor("TestData/IntervalScheduleTest/schedule[@name='fail_6']");
+            });
         }
 
         /// <summary>
         ///A test for IntervalSchedule(XmlNode)
         ///</summary>
         [Test]
-        [ExpectedException(typeof (ArgumentNullException))]
         public void ConstructorTest4_7()
         {
-            TestXmlConstructor("TestData/IntervalScheduleTest/schedule[@name='fail_7']");
+            Assert.Throws<ArgumentNullException>(() =>
+            {
+                TestXmlConstructor("TestData/IntervalScheduleTest/schedule[@name='fail_7']");
+            });
         }
 
         private static IntervalSchedule TestXmlConstructor(string nodePath)
         {
             var xd = new XmlDocument();
-            xd.Load(@"TestData\ScheduleConfiguration.xml");
+            xd.Load(Path.Combine("TestData", "ScheduleConfiguration.xml"));
             XmlNode node = xd.SelectSingleNode(nodePath);
 
             return new IntervalSchedule(node);

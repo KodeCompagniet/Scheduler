@@ -1,0 +1,1275 @@
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+/home/claude/aigit/Scheduler/DemiCode.Shared/Configuration/DateTimeElement.cs(11,18): warning CS0659: 'DateTimeElement' overrides Object.Equals(object o) but does not override Object.GetHashCode() [/home/claude/aigit/Scheduler/DemiCode.Shared/DemiCode.Shared.csproj::TargetFramework=netstandard2.0]
+/home/claude/aigit/Scheduler/DemiCode.Shared/Configuration/EnumElement.cs(16,27): warning CS0659: 'EnumElement<T>' overrides Object.Equals(object o) but does not override Object.GetHashCode() [/home/claude/aigit/Scheduler/DemiCode.Shared/DemiCode.Shared.csproj::TargetFramework=netstandard2.0]
+/home/claude/aigit/Scheduler/DemiCode.Shared/Configuration/ExtendedConfigurationElementCollection.cs(11,27): warning CS0659: 'ExtendedConfigurationElementCollection' overrides Object.Equals(object o) but does not override Object.GetHashCode() [/home/claude/aigit/Scheduler/DemiCode.Shared/DemiCode.Shared.csproj::TargetFramework=netstandard2.0]
+/home/claude/aigit/Scheduler/DemiCode.Shared/Configuration/TimeSpanElement.cs(10,18): warning CS0659: 'TimeSpanElement' overrides Object.Equals(object o) but does not override Object.GetHashCode() [/home/claude/aigit/Scheduler/DemiCode.Shared/DemiCode.Shared.csproj::TargetFramework=netstandard2.0]
+/home/claude/aigit/Scheduler/DemiCode.Shared/Configuration/LongElement.cs(10,18): warning CS0659: 'LongElement' overrides Object.Equals(object o) but does not override Object.GetHashCode() [/home/claude/aigit/Scheduler/DemiCode.Shared/DemiCode.Shared.csproj::TargetFramework=netstandard2.0]
+/home/claude/aigit/Scheduler/DemiCode.Shared/Logging/Configuration/ConsoleLoggerElement.cs(10,18): warning CS0659: 'ConsoleLoggerElement' overrides Object.Equals(object o) but does not override Object.GetHashCode() [/home/claude/aigit/Scheduler/DemiCode.Shared/DemiCode.Shared.csproj::TargetFramework=netstandard2.0]
+/home/claude/aigit/Scheduler/DemiCode.Shared/Logging/Configuration/LoggerElement.cs(15,18): warning CS0659: 'LoggerElement' overrides Object.Equals(object o) but does not override Object.GetHashCode() [/home/claude/aigit/Scheduler/DemiCode.Shared/DemiCode.Shared.csproj::TargetFramework=netstandard2.0]
+/home/claude/aigit/Scheduler/DemiCode.Shared/Factories/Factory.cs(196,34): warning CS0168: The variable 'e' is declared but never used [/home/claude/aigit/Scheduler/DemiCode.Shared/DemiCode.Shared.csproj::TargetFramework=netstandard2.0]
+/home/claude/aigit/Scheduler/DemiCode.Shared/Factories/Factory.cs(259,37): warning CS0168: The variable 'e' is declared but never used [/home/claude/aigit/Scheduler/DemiCode.Shared/DemiCode.Shared.csproj::TargetFramework=netstandard2.0]
+/home/claude/aigit/Scheduler/DemiCode.Shared/Factories/FactoryException.cs(14,52): warning CS1574: XML comment has cref attribute 'FactoryException' that could not be resolved [/home/claude/aigit/Scheduler/DemiCode.Shared/DemiCode.Shared.csproj::TargetFramework=netstandard2.0]
+/home/claude/aigit/Scheduler/DemiCode.Shared/Factories/FactoryException.cs(21,49): warning CS1574: XML comment has cref attribute 'FactoryException' that could not be resolved [/home/claude/aigit/Scheduler/DemiCode.Shared/DemiCode.Shared.csproj::TargetFramework=netstandard2.0]
+/home/claude/aigit/Scheduler/DemiCode.Shared/Factories/FactoryException.cs(29,52): warning CS1574: XML comment has cref attribute 'FactoryException' that could not be resolved [/home/claude/aigit/Scheduler/DemiCode.Shared/DemiCode.Shared.csproj::TargetFramework=netstandard2.0]
+/home/claude/aigit/Scheduler/DemiCode.Shared/Factories/FactoryException.cs(40,52): warning CS1574: XML comment has cref attribute 'FactoryException' that could not be resolved [/home/claude/aigit/Scheduler/DemiCode.Shared/DemiCode.Shared.csproj::TargetFramework=netstandard2.0]
+/home/claude/aigit/Scheduler/DemiCode.Shared/Factories/FactoryException.cs(58,58): warning CS1574: XML comment has cref attribute 'FactoryConfigurationException' that could not be resolved [/home/claude/aigit/Scheduler/DemiCode.Shared/DemiCode.Shared.csproj::TargetFramework=netstandard2.0]
+/home/claude/aigit/Scheduler/DemiCode.Shared/Factories/FactoryException.cs(65,55): warning CS1574: XML comment has cref attribute 'FactoryConfigurationException' that could not be resolved [/home/claude/aigit/Scheduler/DemiCode.Shared/DemiCode.Shared.csproj::TargetFramework=netstandard2.0]
+/home/claude/aigit/Scheduler/DemiCode.Shared/Factories/FactoryException.cs(73,58): warning CS1574: XML comment has cref attribute 'FactoryConfigurationException' that could not be resolved [/home/claude/aigit/Scheduler/DemiCode.Shared/DemiCode.Shared.csproj::TargetFramework=netstandard2.0]
+/home/claude/aigit/Scheduler/DemiCode.Shared/Factories/FactoryException.cs(84,58): warning CS1574: XML comment has cref attribute 'FactoryConfigurationException' that could not be resolved [/home/claude/aigit/Scheduler/DemiCode.Shared/DemiCode.Shared.csproj::TargetFramework=netstandard2.0]
+  DemiCode.Shared -> /home/claude/aigit/Scheduler/DemiCode.Shared/bin/Debug/netstandard2.0/DemiCode.Shared.dll
+/home/claude/aigit/Scheduler/DemiCode.Shared/Configuration/DateTimeElement.cs(11,18): warning CS0659: 'DateTimeElement' overrides Object.Equals(object o) but does not override Object.GetHashCode() [/home/claude/aigit/Scheduler/DemiCode.Shared/DemiCode.Shared.csproj::TargetFramework=net48]
+/home/claude/aigit/Scheduler/DemiCode.Shared/Configuration/EnumElement.cs(16,27): warning CS0659: 'EnumElement<T>' overrides Object.Equals(object o) but does not override Object.GetHashCode() [/home/claude/aigit/Scheduler/DemiCode.Shared/DemiCode.Shared.csproj::TargetFramework=net48]
+/home/claude/aigit/Scheduler/DemiCode.Shared/Logging/Configuration/ConsoleLoggerElement.cs(10,18): warning CS0659: 'ConsoleLoggerElement' overrides Object.Equals(object o) but does not override Object.GetHashCode() [/home/claude/aigit/Scheduler/DemiCode.Shared/DemiCode.Shared.csproj::TargetFramework=net48]
+/home/claude/aigit/Scheduler/DemiCode.Shared/Configuration/ExtendedConfigurationElementCollection.cs(11,27): warning CS0659: 'ExtendedConfigurationElementCollection' overrides Object.Equals(object o) but does not override Object.GetHashCode() [/home/claude/aigit/Scheduler/DemiCode.Shared/DemiCode.Shared.csproj::TargetFramework=net48]
+/home/claude/aigit/Scheduler/DemiCode.Shared/Logging/Configuration/LoggerElement.cs(15,18): warning CS0659: 'LoggerElement' overrides Object.Equals(object o) but does not override Object.GetHashCode() [/home/claude/aigit/Scheduler/DemiCode.Shared/DemiCode.Shared.csproj::TargetFramework=net48]
+/home/claude/aigit/Scheduler/DemiCode.Shared/Configuration/LongElement.cs(10,18): warning CS0659: 'LongElement' overrides Object.Equals(object o) but does not override Object.GetHashCode() [/home/claude/aigit/Scheduler/DemiCode.Shared/DemiCode.Shared.csproj::TargetFramework=net48]
+/home/claude/aigit/Scheduler/DemiCode.Shared/Configuration/TimeSpanElement.cs(10,18): warning CS0659: 'TimeSpanElement' overrides Object.Equals(object o) but does not override Object.GetHashCode() [/home/claude/aigit/Scheduler/DemiCode.Shared/DemiCode.Shared.csproj::TargetFramework=net48]
+/home/claude/aigit/Scheduler/DemiCode.Shared/Factories/Factory.cs(196,34): warning CS0168: The variable 'e' is declared but never used [/home/claude/aigit/Scheduler/DemiCode.Shared/DemiCode.Shared.csproj::TargetFramework=net48]
+/home/claude/aigit/Scheduler/DemiCode.Shared/Factories/Factory.cs(259,37): warning CS0168: The variable 'e' is declared but never used [/home/claude/aigit/Scheduler/DemiCode.Shared/DemiCode.Shared.csproj::TargetFramework=net48]
+/home/claude/aigit/Scheduler/DemiCode.Shared/Factories/FactoryException.cs(14,52): warning CS1574: XML comment has cref attribute 'FactoryException' that could not be resolved [/home/claude/aigit/Scheduler/DemiCode.Shared/DemiCode.Shared.csproj::TargetFramework=net48]
+/home/claude/aigit/Scheduler/DemiCode.Shared/Factories/FactoryException.cs(21,49): warning CS1574: XML comment has cref attribute 'FactoryException' that could not be resolved [/home/claude/aigit/Scheduler/DemiCode.Shared/DemiCode.Shared.csproj::TargetFramework=net48]
+/home/claude/aigit/Scheduler/DemiCode.Shared/Factories/FactoryException.cs(29,52): warning CS1574: XML comment has cref attribute 'FactoryException' that could not be resolved [/home/claude/aigit/Scheduler/DemiCode.Shared/DemiCode.Shared.csproj::TargetFramework=net48]
+/home/claude/aigit/Scheduler/DemiCode.Shared/Factories/FactoryException.cs(40,52): warning CS1574: XML comment has cref attribute 'FactoryException' that could not be resolved [/home/claude/aigit/Scheduler/DemiCode.Shared/DemiCode.Shared.csproj::TargetFramework=net48]
+/home/claude/aigit/Scheduler/DemiCode.Shared/Factories/FactoryException.cs(58,58): warning CS1574: XML comment has cref attribute 'FactoryConfigurationException' that could not be resolved [/home/claude/aigit/Scheduler/DemiCode.Shared/DemiCode.Shared.csproj::TargetFramework=net48]
+/home/claude/aigit/Scheduler/DemiCode.Shared/Factories/FactoryException.cs(65,55): warning CS1574: XML comment has cref attribute 'FactoryConfigurationException' that could not be resolved [/home/claude/aigit/Scheduler/DemiCode.Shared/DemiCode.Shared.csproj::TargetFramework=net48]
+/home/claude/aigit/Scheduler/DemiCode.Shared/Factories/FactoryException.cs(73,58): warning CS1574: XML comment has cref attribute 'FactoryConfigurationException' that could not be resolved [/home/claude/aigit/Scheduler/DemiCode.Shared/DemiCode.Shared.csproj::TargetFramework=net48]
+/home/claude/aigit/Scheduler/DemiCode.Shared/Factories/FactoryException.cs(84,58): warning CS1574: XML comment has cref attribute 'FactoryConfigurationException' that could not be resolved [/home/claude/aigit/Scheduler/DemiCode.Shared/DemiCode.Shared.csproj::TargetFramework=net48]
+  DemiCode.Shared -> /home/claude/aigit/Scheduler/DemiCode.Shared/bin/Debug/net48/DemiCode.Shared.dll
+/home/claude/aigit/Scheduler/DemiCode.Logging/Configuration/Loggers/LoggerElement.cs(15,18): warning CS0659: 'LoggerElement' overrides Object.Equals(object o) but does not override Object.GetHashCode() [/home/claude/aigit/Scheduler/DemiCode.Logging/DemiCode.Logging.csproj::TargetFramework=netstandard2.0]
+/home/claude/aigit/Scheduler/DemiCode.Logging/Configuration/Loggers/ConsoleLoggerElement.cs(11,18): warning CS0659: 'ConsoleLoggerElement' overrides Object.Equals(object o) but does not override Object.GetHashCode() [/home/claude/aigit/Scheduler/DemiCode.Logging/DemiCode.Logging.csproj::TargetFramework=netstandard2.0]
+  DemiCode.Logging -> /home/claude/aigit/Scheduler/DemiCode.Logging/bin/Debug/netstandard2.0/DemiCode.Logging.dll
+/home/claude/aigit/Scheduler/DemiCode.Logging/Configuration/Loggers/ConsoleLoggerElement.cs(11,18): warning CS0659: 'ConsoleLoggerElement' overrides Object.Equals(object o) but does not override Object.GetHashCode() [/home/claude/aigit/Scheduler/DemiCode.Logging/DemiCode.Logging.csproj::TargetFramework=net48]
+/home/claude/aigit/Scheduler/DemiCode.Logging/Configuration/Loggers/LoggerElement.cs(15,18): warning CS0659: 'LoggerElement' overrides Object.Equals(object o) but does not override Object.GetHashCode() [/home/claude/aigit/Scheduler/DemiCode.Logging/DemiCode.Logging.csproj::TargetFramework=net48]
+/home/claude/aigit/Scheduler/DemiCode.Scheduling/Configuration/SchedulerSettings.cs(56,18): warning CS0659: 'SchedulerSettings' overrides Object.Equals(object o) but does not override Object.GetHashCode() [/home/claude/aigit/Scheduler/DemiCode.Scheduling/DemiCode.Scheduling.csproj::TargetFramework=net48]
+/home/claude/aigit/Scheduler/DemiCode.Scheduling/Configuration/SchedulerElement.cs(18,18): warning CS0659: 'SchedulerElement' overrides Object.Equals(object o) but does not override Object.GetHashCode() [/home/claude/aigit/Scheduler/DemiCode.Scheduling/DemiCode.Scheduling.csproj::TargetFramework=net48]
+/home/claude/aigit/Scheduler/DemiCode.Scheduling/Configuration/Tasks/ApplicationTaskElement.cs(14,18): warning CS0659: 'ApplicationTaskElement' overrides Object.Equals(object o) but does not override Object.GetHashCode() [/home/claude/aigit/Scheduler/DemiCode.Scheduling/DemiCode.Scheduling.csproj::TargetFramework=net48]
+/home/claude/aigit/Scheduler/DemiCode.Scheduling/Configuration/Schedules/WeeklyScheduleElement.cs(12,18): warning CS0659: 'WeeklyScheduleElement' overrides Object.Equals(object o) but does not override Object.GetHashCode() [/home/claude/aigit/Scheduler/DemiCode.Scheduling/DemiCode.Scheduling.csproj::TargetFramework=net48]
+/home/claude/aigit/Scheduler/DemiCode.Scheduling/Configuration/Tasks/CodeTaskElement.cs(13,18): warning CS0659: 'CodeTaskElement' overrides Object.Equals(object o) but does not override Object.GetHashCode() [/home/claude/aigit/Scheduler/DemiCode.Scheduling/DemiCode.Scheduling.csproj::TargetFramework=net48]
+/home/claude/aigit/Scheduler/DemiCode.Scheduling/Configuration/Tasks/ScheduleReferenceElement.cs(13,18): warning CS0659: 'ScheduleReferenceElement' overrides Object.Equals(object o) but does not override Object.GetHashCode() [/home/claude/aigit/Scheduler/DemiCode.Scheduling/DemiCode.Scheduling.csproj::TargetFramework=net48]
+/home/claude/aigit/Scheduler/DemiCode.Scheduling/Configuration/Tasks/TaskElement.cs(17,18): warning CS0659: 'TaskElement' overrides Object.Equals(object o) but does not override Object.GetHashCode() [/home/claude/aigit/Scheduler/DemiCode.Scheduling/DemiCode.Scheduling.csproj::TargetFramework=net48]
+/home/claude/aigit/Scheduler/DemiCode.Scheduling/Configuration/Tasks/TaskSequenceElement.cs(12,18): warning CS0659: 'TaskSequenceElement' overrides Object.Equals(object o) but does not override Object.GetHashCode() [/home/claude/aigit/Scheduler/DemiCode.Scheduling/DemiCode.Scheduling.csproj::TargetFramework=net48]
+/home/claude/aigit/Scheduler/DemiCode.Scheduling/Configuration/SchedulerSettingsManager.cs(146,81): warning CS0419: Ambiguous reference in cref attribute: 'GetWritableConfigurationSection'. Assuming 'SchedulerSettingsManager.GetWritableConfigurationSection(string, string)', but could have also matched other overloads including 'SchedulerSettingsManager.GetWritableConfigurationSection(string)'. [/home/claude/aigit/Scheduler/DemiCode.Scheduling/DemiCode.Scheduling.csproj::TargetFramework=net48]
+/home/claude/aigit/Scheduler/DemiCode.Scheduling/Configuration/SchedulerSettingsManager.cs(187,81): warning CS0419: Ambiguous reference in cref attribute: 'GetWritableConfigurationSection'. Assuming 'SchedulerSettingsManager.GetWritableConfigurationSection(string, string)', but could have also matched other overloads including 'SchedulerSettingsManager.GetWritableConfigurationSection(string)'. [/home/claude/aigit/Scheduler/DemiCode.Scheduling/DemiCode.Scheduling.csproj::TargetFramework=net48]
+/home/claude/aigit/Scheduler/DemiCode.Scheduling/Configuration/SchedulerSettingsManager.cs(197,81): warning CS0419: Ambiguous reference in cref attribute: 'GetWritableConfigurationSection'. Assuming 'SchedulerSettingsManager.GetWritableConfigurationSection(string, string)', but could have also matched other overloads including 'SchedulerSettingsManager.GetWritableConfigurationSection(string)'. [/home/claude/aigit/Scheduler/DemiCode.Scheduling/DemiCode.Scheduling.csproj::TargetFramework=net48]
+/home/claude/aigit/Scheduler/DemiCode.Scheduling/Schedules/MonthlySchedule.cs(100,32): warning CS1574: XML comment has cref attribute 'CurrentOccurrence' that could not be resolved [/home/claude/aigit/Scheduler/DemiCode.Scheduling/DemiCode.Scheduling.csproj::TargetFramework=net48]
+  DemiCode.Scheduling -> /home/claude/aigit/Scheduler/DemiCode.Scheduling/bin/Debug/net48/DemiCode.Scheduling.dll
+  DemiCode.Logging.log4net -> /home/claude/aigit/Scheduler/DemiCode.Logging.log4net/bin/Debug/netstandard2.0/DemiCode.Logging.log4net.dll
+/home/claude/aigit/Scheduler/DemiCode.Scheduling/Configuration/SchedulerElement.cs(18,18): warning CS0659: 'SchedulerElement' overrides Object.Equals(object o) but does not override Object.GetHashCode() [/home/claude/aigit/Scheduler/DemiCode.Scheduling/DemiCode.Scheduling.csproj::TargetFramework=netstandard2.0]
+/home/claude/aigit/Scheduler/DemiCode.Scheduling/Configuration/SchedulerSettings.cs(56,18): warning CS0659: 'SchedulerSettings' overrides Object.Equals(object o) but does not override Object.GetHashCode() [/home/claude/aigit/Scheduler/DemiCode.Scheduling/DemiCode.Scheduling.csproj::TargetFramework=netstandard2.0]
+/home/claude/aigit/Scheduler/DemiCode.Scheduling/Configuration/Tasks/ApplicationTaskElement.cs(14,18): warning CS0659: 'ApplicationTaskElement' overrides Object.Equals(object o) but does not override Object.GetHashCode() [/home/claude/aigit/Scheduler/DemiCode.Scheduling/DemiCode.Scheduling.csproj::TargetFramework=netstandard2.0]
+/home/claude/aigit/Scheduler/DemiCode.Scheduling/Configuration/Tasks/CodeTaskElement.cs(13,18): warning CS0659: 'CodeTaskElement' overrides Object.Equals(object o) but does not override Object.GetHashCode() [/home/claude/aigit/Scheduler/DemiCode.Scheduling/DemiCode.Scheduling.csproj::TargetFramework=netstandard2.0]
+/home/claude/aigit/Scheduler/DemiCode.Scheduling/Configuration/Tasks/ScheduleReferenceElement.cs(13,18): warning CS0659: 'ScheduleReferenceElement' overrides Object.Equals(object o) but does not override Object.GetHashCode() [/home/claude/aigit/Scheduler/DemiCode.Scheduling/DemiCode.Scheduling.csproj::TargetFramework=netstandard2.0]
+/home/claude/aigit/Scheduler/DemiCode.Scheduling/Configuration/Schedules/WeeklyScheduleElement.cs(12,18): warning CS0659: 'WeeklyScheduleElement' overrides Object.Equals(object o) but does not override Object.GetHashCode() [/home/claude/aigit/Scheduler/DemiCode.Scheduling/DemiCode.Scheduling.csproj::TargetFramework=netstandard2.0]
+/home/claude/aigit/Scheduler/DemiCode.Scheduling/Configuration/Tasks/TaskElement.cs(17,18): warning CS0659: 'TaskElement' overrides Object.Equals(object o) but does not override Object.GetHashCode() [/home/claude/aigit/Scheduler/DemiCode.Scheduling/DemiCode.Scheduling.csproj::TargetFramework=netstandard2.0]
+/home/claude/aigit/Scheduler/DemiCode.Scheduling/Configuration/Tasks/TaskSequenceElement.cs(12,18): warning CS0659: 'TaskSequenceElement' overrides Object.Equals(object o) but does not override Object.GetHashCode() [/home/claude/aigit/Scheduler/DemiCode.Scheduling/DemiCode.Scheduling.csproj::TargetFramework=netstandard2.0]
+/home/claude/aigit/Scheduler/DemiCode.Scheduling/Configuration/SchedulerSettingsManager.cs(146,81): warning CS0419: Ambiguous reference in cref attribute: 'GetWritableConfigurationSection'. Assuming 'SchedulerSettingsManager.GetWritableConfigurationSection(string, string)', but could have also matched other overloads including 'SchedulerSettingsManager.GetWritableConfigurationSection(string)'. [/home/claude/aigit/Scheduler/DemiCode.Scheduling/DemiCode.Scheduling.csproj::TargetFramework=netstandard2.0]
+/home/claude/aigit/Scheduler/DemiCode.Scheduling/Configuration/SchedulerSettingsManager.cs(187,81): warning CS0419: Ambiguous reference in cref attribute: 'GetWritableConfigurationSection'. Assuming 'SchedulerSettingsManager.GetWritableConfigurationSection(string, string)', but could have also matched other overloads including 'SchedulerSettingsManager.GetWritableConfigurationSection(string)'. [/home/claude/aigit/Scheduler/DemiCode.Scheduling/DemiCode.Scheduling.csproj::TargetFramework=netstandard2.0]
+/home/claude/aigit/Scheduler/DemiCode.Scheduling/Configuration/SchedulerSettingsManager.cs(197,81): warning CS0419: Ambiguous reference in cref attribute: 'GetWritableConfigurationSection'. Assuming 'SchedulerSettingsManager.GetWritableConfigurationSection(string, string)', but could have also matched other overloads including 'SchedulerSettingsManager.GetWritableConfigurationSection(string)'. [/home/claude/aigit/Scheduler/DemiCode.Scheduling/DemiCode.Scheduling.csproj::TargetFramework=netstandard2.0]
+/home/claude/aigit/Scheduler/DemiCode.Scheduling/Schedules/MonthlySchedule.cs(100,32): warning CS1574: XML comment has cref attribute 'CurrentOccurrence' that could not be resolved [/home/claude/aigit/Scheduler/DemiCode.Scheduling/DemiCode.Scheduling.csproj::TargetFramework=netstandard2.0]
+  DemiCode.Scheduling -> /home/claude/aigit/Scheduler/DemiCode.Scheduling/bin/Debug/netstandard2.0/DemiCode.Scheduling.dll
+  DemiCode.Logging -> /home/claude/aigit/Scheduler/DemiCode.Logging/bin/Debug/net48/DemiCode.Logging.dll
+  DemiCode.Shared.Test -> /home/claude/aigit/Scheduler/DemiCode.Shared.Test/bin/Debug/net8.0/DemiCode.Shared.Test.dll
+Test run for /home/claude/aigit/Scheduler/DemiCode.Shared.Test/bin/Debug/net8.0/DemiCode.Shared.Test.dll (.NETCoreApp,Version=v8.0)
+VSTest version 17.12.0 (x64)
+
+  DemiCode.Scheduling.Test.Dummy -> /home/claude/aigit/Scheduler/DemiCode.Scheduling.Test.Dummy/bin/Debug/net8.0/DemiCode.Scheduling.Test.Dummy.dll
+  DemiCode.Logging.log4net -> /home/claude/aigit/Scheduler/DemiCode.Logging.log4net/bin/Debug/net48/DemiCode.Logging.log4net.dll
+Starting test execution, please wait...
+A total of 1 test files matched the specified pattern.
+/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/Mocks/Synchronizer.cs(105,2): warning SYSLIB0003: 'SecurityPermissionAttribute' is obsolete: 'Code Access Security is not supported or honored by the runtime.' (https://aka.ms/dotnet-warnings/SYSLIB0003) [/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/DemiCode.Scheduling.Test.csproj]
+/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/Mocks/Synchronizer.cs(105,21): warning SYSLIB0003: 'SecurityAction' is obsolete: 'Code Access Security is not supported or honored by the runtime.' (https://aka.ms/dotnet-warnings/SYSLIB0003) [/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/DemiCode.Scheduling.Test.csproj]
+/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/Service/WatchConfigFileTest.cs(152,41): warning CS0728: Possibly incorrect assignment to local 'scheduler' which is the argument to a using or lock statement. The Dispose call or unlocking will happen on the original value of the local. [/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/DemiCode.Scheduling.Test.csproj]
+/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/Schedules/WeeklyScheduleTest.cs(399,11): warning CS0618: 'WeeklySchedule.WeeklySchedule(XmlNode)' is obsolete: 'Deprecated. Use configuration system instead.' [/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/DemiCode.Scheduling.Test.csproj]
+/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/Schedules/ScheduleBaseTest.cs(155,5): warning CS0618: 'ScheduleBase.CreateFromXml(XmlNode)' is obsolete: 'Deprecated. Use configuration system instead.' [/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/DemiCode.Scheduling.Test.csproj]
+/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/SchedulerTest.cs(315,40): warning CS0618: 'Scheduler.CreateFromConfig(string)' is obsolete: 'Use SchedulerFactory.CreateFromConfig' [/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/DemiCode.Scheduling.Test.csproj]
+/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/Schedules/IntervalCountedScheduleTest.cs(244,37): warning CS0618: 'IntervalCountedSchedule.IntervalCountedSchedule(XmlNode)' is obsolete: 'Deprecated. Use configuration system instead.' [/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/DemiCode.Scheduling.Test.csproj]
+/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/SchedulerTest.cs(678,36): warning CS0618: 'Scheduler.CreateFromConfig(string)' is obsolete: 'Use SchedulerFactory.CreateFromConfig' [/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/DemiCode.Scheduling.Test.csproj]
+/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/SchedulerTest.cs(704,30): warning CS0618: 'Scheduler.CreateFromConfig(string, string)' is obsolete: 'Use SchedulerFactory.CreateFromConfig' [/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/DemiCode.Scheduling.Test.csproj]
+/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/SchedulerTest.cs(726,30): warning CS0618: 'Scheduler.CreateFromConfig(string, string)' is obsolete: 'Use SchedulerFactory.CreateFromConfig' [/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/DemiCode.Scheduling.Test.csproj]
+/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/Schedules/OneShotScheduleTest.cs(101,29): warning CS0618: 'OneShotSchedule.OneShotSchedule(XmlNode)' is obsolete: 'Deprecated. Use configuration system instead.' [/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/DemiCode.Scheduling.Test.csproj]
+/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/Schedules/LunchScheduleTest.cs(72,42): warning CS0618: 'Scheduler.CreateFromConfig(string, string)' is obsolete: 'Use SchedulerFactory.CreateFromConfig' [/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/DemiCode.Scheduling.Test.csproj]
+/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/Schedules/IntervalScheduleTest.cs(544,20): warning CS0618: 'IntervalSchedule.IntervalSchedule(XmlNode)' is obsolete: 'Deprecated. Use configuration system instead.' [/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/DemiCode.Scheduling.Test.csproj]
+/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/MessageLoggerTest.cs(22,13): warning CS0618: 'MessageLogger' is obsolete: 'Should use DemiCode.Shared.Logging' [/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/DemiCode.Scheduling.Test.csproj]
+/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/MessageLoggerTest.cs(34,13): warning CS0618: 'MessageLogger' is obsolete: 'Should use DemiCode.Shared.Logging' [/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/DemiCode.Scheduling.Test.csproj]
+/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/MessageLoggerTest.cs(46,13): warning CS0618: 'MessageLogger' is obsolete: 'Should use DemiCode.Shared.Logging' [/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/DemiCode.Scheduling.Test.csproj]
+/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/MessageLoggerTest.cs(58,13): warning CS0618: 'MessageLogger' is obsolete: 'Should use DemiCode.Shared.Logging' [/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/DemiCode.Scheduling.Test.csproj]
+/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/Tasks/TaskCollectionTest.cs(32,17): warning CS0618: 'TaskCollection.Add(ITask, IDictionary, string)' is obsolete: 'Parameters dictionary is no longer used. Use the Add(ITask task, string scheduleName) method' [/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/DemiCode.Scheduling.Test.csproj]
+/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/Tasks/TaskHandlerTest.cs(27,26): warning CS0618: 'TaskHandler.TaskHandler(ITask, IDictionary, ILoggerFactory)' is obsolete: 'Parameters are no longer in use' [/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/DemiCode.Scheduling.Test.csproj]
+/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/Tasks/TaskHandlerTest.cs(47,34): warning CS0618: 'TaskHandler.TaskHandler(ITask, IDictionary, ILoggerFactory)' is obsolete: 'Parameters are no longer in use' [/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/DemiCode.Scheduling.Test.csproj]
+/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/Tasks/TaskCollectionTest.cs(127,17): warning CS0618: 'TaskCollection.Add(ITask, IDictionary)' is obsolete: 'Parameters dictionary is no longer used. Use the Add(ITask task) method' [/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/DemiCode.Scheduling.Test.csproj]
+/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/Tasks/TaskCollectionTest.cs(148,17): warning CS0618: 'TaskCollection.Add(ITask, IDictionary, string)' is obsolete: 'Parameters dictionary is no longer used. Use the Add(ITask task, string scheduleName) method' [/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/DemiCode.Scheduling.Test.csproj]
+/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/Tasks/TaskCollectionTest.cs(168,21): warning CS0618: 'TaskCollection.Add(ITask, IDictionary, string)' is obsolete: 'Parameters dictionary is no longer used. Use the Add(ITask task, string scheduleName) method' [/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/DemiCode.Scheduling.Test.csproj]
+/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/SchedulerFactoryTest.cs(36,36): warning CS0618: 'Scheduler.CreateFromConfig(string, string)' is obsolete: 'Use SchedulerFactory.CreateFromConfig' [/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/DemiCode.Scheduling.Test.csproj]
+/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/Tasks/TaskHandlerTest.cs(62,38): warning CS0618: 'TaskHandler.TaskHandler(ITask, IDictionary, ILoggerFactory)' is obsolete: 'Parameters are no longer in use' [/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/DemiCode.Scheduling.Test.csproj]
+/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/Tasks/TaskHandlerTest.cs(76,38): warning CS0618: 'TaskHandler.TaskHandler(ITask, IDictionary, ILoggerFactory)' is obsolete: 'Parameters are no longer in use' [/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/DemiCode.Scheduling.Test.csproj]
+/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/Mocks/AlarmTimerMock.cs(10,89): warning CS0419: Ambiguous reference in cref attribute: 'Enable'. Assuming 'AlarmTimerMock.Enable(DateTime)', but could have also matched other overloads including 'AlarmTimerMock.Enable()'. [/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/DemiCode.Scheduling.Test.csproj]
+/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/Mocks/ScheduleMock.cs(19,32): warning CS1574: XML comment has cref attribute 'CurrentOccurrence' that could not be resolved [/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/DemiCode.Scheduling.Test.csproj]
+/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/Mocks/SynchronizedObject.cs(32,41): warning CS0419: Ambiguous reference in cref attribute: 'EventHelper.RaiseEvents'. Assuming 'EventHelper.RaiseEvents<TEventArgs>(object, EventHandler<TEventArgs>, TEventArgs)', but could have also matched other overloads including 'EventHelper.RaiseEvents<TEventArgs>(object, EventHandler<TEventArgs>, TEventArgs, ILogger)'. [/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/DemiCode.Scheduling.Test.csproj]
+/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/Mocks/SynchronizedObject.cs(36,93): warning CS0419: Ambiguous reference in cref attribute: 'EventHelper.RaiseEvents'. Assuming 'EventHelper.RaiseEvents<TEventArgs>(object, EventHandler<TEventArgs>, TEventArgs)', but could have also matched other overloads including 'EventHelper.RaiseEvents<TEventArgs>(object, EventHandler<TEventArgs>, TEventArgs, ILogger)'. [/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/DemiCode.Scheduling.Test.csproj]
+/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/Mocks/SimpleClass.cs(21,39): warning CA2259: Ensure 'ThreadStatic' is only used with static fields (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2259) [/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/DemiCode.Scheduling.Test.csproj]
+NUnit Adapter 4.5.0.0: Test execution started
+Running all tests in /home/claude/aigit/Scheduler/DemiCode.Shared.Test/bin/Debug/net8.0/DemiCode.Shared.Test.dll
+   NUnit3TestExecutor discovered 71 of 71 NUnit test cases using Current Discovery mode, Non-Explicit run
+  Passed Constructor1Test [3 ms]
+  Passed Constructor2Test [14 ms]
+  Passed FormatTest [8 ms]
+  Passed Constructor1Test [< 1 ms]
+  Passed Constructor2Test [< 1 ms]
+  Passed Equals_DifferentFormatGivesFalse [2 ms]
+  Passed Equals_DifferentParamsGivesFalse [< 1 ms]
+  Passed Equals_NoParamsGivesTrue [< 1 ms]
+  Passed Equals_SameParamsGivesTrue [< 1 ms]
+  Passed FormatTest [< 1 ms]
+  Passed Constructor1Test [< 1 ms]
+  Passed Constructor2Test [< 1 ms]
+  Passed Equals_DifferentParamsGivesFalse [< 1 ms]
+  Passed Equals_NoParamsGivesTrue [< 1 ms]
+  Passed Equals_SameParamsGivesTrue [< 1 ms]
+  Passed Constructor1Test [< 1 ms]
+  Passed Constructor2Test [1 ms]
+  Passed Equals_DifferentParamsGivesFalse [< 1 ms]
+  Passed Equals_NoParamsGivesTrue [< 1 ms]
+  Passed Equals_SameParamsGivesTrue [< 1 ms]
+  Passed Constructor1Test [< 1 ms]
+  Passed Constructor2Test [< 1 ms]
+  Passed Equals_DifferentParamsGivesFalse [< 1 ms]
+  Passed Equals_NoParamsGivesTrue [< 1 ms]
+  Passed Equals_SameParamsGivesTrue [< 1 ms]
+  Passed ConstructorTest [49 ms]
+  Passed ConstructorTest1 [< 1 ms]
+  Passed LogTest [2 ms]
+  Passed ConstructorTest [< 1 ms]
+  Passed EqualsTest [< 1 ms]
+  Passed GetLoggerTest [3 ms]
+  Passed Constructor2Test [1 ms]
+  Passed ConstructorTest [< 1 ms]
+  Passed Equals2Test [< 1 ms]
+  Passed Equals3Test [< 1 ms]
+  Passed EqualsTest [< 1 ms]
+  Passed GetLogger2Test [5 ms]
+  Passed GetLoggerTest [< 1 ms]
+  Passed ConstructorTest [< 1 ms]
+  Passed EqualsTest [< 1 ms]
+  Passed GetLoggerTest [< 1 ms]
+  Passed CreateByTypeTest [< 1 ms]
+  Passed CreateNDCTest [< 1 ms]
+  Passed CreateTest [< 1 ms]
+  Passed ConstructorTest [< 1 ms]
+Debug 1
+Debug 2
+ApplicationException: Unit testing
+
+Info 1
+Info 2
+ApplicationException: Unit testing
+
+Warn 1
+Warn 2
+ApplicationException: Unit testing
+
+Error 1
+Error 2
+ApplicationException: Unit testing
+
+Fatal 1
+Fatal 2
+ApplicationException: Unit testing
+
+
+  Passed ConstructorTest1 [< 1 ms]
+  Passed LogTest [1 ms]
+  Passed AddNullTest [< 1 ms]
+  Passed AddTest [< 1 ms]
+  Passed ClearTest [< 1 ms]
+  Passed ConstructorTest [< 1 ms]
+  Passed ContainsTest [< 1 ms]
+  Passed CopyToTest [< 1 ms]
+  Passed CreateDefaultLoggerTest [< 1 ms]
+  Passed GetEnumeratorTest [< 1 ms]
+  Passed IndexOfTest [< 1 ms]
+  Passed InsertTest [< 1 ms]
+  Passed IsReadOnlyTest [< 1 ms]
+  Passed ItemTest [< 1 ms]
+  Passed RemoveAtTest [< 1 ms]
+  Passed RemoveTest [< 1 ms]
+  Passed CreateByTypeTest [< 1 ms]
+  Passed CreateNDCTest [< 1 ms]
+NUnit Adapter 4.5.0.0: Test execution complete
+  Passed CreateTest [< 1 ms]
+  Passed ConstructorTest [< 1 ms]
+  Passed ConstructorTest1 [< 1 ms]
+  Passed LogTest [< 1 ms]
+  Passed ConstructorTest [< 1 ms]
+  Passed CreateByTypeTest [< 1 ms]
+  Passed CreateNDCTest [1 ms]
+  Passed CreateTest [< 1 ms]
+
+Test Run Successful.
+Total tests: 71
+     Passed: 71
+ Total time: 1.0199 Seconds
+  DemiCode.Scheduling.Test -> /home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/bin/Debug/net8.0/DemiCode.Scheduling.Test.dll
+  DemiCode.Logging.Test -> /home/claude/aigit/Scheduler/DemiCode.Logging.Test/bin/Debug/net8.0/DemiCode.Logging.Test.dll
+Test run for /home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/bin/Debug/net8.0/DemiCode.Scheduling.Test.dll (.NETCoreApp,Version=v8.0)
+Test run for /home/claude/aigit/Scheduler/DemiCode.Logging.Test/bin/Debug/net8.0/DemiCode.Logging.Test.dll (.NETCoreApp,Version=v8.0)
+VSTest version 17.12.0 (x64)
+VSTest version 17.12.0 (x64)
+
+
+Starting test execution, please wait...
+Starting test execution, please wait...
+A total of 1 test files matched the specified pattern.
+A total of 1 test files matched the specified pattern.
+Test Run deployment issue: Failed to get the file for deployment item 'DemiCode.Scheduling.Loggers.log4net.dll': System.IO.FileNotFoundException: Could not find file '/home/claude/aigit/Scheduler/DemiCode.Logging.Test/bin/Debug/net8.0/DemiCode.Scheduling.Loggers.log4net.dll'.
+Test Run deployment issue: Failed to get the file for deployment item 'DemiCode.Scheduling.dll': System.IO.FileNotFoundException: Could not find file '/home/claude/aigit/Scheduler/DemiCode.Logging.Test/bin/Debug/net8.0/DemiCode.Scheduling.dll'.
+NUnit Adapter 4.5.0.0: Test execution started
+Running all tests in /home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/bin/Debug/net8.0/DemiCode.Scheduling.Test.dll
+  Passed InvestigateAssemblyIssue [68 ms]
+  Passed ConstructorTest [< 1 ms]
+  Passed ConstructorTest1 [< 1 ms]
+  Passed LogTest [2 ms]
+  Failed CreateTest [11 ms]
+  Error Message:
+   Test method DemiCode.Scheduling.Loggers.log4net.Test.LoggerFactoryTest.CreateTest threw exception: 
+System.InvalidCastException: Unable to cast object of type 'DemiCode.Logging.log4net.Log4netLoggerFactory' to type 'DemiCode.Logging.Loggers.ILoggerFactory'.
+  Stack Trace:
+      at DemiCode.Scheduling.Loggers.log4net.Test.LoggerFactoryTest.CreateTest() in /home/claude/aigit/Scheduler/DemiCode.Logging.Test/Loggers/log4net/LoggerFactoryTest.cs:line 46
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+  Failed CreateByTypeTest [< 1 ms]
+  Error Message:
+   Test method DemiCode.Scheduling.Loggers.log4net.Test.LoggerFactoryTest.CreateByTypeTest threw exception: 
+System.InvalidCastException: Unable to cast object of type 'DemiCode.Logging.log4net.Log4netLoggerFactory' to type 'DemiCode.Logging.Loggers.ILoggerFactory'.
+  Stack Trace:
+      at DemiCode.Scheduling.Loggers.log4net.Test.LoggerFactoryTest.CreateByTypeTest() in /home/claude/aigit/Scheduler/DemiCode.Logging.Test/Loggers/log4net/LoggerFactoryTest.cs:line 54
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+  Failed CreateNDCTest [< 1 ms]
+  Error Message:
+   Test method DemiCode.Scheduling.Loggers.log4net.Test.LoggerFactoryTest.CreateNDCTest threw exception: 
+System.InvalidCastException: Unable to cast object of type 'DemiCode.Logging.log4net.Log4netLoggerFactory' to type 'DemiCode.Logging.Loggers.ILoggerFactory'.
+  Stack Trace:
+      at DemiCode.Scheduling.Loggers.log4net.Test.LoggerFactoryTest.CreateNDCTest() in /home/claude/aigit/Scheduler/DemiCode.Logging.Test/Loggers/log4net/LoggerFactoryTest.cs:line 62
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+  Passed CreateTest [< 1 ms]
+  Passed CreateByTypeTest [< 1 ms]
+  Passed CreateNDCTest [< 1 ms]
+  Passed ConstructorTest [3 ms]
+  Passed ConstructorTest1 [< 1 ms]
+  Passed LogTest [1 ms]
+  Passed ConstructorTest [< 1 ms]
+  Passed CreateDefaultLoggerTest [< 1 ms]
+  Failed AddTest [< 1 ms]
+  Error Message:
+   Test method DemiCode.Scheduling.Loggers.Test.LoggerFactoryCollectionTest.AddTest threw exception: 
+System.InvalidCastException: Unable to cast object of type 'DemiCode.Logging.Test.Mocks.LoggerFactoryMock' to type 'DemiCode.Logging.Loggers.ILoggerFactory'.
+  Stack Trace:
+      at DemiCode.Scheduling.Loggers.Test.LoggerFactoryCollectionTest.AddTest() in /home/claude/aigit/Scheduler/DemiCode.Logging.Test/Loggers/LoggerFactoryCollectionTest.cs:line 95
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+  Passed AddNullTest [< 1 ms]
+  Passed IndexOfTest [< 1 ms]
+  Passed InsertTest [< 1 ms]
+  Passed ContainsTest [< 1 ms]
+  Passed CopyToTest [< 1 ms]
+  Passed IsReadOnlyTest [< 1 ms]
+  Passed GetEnumeratorTest [< 1 ms]
+  Passed ClearTest [< 1 ms]
+  Passed RemoveTest [< 1 ms]
+  Passed RemoveAtTest [< 1 ms]
+  Passed ItemTest [< 1 ms]
+  Passed CreateTest [< 1 ms]
+  Passed CreateByTypeTest [< 1 ms]
+  Passed CreateNDCTest [< 1 ms]
+  Passed ConstructorTest [< 1 ms]
+  Passed ConstructorTest1 [< 1 ms]
+  Passed LogTest [< 1 ms]
+  Passed ConstructorTest [< 1 ms]
+  Passed ConstructorTest [3 ms]
+  Passed GetLoggerTest [< 1 ms]
+  Passed EqualsTest [4 ms]
+  Passed ConstructorTest [< 1 ms]
+  Passed GetLoggerTest [< 1 ms]
+  Passed EqualsTest [< 1 ms]
+  Passed ConstructorTest [< 1 ms]
+  Passed Constructor2Test [5 ms]
+  Passed GetLoggerTest [3 ms]
+  Passed GetLogger2Test [< 1 ms]
+  Passed EqualsTest [< 1 ms]
+   NUnit3TestExecutor discovered 345 of 345 NUnit test cases using Current Discovery mode, Non-Explicit run
+  Passed Equals2Test [< 1 ms]
+  Passed Equals3Test [< 1 ms]
+
+Total tests: 47
+     Passed: 43
+     Failed: 4
+ Total time: 1.0815 Seconds
+  Passed AdditionalDataTest [5 ms]
+  Passed ConstructorTest [6 ms]
+  Passed CopyConstructorTest [< 1 ms]
+  Passed CopyConstructorWithNullArgumentTest [5 ms]
+  Passed SignalTimeTest [< 1 ms]
+  Passed AdditionalDataTest [< 1 ms]
+  Passed AlarmTimeTest [< 1 ms]
+  Passed AlarmTimeWhenDisposedTest [< 1 ms]
+  Passed AlarmTimeWhenEnabledTest [< 1 ms]
+  Passed ConstructorTest [< 1 ms]
+  Passed ConstructorTest1 [< 1 ms]
+  Passed DisabledWithoutAlarmTimeTest [< 1 ms]
+  Passed DisableTest [< 1 ms]
+  Passed DisposeTest [< 1 ms]
+  Passed ElapsedEventTest [403 ms]
+  Passed Enable_TimeInThePastReturnsFalse [< 1 ms]
+  Passed EnabledWithoutAlarmTimeTest [< 1 ms]
+  Passed EnableTest [< 1 ms]
+  Passed EnableWithDateTimeTest [< 1 ms]
+  Passed EventAccuracyTest [20 s]
+  Passed FinalizerTest [< 1 ms]
+  Passed LongIntervalTest [< 1 ms]
+  Passed TicksToMillisecondsTest [1 ms]
+  Passed Add_DuplicateThrowsException [21 ms]
+  Passed Constructor1Test [< 1 ms]
+  Passed Equals_WithNoParamGivesTrue [2 ms]
+  Passed Constructor1Test [< 1 ms]
+  Passed Constructor2Test [2 ms]
+  Passed Equals_WithDifferentParamsGivesFalse [5 ms]
+  Passed Equals_WithEqualParamsGivesTrue [1 ms]
+  Passed Equals_WithEqualParamsGivesTrue2 [< 1 ms]
+  Passed Equals_WithNoParamGivesTrue [< 1 ms]
+  Passed ScheduleTypeTest [3 ms]
+  Passed Constructor1Test [1 ms]
+  Passed Constructor2Test [3 ms]
+  Passed Equals_WithDifferentParamsGivesFalse [2 ms]
+  Passed Equals_WithEqualParamsGivesTrue [< 1 ms]
+  Passed Equals_WithEqualParamsGivesTrue2 [< 1 ms]
+  Passed Equals_WithNoParamGivesTrue [< 1 ms]
+  Passed LoadFromConfigTest [50 ms]
+  Passed ScheduleTypeTest [2 ms]
+  Passed ConstructorTest [< 1 ms]
+  Passed ConstructorTest3 [1 ms]
+  Passed Equals_WithDifferentScheduleRefsGivesFalse [< 1 ms]
+  Passed Equals_WithDifferentTypeGivesFalse [< 1 ms]
+  Passed Equals_WithEqualScheduleRefsGivesTrue [< 1 ms]
+  Passed Equals_WithNoParamGivesTrue [< 1 ms]
+  Passed Equals_WithSameTypeGivesTrue [< 1 ms]
+  Passed ConstructorTest [< 1 ms]
+  Passed Equals_WithDifferentContentGivesFalse [12 ms]
+  Passed Equals_WithNoParamGivesTrue [< 1 ms]
+  Passed Equals_WithSameContentGivesTrue [< 1 ms]
+  Passed Constructor2Test [< 1 ms]
+  Passed ConstructorTest [< 1 ms]
+  Passed Equals_WithDifferentTypeGivesFalse [< 1 ms]
+  Passed Equals_WithNoParamGivesTrue [< 1 ms]
+  Passed Equals_WithSameScheduleGivesTrue [< 1 ms]
+  Passed ConstructorTest [< 1 ms]
+  Passed ConstructorTest3 [< 1 ms]
+  Passed Equals_WithDifferentAmountScheduleRefsGivesFalse [< 1 ms]
+  Passed Equals_WithDifferentScheduleRefsGivesFalse [< 1 ms]
+  Passed Equals_WithDifferentTypeGivesFalse [< 1 ms]
+  Passed Equals_WithEqualScheduleRefsGivesTrue [< 1 ms]
+  Passed Equals_WithNoParamGivesTrue [< 1 ms]
+  Passed Equals_WithSameTypeGivesTrue [< 1 ms]
+  Passed InstanceTest [< 1 ms]
+  Passed InstanceTest2 [< 1 ms]
+  Passed InstanceTest3 [< 1 ms]
+  Passed OnDeserializeUnrecognizedAttributeTest [1 ms]
+  Passed OnRequiredPropertyNotFoundTest [< 1 ms]
+  Passed ParametersTest [< 1 ms]
+  Passed TaskTypeTest [< 1 ms]
+  Passed ConfigurationFileChangedEventTest [560 ms]
+  Passed AddItemTest [< 1 ms]
+  Passed CreateNewElementTest [< 1 ms]
+  Passed ItemTest [3 ms]
+  Passed SetItemTest [< 1 ms]
+  Passed SetItemWithReadOnlyCollectionTest [< 1 ms]
+  Passed ConstructorTest [< 1 ms]
+  Passed Equals_WithDifferentLoggersGivesFalse [1 ms]
+  Passed Equals_WithDifferentNamesGivesFalse [< 1 ms]
+  Passed Equals_WithDifferentSchedulesGivesFalse [< 1 ms]
+  Passed Equals_WithDifferentTasksGivesFalse [< 1 ms]
+  Passed Equals_WithEqualLoggersGivesTrue [< 1 ms]
+  Passed Equals_WithEqualSchedulesGivesTrue [< 1 ms]
+  Passed Equals_WithEqualTasksGivesTrue [< 1 ms]
+  Passed Equals_WithNoParamGivesTrue [< 1 ms]
+  Passed Equals_WithSameNameGivesTrue [< 1 ms]
+  Passed GetConfigurationSectionTest [< 1 ms]
+  Passed GetNonExistentConfigurationSectionTest [2 ms]
+  Passed GetNullConfigurationSectionTest [< 1 ms]
+  Passed GetWritableConfigurationSection [3 ms]
+  Failed GetWritableConfigurationSection_OldSectionTest [42 ms]
+  Error Message:
+     Expected: <System.InvalidOperationException>
+  But was:  null
+
+  Stack Trace:
+     at DemiCode.Scheduling.Configuration.Test.SchedulerSettingsManagerTest.GetWritableConfigurationSection_OldSectionTest() in /home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/Configuration/SchedulerSettingsManagerTest.cs:line 108
+
+1)    at DemiCode.Scheduling.Configuration.Test.SchedulerSettingsManagerTest.GetWritableConfigurationSection_OldSectionTest() in /home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/Configuration/SchedulerSettingsManagerTest.cs:line 108
+
+
+  Failed LoadConfigFromCacheTest [8 ms]
+  Error Message:
+   System.IO.FileNotFoundException : Could not find file '/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/bin/Debug/net8.0/.\TestData\ConfigCacheTest.config'.
+  Stack Trace:
+     at Interop.ThrowExceptionForIoErrno(ErrorInfo errorInfo, String path, Boolean isDirError)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String path, OpenFlags flags, Int32 mode, Boolean failForSymlink, Boolean& wasSymlink, Func`4 createOpenException)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, UnixFileMode openPermissions, Int64& fileLength, UnixFileMode& filePermissions, Boolean failForSymlink, Boolean& wasSymlink, Func`4 createOpenException)
+   at System.IO.FileSystem.CopyFile(String sourceFullPath, String destFullPath, Boolean overwrite)
+   at DemiCode.Scheduling.Test.FileHelper.ReplaceConfigFile(String file) in /home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/FileHelper.cs:line 39
+   at DemiCode.Scheduling.Configuration.Test.SchedulerSettingsManagerTest.LoadConfigFromCacheTest() in /home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/Configuration/SchedulerSettingsManagerTest.cs:line 61
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+  Failed LoadConfigFromDiskTest [3 ms]
+  Error Message:
+   System.IO.FileNotFoundException : Could not find file '/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/bin/Debug/net8.0/.\TestData\ConfigCacheTest.config'.
+  Stack Trace:
+     at Interop.ThrowExceptionForIoErrno(ErrorInfo errorInfo, String path, Boolean isDirError)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String path, OpenFlags flags, Int32 mode, Boolean failForSymlink, Boolean& wasSymlink, Func`4 createOpenException)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, UnixFileMode openPermissions, Int64& fileLength, UnixFileMode& filePermissions, Boolean failForSymlink, Boolean& wasSymlink, Func`4 createOpenException)
+   at System.IO.FileSystem.CopyFile(String sourceFullPath, String destFullPath, Boolean overwrite)
+   at DemiCode.Scheduling.Test.FileHelper.ReplaceConfigFile(String file) in /home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/FileHelper.cs:line 39
+   at DemiCode.Scheduling.Configuration.Test.SchedulerSettingsManagerTest.LoadConfigFromDiskTest() in /home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/Configuration/SchedulerSettingsManagerTest.cs:line 87
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+  Passed OpenNonExistingConfigFileTest [6 ms]
+  Failed SaveConfigurationSection_CreateNewConfigFileTest [23 ms]
+  Error Message:
+     Expected: not null
+  But was:  null
+
+  Stack Trace:
+     at DemiCode.Scheduling.Configuration.Test.SchedulerSettingsSavingTest.SaveConfigurationSection_CreateNewConfigFileTest() in /home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/Configuration/SchedulerSettingsSavingTest.cs:line 56
+
+1)    at DemiCode.Scheduling.Configuration.Test.SchedulerSettingsSavingTest.SaveConfigurationSection_CreateNewConfigFileTest() in /home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/Configuration/SchedulerSettingsSavingTest.cs:line 56
+
+
+  Passed SaveConfigurationSection_SaveAndReloadGivesEqualConfiguration [23 ms]
+  Passed SaveConfigurationSection_SaveValidatesConfiguration [< 1 ms]
+  Passed DefaultSchedulerTest [< 1 ms]
+  Passed DeserializeInvalidSectionTest [1 ms]
+  Passed Equals_DifferentObjectsGivesFalse [< 1 ms]
+  Passed Equals_EqualObjectsGivesTrue [< 1 ms]
+  Passed LoadSectionWithBuiltInSchedulesTest [< 1 ms]
+  Passed LoadSectionWithCodeTaskWithParametersConfigTest [< 1 ms]
+  Passed LoadSectionWithConsoleLoggerConfigTest [2 ms]
+  Passed LoadSectionWithGenericSchedulesTest [2 ms]
+  Passed LoadSectionWithInvalidCodeTaskConfigTest [1 ms]
+  Passed LoadSectionWithInvalidLoggerConfigTest [< 1 ms]
+  Passed LoadSectionWithJobConfigTest [1 ms]
+  Passed LoadSectionWithLog4netLoggerConfigTest [< 1 ms]
+  Passed LoadSectionWithLoggerConfigTest [< 1 ms]
+  Passed LoadSectionWithParameterizedLoggerConfigTest [< 1 ms]
+  Passed LoadSectionWithTaskWithParametersConfigTest [< 1 ms]
+  Passed TaskElementMissingTypeTest [< 1 ms]
+  Passed ConstructorTest [< 1 ms]
+  Passed Equals_WithDifferentScheduleRefsGivesFalse [< 1 ms]
+  Passed Equals_WithDifferentTypeGivesFalse [< 1 ms]
+  Passed Equals_WithEqualScheduleRefsGivesTrue [< 1 ms]
+  Passed Equals_WithNoParamGivesTrue [< 1 ms]
+  Passed Equals_WithSameTypeGivesTrue [< 1 ms]
+  Passed InstanceTest [2 ms]
+  Passed LoadSectionWithEmptyTaskSequenceTest [1 ms]
+  Passed LoadSectionWithTaskSequenceScheduleRefTest [1 ms]
+  Passed LoadSectionWithTaskSequenceTest [< 1 ms]
+  Passed ConstructorTest1 [< 1 ms]
+  Passed ConstructorTest2 [< 1 ms]
+  Passed ConstructorTest3 [< 1 ms]
+  Passed ConstructorTest4_1 [< 1 ms]
+  Passed ConstructorTest4_2 [< 1 ms]
+  Passed ConstructorTest4_3 [< 1 ms]
+  Passed ConstructorTest4_4 [< 1 ms]
+  Passed ConstructorTest4_5 [< 1 ms]
+  Passed ConstructorTest4_6 [< 1 ms]
+  Passed ConstructorTest4_7 [< 1 ms]
+  Passed MinimumSecondIntervalTest [< 1 ms]
+  Passed MoveToFirstFromTest1 [< 1 ms]
+  Passed MoveToFirstFromTest2 [2 ms]
+  Passed MoveToNextTest [< 1 ms]
+  Passed NoLessThanSecondsIntervalTest [< 1 ms]
+  Passed ToStringTest [< 1 ms]
+  Failed ChangeSystemClockDuringIntervalTest [1 ms]
+  Error Message:
+   System.DllNotFoundException : Unable to load shared library 'kernel32.dll' or one of its dependencies. In order to help diagnose loading problems, consider using a tool like strace. If you're using glibc, consider setting the LD_DEBUG environment variable: 
+/usr/lib/dotnet/shared/Microsoft.NETCore.App/8.0.19/kernel32.dll.so: cannot open shared object file: No such file or directory
+/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/bin/Debug/net8.0/kernel32.dll.so: cannot open shared object file: No such file or directory
+/usr/lib/dotnet/shared/Microsoft.NETCore.App/8.0.19/libkernel32.dll.so: cannot open shared object file: No such file or directory
+/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/bin/Debug/net8.0/libkernel32.dll.so: cannot open shared object file: No such file or directory
+/usr/lib/dotnet/shared/Microsoft.NETCore.App/8.0.19/kernel32.dll: cannot open shared object file: No such file or directory
+/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/bin/Debug/net8.0/kernel32.dll: cannot open shared object file: No such file or directory
+/usr/lib/dotnet/shared/Microsoft.NETCore.App/8.0.19/libkernel32.dll: cannot open shared object file: No such file or directory
+/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/bin/Debug/net8.0/libkernel32.dll: cannot open shared object file: No such file or directory
+
+  Stack Trace:
+     at DemiCode.Scheduling.Test.TimeHelper.GetSystemTime(SYSTEMTIME& lpSystemTime)
+   at DemiCode.Scheduling.Test.TimeHelper.GetTime() in /home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/TimeHelper.cs:line 55
+   at DemiCode.Scheduling.Test.TimeHelper.Change(DateTime toDate) in /home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/TimeHelper.cs:line 74
+   at DemiCode.Scheduling.Schedules.Test.IntervalScheduleTest.ChangeSystemClockDuringIntervalTest() in /home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/Schedules/IntervalScheduleTest.cs:line 54
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+  Passed ConstructByParametersTest [< 1 ms]
+  Passed ConstructorByConfigurationTest [< 1 ms]
+  Passed ConstructorTest4_1 [< 1 ms]
+  Passed ConstructorTest4_2 [< 1 ms]
+  Passed ConstructorTest4_3 [< 1 ms]
+  Passed ConstructorTest4_4 [< 1 ms]
+  Passed ConstructorTest4_6 [< 1 ms]
+  Passed ConstructorTest4_7 [< 1 ms]
+  Failed DaylightSavingCrossingTest [< 1 ms]
+  Error Message:
+   System.DllNotFoundException : Unable to load shared library 'kernel32.dll' or one of its dependencies. In order to help diagnose loading problems, consider using a tool like strace. If you're using glibc, consider setting the LD_DEBUG environment variable: 
+/usr/lib/dotnet/shared/Microsoft.NETCore.App/8.0.19/kernel32.dll.so: cannot open shared object file: No such file or directory
+/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/bin/Debug/net8.0/kernel32.dll.so: cannot open shared object file: No such file or directory
+/usr/lib/dotnet/shared/Microsoft.NETCore.App/8.0.19/libkernel32.dll.so: cannot open shared object file: No such file or directory
+/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/bin/Debug/net8.0/libkernel32.dll.so: cannot open shared object file: No such file or directory
+/usr/lib/dotnet/shared/Microsoft.NETCore.App/8.0.19/kernel32.dll: cannot open shared object file: No such file or directory
+/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/bin/Debug/net8.0/kernel32.dll: cannot open shared object file: No such file or directory
+/usr/lib/dotnet/shared/Microsoft.NETCore.App/8.0.19/libkernel32.dll: cannot open shared object file: No such file or directory
+/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/bin/Debug/net8.0/libkernel32.dll: cannot open shared object file: No such file or directory
+
+  Stack Trace:
+     at DemiCode.Scheduling.Test.TimeHelper.GetSystemTime(SYSTEMTIME& lpSystemTime)
+   at DemiCode.Scheduling.Test.TimeHelper.GetTime() in /home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/TimeHelper.cs:line 55
+   at DemiCode.Scheduling.Test.TimeHelper.Change(DateTime toDate) in /home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/TimeHelper.cs:line 74
+   at DemiCode.Scheduling.Schedules.Test.IntervalScheduleTest.DaylightSavingCrossingTest() in /home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/Schedules/IntervalScheduleTest.cs:line 156
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+  Passed IntervalScheduleElapsedTest [3 s]
+20080121 09:30:01.0200000
+20080121 09:30:02.0200000
+20080121 09:30:03.0200000
+20080121 09:30:04.0200000
+20080121 09:30:05.0200000
+20080121 09:30:06.0200000
+20080121 09:30:07.0200000
+20080121 09:30:08.0200000
+20080121 09:30:09.0200000
+20080121 09:30:10.0200000
+20080121 09:30:11.0200000
+20080121 09:30:12.0200000
+20080121 09:30:13.0200000
+20080121 09:30:14.0200000
+20080121 09:30:15.0200000
+20080121 09:30:16.0200000
+20080121 09:30:17.0200000
+20080121 09:30:18.0200000
+20080121 09:30:19.0200000
+20080121 09:30:20.0200000
+20080121 09:30:21.0200000
+20080121 09:30:22.0200000
+20080121 09:30:23.0200000
+20080121 09:30:24.0200000
+20080121 09:30:25.0200000
+20080121 09:30:26.0200000
+20080121 09:30:27.0200000
+20080121 09:30:28.0200000
+20080121 09:30:29.0200000
+20080121 09:30:30.0200000
+20080121 09:30:31.0200000
+20080121 09:30:32.0200000
+20080121 09:30:33.0200000
+20080121 09:30:34.0200000
+20080121 09:30:35.0200000
+20080121 09:30:36.0200000
+20080121 09:30:37.0200000
+20080121 09:30:38.0200000
+20080121 09:30:39.0200000
+20080121 09:30:40.0200000
+20080121 09:30:41.0200000
+20080121 09:30:42.0200000
+20080121 09:30:43.0200000
+20080121 09:30:44.0200000
+20080121 09:30:45.0200000
+20080121 09:30:46.0200000
+20080121 09:30:47.0200000
+20080121 09:30:48.0200000
+20080121 09:30:49.0200000
+20080121 09:30:50.0200000
+20080121 09:30:51.0200000
+20080121 09:30:52.0200000
+20080121 09:30:53.0200000
+20080121 09:30:54.0200000
+20080121 09:30:55.0200000
+20080121 09:30:56.0200000
+20080121 09:30:57.0200000
+20080121 09:30:58.0200000
+20080121 09:30:59.0200000
+20080121 09:31:00.0200000
+20080121 09:31:01.0200000
+20080121 09:31:02.0200000
+20080121 09:31:03.0200000
+20080121 09:31:04.0200000
+20080121 09:31:05.0200000
+20080121 09:31:06.0200000
+20080121 09:31:07.0200000
+20080121 09:31:08.0200000
+20080121 09:31:09.0200000
+20080121 09:31:10.0200000
+20080121 09:31:11.0200000
+20080121 09:31:12.0200000
+20080121 09:31:13.0200000
+20080121 09:31:14.0200000
+20080121 09:31:15.0200000
+20080121 09:31:16.0200000
+20080121 09:31:17.0200000
+20080121 09:31:18.0200000
+20080121 09:31:19.0200000
+20080121 09:31:20.0200000
+20080121 09:31:21.0200000
+20080121 09:31:22.0200000
+20080121 09:31:23.0200000
+20080121 09:31:24.0200000
+20080121 09:31:25.0200000
+20080121 09:31:26.0200000
+20080121 09:31:27.0200000
+20080121 09:31:28.0200000
+20080121 09:31:29.0200000
+20080121 09:31:30.0200000
+20080121 09:31:31.0200000
+20080121 09:31:32.0200000
+20080121 09:31:33.0200000
+20080121 09:31:34.0200000
+20080121 09:31:35.0200000
+20080121 09:31:36.0200000
+20080121 09:31:37.0200000
+20080121 09:31:38.0200000
+20080121 09:31:39.0200000
+20080121 09:31:40.0200000
+20080121 09:31:41.0200000
+20080121 09:31:42.0200000
+20080121 09:31:43.0200000
+20080121 09:31:44.0200000
+20080121 09:31:45.0200000
+20080121 09:31:46.0200000
+20080121 09:31:47.0200000
+20080121 09:31:48.0200000
+20080121 09:31:49.0200000
+20080121 09:31:50.0200000
+20080121 09:31:51.0200000
+20080121 09:31:52.0200000
+20080121 09:31:53.0200000
+20080121 09:31:54.0200000
+20080121 09:31:55.0200000
+20080121 09:31:56.0200000
+20080121 09:31:57.0200000
+20080121 09:31:58.0200000
+20080121 09:31:59.0200000
+20080121 09:32:00.0200000
+20080121 09:32:01.0200000
+20080121 09:32:02.0200000
+20080121 09:32:03.0200000
+20080121 09:32:04.0200000
+20080121 09:32:05.0200000
+20080121 09:32:06.0200000
+20080121 09:32:07.0200000
+20080121 09:32:08.0200000
+20080121 09:32:09.0200000
+20080121 09:32:10.0200000
+20080121 09:32:11.0200000
+20080121 09:32:12.0200000
+20080121 09:32:13.0200000
+20080121 09:32:14.0200000
+20080121 09:32:15.0200000
+20080121 09:32:16.0200000
+20080121 09:32:17.0200000
+20080121 09:32:18.0200000
+20080121 09:32:19.0200000
+20080121 09:32:20.0200000
+20080121 09:32:21.0200000
+20080121 09:32:22.0200000
+20080121 09:32:23.0200000
+20080121 09:32:24.0200000
+20080121 09:32:25.0200000
+20080121 09:32:26.0200000
+20080121 09:32:27.0200000
+20080121 09:32:28.0200000
+20080121 09:32:29.0200000
+20080121 09:32:30.0200000
+20080121 09:32:31.0200000
+20080121 09:32:32.0200000
+20080121 09:32:33.0200000
+20080121 09:32:34.0200000
+20080121 09:32:35.0200000
+20080121 09:32:36.0200000
+20080121 09:32:37.0200000
+20080121 09:32:38.0200000
+20080121 09:32:39.0200000
+20080121 09:32:40.0200000
+20080121 09:32:41.0200000
+20080121 09:32:42.0200000
+20080121 09:32:43.0200000
+20080121 09:32:44.0200000
+20080121 09:32:45.0200000
+20080121 09:32:46.0200000
+20080121 09:32:47.0200000
+20080121 09:32:48.0200000
+20080121 09:32:49.0200000
+20080121 09:32:50.0200000
+20080121 09:32:51.0200000
+20080121 09:32:52.0200000
+20080121 09:32:53.0200000
+20080121 09:32:54.0200000
+20080121 09:32:55.0200000
+20080121 09:32:56.0200000
+20080121 09:32:57.0200000
+20080121 09:32:58.0200000
+20080121 09:32:59.0200000
+20080121 09:33:00.0200000
+
+  Failed MidnightCrossingTest [1 ms]
+  Error Message:
+   System.DllNotFoundException : Unable to load shared library 'kernel32.dll' or one of its dependencies. In order to help diagnose loading problems, consider using a tool like strace. If you're using glibc, consider setting the LD_DEBUG environment variable: 
+/usr/lib/dotnet/shared/Microsoft.NETCore.App/8.0.19/kernel32.dll.so: cannot open shared object file: No such file or directory
+/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/bin/Debug/net8.0/kernel32.dll.so: cannot open shared object file: No such file or directory
+/usr/lib/dotnet/shared/Microsoft.NETCore.App/8.0.19/libkernel32.dll.so: cannot open shared object file: No such file or directory
+/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/bin/Debug/net8.0/libkernel32.dll.so: cannot open shared object file: No such file or directory
+/usr/lib/dotnet/shared/Microsoft.NETCore.App/8.0.19/kernel32.dll: cannot open shared object file: No such file or directory
+/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/bin/Debug/net8.0/kernel32.dll: cannot open shared object file: No such file or directory
+/usr/lib/dotnet/shared/Microsoft.NETCore.App/8.0.19/libkernel32.dll: cannot open shared object file: No such file or directory
+/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/bin/Debug/net8.0/libkernel32.dll: cannot open shared object file: No such file or directory
+
+  Stack Trace:
+     at DemiCode.Scheduling.Test.TimeHelper.GetSystemTime(SYSTEMTIME& lpSystemTime)
+   at DemiCode.Scheduling.Test.TimeHelper.GetTime() in /home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/TimeHelper.cs:line 55
+   at DemiCode.Scheduling.Test.TimeHelper.Change(DateTime toDate) in /home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/TimeHelper.cs:line 74
+   at DemiCode.Scheduling.Schedules.Test.IntervalScheduleTest.MidnightCrossingTest() in /home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/Schedules/IntervalScheduleTest.cs:line 110
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+  Passed MinimumSecondIntervalTest [< 1 ms]
+  Passed MoveToFirstFromTest [< 1 ms]
+  Passed MoveToNextRepeatTest [3 ms]
+  Passed MoveToNextTest [< 1 ms]
+20250831 11:36:11.9997784 - 20250831 11:36:12.0000000
+20250831 11:36:12.9989483 - 20250831 11:36:13.0000000
+20250831 11:36:14.0009345 - 20250831 11:36:14.0000000
+20250831 11:36:15.0000141 - 20250831 11:36:15.0000000
+20250831 11:36:15.9994191 - 20250831 11:36:16.0000000
+20250831 11:36:16.9990327 - 20250831 11:36:17.0000000
+20250831 11:36:17.9983609 - 20250831 11:36:18.0000000
+20250831 11:36:18.9997784 - 20250831 11:36:19.0000000
+20250831 11:36:20.0008616 - 20250831 11:36:20.0000000
+20250831 11:36:21.0000616 - 20250831 11:36:21.0000000
+20250831 11:36:21.9993150 - 20250831 11:36:22.0000000
+20250831 11:36:22.9997901 - 20250831 11:36:23.0000000
+20250831 11:36:24.0001694 - 20250831 11:36:24.0000000
+20250831 11:36:25.0007721 - 20250831 11:36:25.0000000
+20250831 11:36:25.9995783 - 20250831 11:36:26.0000000
+20250831 11:36:27.0009568 - 20250831 11:36:27.0000000
+20250831 11:36:27.9996937 - 20250831 11:36:28.0000000
+20250831 11:36:28.9988008 - 20250831 11:36:29.0000000
+20250831 11:36:29.9999529 - 20250831 11:36:30.0000000
+20250831 11:36:30.9986189 - 20250831 11:36:31.0000000
+20250831 11:36:32.0004825 - 20250831 11:36:32.0000000
+20250831 11:36:32.9985875 - 20250831 11:36:33.0000000
+20250831 11:36:34.0004233 - 20250831 11:36:34.0000000
+20250831 11:36:35.0010071 - 20250831 11:36:35.0000000
+20250831 11:36:35.9990319 - 20250831 11:36:36.0000000
+20250831 11:36:37.0000478 - 20250831 11:36:37.0000000
+20250831 11:36:37.9992073 - 20250831 11:36:38.0000000
+20250831 11:36:38.9984995 - 20250831 11:36:39.0000000
+20250831 11:36:40.0003383 - 20250831 11:36:40.0000000
+20250831 11:36:41.0007471 - 20250831 11:36:41.0000000
+20250831 11:36:41.9998329 - 20250831 11:36:42.0000000
+20250831 11:36:42.9993511 - 20250831 11:36:43.0000000
+
+  Passed NoDuplicateIntervalsTest [32 s]
+  Passed NoLessThanSecondsIntervalTest [1 ms]
+  Passed TestFirstOccurence [< 1 ms]
+  Passed TestFirstOccurenceMoveNext [< 1 ms]
+  Passed ToStringTest [1 ms]
+  Passed TwentyFourHourIntervalTest [55 ms]
+  Failed TwoHourDaylightSavingCrossingTest [1 ms]
+  Error Message:
+   System.DllNotFoundException : Unable to load shared library 'kernel32.dll' or one of its dependencies. In order to help diagnose loading problems, consider using a tool like strace. If you're using glibc, consider setting the LD_DEBUG environment variable: 
+/usr/lib/dotnet/shared/Microsoft.NETCore.App/8.0.19/kernel32.dll.so: cannot open shared object file: No such file or directory
+/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/bin/Debug/net8.0/kernel32.dll.so: cannot open shared object file: No such file or directory
+/usr/lib/dotnet/shared/Microsoft.NETCore.App/8.0.19/libkernel32.dll.so: cannot open shared object file: No such file or directory
+/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/bin/Debug/net8.0/libkernel32.dll.so: cannot open shared object file: No such file or directory
+/usr/lib/dotnet/shared/Microsoft.NETCore.App/8.0.19/kernel32.dll: cannot open shared object file: No such file or directory
+/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/bin/Debug/net8.0/kernel32.dll: cannot open shared object file: No such file or directory
+/usr/lib/dotnet/shared/Microsoft.NETCore.App/8.0.19/libkernel32.dll: cannot open shared object file: No such file or directory
+/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/bin/Debug/net8.0/libkernel32.dll: cannot open shared object file: No such file or directory
+
+  Stack Trace:
+     at DemiCode.Scheduling.Test.TimeHelper.GetSystemTime(SYSTEMTIME& lpSystemTime)
+   at DemiCode.Scheduling.Test.TimeHelper.GetTime() in /home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/TimeHelper.cs:line 55
+   at DemiCode.Scheduling.Test.TimeHelper.Change(DateTime toDate) in /home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/TimeHelper.cs:line 74
+   at DemiCode.Scheduling.Schedules.Test.IntervalScheduleTest.TwoHourDaylightSavingCrossingTest() in /home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/Schedules/IntervalScheduleTest.cs:line 197
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+  Passed LongIntervalTest [500 ms]
+  Passed ConfigTest [1 ms]
+  Passed MoveToFirstFromTest [< 1 ms]
+  Failed EndDateIsOptionalTest [3 ms]
+  Error Message:
+     Expected: 2206-10-01 00:00:00
+  But was:  2206-10-18 00:00:00
+
+  Stack Trace:
+     at DemiCode.Scheduling.Schedules.Test.MonthlyScheduleTest.AssertSuccess(ISchedule instance, DateTime targetTime, DateTime expectedTime) in /home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/Schedules/MonthlyScheduleTest.cs:line 82
+   at DemiCode.Scheduling.Schedules.Test.MonthlyScheduleTest.EndDateIsOptionalTest() in /home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/Schedules/MonthlyScheduleTest.cs:line 43
+
+1)    at DemiCode.Scheduling.Schedules.Test.MonthlyScheduleTest.AssertSuccess(ISchedule instance, DateTime targetTime, DateTime expectedTime) in /home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/Schedules/MonthlyScheduleTest.cs:line 82
+   at DemiCode.Scheduling.Schedules.Test.MonthlyScheduleTest.EndDateIsOptionalTest() in /home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/Schedules/MonthlyScheduleTest.cs:line 43
+
+
+  Passed GetFirstOfMonthTest [< 1 ms]
+  Failed MoveToFirstFromTest1 [1 ms]
+  Error Message:
+     Expected: 2006-10-01 00:00:00
+  But was:  2006-10-18 00:00:00
+
+  Stack Trace:
+     at DemiCode.Scheduling.Schedules.Test.MonthlyScheduleTest.AssertSuccess(ISchedule instance, DateTime targetTime, DateTime expectedTime) in /home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/Schedules/MonthlyScheduleTest.cs:line 82
+   at DemiCode.Scheduling.Schedules.Test.MonthlyScheduleTest.MoveToFirstFromTest1() in /home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/Schedules/MonthlyScheduleTest.cs:line 58
+
+1)    at DemiCode.Scheduling.Schedules.Test.MonthlyScheduleTest.AssertSuccess(ISchedule instance, DateTime targetTime, DateTime expectedTime) in /home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/Schedules/MonthlyScheduleTest.cs:line 82
+   at DemiCode.Scheduling.Schedules.Test.MonthlyScheduleTest.MoveToFirstFromTest1() in /home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/Schedules/MonthlyScheduleTest.cs:line 58
+
+
+  Passed ConstructorTest3_1 [1 ms]
+  Passed ConstructorTest3_2 [< 1 ms]
+  Passed ConstructorTest3_3 [< 1 ms]
+  Passed ConstructorTest3_4 [< 1 ms]
+  Passed MoveToFirstFromTest [< 1 ms]
+  Passed ToStringTest [< 1 ms]
+  Passed CompareToTest1 [< 1 ms]
+  Passed CompareToTest2 [< 1 ms]
+  Passed ConstructWithNullXmlNodeTest [< 1 ms]
+  Passed CreateFromXmlTest [1 ms]
+  Passed EndOfScheduleEventTest [< 1 ms]
+  Passed ItsTimeEventTest [< 1 ms]
+  Passed PropertiesTest [< 1 ms]
+  Passed ConstructorTest2 [3 ms]
+  Passed ConstructorTest3 [< 1 ms]
+  Passed ConstructorTest4 [< 1 ms]
+  Passed ConstructorTest5_1 [< 1 ms]
+  Passed ConstructorTest5_10 [< 1 ms]
+  Passed ConstructorTest5_11 [< 1 ms]
+  Passed ConstructorTest5_2 [< 1 ms]
+  Passed ConstructorTest5_3 [< 1 ms]
+  Passed ConstructorTest5_4 [< 1 ms]
+  Passed ConstructorTest5_5 [< 1 ms]
+  Passed ConstructorTest5_7 [< 1 ms]
+  Passed ConstructorTest5_8 [< 1 ms]
+  Passed ConstructorTest5_9 [< 1 ms]
+  Passed ConstructWithDuplicateDaysTest [< 1 ms]
+  Passed ConstructWithEmptyToDate [< 1 ms]
+  Passed EndDateIsOptionalTest [< 1 ms]
+  Passed MoveToFirstFromTest1 [1 ms]
+  Passed MoveToFirstFromTest2 [1 ms]
+  Passed MoveToNextTest [< 1 ms]
+  Passed NullDaysArrayTest [< 1 ms]
+  Passed PropertiesFromConfigTest [1 ms]
+  Passed PropertiesTest [< 1 ms]
+  Failed ToStringTest [1 ms]
+  Error Message:
+   System.FormatException : Input string was not in a correct format.
+  Stack Trace:
+     at System.Globalization.TimeSpanFormat.FormatCustomized[TChar](TimeSpan value, ReadOnlySpan`1 format, DateTimeFormatInfo dtfi, ValueListBuilder`1& result)
+   at System.Globalization.TimeSpanFormat.TryFormat[TChar](TimeSpan value, Span`1 destination, Int32& charsWritten, ReadOnlySpan`1 format, IFormatProvider formatProvider)
+   at System.Text.ValueStringBuilder.AppendFormatHelper(IFormatProvider provider, String format, ReadOnlySpan`1 args)
+   at System.String.FormatHelper(IFormatProvider provider, String format, ReadOnlySpan`1 args)
+   at System.String.Format(IFormatProvider provider, String format, Object[] args)
+   at DemiCode.Scheduling.Schedules.WeeklySchedule.ToString() in /home/claude/aigit/Scheduler/DemiCode.Scheduling/Schedules/WeeklySchedule.cs:line 279
+   at DemiCode.Scheduling.Schedules.Test.WeeklyScheduleTest.ToStringTest() in /home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/Schedules/WeeklyScheduleTest.cs:line 412
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+  Failed AddNewAssemblyAtRuntimeTest [2 s]
+  Error Message:
+   System.IO.FileNotFoundException : Could not find file '/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/bin/Debug/net8.0/.\TestData\AddNewAssemblyAtRuntimeTest.config'.
+  Stack Trace:
+     at Interop.ThrowExceptionForIoErrno(ErrorInfo errorInfo, String path, Boolean isDirError)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String path, OpenFlags flags, Int32 mode, Boolean failForSymlink, Boolean& wasSymlink, Func`4 createOpenException)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, UnixFileMode openPermissions, Int64& fileLength, UnixFileMode& filePermissions, Boolean failForSymlink, Boolean& wasSymlink, Func`4 createOpenException)
+   at System.IO.FileSystem.CopyFile(String sourceFullPath, String destFullPath, Boolean overwrite)
+   at DemiCode.Scheduling.Test.FileHelper.ReplaceConfigFile(String file) in /home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/FileHelper.cs:line 39
+   at DemiCode.Scheduling.Service.Test.WatchConfigFileTest.AddNewAssemblyAtRuntimeTest() in /home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/Service/WatchConfigFileTest.cs:line 159
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+  Failed AddTaskAtRuntimeTest [1 s]
+  Error Message:
+   System.IO.FileNotFoundException : Could not find file '/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/bin/Debug/net8.0/.\TestData\AddTaskAtRuntimeTest.config'.
+  Stack Trace:
+     at Interop.ThrowExceptionForIoErrno(ErrorInfo errorInfo, String path, Boolean isDirError)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, UnixFileMode openPermissions, Int64& fileLength, UnixFileMode& filePermissions, Boolean failForSymlink, Boolean& wasSymlink, Func`4 createOpenException)
+   at System.IO.FileSystem.CopyFile(String sourceFullPath, String destFullPath, Boolean overwrite)
+   at DemiCode.Scheduling.Test.FileHelper.ReplaceConfigFile(String file) in /home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/FileHelper.cs:line 39
+   at DemiCode.Scheduling.Service.Test.WatchConfigFileTest.AddTaskAtRuntimeTest() in /home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/Service/WatchConfigFileTest.cs:line 91
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+  Passed InitTest [553 ms]
+  Passed ExecuteTest [3 ms]
+  Passed CodeTaskDisposesCodeAfterExecuteTest [< 1 ms]
+  Passed ExecuteTest [< 1 ms]
+  Passed NullParamTest [< 1 ms]
+  Passed SplitParameterTest [< 1 ms]
+  Passed AddRange [1 ms]
+  Passed AddRangeToNamedSchedules [1 ms]
+  Passed AddTest [< 1 ms]
+  Passed AddTest1 [1 ms]
+  Passed AddTest2 [< 1 ms]
+  Passed AddWithInvalidScheduleNameTest [< 1 ms]
+  Passed ClearIsNITest [< 1 ms]
+  Passed ConstructorTest1 [< 1 ms]
+  Passed ContainsTest [< 1 ms]
+  Passed CopyToTest [< 1 ms]
+  Passed DisposeTest [< 1 ms]
+xdg-open: file 'cmd' does not exist
+  Passed GetEnumeratorTest [< 1 ms]
+  Passed IndexOfTest [< 1 ms]
+  Passed InsertIsNITest [< 1 ms]
+  Passed ItemSetIsNITest [11 ms]
+  Passed ItemTest [< 1 ms]
+  Passed RemoveAtIsNITest [< 1 ms]
+  Passed RemoveIsNITest [< 1 ms]
+  Passed CollectionTypeTest [< 1 ms]
+  Passed CreateInvalidElementTest [< 1 ms]
+  Passed CreateNewElementTest [< 1 ms]
+  Passed CreateNewElementTest1 [< 1 ms]
+  Passed GetElementKeyTest [< 1 ms]
+  Passed IsElementNameTest [< 1 ms]
+  Passed ItemTest [< 1 ms]
+  Passed ConstructorTest [< 1 ms]
+  Passed ConstructorWithNullParametersTest1 [< 1 ms]
+  Passed ConstructorWithNullParametersTest3 [< 1 ms]
+  Passed ScheduledAlarmEventHandlerTest [< 1 ms]
+  Passed ConstructorTest [< 1 ms]
+  Passed Execute2Test [1 ms]
+  Passed ExecuteTaskSequenceTest [774 ms]
+  Passed ExecuteTest [< 1 ms]
+  Passed NullParamTest [< 1 ms]
+  Passed TaskSequenceDisposesCodeAfterExecuteTest [< 1 ms]
+  Passed ElapsedEventMockTest [< 1 ms]
+  Passed AddHoursTest [< 1 ms]
+  Passed RaiseEventsFailingTest [< 1 ms]
+  Passed RaiseEventsSynchronizedTest [6 ms]
+  Passed RaiseEventsTest [< 1 ms]
+  Passed ConstructorTest [< 1 ms]
+  Passed ConstructorTest2 [< 1 ms]
+  Passed ConstructorTest3 [< 1 ms]
+  Passed ConstructorTest [< 1 ms]
+  Passed ConstructorTest2 [< 1 ms]
+  Passed ConstructorTest3 [< 1 ms]
+  Passed CreateFromNodeWithoutTypeAttributeTest [< 1 ms]
+CreateInstanceFromGACedAssemblyTest: Creating types from GAC is not tested yet
+  Passed CreateFromNonexistingTypeTest [1 ms]
+  Passed CreateFromNonInterfaceTemplateTest [< 1 ms]
+  Passed CreateFromNonInterfaceTypeTest [< 1 ms]
+  Skipped CreateInstanceFromGACedAssemblyTest [< 1 ms]
+  Passed CreateInstanceTest [< 1 ms]
+  Passed CreateInstanceTest1 [< 1 ms]
+  Passed CreateInstanceTest2 [< 1 ms]
+  Passed CreateInstanceWithNullConfigTest [< 1 ms]
+  Passed CreateInstanceWithNullType2Test [< 1 ms]
+CreateTypeWithBadConstructorTest: Not able to provoke the last exception handler in Factory.CreateInstance(Type typeToCreate, XmlNode config)
+  Passed CreateInstanceWithNullTypeTest [< 1 ms]
+  Skipped CreateTypeWithBadConstructorTest [< 1 ms]
+  Passed CreateTypeWithBadConstructorTest2 [< 1 ms]
+  Passed CreateTypeWithMissingConstructorTest [< 1 ms]
+  Passed CreateTypeWithoutInterfaceTest [< 1 ms]
+  Passed CreateTypeWithoutRequiredConstructorTest [< 1 ms]
+  Passed CreateTypeWithParametersInConstructorTest [< 1 ms]
+  Passed CreateTypeWithTargetInvocationExceptionConstructorTest [< 1 ms]
+  Passed CreateTypeWithZeroParametersInConstructorTest [< 1 ms]
+  Passed CreateWithNullAsStringTest [< 1 ms]
+  Passed CreateWithTypeAsStringTest [< 1 ms]
+  Passed ConstructorTest [< 1 ms]
+  Passed ConstructorTest2 [< 1 ms]
+  Passed ConstructorTest3 [< 1 ms]
+  Passed LogCommentTest [< 1 ms]
+  Passed LogErrorTest [< 1 ms]
+  Passed LogInfoTest [< 1 ms]
+  Passed LogWarningTest [< 1 ms]
+  Passed Dispose_InAlarmEventHandler [3 s]
+CreateFromXmlSampleSchedulesTest: SchedulerFactory.CreateFromXml has been removed. Use CreateFromConfigFile with .NET configuration files instead.
+CreateFromXmlTest: SchedulerFactory.CreateFromXml has been removed. Use CreateFromConfigFile with .NET configuration files instead.
+CreateFromXmlWithBogusFileTest: SchedulerFactory.CreateFromXml has been removed.
+CreateFromXmlWithBogusXpathTest: SchedulerFactory.CreateFromXml has been removed.
+CreateFromXmlWithNullFilenameTest: SchedulerFactory.CreateFromXml has been removed.
+CreateFromXmlWithNullXpathTest: SchedulerFactory.CreateFromXml has been removed.
+  Failed CreateDefaultSchedulerFromConfigFileTest [3 ms]
+  Error Message:
+   System.ArgumentException : Could not locate configuration file '.\DemiCode.Scheduling.test.dll.config' (Parameter 'configFile')
+  Stack Trace:
+     at DemiCode.Scheduling.SchedulerFactory.SchedulerFactoryInternal.CreateFromConfigFile(String configFile, String sectionName) in /home/claude/aigit/Scheduler/DemiCode.Scheduling/SchedulerFactory.cs:line 207
+   at DemiCode.Scheduling.SchedulerFactory.CreateFromConfigFile(String configFile, String sectionName) in /home/claude/aigit/Scheduler/DemiCode.Scheduling/SchedulerFactory.cs:line 340
+   at DemiCode.Scheduling.Test.SchedulerFactoryTest.CreateDefaultSchedulerFromConfigFileTest() in /home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/SchedulerFactoryTest.cs:line 47
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+  Passed CreateDefaultSchedulerFromConfigTest [< 1 ms]
+  Passed CreateFromConfig_CreateNamedScheduler [< 1 ms]
+  Skipped CreateFromXmlSampleSchedulesTest [< 1 ms]
+  Skipped CreateFromXmlTest [< 1 ms]
+  Skipped CreateFromXmlWithBogusFileTest [< 1 ms]
+  Skipped CreateFromXmlWithBogusXpathTest [< 1 ms]
+  Skipped CreateFromXmlWithNullFilenameTest [< 1 ms]
+  Skipped CreateFromXmlWithNullXpathTest [< 1 ms]
+  Failed CreateNamedSchedulerFromConfigFileTest [1 ms]
+  Error Message:
+   System.ArgumentException : Could not locate configuration file '.\DemiCode.Scheduling.test.dll.config' (Parameter 'configFile')
+  Stack Trace:
+     at DemiCode.Scheduling.SchedulerFactory.SchedulerFactoryInternal.CreateFromConfigFile(String configFile, String sectionName, String schedulerName) in /home/claude/aigit/Scheduler/DemiCode.Scheduling/SchedulerFactory.cs:line 229
+   at DemiCode.Scheduling.SchedulerFactory.CreateFromConfigFile(String configFile, String sectionName, String schedulerName) in /home/claude/aigit/Scheduler/DemiCode.Scheduling/SchedulerFactory.cs:line 353
+   at DemiCode.Scheduling.Test.SchedulerFactoryTest.CreateNamedSchedulerFromConfigFileTest() in /home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/SchedulerFactoryTest.cs:line 57
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+  Passed CreateNamedSchedulerFromConfigTest [< 1 ms]
+  Passed CreateSchedulerTest [< 1 ms]
+  Passed CreateSchedulerWithSchedulesTest [< 1 ms]
+  Passed CreateWithNullSchedulerNameTest [< 1 ms]
+  Passed CreateWithNullSectionNameTest [< 1 ms]
+  Passed AddNullTaskTest [< 1 ms]
+  Passed AddRangeTest [< 1 ms]
+  Passed AddRangeToEnabledScheduler [< 1 ms]
+ConstructorWithXmlNodeConfigurationTest: Scheduler(XmlNode) constructor has been removed. Use configuration-based approach instead.
+  Passed AddTaskTest [< 1 ms]
+  Passed AddTest [< 1 ms]
+  Passed AddToEnabledSchedulerTest [< 1 ms]
+  Passed AlarmConstructorTest [< 1 ms]
+  Passed AlarmIntervalRepeatingTest [3 ms]
+  Passed ConstructorTest [< 1 ms]
+  Passed ConstructorWithOneScheduleTest [< 1 ms]
+  Passed ConstructorWithScheduleArrayTest [< 1 ms]
+  Skipped ConstructorWithXmlNodeConfigurationTest [< 1 ms]
+2025-08-31 11:36:51,061 [NonParallelWorker] DEBUG DemiCode.Scheduling.Scheduler [(null)] - Starting scheduler...
+2025-08-31 11:36:51,083 [NonParallelWorker] DEBUG DemiCode.Scheduling.Scheduler [(null)] - Current queue at 20250831 11:36:51:083:
+
+DemiCode.Scheduling.Scheduler 
+DemiCode.Scheduling.Schedules.OneShotSchedule("") CurrentOccurrence = 20250831 11:36:52.058
+
+
+2025-08-31 11:36:51,083 [NonParallelWorker] DEBUG DemiCode.Scheduling.Scheduler [(null)] - Next occurence is 20250831 11:36:52:000
+2025-08-31 11:36:51,083 [NonParallelWorker] DEBUG DemiCode.Scheduling.Scheduler [(null)] - Alarm timer will fire in 916 milliseconds
+2025-08-31 11:36:51,085 [NonParallelWorker] DEBUG DemiCode.Scheduling.Scheduler [(null)] - Scheduler started
+2025-08-31 11:36:52,001 [.NET TP Worker] DEBUG DemiCode.Scheduling.Scheduler [(null)] - Calling DemiCode.Scheduling.Scheduler 
+DemiCode.Scheduling.Schedules.OneShotSchedule("") CurrentOccurrence = 20250831 11:36:52.058
+2025-08-31 11:36:52,003 [.NET TP Worker] DEBUG DemiCode.Scheduling.Scheduler [InAlarmEventHandler] - Signaling schedule  Occurrence 20250831 11:36:52:058 SignalTime 20250831 11:36:52:000 Actual signaltime 20250831 11:36:52:001 
+2025-08-31 11:36:52,003 [.NET TP Worker] DEBUG DemiCode.Scheduling.Scheduler [InAlarmEventHandler] - Calling DemiCode.Scheduling.Test.ScheduledAlarmListener+<>c__DisplayClass11_0
+2025-08-31 11:36:52,003 [.NET TP Worker] DEBUG DemiCode.Scheduling.Scheduler [InAlarmEventHandler] - Handler DemiCode.Scheduling.Test.ScheduledAlarmListener+<>c__DisplayClass11_0 called
+2025-08-31 11:36:52,003 [.NET TP Worker] DEBUG DemiCode.Scheduling.Scheduler [InAlarmEventHandler] - Calling DemiCode.Scheduling.Tasks.TaskHandler
+2025-08-31 11:36:52,003 [.NET TP Worker] DEBUG DemiCode.Scheduling.Tasks.TaskHandler [InAlarmEventHandler] - Executing task 'DemiCode.Scheduling.Test.Mocks.TaskMock'
+2025-08-31 11:36:52,003 [.NET TP Worker] DEBUG DemiCode.Scheduling.Tasks.TaskHandler [InAlarmEventHandler] - Execute successfull
+2025-08-31 11:36:52,003 [.NET TP Worker] DEBUG DemiCode.Scheduling.Scheduler [InAlarmEventHandler] - Handler DemiCode.Scheduling.Tasks.TaskHandler called
+2025-08-31 11:36:52,003 [.NET TP Worker] DEBUG DemiCode.Scheduling.Scheduler [InAlarmEventHandler] - Signaling schedule  done
+2025-08-31 11:36:52,003 [.NET TP Worker] DEBUG DemiCode.Scheduling.Scheduler [InAlarmEventHandler] - Current queue at 20250831 11:36:52:058:
+
+DemiCode.Scheduling.Scheduler
+
+
+2025-08-31 11:36:52,003 [.NET TP Worker] DEBUG DemiCode.Scheduling.Scheduler [InAlarmEventHandler] - Calling DemiCode.Scheduling.Test.ScheduledAlarmListener+<>c__DisplayClass11_0
+2025-08-31 11:36:52,004 [.NET TP Worker] DEBUG DemiCode.Scheduling.Scheduler [InAlarmEventHandler] - Handler DemiCode.Scheduling.Test.ScheduledAlarmListener+<>c__DisplayClass11_0 called
+2025-08-31 11:36:52,004 [.NET TP Worker] DEBUG DemiCode.Scheduling.Scheduler [(null)] - Handler DemiCode.Scheduling.Scheduler called
+
+  Passed CreateDefaultSchedulerFromConfigTest [< 1 ms]
+  Passed CreateFromShortFormatConfigTest [< 1 ms]
+  Passed CreateNamedSchedulerFromConfigTest [< 1 ms]
+  Passed EnabledTest [< 1 ms]
+  Passed EnumeratorTest [< 1 ms]
+  Passed ExecuteTaskFromConfigTest [1 s]
+  Passed ExecuteTaskOnSpecificScheduleFromConfigTest [2 s]
+  Passed ExecuteTaskTest [1 s]
+2025-08-31 11:36:56,499 [NonParallelWorker] DEBUG DemiCode.Scheduling.Scheduler [(null)] - Starting scheduler...
+2025-08-31 11:36:56,499 [NonParallelWorker] DEBUG DemiCode.Scheduling.Scheduler [(null)] - Current queue at 20250831 11:36:56:499:
+
+DemiCode.Scheduling.Scheduler 
+DemiCode.Scheduling.Schedules.IntervalSchedule ("interval")
+CurrentOccurrence = 20250831 11:37:00:000
+FirstOccurrence 20061130 03:50:00:000
+Interval = 00:00:05
+
+
+2025-08-31 11:36:56,499 [NonParallelWorker] DEBUG DemiCode.Scheduling.Scheduler [(null)] - Next occurence is 20250831 11:37:00:000
+2025-08-31 11:36:56,500 [NonParallelWorker] DEBUG DemiCode.Scheduling.Scheduler [(null)] - Alarm timer will fire in 3499 milliseconds
+2025-08-31 11:36:56,500 [NonParallelWorker] DEBUG DemiCode.Scheduling.Scheduler [(null)] - Scheduler started
+2025-08-31 11:36:59,999 [.NET TP Worker] DEBUG DemiCode.Scheduling.Scheduler [(null)] - Calling DemiCode.Scheduling.Scheduler 
+DemiCode.Scheduling.Schedules.IntervalSchedule ("interval")
+CurrentOccurrence = 20250831 11:37:00:000
+FirstOccurrence 20061130 03:50:00:000
+Interval = 00:00:05
+2025-08-31 11:36:59,999 [.NET TP Worker] DEBUG DemiCode.Scheduling.Scheduler [InAlarmEventHandler] - Signaling schedule interval Occurrence 20250831 11:37:00:000 SignalTime 20250831 11:37:00:000 Actual signaltime 20250831 11:36:59:999 
+2025-08-31 11:36:59,999 [.NET TP Worker] DEBUG DemiCode.Scheduling.Scheduler [InAlarmEventHandler] - Calling DemiCode.Scheduling.Tasks.TaskHandler
+2025-08-31 11:36:59,999 [.NET TP Worker] DEBUG DemiCode.Scheduling.Tasks.TaskHandler [InAlarmEventHandler] - Executing task 'DemiCode.Scheduling.Tasks.CodeTask'
+
+  Passed ExecuteWithLog4netLoggingTest [3 s]
+2025-08-31 11:37:00,756 [NonParallelWorker] DEBUG DemiCode.Scheduling.Scheduler [(null)] - Starting scheduler...
+2025-08-31 11:37:00,756 [NonParallelWorker] DEBUG DemiCode.Scheduling.Scheduler [(null)] - Current queue at 20250831 11:37:00:756:
+
+DemiCode.Scheduling.Scheduler 
+DemiCode.Scheduling.Schedules.IntervalSchedule ("one")
+CurrentOccurrence = 20250831 11:37:01:255
+FirstOccurrence 20250831 11:37:01:255
+Interval = 00:00:01 
+DemiCode.Scheduling.Schedules.IntervalSchedule ("two")
+CurrentOccurrence = 20250831 11:37:01:265
+FirstOccurrence 20250831 11:37:01:265
+Interval = 00:00:01
+
+
+2025-08-31 11:37:00,756 [NonParallelWorker] DEBUG DemiCode.Scheduling.Scheduler [(null)] - Next occurence is 20250831 11:37:01:000
+2025-08-31 11:37:00,756 [NonParallelWorker] DEBUG DemiCode.Scheduling.Scheduler [(null)] - Alarm timer will fire in 243 milliseconds
+2025-08-31 11:37:00,756 [NonParallelWorker] DEBUG DemiCode.Scheduling.Scheduler [(null)] - Scheduler started
+2025-08-31 11:37:00,999 [.NET TP Worker] DEBUG DemiCode.Scheduling.Scheduler [(null)] - Calling DemiCode.Scheduling.Scheduler 
+DemiCode.Scheduling.Schedules.IntervalSchedule ("one")
+CurrentOccurrence = 20250831 11:37:01:255
+FirstOccurrence 20250831 11:37:01:255
+Interval = 00:00:01 
+DemiCode.Scheduling.Schedules.IntervalSchedule ("two")
+CurrentOccurrence = 20250831 11:37:01:265
+FirstOccurrence 20250831 11:37:01:265
+Interval = 00:00:01
+2025-08-31 11:37:01,000 [.NET TP Worker] DEBUG DemiCode.Scheduling.Scheduler [InAlarmEventHandler] - Signaling schedule one Occurrence 20250831 11:37:01:255 SignalTime 20250831 11:37:01:000 Actual signaltime 20250831 11:37:00:999 
+2025-08-31 11:37:01,000 [.NET TP Worker] DEBUG DemiCode.Scheduling.Scheduler [InAlarmEventHandler] - Calling DemiCode.Scheduling.Test.ScheduledAlarmListener+<>c__DisplayClass11_0
+2025-08-31 11:37:01,000 [.NET TP Worker] DEBUG DemiCode.Scheduling.Scheduler [InAlarmEventHandler] - Handler DemiCode.Scheduling.Test.ScheduledAlarmListener+<>c__DisplayClass11_0 called
+2025-08-31 11:37:01,000 [.NET TP Worker] DEBUG DemiCode.Scheduling.Scheduler [InAlarmEventHandler] - Signaling schedule one done
+2025-08-31 11:37:01,000 [.NET TP Worker] DEBUG DemiCode.Scheduling.Scheduler [InAlarmEventHandler] - Signaling schedule two Occurrence 20250831 11:37:01:265 SignalTime 20250831 11:37:01:000 Actual signaltime 20250831 11:37:00:999 
+2025-08-31 11:37:01,000 [.NET TP Worker] DEBUG DemiCode.Scheduling.Scheduler [InAlarmEventHandler] - Calling DemiCode.Scheduling.Test.ScheduledAlarmListener+<>c__DisplayClass11_0
+2025-08-31 11:37:01,000 [.NET TP Worker] DEBUG DemiCode.Scheduling.Scheduler [InAlarmEventHandler] - Handler DemiCode.Scheduling.Test.ScheduledAlarmListener+<>c__DisplayClass11_0 called
+2025-08-31 11:37:01,001 [.NET TP Worker] DEBUG DemiCode.Scheduling.Scheduler [InAlarmEventHandler] - Signaling schedule two done
+2025-08-31 11:37:01,001 [NonParallelWorker] DEBUG DemiCode.Scheduling.Scheduler [(null)] - Stopping scheduler...
+2025-08-31 11:37:01,001 [.NET TP Worker] DEBUG DemiCode.Scheduling.Scheduler [InAlarmEventHandler] - Current queue at 20250831 11:37:01:265:
+
+DemiCode.Scheduling.Scheduler 
+DemiCode.Scheduling.Schedules.IntervalSchedule ("one")
+CurrentOccurrence = 20250831 11:37:02:255
+FirstOccurrence 20250831 11:37:01:255
+Interval = 00:00:01 
+DemiCode.Scheduling.Schedules.IntervalSchedule ("two")
+CurrentOccurrence = 20250831 11:37:02:265
+FirstOccurrence 20250831 11:37:01:265
+Interval = 00:00:01
+
+
+2025-08-31 11:37:01,001 [.NET TP Worker] DEBUG DemiCode.Scheduling.Scheduler [InAlarmEventHandler] - Calling DemiCode.Scheduling.Test.ScheduledAlarmListener+<>c__DisplayClass11_0
+2025-08-31 11:37:01,001 [.NET TP Worker] DEBUG DemiCode.Scheduling.Scheduler [InAlarmEventHandler] - Handler DemiCode.Scheduling.Test.ScheduledAlarmListener+<>c__DisplayClass11_0 called
+2025-08-31 11:37:01,001 [.NET TP Worker] DEBUG DemiCode.Scheduling.Scheduler [(null)] - Handler DemiCode.Scheduling.Scheduler 
+DemiCode.Scheduling.Schedules.IntervalSchedule ("one")
+CurrentOccurrence = 20250831 11:37:02:255
+FirstOccurrence 20250831 11:37:01:255
+Interval = 00:00:01 
+DemiCode.Scheduling.Schedules.IntervalSchedule ("two")
+CurrentOccurrence = 20250831 11:37:02:265
+FirstOccurrence 20250831 11:37:01:265
+Interval = 00:00:01 called
+2025-08-31 11:37:01,001 [NonParallelWorker] DEBUG DemiCode.Scheduling.Scheduler [(null)] - Scheduler stopped
+
+  Passed IndexByIndexTest [< 1 ms]
+  Passed IndexByNameTest [< 1 ms]
+  Passed IndexerTest [< 1 ms]
+  Passed IsRunningGivesFalseWhenNoSchedules [< 1 ms]
+  Passed IsRunningTest [< 1 ms]
+  Passed MemoryUsageTest [749 ms]
+  Passed RoundToNearestSecondTest [1 ms]
+  Passed ScheduleByNameIndexerTest [< 1 ms]
+  Passed SchedulesDifferingByMillisecondsTest [246 ms]
+  Passed SchedulesDifferingByTicksTest [1 s]
+2025-08-31 11:37:03,001 [NonParallelWorker] DEBUG DemiCode.Scheduling.Scheduler [(null)] - Starting scheduler...
+2025-08-31 11:37:03,001 [NonParallelWorker] DEBUG DemiCode.Scheduling.Scheduler [(null)] - Current queue at 20250831 11:37:03:001:
+
+DemiCode.Scheduling.Scheduler 
+DemiCode.Scheduling.Schedules.OneShotSchedule("") CurrentOccurrence = 20250831 11:37:03.401
+
+
+2025-08-31 11:37:03,001 [NonParallelWorker] DEBUG DemiCode.Scheduling.Scheduler [(null)] - Next occurence is 20250831 11:37:03:000
+2025-08-31 11:37:03,001 [NonParallelWorker] DEBUG DemiCode.Scheduling.Scheduler [(null)] - Alarm timer fired immediately (interval was -1)
+2025-08-31 11:37:03,002 [NonParallelWorker] DEBUG DemiCode.Scheduling.Scheduler [InAlarmEventHandler] - Signaling schedule  Occurrence 20250831 11:37:03:401 SignalTime 20250831 11:37:03:000 Actual signaltime 20250831 11:37:03:000 
+2025-08-31 11:37:03,002 [NonParallelWorker] DEBUG DemiCode.Scheduling.Scheduler [InAlarmEventHandler] - Calling DemiCode.Scheduling.Test.ScheduledAlarmListener+<>c__DisplayClass11_0
+2025-08-31 11:37:03,002 [NonParallelWorker] DEBUG DemiCode.Scheduling.Scheduler [InAlarmEventHandler] - Handler DemiCode.Scheduling.Test.ScheduledAlarmListener+<>c__DisplayClass11_0 called
+2025-08-31 11:37:03,002 [NonParallelWorker] DEBUG DemiCode.Scheduling.Scheduler [InAlarmEventHandler] - Signaling schedule  done
+2025-08-31 11:37:03,002 [NonParallelWorker] DEBUG DemiCode.Scheduling.Scheduler [InAlarmEventHandler] - Current queue at 20250831 11:37:03:401:
+
+DemiCode.Scheduling.Scheduler
+
+
+2025-08-31 11:37:03,002 [NonParallelWorker] DEBUG DemiCode.Scheduling.Scheduler [InAlarmEventHandler] - Calling DemiCode.Scheduling.Test.ScheduledAlarmListener+<>c__DisplayClass11_0
+2025-08-31 11:37:03,002 [NonParallelWorker] DEBUG DemiCode.Scheduling.Scheduler [InAlarmEventHandler] - Handler DemiCode.Scheduling.Test.ScheduledAlarmListener+<>c__DisplayClass11_0 called
+2025-08-31 11:37:03,002 [NonParallelWorker] DEBUG DemiCode.Scheduling.Scheduler [(null)] - Scheduler started
+
+  Passed SimpleElapsedTest [2 ms]
+  Passed StartTest [< 1 ms]
+  Passed StartWithScheduleAlreadyOverTest [< 1 ms]
+  Passed Stop_CalledDuringOccurence_StopsTheScheduler [3 s]
+NUnit Adapter 4.5.0.0: Test execution complete
+  Passed StopTest [< 1 ms]
+  Passed TaskCountTest [< 1 ms]
+  Passed ToStringTest [< 1 ms]
+  Failed Change [1 ms]
+  Error Message:
+   System.DllNotFoundException : Unable to load shared library 'kernel32.dll' or one of its dependencies. In order to help diagnose loading problems, consider using a tool like strace. If you're using glibc, consider setting the LD_DEBUG environment variable: 
+/usr/lib/dotnet/shared/Microsoft.NETCore.App/8.0.19/kernel32.dll.so: cannot open shared object file: No such file or directory
+/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/bin/Debug/net8.0/kernel32.dll.so: cannot open shared object file: No such file or directory
+/usr/lib/dotnet/shared/Microsoft.NETCore.App/8.0.19/libkernel32.dll.so: cannot open shared object file: No such file or directory
+/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/bin/Debug/net8.0/libkernel32.dll.so: cannot open shared object file: No such file or directory
+/usr/lib/dotnet/shared/Microsoft.NETCore.App/8.0.19/kernel32.dll: cannot open shared object file: No such file or directory
+/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/bin/Debug/net8.0/kernel32.dll: cannot open shared object file: No such file or directory
+/usr/lib/dotnet/shared/Microsoft.NETCore.App/8.0.19/libkernel32.dll: cannot open shared object file: No such file or directory
+/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/bin/Debug/net8.0/libkernel32.dll: cannot open shared object file: No such file or directory
+
+  Stack Trace:
+     at DemiCode.Scheduling.Test.TimeHelper.GetSystemTime(SYSTEMTIME& lpSystemTime)
+   at DemiCode.Scheduling.Test.TimeHelper.GetTime() in /home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/TimeHelper.cs:line 55
+   at DemiCode.Scheduling.Test.TimeHelper.Change(DateTime toDate) in /home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/TimeHelper.cs:line 74
+   at DemiCode.Scheduling.Test.TimeHelperTest.Change() in /home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/TimeHelperTest.cs:line 51
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+  Failed GetTimeTest [1 ms]
+  Error Message:
+   System.DllNotFoundException : Unable to load shared library 'kernel32.dll' or one of its dependencies. In order to help diagnose loading problems, consider using a tool like strace. If you're using glibc, consider setting the LD_DEBUG environment variable: 
+/usr/lib/dotnet/shared/Microsoft.NETCore.App/8.0.19/kernel32.dll.so: cannot open shared object file: No such file or directory
+/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/bin/Debug/net8.0/kernel32.dll.so: cannot open shared object file: No such file or directory
+/usr/lib/dotnet/shared/Microsoft.NETCore.App/8.0.19/libkernel32.dll.so: cannot open shared object file: No such file or directory
+/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/bin/Debug/net8.0/libkernel32.dll.so: cannot open shared object file: No such file or directory
+/usr/lib/dotnet/shared/Microsoft.NETCore.App/8.0.19/kernel32.dll: cannot open shared object file: No such file or directory
+/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/bin/Debug/net8.0/kernel32.dll: cannot open shared object file: No such file or directory
+/usr/lib/dotnet/shared/Microsoft.NETCore.App/8.0.19/libkernel32.dll: cannot open shared object file: No such file or directory
+/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/bin/Debug/net8.0/libkernel32.dll: cannot open shared object file: No such file or directory
+
+  Stack Trace:
+     at DemiCode.Scheduling.Test.TimeHelper.GetSystemTime(SYSTEMTIME& lpSystemTime)
+   at DemiCode.Scheduling.Test.TimeHelper.GetTime() in /home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/TimeHelper.cs:line 55
+   at DemiCode.Scheduling.Test.TimeHelperTest.GetTimeTest() in /home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/TimeHelperTest.cs:line 13
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+  Failed SetTimeTest [< 1 ms]
+  Error Message:
+   System.DllNotFoundException : Unable to load shared library 'kernel32.dll' or one of its dependencies. In order to help diagnose loading problems, consider using a tool like strace. If you're using glibc, consider setting the LD_DEBUG environment variable: 
+/usr/lib/dotnet/shared/Microsoft.NETCore.App/8.0.19/kernel32.dll.so: cannot open shared object file: No such file or directory
+/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/bin/Debug/net8.0/kernel32.dll.so: cannot open shared object file: No such file or directory
+/usr/lib/dotnet/shared/Microsoft.NETCore.App/8.0.19/libkernel32.dll.so: cannot open shared object file: No such file or directory
+/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/bin/Debug/net8.0/libkernel32.dll.so: cannot open shared object file: No such file or directory
+/usr/lib/dotnet/shared/Microsoft.NETCore.App/8.0.19/kernel32.dll: cannot open shared object file: No such file or directory
+/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/bin/Debug/net8.0/kernel32.dll: cannot open shared object file: No such file or directory
+/usr/lib/dotnet/shared/Microsoft.NETCore.App/8.0.19/libkernel32.dll: cannot open shared object file: No such file or directory
+/home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/bin/Debug/net8.0/libkernel32.dll: cannot open shared object file: No such file or directory
+
+  Stack Trace:
+     at DemiCode.Scheduling.Test.TimeHelper.GetSystemTime(SYSTEMTIME& lpSystemTime)
+   at DemiCode.Scheduling.Test.TimeHelper.GetTime() in /home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/TimeHelper.cs:line 55
+   at DemiCode.Scheduling.Test.TimeHelperTest.SetTimeTest() in /home/claude/aigit/Scheduler/DemiCode.Scheduling.Test/TimeHelperTest.cs:line 29
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+
+Total tests: 345
+     Passed: 318
+     Failed: 18
+    Skipped: 9
+ Total time: 1.3495 Minutes

@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "refactor-mcp": {
+      "type": "stdio",
+      "command": "dotnet",
+      "args": [
+        "run",
+        "--project",
+        "/home/claude/github/refactor-mcp/RefactorMCP.ConsoleApp"
+      ],
+      "env": {}
+    }
+  }
+}

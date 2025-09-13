@@ -1,86 +1,84 @@
-﻿using NUnit.Framework;
+﻿using DemiCode.Scheduling.Time;
+using NUnit.Framework;
 using System;
-using System.Text;
-using System.Collections.Generic;
-using DemiCode.Scheduling.Schedules;
-using System.Xml;
-using System.Globalization;
 
 namespace DemiCode.Scheduling.Schedules.Test
 {
     [TestFixture]
     public class MonthlyScheduleTest
     {
-
-        /// <summary>
-        ///A test for the algoritm of GetFirstOfMonth 
-        ///</summary>
-        
-        [Test]
-        public void GetFirstOfMonthTest()
-        {
-            DateTime month = new DateTime(2006, 12, 1);
-            DateTime expected = new DateTime(2006, 12, 1);
-            DateTime first = month.Subtract(TimeSpan.FromDays(month.Day - 1));
-            Assert.AreEqual<DateTime>(expected, first);
-
-            month = new DateTime(2006, 12, 3);
-            expected = new DateTime(2006, 12, 1);
-            first = month.Subtract(TimeSpan.FromDays(month.Day - 1));
-            Assert.AreEqual<DateTime>(expected, first);
-
-            month = new DateTime(2006, 12, 31);
-            expected = new DateTime(2006, 12, 1);
-            first = month.Subtract(TimeSpan.FromDays(month.Day - 1));
-            Assert.AreEqual<DateTime>(expected, first);
-        }
-
         [Test]
         public void EndDateIsOptionalTest()
         {
-            //Initialize.
-            MonthlySchedule schedule = new MonthlySchedule(new DateTime(2006, 1, 1), DateTime.MaxValue);
-            AssertSuccess(schedule, new DateTime(2206, 9, 18, 11, 00, 00), new DateTime(2206, 9, 1, 11, 00, 00));
-         
+            var schedule = new MonthlySchedule(Dt.At(2006, 1, 1), DateTime.MaxValue);
+
+            var result = schedule.MoveToFirstFrom(Dt.At(2206, 9, 18, 11));
+
+            Assert.That(result, Is.True);
+            Assert.That(schedule.CurrentOccurrence, Is.EqualTo(Dt.At(2206, 10, 1)));
+        }
+
+        [Test]
+        public void MoveToFirstFrom_BeforeStart_MovesToStart()
+        {
+            var schedule = new MonthlySchedule(Dt.At(2006, 1, 1), DateTime.MaxValue);
+
+            var result = schedule.MoveToFirstFrom(Dt.At(1906, 9, 18, 11));
+
+            Assert.That(result, Is.True);
+            Assert.That(schedule.CurrentOccurrence, Is.EqualTo(Dt.At(2006, 1, 1)));
+        }
+
+
+        [Test]
+        public void MoveToFirstFrom_AfterEnd_YieldsNoResult()
+        {
+            var schedule = new MonthlySchedule(Dt.At(2006, 1, 1), Dt.At(2006, 12, 1));
+
+            var result = schedule.MoveToFirstFrom(Dt.At(2010));
+
+            Assert.That(result, Is.False);
+            Assert.That(schedule.CurrentOccurrence, Is.EqualTo(DateTime.MaxValue));
         }
 
         /// <summary>
-        ///A test for MoveToFirstFrom (DateTime)
-        ///</summary>
-        [Test]
-        public void MoveToFirstFromTest1()
+        /// Validate the behavior of the MonthlySchedule class.
+        /// Depending on the starting date, the behavior of the schedule may vary.
+        /// For regular days, the schedule will move to the same day of the next month.
+        /// For end-of-the-month days, the schedule will move to the last day of month we are moving to.
+        /// Exception to this rule is February (28th or 29th on Leap Years), which will always move to the 28th or 29th of the target month.
+        /// </summary>
+        [TestCase(2001, 1, 1, 9, 3, 10, 1, TestName = "When schedule starts at January 1st, moving from September 3rd will end on October 1st")]
+        [TestCase(2001, 1, 1, 10, 1, 11, 1, TestName = "When schedule starts at January 1st, moving from October 1st will end on November 1st")]
+        [TestCase(2001, 1, 1, 10, 2, 11, 1, TestName = "When schedule starts at January 1st, moving from October 2nd will end on November 1st")]
+        [TestCase(2001, 1, 8, 1, 2, 1, 8, TestName = "When schedule starts at January 8th, moving from January 2nd will end on January 8th")]
+        [TestCase(2001, 1, 31, 2, 3, 2, 28, TestName = "When schedule starts at January 31st, moving from February 3rd will end on February 28th")]
+        [TestCase(2001, 1, 31, 9, 30, 10, 31, TestName = "When schedule starts at January 31st, moving from September 30th will end on October 31st")]
+        [TestCase(2001, 1, 31, 10, 1, 10, 31, TestName = "When schedule starts at January 31st, moving from October 1st will end on October 31st")]
+        [TestCase(2001, 1, 31, 10, 31, 11, 30, TestName = "When schedule starts at January 31st, moving from October 31st will move to November 30th (because November 31st does not exist)")]
+        [TestCase(2001, 1, 31, 11, 1, 11, 30, TestName = "When schedule starts at January 31st, moving from November 1st will move to November 30th (because November 31st does not exist)")]
+        [TestCase(2001, 4, 30, 9, 30, 10, 30, TestName = "When schedule starts at April 30th, moving from September 30th will end on October 30th")]
+        [TestCase(2001, 4, 30, 10, 1, 10, 30, TestName = "When schedule starts at April 30th, moving from October 1st will end on October 30th")]
+        [TestCase(2001, 4, 30, 10, 31, 11, 30, TestName = "When schedule starts at April 30th, moving from October 31st will move to November 30th")]
+        [TestCase(2001, 4, 30, 11, 1, 11, 30, TestName = "When schedule starts at April 30th, moving from November 1st will move to November 30th")]
+        [TestCase(2001, 2, 28, 9, 30, 10, 28, TestName = "When schedule starts at February 28th, moving from September 30th will end on October 28th")]
+        [TestCase(2001, 2, 28, 10, 1, 10, 28, TestName = "When schedule starts at February 28th, moving from October 1st will end on October 28th")]
+        [TestCase(2001, 2, 28, 10, 31, 11, 28, TestName = "When schedule starts at February 28th, moving from October 31st will move to November 28th")]
+        [TestCase(2001, 2, 28, 11, 1, 11, 28, TestName = "When schedule starts at February 28th, moving from November 1st will move to November 28th")]
+        [TestCase(2000, 2, 29, 9, 30, 10, 29, TestName = "When schedule starts at February 29th, moving from September 30th will end on October 29th")]
+        [TestCase(2000, 2, 29, 10, 1, 10, 29, TestName = "When schedule starts at February 29th, moving from October 1st will end on October 29th")]
+        [TestCase(2000, 2, 29, 10, 31, 11, 29, TestName = "When schedule starts at February 29th, moving from October 31st will move to November 29th")]
+        [TestCase(2000, 2, 29, 11, 1, 11, 29, TestName = "When schedule starts at February 29th, moving from November 1st will move to November 29th")]
+        public void MoveToFirstFrom(int year, int fromMonth, int fromDay, int moveToFirstFromMonth, int moveToFirstFromDay, int expectedMonth, int expectedDay)
         {
-            //Initialize.
-            MonthlySchedule schedule = new MonthlySchedule(new DateTime(2006, 1, 1), new DateTime(2006, 12, 31));
+            var schedule = new MonthlySchedule(Dt.At(year, fromMonth, fromDay), Dt.At(year, 12, 31));
 
-            //Start testing
-            //A monday
-            AssertSuccess(schedule, new DateTime(2006, 9, 18, 11, 00, 00), new DateTime(2006, 10, 1, 0, 00, 00));
-            AssertSuccess(schedule, new DateTime(2006, 9, 18, 20, 00, 00).AddTicks(-1L), new DateTime(2006, 9, 18, 20, 00, 00));
-            AssertSuccess(schedule, new DateTime(2006, 9, 18, 20, 00, 00), new DateTime(2006, 9, 18, 20, 00, 00));
-            AssertSuccess(schedule, new DateTime(2006, 9, 18, 20, 00, 00).AddTicks(1L), new DateTime(2006, 9, 20, 20, 00, 00));
-            AssertSuccess(schedule, new DateTime(2006, 9, 18, 22, 00, 00), new DateTime(2006, 9, 20, 20, 00, 00));
+            var result = schedule.MoveToFirstFrom(Dt.At(year, moveToFirstFromMonth, moveToFirstFromDay));
 
-            //A tuesday
-            AssertSuccess(schedule, new DateTime(2006, 9, 19, 11, 00, 00), new DateTime(2006, 9, 20, 20, 00, 00));
-            AssertSuccess(schedule, new DateTime(2006, 9, 19, 20, 00, 00).AddTicks(-1L), new DateTime(2006, 9, 20, 20, 00, 00));
-            AssertSuccess(schedule, new DateTime(2006, 9, 19, 20, 00, 00), new DateTime(2006, 9, 20, 20, 00, 00));
-            AssertSuccess(schedule, new DateTime(2006, 9, 19, 20, 00, 00).AddTicks(1L), new DateTime(2006, 9, 20, 20, 00, 00));
-            AssertSuccess(schedule, new DateTime(2006, 9, 19, 22, 00, 00), new DateTime(2006, 9, 20, 20, 00, 00));
-
-            //A saturday
-            AssertSuccess(schedule, new DateTime(2010, 9, 25, 11, 00, 00), new DateTime(2010, 9, 25, 20, 00, 00));
-            AssertSuccess(schedule, new DateTime(2010, 9, 25, 20, 00, 00).AddTicks(-1L), new DateTime(2010, 9, 25, 20, 00, 00));
-            AssertSuccess(schedule, new DateTime(2010, 9, 25, 20, 00, 00), new DateTime(2010, 9, 25, 20, 00, 00));
-            AssertSuccess(schedule, new DateTime(2010, 9, 25, 20, 00, 00).AddTicks(1L), new DateTime(2010, 9, 27, 20, 00, 00));
-            AssertSuccess(schedule, new DateTime(2010, 9, 25, 22, 00, 00), new DateTime(2010, 9, 27, 20, 00, 00));
+            Assert.That(result, Is.True);
+            Assert.That(schedule.CurrentOccurrence.Year, Is.EqualTo(year));
+            Assert.That(schedule.CurrentOccurrence.Month, Is.EqualTo(expectedMonth));
+            Assert.That(schedule.CurrentOccurrence.Day, Is.EqualTo(expectedDay));
         }
-
-        private void AssertSuccess(ISchedule instance, DateTime targetTime, DateTime expectedTime)
-        {
-            Assert.IsTrue(instance.MoveToFirstFrom(targetTime));
-            Assert.AreEqual<DateTime>(expectedTime, instance.CurrentOccurrence);
-        }
-
     }
 }

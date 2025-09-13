@@ -1,6 +1,6 @@
 using System;
+using System.Runtime.InteropServices;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 
 namespace DemiCode.Scheduling.Test
 {
@@ -10,6 +10,9 @@ namespace DemiCode.Scheduling.Test
         [Test]
         public void GetTimeTest()
         {
+            if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+                Assert.Ignore("System time manipulation is only supported on Windows");
+
             DateTime expetedNow = DateTime.Now.ToUniversalTime();
             DateTime now = TimeHelper.GetTime();
 
@@ -27,6 +30,9 @@ namespace DemiCode.Scheduling.Test
         [Test]
         public void SetTimeTest()
         {
+            if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+                Assert.Ignore("System time manipulation is only supported on Windows");
+
             DateTime originalNow = TimeHelper.GetTime().ToUniversalTime();
             DateTime modifiedNow = originalNow.AddHours(1);
 
@@ -46,6 +52,9 @@ namespace DemiCode.Scheduling.Test
         [Test]
         public void Change()
         {
+            if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+                Assert.Ignore("System time manipulation is only supported on Windows");
+
             var originalDate = DateTime.Now;
             var newDate = new DateTime(2008, 1, 1, 0, 0, 0, DateTimeKind.Utc);
 

@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using DemiCode.Logging.Loggers;
+using DemiCode.Logging;  // Use ILoggerFactory from DemiCode.Shared
 using DemiCode.Logging.Test.Mocks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -92,7 +92,7 @@ namespace DemiCode.Scheduling.Loggers.Test
         [TestMethod]
         public void AddTest()
         {
-            ILoggerFactory factory = new LoggerFactoryMock();
+            ILoggerFactory factory = (ILoggerFactory)new LoggerFactoryMock();
             LoggerFactoryCollection target = new LoggerFactoryCollection();
             target.Add(factory);
         }

@@ -3,7 +3,6 @@ using DemiCode.Scheduling.Tasks;
 using DemiCode.Scheduling.Test;
 using DemiCode.Scheduling.Test.Mocks;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 
 namespace DemiCode.Scheduling.Configuration.Tasks.Test
 {
@@ -25,7 +24,7 @@ namespace DemiCode.Scheduling.Configuration.Tasks.Test
             target.TaskType = typeof(TaskMock);
             ITask val = target.GetTaskInstance();
             Assert.IsNotNull(val);
-            Assert.IsInstanceOfType(typeof(TaskMock), val);
+            Assert.IsInstanceOf<TaskMock>(val);
         }
 
         [Test]
@@ -34,7 +33,7 @@ namespace DemiCode.Scheduling.Configuration.Tasks.Test
             var target = new TaskElement(typeof(TaskMock));
             ITask val = target.GetTaskInstance();
             Assert.IsNotNull(val);
-            Assert.IsInstanceOfType(typeof(TaskMock), val);
+            Assert.IsInstanceOf<TaskMock>(val);
         }
 
         [Test]
@@ -44,7 +43,7 @@ namespace DemiCode.Scheduling.Configuration.Tasks.Test
 
             var val = target.GetTaskInstance();
             Assert.IsNotNull(val);
-            Assert.IsInstanceOfType(typeof(TaskMock), val);
+            Assert.IsInstanceOf<TaskMock>(val);
             var task = (TaskMock)val;
             Assert.AreEqual("param0Value", task.Param0);
         }
@@ -53,13 +52,26 @@ namespace DemiCode.Scheduling.Configuration.Tasks.Test
         ///A test for OnDeserializeUnrecognizedAttribute (string, string)
         ///</summary>
         
+        // Test helper class to expose protected methods for testing
+        private class TestableTaskElement : TaskElement
+        {
+            public bool TestOnDeserializeUnrecognizedAttribute(string name, string value)
+            {
+                return OnDeserializeUnrecognizedAttribute(name, value);
+            }
+            
+            public object TestOnRequiredPropertyNotFound(string name)
+            {
+                return OnRequiredPropertyNotFound(name);
+            }
+        }
+        
         [Test]
         public void OnDeserializeUnrecognizedAttributeTest()
         {
-            TaskElement target = new TaskElement();
-            DemiCode_Scheduling_Configuration_TaskElementAccessor accessor = new DemiCode_Scheduling_Configuration_TaskElementAccessor(target);
+            var target = new TestableTaskElement();
 
-            Assert.IsTrue(accessor.OnDeserializeUnrecognizedAttribute("attributeName", "attributeValue"));
+            Assert.IsTrue(target.TestOnDeserializeUnrecognizedAttribute("attributeName", "attributeValue"));
             Assert.IsTrue(target.Parameters.ContainsKey("attributeName"));
             Assert.AreEqual("attributeValue", target.Parameters["attributeName"]);
         }
@@ -69,13 +81,13 @@ namespace DemiCode.Scheduling.Configuration.Tasks.Test
         ///</summary>
         
         [Test]
-        [ExpectedException(typeof(ConfigurationErrorsException))]
         public void OnRequiredPropertyNotFoundTest()
         {
-            var target = new TaskElement();
-            var accessor = new DemiCode_Scheduling_Configuration_TaskElementAccessor(target);
-
-            var actual = accessor.OnRequiredPropertyNotFound("someotherprop");
+            Assert.Throws<ConfigurationErrorsException>(() =>
+            {
+                var target = new TestableTaskElement();
+                var actual = target.TestOnRequiredPropertyNotFound("someotherprop");
+            });
         }
 
         /// <summary>
@@ -84,12 +96,11 @@ namespace DemiCode.Scheduling.Configuration.Tasks.Test
         [Test]
         public void ParametersTest()
         {
-            var target = new TaskElement();
-            DemiCode_Scheduling_Configuration_TaskElementAccessor accessor = new DemiCode_Scheduling_Configuration_TaskElementAccessor(target);
+            var target = new TestableTaskElement();
 
             Assert.IsNotNull(target.Parameters);
 
-            accessor.OnDeserializeUnrecognizedAttribute("attrib", "value");
+            target.TestOnDeserializeUnrecognizedAttribute("attrib", "value");
 
             // The default Task parameter and our new 'attrib/value' parameter
             Assert.AreEqual(2, target.Parameters.Count);

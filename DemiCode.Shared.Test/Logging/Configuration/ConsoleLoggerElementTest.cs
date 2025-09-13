@@ -17,7 +17,7 @@ namespace DemiCode.Logging.Configuration.Test
         {
             ILoggerFactory factory = new ConsoleLoggerElement().GetLoggerInstance();
             Assert.IsNotNull(factory);
-            Assert.IsInstanceOfType(typeof(ConsoleLoggerFactory), factory);
+            Assert.IsInstanceOf<ConsoleLoggerFactory>(factory);
         }
 
         [Test]

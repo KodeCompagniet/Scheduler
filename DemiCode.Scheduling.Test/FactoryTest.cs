@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Reflection;
 using System.Xml;
 using DemiCode.Scheduling.Test.Mocks;
@@ -40,34 +41,40 @@ namespace DemiCode.Scheduling.Test
         ///A test for CreateInstance&lt;&gt; (Type, XmlNode) with type parameter == null
         ///</summary>
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void CreateInstanceWithNullTypeTest()
         {
-            XmlNode configurationNode = LoadConfigurationNode();
-            Type typeToCreate = null;
-            IConfigurableMock target = Factory.CreateInstance<IConfigurableMock>(typeToCreate, configurationNode);
+            Assert.Throws<ArgumentNullException>(() =>
+            {
+                XmlNode configurationNode = LoadConfigurationNode();
+                Type typeToCreate = null;
+                IConfigurableMock target = Factory.CreateInstance<IConfigurableMock>(typeToCreate, configurationNode);
+            });
         }
 
         /// <summary>
         ///A test for CreateInstance&lt;&gt; (Type, XmlNode) with type parameter == null
         ///</summary>
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void CreateInstanceWithNullType2Test()
         {
-            Type typeToCreate = null;
-            IConfigurableMock target = Factory.CreateInstance<IConfigurableMock>(typeToCreate);
+            Assert.Throws<ArgumentNullException>(() =>
+            {
+                Type typeToCreate = null;
+                IConfigurableMock target = Factory.CreateInstance<IConfigurableMock>(typeToCreate);
+            });
         }
 
         /// <summary>
         ///A test for CreateInstance&lt;&gt; (Type, XmlNode) with type config == null
         ///</summary>
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void CreateInstanceWithNullConfigTest()
         {
-            XmlNode config = null;
-            IConfigurableMock target = Factory.CreateInstance<IConfigurableMock>(typeof(ConfigurableMock), config);
+            Assert.Throws<ArgumentNullException>(() =>
+            {
+                XmlNode config = null;
+                IConfigurableMock target = Factory.CreateInstance<IConfigurableMock>(typeof(ConfigurableMock), config);
+            });
         }
 
         [Test]
@@ -78,11 +85,13 @@ namespace DemiCode.Scheduling.Test
         }
 
         [Test]
-        [ExpectedException(typeof (ArgumentNullException))]
         public void CreateWithNullAsStringTest()
         {
-            string type = null;
-            Factory.CreateInstance<SimpleClass>(type);
+            Assert.Throws<ArgumentNullException>(() =>
+            {
+                string type = null;
+                Factory.CreateInstance<SimpleClass>(type);
+            });
         }
 
         /// <summary>
@@ -110,37 +119,44 @@ namespace DemiCode.Scheduling.Test
         }
 
         [Test]
-        [ExpectedException(typeof(FactoryException))]
         public void CreateTypeWithoutRequiredConstructorTest()
         {
-            XmlNode configurationNode = LoadConfigurationNode("TestData/NoValidConstructorTest");
-            IConfigurableMock target = Factory.CreateInstance<IConfigurableMock>(configurationNode);
+            Assert.Throws<FactoryException>(() =>
+            {
+                XmlNode configurationNode = LoadConfigurationNode("TestData/NoValidConstructorTest");
+                IConfigurableMock target = Factory.CreateInstance<IConfigurableMock>(configurationNode);
+            });
         }
 
         [Test]
-        
-        [ExpectedException(typeof(FactoryConfigurationException))]
         public void CreateFromNodeWithoutTypeAttributeTest()
         {
-            XmlNode configurationNode = LoadConfigurationNode("TestData/NoTypeAttribTest");
-            IConfigurableMock target = Factory.CreateInstance<IConfigurableMock>(configurationNode);
+            Assert.Throws<FactoryConfigurationException>(() =>
+            {
+                XmlNode configurationNode = LoadConfigurationNode("TestData/NoTypeAttribTest");
+                IConfigurableMock target = Factory.CreateInstance<IConfigurableMock>(configurationNode);
+            });
         }
 
         [Test]
-        [ExpectedException(typeof(FactoryException))]
         public void CreateFromNonexistingTypeTest()
         {
-            string typeName = "SomeBogusType";
-            XmlNode configurationNode = LoadConfigurationNode("TestData/ConfigurationTest");
-            IConfigurableMock target = Factory.CreateInstance<IConfigurableMock>(typeName, configurationNode);
+            Assert.Throws<FactoryException>(() =>
+            {
+                string typeName = "SomeBogusType";
+                XmlNode configurationNode = LoadConfigurationNode("TestData/ConfigurationTest");
+                IConfigurableMock target = Factory.CreateInstance<IConfigurableMock>(typeName, configurationNode);
+            });
         }
 
         [Test]
-        [ExpectedException(typeof(FactoryException))]
         public void CreateFromNonInterfaceTemplateTest()
         {
-            XmlNode configurationNode = LoadConfigurationNode("TestData/ConfigurationTest");
-            String target = Factory.CreateInstance<String>(configurationNode);
+            Assert.Throws<FactoryException>(() =>
+            {
+                XmlNode configurationNode = LoadConfigurationNode("TestData/ConfigurationTest");
+                String target = Factory.CreateInstance<String>(configurationNode);
+            });
         }
 
         [Test]
@@ -154,11 +170,13 @@ namespace DemiCode.Scheduling.Test
         /// and should thus fail.
         /// </summary>
         [Test]
-        [ExpectedException(typeof(FactoryException))]
         public void CreateTypeWithoutInterfaceTest()
         {
-            XmlNode configurationNode = LoadConfigurationNode();
-            ISecondConfigurableMock target = Factory.CreateInstance<ISecondConfigurableMock>(configurationNode);
+            Assert.Throws<FactoryException>(() =>
+            {
+                XmlNode configurationNode = LoadConfigurationNode();
+                ISecondConfigurableMock target = Factory.CreateInstance<ISecondConfigurableMock>(configurationNode);
+            });
         }
 
         /// <summary>
@@ -166,11 +184,13 @@ namespace DemiCode.Scheduling.Test
         /// the exception handler.
         /// </summary>
         [Test]
-        [ExpectedException(typeof(FactoryException))]
         public void CreateTypeWithTargetInvocationExceptionConstructorTest()
         {
-            XmlNode configurationNode = LoadConfigurationNode("TestData/TargetInvocationExceptionTest");
-            IConfigurableMock target = Factory.CreateInstance<IConfigurableMock>(configurationNode);
+            Assert.Throws<FactoryException>(() =>
+            {
+                XmlNode configurationNode = LoadConfigurationNode("TestData/TargetInvocationExceptionTest");
+                IConfigurableMock target = Factory.CreateInstance<IConfigurableMock>(configurationNode);
+            });
         }
 
         /// <summary>
@@ -179,11 +199,13 @@ namespace DemiCode.Scheduling.Test
         /// </summary>
         [Test]
         [Ignore("Not able to provoke the last exception handler in Factory.CreateInstance(Type typeToCreate, XmlNode config)")]
-        [ExpectedException(typeof(FactoryException))]
         public void CreateTypeWithBadConstructorTest()
         {
-            XmlNode configurationNode = LoadConfigurationNode("TestData/BadConstructorTest");
-            IConfigurableMock target = Factory.CreateInstance<IConfigurableMock>(configurationNode);
+            Assert.Throws<FactoryException>(() =>
+            {
+                XmlNode configurationNode = LoadConfigurationNode("TestData/BadConstructorTest");
+                IConfigurableMock target = Factory.CreateInstance<IConfigurableMock>(configurationNode);
+            });
         }
 
         [Test]
@@ -196,10 +218,12 @@ namespace DemiCode.Scheduling.Test
         }
 
         [Test]
-        [ExpectedException(typeof (FactoryException))]
         public void CreateTypeWithBadConstructorTest2()
         {
-            Factory.CreateInstance<SimpleClass>(typeof(SimpleClass), true);
+            Assert.Throws<FactoryException>(() =>
+            {
+                Factory.CreateInstance<SimpleClass>(typeof(SimpleClass), true);
+            });
         }
 
         [Test]
@@ -211,10 +235,12 @@ namespace DemiCode.Scheduling.Test
         }
 
         [Test]
-        [ExpectedException(typeof(FactoryException))]
         public void CreateTypeWithMissingConstructorTest()
         {
-            Factory.CreateInstance<SimpleClass>(typeof(SimpleClass), "paramValue", 10, 20, 30, 40);
+            Assert.Throws<FactoryException>(() =>
+            {
+                Factory.CreateInstance<SimpleClass>(typeof(SimpleClass), "paramValue", 10, 20, 30, 40);
+            });
         }
 
         private static XmlNode LoadConfigurationNode()
@@ -225,7 +251,7 @@ namespace DemiCode.Scheduling.Test
         private static XmlNode LoadConfigurationNode(string xpath)
         {
             XmlDocument xd = new XmlDocument();
-            xd.Load(@"TestData\FactoryConfiguration.xml");
+            xd.Load(Path.Combine("TestData", "FactoryConfiguration.xml"));
             XmlNode configurationNode = xd.SelectSingleNode(xpath);
             return configurationNode;
         }

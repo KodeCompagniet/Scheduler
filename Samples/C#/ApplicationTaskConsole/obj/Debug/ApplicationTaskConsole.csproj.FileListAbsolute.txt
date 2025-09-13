@@ -1,7 +1,0 @@
-C:\Users\peter\Work\KC\DemiCode.Scheduler\Samples\C#\ApplicationTaskConsole\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\peter\Work\KC\DemiCode.Scheduler\Samples\C#\ApplicationTaskConsole\bin\Debug\ApplicationTaskConsole.exe
-C:\Users\peter\Work\KC\DemiCode.Scheduler\Samples\C#\ApplicationTaskConsole\bin\Debug\ApplicationTaskConsole.pdb
-C:\Users\peter\Work\KC\DemiCode.Scheduler\Samples\C#\ApplicationTaskConsole\bin\Debug\ApplicationTaskConsole.exe.config
-C:\Users\peter\Work\KC\DemiCode.Scheduler\Samples\C#\ApplicationTaskConsole\obj\Debug\ApplicationTaskConsole.exe
-C:\Users\peter\Work\KC\DemiCode.Scheduler\Samples\C#\ApplicationTaskConsole\obj\Debug\ApplicationTaskConsole.pdb
-C:\Users\peter\Work\KC\DemiCode.Scheduler\Samples\C#\ApplicationTaskConsole\bin\Debug\DemiCode.Scheduling.dll

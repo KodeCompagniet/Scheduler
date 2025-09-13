@@ -46,7 +46,12 @@ namespace DemiCode.Scheduling.Configuration
 
         private static FileInfo GetConfigFileInfo()
         {
+#if NETSTANDARD2_0
+            var configFile = System.Configuration.ConfigurationManager.OpenExeConfiguration(System.Configuration.ConfigurationUserLevel.None).FilePath;
+            return new FileInfo(configFile);
+#else
             return new FileInfo(AppDomain.CurrentDomain.SetupInformation.ConfigurationFile);
+#endif
         }
 
         private void Watcher_OnChanged(object source, FileSystemEventArgs e)

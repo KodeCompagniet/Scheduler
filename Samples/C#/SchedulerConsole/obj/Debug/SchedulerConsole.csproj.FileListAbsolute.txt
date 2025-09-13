@@ -1,6 +1,0 @@
-C:\Users\peter\Work\KC\DemiCode.Scheduler\Samples\C#\SchedulerConsole\bin\Debug\SchedulerConsole.exe.config
-C:\Users\peter\Work\KC\DemiCode.Scheduler\Samples\C#\SchedulerConsole\bin\Debug\SchedulerConsole.exe
-C:\Users\peter\Work\KC\DemiCode.Scheduler\Samples\C#\SchedulerConsole\bin\Debug\SchedulerConsole.pdb
-C:\Users\peter\Work\KC\DemiCode.Scheduler\Samples\C#\SchedulerConsole\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\peter\Work\KC\DemiCode.Scheduler\Samples\C#\SchedulerConsole\obj\Debug\SchedulerConsole.exe
-C:\Users\peter\Work\KC\DemiCode.Scheduler\Samples\C#\SchedulerConsole\obj\Debug\SchedulerConsole.pdb

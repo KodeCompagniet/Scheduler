@@ -272,7 +272,7 @@ namespace DemiCode.Scheduling
         /// Creates an empty Scheduler object.
         /// </summary>
         internal Scheduler()
-            : this(new AlarmTimer(), null, null, null, null)
+            : this(new AlarmTimer(), null, null, null)
         {
         }
 
@@ -280,7 +280,7 @@ namespace DemiCode.Scheduling
         /// Creates an empty Scheduler object configured with the specified alarm timer instance.
         /// </summary>
         internal Scheduler(IAlarmTimer alarmTimer)
-            : this(null, alarmTimer, null, null, null)
+            : this(null, alarmTimer, null, null)
         {
         }
 
@@ -288,7 +288,7 @@ namespace DemiCode.Scheduling
         /// Creates an empty Scheduler object configured with the specified alarm timer instance.
         /// </summary>
         internal Scheduler(IAlarmTimer alarmTimer, ITimeProvider timeProvider)
-            : this(null, alarmTimer, timeProvider, null, null)
+            : this(null, alarmTimer, timeProvider, null)
         {
         }
 
@@ -296,7 +296,7 @@ namespace DemiCode.Scheduling
         /// Creates an empty Scheduler object configured with the specified alarm timer instance.
         /// </summary>
         internal Scheduler(IAlarmTimer alarmTimer, ITimeProvider timeProvider, ILoggerFactory loggerFactory)
-            : this(null, alarmTimer, timeProvider, loggerFactory, null)
+            : this(null, alarmTimer, timeProvider, loggerFactory)
         {
         }
 
@@ -325,13 +325,7 @@ namespace DemiCode.Scheduling
         /// </summary>
         /// <param name="schedules">A collection of ISchedule objects</param>
         internal Scheduler(IEnumerable<ISchedule> schedules)
-            : this(schedules, null)
-        { }
-        /// <summary>
-        /// Creates a Scheduler object initialized with a collection of schedules.
-        /// </summary>
-        /// <param name="schedules">A collection of ISchedule objects</param>
-        internal Scheduler(IEnumerable<ISchedule> schedules)
+            : this()
         {
             AddRange(schedules);
         }

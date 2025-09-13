@@ -1,6 +1,6 @@
 using System;
 using System.Configuration;
-using DemiCode.Shared.Configuration;
+using DemiCode.Configuration;
 
 namespace DemiCode.Logging.Configuration.Loggers
 {

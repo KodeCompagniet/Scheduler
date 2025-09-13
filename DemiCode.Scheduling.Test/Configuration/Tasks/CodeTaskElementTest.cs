@@ -1,7 +1,6 @@
 ﻿using DemiCode.Scheduling.Tasks;
 using DemiCode.Scheduling.Test.Mocks;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 
 namespace DemiCode.Scheduling.Configuration.Tasks.Test
 {
@@ -20,7 +19,7 @@ namespace DemiCode.Scheduling.Configuration.Tasks.Test
         {
             var target = new CodeTaskElement(GetType(), "ConstructorTest3");
             var task = target.GetTaskInstance();
-            Assert.That(task, Is.InstanceOfType(typeof(CodeTask)));
+            Assert.That(task, Is.InstanceOf<CodeTask>());
         }
 
         [Test]

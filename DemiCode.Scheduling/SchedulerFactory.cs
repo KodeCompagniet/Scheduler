@@ -238,7 +238,7 @@ namespace DemiCode.Scheduling
 
         }
 
-        private static readonly ISchedulerFactory DefaultFactory = new SchedulerFactoryInternal(null);
+        private static readonly ISchedulerFactory DefaultFactory = new SchedulerFactoryInternal();
 
         /// <summary>
         /// Creates a Scheduler with schedules from the application configuration file.

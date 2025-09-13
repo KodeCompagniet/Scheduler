@@ -66,7 +66,7 @@ namespace DemiCode.Scheduling.Tasks.Test
         {
             using (Scheduler scheduler = new Scheduler())
             {
-                TaskCollection target = DemiCode_Scheduling_Tasks_TaskCollectionAccessor.CreatePrivate(scheduler);
+                TaskCollection target = new TaskCollection(scheduler);
                 ITask task = new TaskMock();
                 target.Add(task);
 
@@ -82,7 +82,7 @@ namespace DemiCode.Scheduling.Tasks.Test
         {
             using (Scheduler scheduler = new Scheduler())
             {
-                var taskCollection = DemiCode_Scheduling_Tasks_TaskCollectionAccessor.CreatePrivate(scheduler);
+                var taskCollection = new TaskCollection(scheduler);
                 var tasks = new[]{ new TaskMock(), new TaskMock() };
                 taskCollection.AddRange(tasks);
 
@@ -102,7 +102,7 @@ namespace DemiCode.Scheduling.Tasks.Test
                 scheduler.Add(new IntervalSchedule("s1", DateTime.Now, TimeSpan.FromSeconds(5)));
                 scheduler.Add(new IntervalSchedule("s2", DateTime.Now, TimeSpan.FromSeconds(10)));
 
-                var taskCollection = DemiCode_Scheduling_Tasks_TaskCollectionAccessor.CreatePrivate(scheduler);
+                var taskCollection = new TaskCollection(scheduler);
                 var tasks = new[] { new TaskMock(), new TaskMock() };
                 taskCollection.AddRange(tasks, "s1");
                 taskCollection.AddRange(tasks, "s2");
@@ -119,7 +119,7 @@ namespace DemiCode.Scheduling.Tasks.Test
         {
             using (Scheduler scheduler = new Scheduler())
             {
-                TaskCollection target = DemiCode_Scheduling_Tasks_TaskCollectionAccessor.CreatePrivate(scheduler);
+                TaskCollection target = new TaskCollection(scheduler);
 
                 ITask task = new TaskMock();
                 IDictionary parameters = new Dictionary<string, string>();
@@ -139,7 +139,7 @@ namespace DemiCode.Scheduling.Tasks.Test
             using (Scheduler scheduler = new Scheduler())
             {
                 scheduler.Add(new NamedOneShotSchedule("scheduletest"));
-                TaskCollection target = DemiCode_Scheduling_Tasks_TaskCollectionAccessor.CreatePrivate(scheduler);
+                TaskCollection target = new TaskCollection(scheduler);
 
                 ITask task = new TaskMock();
                 IDictionary parameters = new Dictionary<string, string>();
@@ -152,75 +152,87 @@ namespace DemiCode.Scheduling.Tasks.Test
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentException))]
         public void AddWithInvalidScheduleNameTest()
         {
-            using (Scheduler scheduler = new Scheduler())
+            Assert.Throws<ArgumentException>(() =>
             {
-                scheduler.Add(new NamedOneShotSchedule("scheduletest"));
-                TaskCollection target = new TaskCollection(scheduler);
+                using (Scheduler scheduler = new Scheduler())
+                {
+                    scheduler.Add(new NamedOneShotSchedule("scheduletest"));
+                    TaskCollection target = new TaskCollection(scheduler);
 
-                ITask task = new TaskMock();
-                IDictionary parameters = new Dictionary<string, string>();
-                string scheduleName = "bogusschedulename";
+                    ITask task = new TaskMock();
+                    IDictionary parameters = new Dictionary<string, string>();
+                    string scheduleName = "bogusschedulename";
 
-                target.Add(task, parameters, scheduleName);
-            }
+                    target.Add(task, parameters, scheduleName);
+                }
+            });
         }
 
         [Test]
-        [ExpectedException(typeof(NotSupportedException))]
         public void ClearIsNITest()
         {
-            using (Scheduler scheduler = new Scheduler())
+            Assert.Throws<NotSupportedException>(() =>
             {
-                ICollection<ITask> target = new TaskCollection(scheduler);
-                target.Clear();
-            }
+                using (Scheduler scheduler = new Scheduler())
+                {
+                    ICollection<ITask> target = new TaskCollection(scheduler);
+                    target.Clear();
+                }
+            });
         }
 
         [Test]
-        [ExpectedException(typeof(NotSupportedException))]
         public void RemoveIsNITest()
         {
-            using (Scheduler scheduler = new Scheduler())
+            Assert.Throws<NotSupportedException>(() =>
             {
-                ICollection<ITask> target = new TaskCollection(scheduler);
-                target.Remove(null);
-            }
+                using (Scheduler scheduler = new Scheduler())
+                {
+                    ICollection<ITask> target = new TaskCollection(scheduler);
+                    target.Remove(null);
+                }
+            });
         }
 
         [Test]
-        [ExpectedException(typeof(NotSupportedException))]
         public void RemoveAtIsNITest()
         {
-            using (Scheduler scheduler = new Scheduler())
+            Assert.Throws<NotSupportedException>(() =>
             {
-                IList<ITask> target = new TaskCollection(scheduler);
-                target.RemoveAt(0);
-            }
+                using (Scheduler scheduler = new Scheduler())
+                {
+                    IList<ITask> target = new TaskCollection(scheduler);
+                    target.RemoveAt(0);
+                }
+            });
         }
 
         [Test]
-        [ExpectedException(typeof(NotSupportedException))]
         public void InsertIsNITest()
         {
-            TaskCollection collection;
-            using (CreateSchedulerMock(out collection))
+            Assert.Throws<NotSupportedException>(() =>
             {
-                ((IList<ITask>)collection).Insert(0, null);
-            }
+                TaskCollection collection;
+                using (CreateSchedulerMock(out collection))
+                {
+                    ((IList<ITask>)collection).Insert(0, null);
+                }
+            });
         }
 
         [Test]
-        [ExpectedException(typeof(NotSupportedException))]
         public void ItemSetIsNITest()
         {
-            TaskCollection collection;
-            using (CreateSchedulerMock(out collection))
+            Assert.Throws<NotSupportedException>(() =>
             {
-                collection[0] = new TaskMock();
-            }
+                TaskCollection collection;
+                using (CreateSchedulerMock(out collection))
+                {
+                    collection[0] = new TaskMock();
+                }
+            });
         }
 
         [Test]
@@ -281,7 +293,7 @@ namespace DemiCode.Scheduling.Tasks.Test
         {
             using (Scheduler scheduler = new Scheduler())
             {
-                TaskCollection target = DemiCode_Scheduling_Tasks_TaskCollectionAccessor.CreatePrivate(scheduler);
+                TaskCollection target = new TaskCollection(scheduler);
             }
         }
 
@@ -293,7 +305,7 @@ namespace DemiCode.Scheduling.Tasks.Test
         {
             using (Scheduler scheduler = new Scheduler())
             {
-                TaskCollection target = DemiCode_Scheduling_Tasks_TaskCollectionAccessor.CreatePrivate(scheduler);
+                TaskCollection target = new TaskCollection(scheduler);
 
                 ITask val = new TaskMock();
                 int index = 0; 

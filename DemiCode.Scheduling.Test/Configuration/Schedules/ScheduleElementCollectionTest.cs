@@ -22,13 +22,15 @@ namespace DemiCode.Scheduling.Configuration.Schedules.Test
             Assert.AreEqual(left, right);
         }
 
-        [ExpectedException(typeof(ConfigurationErrorsException))]
         [Test]
         public void Add_DuplicateThrowsException()
         {
-            var defaultScheduler = new ScheduleElementCollection();
-            defaultScheduler.Add(new IntervalScheduleElement("MyInterval1", new DateTime(2008, 6, 1), new TimeSpan(0, 5, 0)));
-            defaultScheduler.Add(new IntervalScheduleElement("MyInterval1", new DateTime(2008, 7, 1), new TimeSpan(0, 10, 0)));
+            Assert.Throws<ConfigurationErrorsException>(() =>
+            {
+                var defaultScheduler = new ScheduleElementCollection();
+                defaultScheduler.Add(new IntervalScheduleElement("MyInterval1", new DateTime(2008, 6, 1), new TimeSpan(0, 5, 0)));
+                defaultScheduler.Add(new IntervalScheduleElement("MyInterval1", new DateTime(2008, 7, 1), new TimeSpan(0, 10, 0)));
+            });
         }
     }
 }

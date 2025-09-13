@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System.IO;
+using System.Threading;
 using DemiCode.Scheduling.Configuration;
 using DemiCode.Scheduling.Test;
 using DemiCode.Scheduling.Test.Mocks;
@@ -88,7 +89,7 @@ namespace DemiCode.Scheduling.Service.Test
 
                         watcher.ConfigurationFileChanged += x;
 
-                        FileHelper.ReplaceConfigFile(".\\TestData\\AddTaskAtRuntimeTest.config");
+                        FileHelper.ReplaceConfigFile(Path.Combine("TestData", "AddTaskAtRuntimeTest.config"));
 
                         // Wait for the watcher to trigger the change and reconfigure the scheduler
                         Assert.IsTrue(trigger.WaitOne(2000, false));
@@ -116,7 +117,7 @@ namespace DemiCode.Scheduling.Service.Test
         [Test]
         public void AddNewAssemblyAtRuntimeTest()
         {
-            AssertLog.Configure(".\\TestData\\AddNewAssemblyAtRuntimeTest.log4net.config");
+            AssertLog.Configure(Path.Combine("TestData", "AddNewAssemblyAtRuntimeTest.log4net.config"));
 
             const string sectionName = "AddNewAssemblyAtRuntimeTest";
             Scheduler scheduler = null;
@@ -156,7 +157,7 @@ namespace DemiCode.Scheduling.Service.Test
                                 trigger.Set();
                             };
 
-                        FileHelper.ReplaceConfigFile(".\\TestData\\AddNewAssemblyAtRuntimeTest.config");
+                        FileHelper.ReplaceConfigFile(Path.Combine("TestData", "AddNewAssemblyAtRuntimeTest.config"));
                         AssertLog.ClearLog();
 
                         // Wait for the watcher to trigger the change and reconfigure the scheduler

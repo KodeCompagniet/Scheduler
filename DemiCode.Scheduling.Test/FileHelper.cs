@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Text;
 
@@ -15,16 +16,23 @@ namespace DemiCode.Scheduling.Test
             File.SetLastWriteTime(file, DateTime.Now);
         }
 
+        private static string GetConfigurationFile()
+        {
+            // In .NET Core/5+, we need to use ConfigurationManager
+            var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            return config.FilePath;
+        }
+
         public static void BackupConfigFile()
         {
-            string configFile = AppDomain.CurrentDomain.SetupInformation.ConfigurationFile;
+            string configFile = GetConfigurationFile();
             string configBackup = Path.ChangeExtension(configFile, "backup");
             File.Copy(configFile, configBackup, true);
         }
 
         public static void ReplaceConfigFile(string file)
         {
-            string configFile = AppDomain.CurrentDomain.SetupInformation.ConfigurationFile;
+            string configFile = GetConfigurationFile();
             string configBackup = Path.ChangeExtension(configFile, "backup");
 
             File.Copy(configFile, configBackup, true);
@@ -33,7 +41,7 @@ namespace DemiCode.Scheduling.Test
 
         public static void RestoreConfigFile()
         {
-            string configFile = AppDomain.CurrentDomain.SetupInformation.ConfigurationFile;
+            string configFile = GetConfigurationFile();
             string configBackup = Path.ChangeExtension(configFile, "backup");
 
             if (File.Exists(configBackup))

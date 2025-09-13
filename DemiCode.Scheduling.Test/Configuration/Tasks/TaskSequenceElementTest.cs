@@ -3,7 +3,6 @@ using DemiCode.Scheduling.Configuration.Tasks;
 using DemiCode.Scheduling.Tasks;
 using DemiCode.Scheduling.Test.Mocks;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 
 namespace DemiCode.Scheduling.Configuration.Test
 {
@@ -25,7 +24,7 @@ namespace DemiCode.Scheduling.Configuration.Test
             target.Tasks.Add(new CodeTaskElement(typeof(SimpleClass), "SimpleMethod"));
             var val = target.GetTaskInstance();
             Assert.IsNotNull(val);
-            Assert.IsInstanceOfType(typeof(TaskSequence), val);
+            Assert.IsInstanceOf<TaskSequence>(val);
         }
 
         /// <summary>
@@ -63,20 +62,24 @@ namespace DemiCode.Scheduling.Configuration.Test
         /// Test loading a scheduler section with TaskSequence and tasks with schedulerefs.
         ///</summary>
         [Test]
-        [ExpectedException(typeof(ConfigurationErrorsException))]
         public void LoadSectionWithTaskSequenceScheduleRefTest()
         {
-            SchedulerSettings ss = (SchedulerSettings)ConfigurationManager.GetSection("TaskSequenceScheduleRefConfigSection");
+            Assert.Throws<ConfigurationErrorsException>(() =>
+            {
+                SchedulerSettings ss = (SchedulerSettings)ConfigurationManager.GetSection("TaskSequenceScheduleRefConfigSection");
+            });
         }
 
         /// <summary>
         /// Test loading a scheduler section with TaskSequence without tasks.
         ///</summary>
         [Test]
-        [ExpectedException(typeof(ConfigurationErrorsException))]
         public void LoadSectionWithEmptyTaskSequenceTest()
         {
-            SchedulerSettings ss = (SchedulerSettings)ConfigurationManager.GetSection("TaskSequenceEmptyConfigSection");
+            Assert.Throws<ConfigurationErrorsException>(() =>
+            {
+                SchedulerSettings ss = (SchedulerSettings)ConfigurationManager.GetSection("TaskSequenceEmptyConfigSection");
+            });
         }
 
         [Test]

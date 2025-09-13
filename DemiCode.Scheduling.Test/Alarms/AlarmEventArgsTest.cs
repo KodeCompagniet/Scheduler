@@ -39,10 +39,12 @@ namespace DemiCode.Scheduling.Alarms.Test
         }
 
         [Test]
-        [ExpectedException(typeof (ArgumentNullException))]
         public void CopyConstructorWithNullArgumentTest()
         {
-            new AlarmEventArgs(null);
+            Assert.Throws<ArgumentNullException>(() =>
+            {
+                new AlarmEventArgs(null);
+            });
         }
 
         /// <summary>

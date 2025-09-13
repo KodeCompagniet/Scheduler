@@ -1,174 +1,30 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{3C7ED8E3-6128-482F-BC3C-0BED63584CD6}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DemiCode.Scheduling</RootNamespace>
+    <TargetFrameworks>netstandard2.0;net48</TargetFrameworks>
     <AssemblyName>DemiCode.Scheduling</AssemblyName>
-    <StartupObject>
-    </StartupObject>
-    <SccProjectName>SAK</SccProjectName>
-    <SccLocalPath>SAK</SccLocalPath>
-    <SccAuxPath>SAK</SccAuxPath>
-    <SccProvider>SAK</SccProvider>
-    <SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>..\DemiCodeStrongName.snk</AssemblyOriginatorKeyFile>
-    <FileUpgradeFlags>
-    </FileUpgradeFlags>
-    <OldToolsVersion>3.5</OldToolsVersion>
-    <UpgradeBackupLocation>
-    </UpgradeBackupLocation>
-    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
-    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
-    <PublishUrl>publish\</PublishUrl>
-    <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
-    <UpdateMode>Foreground</UpdateMode>
-    <UpdateInterval>7</UpdateInterval>
-    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
-    <UpdatePeriodically>false</UpdatePeriodically>
-    <UpdateRequired>false</UpdateRequired>
-    <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
-    <UseApplicationTrust>false</UseApplicationTrust>
-    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <RootNamespace>DemiCode.Scheduling</RootNamespace>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <ProjectGuid>{3C7ED8E3-6128-482F-BC3C-0BED63584CD6}</ProjectGuid>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;CODE_ANALYSIS;CODE_ANALYSIS</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\DemiCode.Scheduling.XML</DocumentationFile>
-    <RunCodeAnalysis>false</RunCodeAnalysis>
-    <CodeAnalysisRules>
-    </CodeAnalysisRules>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\DemiCode.Scheduling.XML</DocumentationFile>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
+
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.configuration" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
+    <Compile Include="..\AssemblyInfo.Common.cs" Link="AssemblyInfo.Common.cs" />
+    <Compile Include="..\AssemblyInfo.Version.cs" Link="AssemblyInfo.Version.cs" />
   </ItemGroup>
+
   <ItemGroup>
-    <Compile Include="..\AssemblyInfo.Common.cs">
-      <Link>AssemblyInfo.Common.cs</Link>
-    </Compile>
-    <Compile Include="..\AssemblyInfo.Version.cs">
-      <Link>AssemblyInfo.Version.cs</Link>
-    </Compile>
-    <Compile Include="Alarms\AlarmEventArgs.cs" />
-    <Compile Include="Alarms\AlarmTimer.cs" />
-    <Compile Include="Configuration\ConfigurationFileWatcher.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Configuration\LoggerElementCollection.cs" />
-    <Compile Include="Configuration\Schedules\ScheduleElement.cs" />
-    <Compile Include="Configuration\Schedules\OneShotScheduleElement.cs" />
-    <Compile Include="Configuration\Schedules\WeeklyScheduleElement.cs" />
-    <Compile Include="Configuration\Schedules\IntervalCountedScheduleElement.cs" />
-    <Compile Include="Configuration\Schedules\IntervalScheduleElement.cs" />
-    <Compile Include="Configuration\Schedules\ScheduleElementBase.cs" />
-    <Compile Include="Configuration\Schedules\ScheduleElementCollection.cs" />
-    <Compile Include="Configuration\Tasks\ApplicationTaskElement.cs" />
-    <Compile Include="Configuration\Tasks\CodeTaskElement.cs" />
-    <Compile Include="Configuration\Tasks\ScheduleReferenceElementCollection.cs" />
-    <Compile Include="Configuration\Tasks\TaskElementBase.cs" />
-    <Compile Include="Configuration\Tasks\TaskSequenceElement.cs" />
-    <Compile Include="Configuration\Tasks\ScheduleReferenceElement.cs" />
-    <Compile Include="Configuration\Tasks\TaskElement.cs" />
-    <Compile Include="Configuration\SchedulerElement.cs" />
-    <Compile Include="Configuration\SchedulerElementCollection.cs" />
-    <Compile Include="Configuration\SchedulerSettings.cs" />
-    <Compile Include="Configuration\SchedulerSettingsManager.cs" />
-    <Compile Include="Configuration\Tasks\TaskElementCollection.cs" />
-    <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="ISchedulerFactory.cs" />
-    <Compile Include="Tasks\TaskSequence.cs" />
-    <Compile Include="Tasks\TaskCollection.cs" />
-    <Compile Include="Tasks\TaskHandler.cs" />
-    <Compile Include="Tasks\ApplicationTask.cs" />
-    <Compile Include="Tasks\CodeTask.cs" />
-    <Compile Include="Tasks\ITask.cs" />
-    <Compile Include="SchedulerFactory.cs" />
-    <Compile Include="Schedules\CompositeSchedule.cs" />
-    <Compile Include="EventHelper.cs" />
-    <Compile Include="Alarms\IAlarmTimer.cs" />
-    <Compile Include="MessageLogger.cs" />
-    <Compile Include="Schedules\IntervalSchedule.cs" />
-    <None Include="Schedules\MonthlySchedule.cs" />
-    <Compile Include="Schedules\IntervalCountedSchedule.cs" />
-    <Compile Include="Schedules\ISchedule.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Schedules\OneShotSchedule.cs" />
-    <Compile Include="Schedules\ScheduleBase.cs" />
-    <Compile Include="Scheduler.cs" />
-    <Compile Include="Schedules\WeeklySchedule.cs" />
-    <Compile Include="Time\ITimeProvider.cs" />
-    <Compile Include="Time\TimeProvider.cs" />
+    <ProjectReference Include="..\DemiCode.Shared\DemiCode.Shared.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="..\DemiCodeStrongName.snk">
-      <Link>DemiCodeStrongName.snk</Link>
-    </None>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net48'">
+    <Reference Include="System.Configuration" />
   </ItemGroup>
-  <ItemGroup>
-    <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
+  
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="8.0.0" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DemiCode.Shared\DemiCode.Shared.csproj">
-      <Project>{4950761D-AFFA-4A0E-B328-4CA6238FC786}</Project>
-      <Name>DemiCode.Shared</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
-      <Visible>False</Visible>
-      <ProductName>Windows Installer 3.1</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-  </ItemGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="..\Samples" />
   </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
-  <PropertyGroup>
-    <PostBuildEvent>copy "$(TargetPath)" "$(SolutionDir)Samples"
-</PostBuildEvent>
-  </PropertyGroup>
 </Project>

@@ -52,28 +52,32 @@ namespace DemiCode.Scheduling.Alarms.Test
         ///A test for AlarmTime on an active alarm.
         ///</summary>
         [Test]
-        [ExpectedException(typeof(InvalidOperationException))]
         public void AlarmTimeWhenEnabledTest()
         {
-            using (AlarmTimer target = new AlarmTimer())
+            Assert.Throws<InvalidOperationException>(() =>
             {
-                target.Enable(DateTime.Now.AddMilliseconds(100));
-                target.AlarmTime = DateTime.Now;
-            }
+                using (AlarmTimer target = new AlarmTimer())
+                {
+                    target.Enable(DateTime.Now.AddMilliseconds(100));
+                    target.AlarmTime = DateTime.Now;
+                }
+            });
         }
 
         /// <summary>
         ///A test for AlarmTime on a disposed alarm.
         ///</summary>
         [Test]
-        [ExpectedException(typeof(ObjectDisposedException))]
         public void AlarmTimeWhenDisposedTest()
         {
-            using (AlarmTimer target = new AlarmTimer())
+            Assert.Throws<ObjectDisposedException>(() =>
             {
-                target.Dispose();
-                target.AlarmTime = DateTime.Now;
-            }
+                using (AlarmTimer target = new AlarmTimer())
+                {
+                    target.Dispose();
+                    target.AlarmTime = DateTime.Now;
+                }
+            });
         }
 
         /// <summary>

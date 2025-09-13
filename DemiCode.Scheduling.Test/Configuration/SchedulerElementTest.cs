@@ -5,7 +5,6 @@ using DemiCode.Scheduling.Configuration.Tasks;
 using DemiCode.Scheduling.Schedules;
 using DemiCode.Scheduling.Tasks;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 
 namespace DemiCode.Scheduling.Configuration.Test
 {
