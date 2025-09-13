@@ -21,6 +21,6 @@
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(SolutionDir)Samples" />
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="..\Samples" />
   </Target>
 </Project>
