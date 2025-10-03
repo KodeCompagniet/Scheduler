@@ -180,7 +180,7 @@ scheduler.Start();
 - Run tests:
   - `dotnet test DemiCode.Scheduling.sln`
 
-The core library builds for `netstandard2.0` and `net48`.
+The core library builds for `netstandard2.0`.
 
 
 ## Notes and Tips
