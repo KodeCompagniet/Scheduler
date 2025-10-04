@@ -5,11 +5,31 @@
     <RootNamespace>DemiCode.Scheduling</RootNamespace>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <ProjectGuid>{3C7ED8E3-6128-482F-BC3C-0BED63584CD6}</ProjectGuid>
+
+    <!-- NuGet Package Metadata -->
+    <PackageId>DemiCode.Scheduling</PackageId>
+    <Authors>DemiCode</Authors>
+    <Description>A robust, lightweight job scheduling framework for .NET applications. Schedule and run tasks at specific intervals or times with full cross-platform support.</Description>
+    <PackageTags>scheduler;job;task;cron;timer;background;schedule;recurring;automation</PackageTags>
+    <PackageProjectUrl>https://github.com/KodeCompagniet/demicode-scheduling</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/KodeCompagniet/demicode-scheduling</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageReadmeFile>NuGet_README.md</PackageReadmeFile>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+
+    <!-- Symbol Package Configuration -->
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
 
   <ItemGroup>
     <Compile Include="..\AssemblyInfo.Common.cs" Link="AssemblyInfo.Common.cs" />
     <Compile Include="..\AssemblyInfo.Version.cs" Link="AssemblyInfo.Version.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE.txt" Pack="true" PackagePath="" />
+    <None Include="..\docs\NuGet_README.md" Pack="true" PackagePath="" />
   </ItemGroup>
 
   <ItemGroup>

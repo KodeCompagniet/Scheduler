@@ -5,8 +5,36 @@
     <RootNamespace>DemiCode.Logging.log4net</RootNamespace>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <ProjectGuid>{D494AB74-6095-4B39-AD47-3E12678AE83C}</ProjectGuid>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
+    <GenerateAssemblyTrademarkAttribute>false</GenerateAssemblyTrademarkAttribute>
+
+    <!-- NuGet Package Metadata -->
+    <PackageId>DemiCode.Logging.log4net</PackageId>
+    <Authors>DemiCode</Authors>
+    <Description>log4net integration for DemiCode Scheduler - provides comprehensive logging capabilities for scheduled jobs and tasks.</Description>
+    <PackageTags>scheduler;logging;log4net;job;task;background</PackageTags>
+    <PackageProjectUrl>https://github.com/KodeCompagniet/demicode-scheduling</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/KodeCompagniet/demicode-scheduling</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageReadmeFile>NuGet_README.md</PackageReadmeFile>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+
+    <!-- Symbol Package Configuration -->
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Include="..\AssemblyInfo.Common.cs" Link="AssemblyInfo.Common.cs" />
+    <Compile Include="..\AssemblyInfo.Version.cs" Link="AssemblyInfo.Version.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE.txt" Pack="true" PackagePath="" />
+    <None Include="..\docs\NuGet_README.md" Pack="true" PackagePath="" />
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\DemiCode.Shared\DemiCode.Shared.csproj" />

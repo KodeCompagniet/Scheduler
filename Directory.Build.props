@@ -7,6 +7,25 @@
     <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)DemiCodeStrongName.snk</AssemblyOriginatorKeyFile>
     <DelaySign>false</DelaySign>
     <NoWarn>$(NoWarn);CS1591</NoWarn>
+
+    <!-- NuGet Package Release Notes -->
+    <PackageReleaseNotes>
+## Version 2.0.0
+### Breaking Changes
+- Consolidated logging namespaces - update using statements from DemiCode.Logging.Loggers to DemiCode.Logging
+- ApplicationTask now uses direct process execution instead of shell - use explicit shell invocation for shell features
+
+### Fixed
+- MonthlySchedule now correctly implements monthly scheduling on the first of each month
+- MonthlySchedule properly respects toDate boundaries without emitting extra occurrences
+- CodeTask correctly invokes static methods without requiring parameterless constructors
+
+### Added
+- Cross-platform argument handling for ApplicationTask
+- Comprehensive unit tests for edge cases
+
+See https://github.com/KodeCompagniet/demicode-scheduling/blob/main/CHANGELOG.md for full details.
+    </PackageReleaseNotes>
   </PropertyGroup>
 
   <!-- Treat warnings as errors for main source projects (not test projects) -->

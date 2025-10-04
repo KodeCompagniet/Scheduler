@@ -27,11 +27,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-#### MonthlySchedule Boundary Guard
-- **Fixed** `MonthlySchedule` emitting an extra occurrence past the configured `toDate`
-- **Behavior:** Schedules now correctly stop at `toDate` without generating additional alarms
-- **Impact:** Implementation now matches documented behavior; most users won't need changes
-- **Location:** `DemiCode.Scheduling/Schedules/MonthlySchedule.cs:91-96`
+#### MonthlySchedule Implementation Corrected
+- **Fixed** `MonthlySchedule` now correctly implements monthly scheduling on the first day of each month
+- **Fixed** `DateTimeHelper.GetFirstOfMonth` properly returns the 1st of the month (not preserving the original day)
+- **Fixed** `MonthlySchedule` no longer emits extra occurrences past the configured `toDate`
+- **Behavior:** Monthly schedules now run on the same day each month (the day from `_fromDate`)
+- **Impact:** Implementation now matches the original design intent and class name
+- **Location:** `DemiCode.Scheduling/DateTimeHelper.cs:24-32`, `DemiCode.Scheduling/Schedules/MonthlySchedule.cs:85-137`
+- **Tests:** Comprehensive test coverage in `DemiCode.Scheduling.Test/Schedules/MonthlyScheduleTest.cs`
 
 #### CodeTask Static Method Support
 - **Fixed** `CodeTask` throwing reflection errors when invoking static methods on types without parameterless constructors
