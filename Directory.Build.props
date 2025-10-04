@@ -10,7 +10,7 @@
   </PropertyGroup>
 
   <!-- Treat warnings as errors for main source projects (not test projects) -->
-  <PropertyGroup Condition="!$(MSBuildProjectName.Contains('.Test'))">
+  <PropertyGroup Condition="!$([System.String]::new('$(MSBuildProjectName)').Contains('.Test'))">
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
 
