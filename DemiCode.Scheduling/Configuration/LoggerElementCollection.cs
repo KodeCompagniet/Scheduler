@@ -8,7 +8,7 @@ namespace DemiCode.Scheduling.Configuration
     /// <summary>
     /// Alias class for <see cref="LoggerElementCollection{V}"/> used by DemiCode Scheduler.
     /// </summary>
-    public class LoggerElementCollection: DemiCode.Logging.Configuration.LoggerElementCollection<SchedulerSettingsManager.SerializationStateProvider>
+    public class LoggerElementCollection : DemiCode.Logging.Configuration.LoggerElementCollection<SchedulerSettingsManager.SerializationStateProvider>
     {
     }
 }

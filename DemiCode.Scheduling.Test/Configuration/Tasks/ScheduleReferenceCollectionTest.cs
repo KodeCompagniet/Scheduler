@@ -30,16 +30,16 @@ namespace DemiCode.Scheduling.Configuration.Tasks.Test
         [Test]
         public void Equals_WithSameContentGivesTrue()
         {
-            var left = new ScheduleReferenceElementCollection {new ScheduleReferenceElement("first")};
-            var right = new ScheduleReferenceElementCollection {new ScheduleReferenceElement("first")};
+            var left = new ScheduleReferenceElementCollection { new ScheduleReferenceElement("first") };
+            var right = new ScheduleReferenceElementCollection { new ScheduleReferenceElement("first") };
             Assert.AreEqual(left, right);
         }
 
         [Test]
         public void Equals_WithDifferentContentGivesFalse()
         {
-            var left = new ScheduleReferenceElementCollection {new ScheduleReferenceElement("first")};
-            var right = new ScheduleReferenceElementCollection {new ScheduleReferenceElement("last")};
+            var left = new ScheduleReferenceElementCollection { new ScheduleReferenceElement("first") };
+            var right = new ScheduleReferenceElementCollection { new ScheduleReferenceElement("last") };
             Assert.AreNotEqual(left, right);
         }
 

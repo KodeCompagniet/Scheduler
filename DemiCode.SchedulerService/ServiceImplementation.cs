@@ -83,7 +83,7 @@ namespace DemiCode.SchedulerService
                 else
                 {
                     _scheduler = SchedulerFactory.CreateFromConfig(ConfigSectionName);
-                    StartScheduler( _scheduler);
+                    StartScheduler(_scheduler);
                 }
 
                 _log.Debug("Scheduler reconfigured");

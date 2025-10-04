@@ -51,7 +51,7 @@ namespace DemiCode.Scheduling.Configuration.Tasks.Test
         /// <summary>
         ///A test for OnDeserializeUnrecognizedAttribute (string, string)
         ///</summary>
-        
+
         // Test helper class to expose protected methods for testing
         private class TestableTaskElement : TaskElement
         {
@@ -59,13 +59,13 @@ namespace DemiCode.Scheduling.Configuration.Tasks.Test
             {
                 return OnDeserializeUnrecognizedAttribute(name, value);
             }
-            
+
             public object TestOnRequiredPropertyNotFound(string name)
             {
                 return OnRequiredPropertyNotFound(name);
             }
         }
-        
+
         [Test]
         public void OnDeserializeUnrecognizedAttributeTest()
         {
@@ -79,7 +79,7 @@ namespace DemiCode.Scheduling.Configuration.Tasks.Test
         /// <summary>
         ///A test for OnRequiredPropertyNotFound (string)
         ///</summary>
-        
+
         [Test]
         public void OnRequiredPropertyNotFoundTest()
         {

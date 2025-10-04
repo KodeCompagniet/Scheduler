@@ -37,5 +37,14 @@ namespace DemiCode.Logging.Configuration.Loggers
             if (ReferenceEquals(this, obj)) return true;
             return Equals(obj as ConsoleLoggerElement);
         }
+
+        ///<summary>
+        ///Serves as a hash function for this type.
+        ///</summary>
+        ///<returns>A hash code for the current object.</returns>
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }

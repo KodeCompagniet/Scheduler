@@ -175,7 +175,7 @@ namespace DemiCode.Scheduling
             _disposed = true;
         }
 
-        
+
         /// <summary>When disposing, we must clear out any schedules since these, with event handlers, will keep our scheduler going.</summary>
         /// <remarks>Case 7797</remarks>
         private void ClearSchedules()

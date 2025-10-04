@@ -9,8 +9,8 @@ namespace DemiCode.Logging.Loggers
     {
         private string _loggerName;
         private string _loggerNameMsg;
-        
-        public ConsoleLogger() : this(null) {}
+
+        public ConsoleLogger() : this(null) { }
         public ConsoleLogger(string loggerName)
         {
             _loggerName = loggerName;
@@ -115,7 +115,7 @@ namespace DemiCode.Logging.Loggers
 
         #endregion
 
-        private void WriteMessage(string message, params object [] args)
+        private void WriteMessage(string message, params object[] args)
         {
             string msg = String.Format(_loggerNameMsg + message, args);
             Console.WriteLine(msg);

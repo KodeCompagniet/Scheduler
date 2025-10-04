@@ -30,7 +30,7 @@ namespace DemiCode.Scheduling.Tasks
 
             if (tasks.Length == 0)
                 throw new ArgumentException("The tasks array must have one or more items", "tasks");
- 
+
             Tasks = tasks;
         }
 

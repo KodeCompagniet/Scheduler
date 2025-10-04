@@ -21,11 +21,11 @@ namespace DemiCode.Scheduling.Schedules.Test
 
         public override bool MoveToFirstFrom(DateTime time)
         {
-			if (time.TimeOfDay > LunchTimeOfDay)
-			{
+            if (time.TimeOfDay > LunchTimeOfDay)
+            {
                 //If we're over lunch time, move to next workday
-				time = time.Date.AddDays(1);
-			}
+                time = time.Date.AddDays(1);
+            }
 
             //Set our lunch time as exact time of day
             CurrentOccurrence = time.Date.Add(LunchTimeOfDay);
@@ -38,21 +38,21 @@ namespace DemiCode.Scheduling.Schedules.Test
         {
             if (config == null)
                 throw new ArgumentNullException("config");
- 
+
             _lunchTimeOfDay = TimeSpan.Parse(config["lunchTimeOfDay"].InnerText);
         }
     }
 
 
-	[TestFixture]
+    [TestFixture]
     public class LunchScheduleTest
-	{
-	  
-	    [Test]
+    {
+
+        [Test]
         public void MoveToFirstFromTest()
         {
-            LunchSchedule schedule = new LunchSchedule("MyLunchSchedule", new TimeSpan(12,00,00));
-            
+            LunchSchedule schedule = new LunchSchedule("MyLunchSchedule", new TimeSpan(12, 00, 00));
+
             DateTime earlyMondayMorning = new DateTime(2007, 1, 1, 8, 0, 0);
             DateTime mondayLunch = new DateTime(2007, 1, 1, 12, 0, 0);
             DateTime tuesdayLunch = new DateTime(2007, 1, 2, 12, 0, 0);
@@ -69,7 +69,7 @@ namespace DemiCode.Scheduling.Schedules.Test
         {
             TimeSpan lunchTime = new TimeSpan(16, 0, 0);
 
-            using (Scheduler scheduler = Scheduler.CreateFromConfig("scheduling", "lunch"))
+            using (Scheduler scheduler = SchedulerFactory.CreateFromConfig("scheduling", "lunch"))
             {
                 ISchedule schedule = scheduler["lunchschedule"];
                 Assert.IsInstanceOf<LunchSchedule>(schedule);
@@ -81,10 +81,10 @@ namespace DemiCode.Scheduling.Schedules.Test
 
                 DateTime now = (DateTime.Now.TimeOfDay > lunchTime ? DateTime.Now.AddDays(1) : DateTime.Now);
                 Assert.AreEqual(now.Date.Add(lunchTime), lunch.CurrentOccurrence);
-                
+
                 scheduler.Stop();
             }
         }
 
-	}
+    }
 }

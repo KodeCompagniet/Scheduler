@@ -47,7 +47,7 @@ namespace DemiCode.Logging.Loggers
         /// </summary>
         public ILoggerFactory this[int index]
         {
-            get 
+            get
             {
                 return _loggerFactories[index];
             }

@@ -7,7 +7,7 @@ namespace DemiCode.Logging
     /// </summary>
     public class NilLoggerFactory : ILoggerFactory
     {
-        public NilLoggerFactory() {}
+        public NilLoggerFactory() { }
 
         #region ILoggerFactory Members
 

@@ -21,7 +21,7 @@ namespace DemiCode.Scheduling.Tasks.Test
         {
             ILoggerFactory loggerFactory = new LoggerFactoryMock();
 
-            var task = new CodeTask(typeof(SimpleClass),  "SimpleMethod");
+            var task = new CodeTask(typeof(SimpleClass), "SimpleMethod");
             task.Execute(loggerFactory);
 
             Assert.IsTrue(SimpleClass.SimpleMethodWasCalled);
@@ -61,7 +61,7 @@ namespace DemiCode.Scheduling.Tasks.Test
                 new CodeTask(null, "SimpleMethod");
                 Assert.Fail("Did not receive expected exception");
             }
-            catch(ArgumentNullException) {}
+            catch (ArgumentNullException) { }
             catch { Assert.Fail("Did not receive expected exception"); }
 
             try
@@ -85,7 +85,7 @@ namespace DemiCode.Scheduling.Tasks.Test
         [Test]
         public void SplitParameterTest()
         {
-            object[] parameters = new object[]{"value1", 2};
+            object[] parameters = new object[] { "value1", 2 };
 
             Type[] types;
             object[] values;

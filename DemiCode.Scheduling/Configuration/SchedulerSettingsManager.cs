@@ -143,7 +143,7 @@ namespace DemiCode.Scheduling.Configuration
         /// <summary>
         /// Save a configuration section to file.
         /// </summary>
-        /// <remarks>The settings object must have been opened using <see cref="GetWritableConfigurationSection"/>.</remarks>
+        /// <remarks>The settings object must have been opened using <see cref="GetWritableConfigurationSection(string, string)"/>.</remarks>
         /// <param name="settings">The settings to save.</param>
         /// <param name="saveAsConfigFile">Full path to the configuration file.</param>
         public static void SaveConfigurationSection(SchedulerSettings settings, string saveAsConfigFile)
@@ -178,13 +178,13 @@ namespace DemiCode.Scheduling.Configuration
         {
             if (settings.ElementInformation == null)
                 return false;
-            return Path.GetFullPath(saveAsConfigFile).Equals(settings.ElementInformation.Source); 
+            return Path.GetFullPath(saveAsConfigFile).Equals(settings.ElementInformation.Source);
         }
 
         /// <summary>
         /// Save a configuration section.
         /// </summary>
-        /// <remarks>The settings object must have been opened using <see cref="GetWritableConfigurationSection"/>.</remarks>
+        /// <remarks>The settings object must have been opened using <see cref="GetWritableConfigurationSection(string)"/>.</remarks>
         /// <param name="settings">The settings to save.</param>
         public static void SaveConfigurationSection(SchedulerSettings settings)
         {
@@ -194,7 +194,7 @@ namespace DemiCode.Scheduling.Configuration
         /// <summary>
         /// Save a configuration section.
         /// </summary>
-        /// <remarks>The settings object must have been opened using <see cref="GetWritableConfigurationSection"/>.</remarks>
+        /// <remarks>The settings object must have been opened using <see cref="GetWritableConfigurationSection(string)"/>.</remarks>
         /// <param name="settings">The settings to save.</param>
         /// <param name="configurationSaveMode">A <see cref="ConfigurationSaveMode"/> value that determines which property values to save.</param>
         public static void SaveConfigurationSection(SchedulerSettings settings, ConfigurationSaveMode configurationSaveMode)

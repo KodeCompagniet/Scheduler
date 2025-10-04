@@ -53,7 +53,7 @@ namespace DemiCode.Scheduling.Test
         [Test]
         public void AddHoursTest()
         {
-            DateTime date = new DateTime(2007, 1, 1, 8, 0, 0); 
+            DateTime date = new DateTime(2007, 1, 1, 8, 0, 0);
             TimeSpan hours = new TimeSpan(24, 0, 0);
             DateTime newDate = date.Add(hours);
 

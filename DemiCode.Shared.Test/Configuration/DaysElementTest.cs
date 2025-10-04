@@ -16,7 +16,7 @@ namespace DemiCode.Configuration.Test
         [Test]
         public void Constructor2Test()
         {
-            var days = new[] {DayOfWeek.Friday, DayOfWeek.Wednesday};
+            var days = new[] { DayOfWeek.Friday, DayOfWeek.Wednesday };
             var element = new DaysElement(days);
             Assert.AreEqual(days, element.Value);
         }
@@ -36,7 +36,7 @@ namespace DemiCode.Configuration.Test
         public void Equals_DifferentParamsGivesFalse()
         {
             var days = new[] { DayOfWeek.Friday, DayOfWeek.Wednesday };
-            var moreDays = new[] { DayOfWeek.Friday, DayOfWeek.Wednesday, DayOfWeek.Sunday};
+            var moreDays = new[] { DayOfWeek.Friday, DayOfWeek.Wednesday, DayOfWeek.Sunday };
 
             var left = new DaysElement(days);
             var right = new DaysElement(moreDays);

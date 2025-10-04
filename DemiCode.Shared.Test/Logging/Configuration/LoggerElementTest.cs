@@ -17,7 +17,7 @@ namespace DemiCode.Logging.Configuration.Test
         public void Constructor2Test()
         {
             var element = new LoggerElement(typeof(NilLoggerFactory));
-            Assert.AreEqual(typeof (NilLoggerFactory), element.LoggerType);
+            Assert.AreEqual(typeof(NilLoggerFactory), element.LoggerType);
         }
 
         [Test]

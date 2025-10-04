@@ -78,7 +78,7 @@ namespace DemiCode.Scheduling.Loggers.Test
         {
             Exception e = new ApplicationException("Unit testing");
             ILogger logger = new NilLogger();
-            
+
             logger.Debug("Debug {0}", 1);
             logger.Debug("Debug {0}", e, 2);
 

@@ -111,7 +111,7 @@ namespace DemiCode.Scheduling.Configuration.Test
             right.Tasks.Add(new ApplicationTaskElement());
 
             var actual = left.Equals(right);
-            
+
             Assert.That(actual, Is.False);
         }
 

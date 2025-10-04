@@ -43,7 +43,7 @@ namespace DemiCode.Scheduling.Configuration.Tasks
                 if (_additionalPropertiesBackup != null)
                     return _additionalPropertiesBackup;
 
-                 return (Dictionary<string, string>)base[_additionalPropertiesPropertyName];
+                return (Dictionary<string, string>)base[_additionalPropertiesPropertyName];
             }
             set { base[_additionalPropertiesPropertyName] = value; }
         }

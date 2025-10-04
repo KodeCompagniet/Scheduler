@@ -126,7 +126,7 @@ namespace DemiCode.Scheduling.Configuration.Schedules
         /// <returns>The <see cref="SchedulerElement"/> type.</returns>
         protected override Type GetDefaultElementType()
         {
-            return typeof (ScheduleElement);
+            return typeof(ScheduleElement);
         }
     }
 }

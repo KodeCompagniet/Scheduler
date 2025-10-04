@@ -11,7 +11,7 @@ namespace DemiCode.Scheduling.Test
     [TestFixture]
     public class FactoryConfigurationExceptionTest
     {
-        
+
         /// <summary>
         ///A test for FactoryConfigurationException ()
         ///</summary>

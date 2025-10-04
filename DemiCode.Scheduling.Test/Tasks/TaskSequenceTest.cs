@@ -17,7 +17,7 @@ namespace DemiCode.Scheduling.Tasks.Test
         [Test]
         public void ConstructorTest()
         {
-            var tasks = new[] {new TaskMock(), new TaskMock()};
+            var tasks = new[] { new TaskMock(), new TaskMock() };
             var taskSequence = new TaskSequence(tasks);
         }
 
@@ -79,7 +79,7 @@ namespace DemiCode.Scheduling.Tasks.Test
         /// <summary>
         ///Does TaskSequence dispose instances?
         ///</summary>
-        
+
         [Test]
         public void TaskSequenceDisposesCodeAfterExecuteTest()
         {
@@ -109,12 +109,12 @@ namespace DemiCode.Scheduling.Tasks.Test
                 task.Execute(loggerFactory);
                 Assert.Fail("Did not receive expected exception");
             }
-            catch(ArgumentNullException) {}
+            catch (ArgumentNullException) { }
             catch { Assert.Fail("Did not receive expected exception"); }
 
             try
             {
-                task = new TaskSequence(new ITask[]{new TaskMock()});
+                task = new TaskSequence(new ITask[] { new TaskMock() });
                 task.Execute(null);
                 Assert.Fail("Did not receive expected exception");
             }

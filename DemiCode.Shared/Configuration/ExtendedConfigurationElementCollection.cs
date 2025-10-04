@@ -46,7 +46,7 @@ namespace DemiCode.Configuration
                 {
                     var left = val as Dictionary<string, string>;
                     var right = val2 as Dictionary<string, string>;
-                    if (left == null && right == null) 
+                    if (left == null && right == null)
                         throw new InvalidOperationException("Property values was not of type " + typeof(Dictionary<string, string>));
 
                     if ((left != null && right == null) || (left == null && right != null)) return false;
@@ -62,6 +62,46 @@ namespace DemiCode.Configuration
 
             // Next, let the base collection compare
             return base.Equals(compareTo);
+        }
+
+        ///<summary>
+        ///Serves as a hash function for this type.
+        ///</summary>
+        ///<returns>A hash code for the current object.</returns>
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                int hash = base.GetHashCode();
+                hash = (hash * 397) ^ Count;
+
+                foreach (ConfigurationProperty property in Properties)
+                {
+                    hash = (hash * 397) ^ (property.Name?.GetHashCode() ?? 0);
+                    var val = base[property.Name];
+                    if (val != null)
+                    {
+                        if (property.Type == typeof(Dictionary<string, string>))
+                        {
+                            var dict = val as Dictionary<string, string>;
+                            if (dict != null)
+                            {
+                                foreach (var pair in dict)
+                                {
+                                    hash = (hash * 397) ^ (pair.Key?.GetHashCode() ?? 0);
+                                    hash = (hash * 397) ^ (pair.Value?.GetHashCode() ?? 0);
+                                }
+                            }
+                        }
+                        else
+                        {
+                            hash = (hash * 397) ^ val.GetHashCode();
+                        }
+                    }
+                }
+
+                return hash;
+            }
         }
     }
 }

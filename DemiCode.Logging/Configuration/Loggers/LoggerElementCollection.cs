@@ -96,10 +96,10 @@ namespace DemiCode.Logging.Configuration.Loggers
             switch (elementName)
             {
                 case "logger":
-                    return typeof (LoggerElement);
+                    return typeof(LoggerElement);
 
                 case "ConsoleLogger":
-                    return typeof (ConsoleLoggerElement);
+                    return typeof(ConsoleLoggerElement);
 
                 case "Log4netLogger":
                     return
@@ -116,7 +116,7 @@ namespace DemiCode.Logging.Configuration.Loggers
         /// <remarks>This type is used in <see cref="ConfigurationElementCollection.CreateNewElement()"/>.</remarks>
         protected override Type GetDefaultElementType()
         {
-            return typeof (LoggerElement);
+            return typeof(LoggerElement);
         }
     }
 }

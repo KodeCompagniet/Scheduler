@@ -66,7 +66,7 @@ namespace DemiCode.Logging.Configuration.Loggers
                 if (value != null)
                     ValidateLoggerType(value);
 
-                 base["type"] = value;
+                base["type"] = value;
             }
         }
 
@@ -101,6 +101,15 @@ namespace DemiCode.Logging.Configuration.Loggers
         {
             if (ReferenceEquals(this, compareTo)) return true;
             return Equals(compareTo as LoggerElement);
+        }
+
+        ///<summary>
+        ///Serves as a hash function for this type.
+        ///</summary>
+        ///<returns>A hash code for the current object.</returns>
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
     }
 }

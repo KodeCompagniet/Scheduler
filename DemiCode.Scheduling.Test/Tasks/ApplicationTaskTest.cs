@@ -18,7 +18,7 @@ namespace DemiCode.Scheduling.Tasks.Test
         [Test]
         public void ExecuteTest()
         {
-            var task = new ApplicationTask("cmd", new[]{"/C \"echo fisk\""});
+            var task = new ApplicationTask("cmd", new[] { "/C \"echo fisk\"" });
             ILoggerFactory loggerFactory = new LoggerFactoryMock();
 
             task.Execute(loggerFactory);

@@ -59,7 +59,7 @@ namespace DemiCode.Scheduling.Loggers.Test
         public void CreateNDCTest()
         {
             ILoggerFactory factory = new ConsoleLoggerFactory();
-        
+
             using (factory.CreateNDC("context message"))
             {
             }

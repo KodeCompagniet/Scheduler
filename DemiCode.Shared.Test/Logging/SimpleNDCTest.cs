@@ -9,7 +9,7 @@ namespace DemiCode.Logging.Test
         public void ConstructorTest()
         {
             using (new SimpleNDC("test"))
-            {}
+            { }
         }
     }
 

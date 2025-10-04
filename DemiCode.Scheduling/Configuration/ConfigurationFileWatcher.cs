@@ -14,7 +14,7 @@ namespace DemiCode.Scheduling.Configuration
         private FileSystemWatcher _watcher;
         private FileInfo _configFile;
 
-        
+
         public event ConfigurationFileChangedEventHandler ConfigurationFileChanged;
 
         public ConfigurationFileWatcher()
@@ -22,7 +22,7 @@ namespace DemiCode.Scheduling.Configuration
             _timer = new Timer(new TimerCallback(OnWatchedFileChange), null, Timeout.Infinite, Timeout.Infinite);
 
             _configFile = GetConfigFileInfo();
-            
+
             _watcher = new FileSystemWatcher();
             _watcher.Path = _configFile.DirectoryName;
             _watcher.Filter = _configFile.Name;

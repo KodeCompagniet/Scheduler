@@ -15,7 +15,7 @@ namespace DemiCode.Loggers.log4net.Test
         [Test]
         public void ConstructorTest()
         {
-            var name = "test"; 
+            var name = "test";
             var target = new Log4netLogger(name);
             Assert.IsNotNull(target);
         }
@@ -26,7 +26,7 @@ namespace DemiCode.Loggers.log4net.Test
         [Test]
         public void ConstructorTest1()
         {
-            var type = typeof (Log4netLoggerTest);
+            var type = typeof(Log4netLoggerTest);
             var target = new Log4netLogger(type);
             Assert.IsNotNull(target);
         }
@@ -36,7 +36,7 @@ namespace DemiCode.Loggers.log4net.Test
         {
             Exception e = new ApplicationException("Unit testing");
             ILogger logger = new Log4netLogger("testlogger");
-            
+
             logger.Debug("Debug {0}", 1);
             logger.Debug("Debug {0}", e, 2);
 

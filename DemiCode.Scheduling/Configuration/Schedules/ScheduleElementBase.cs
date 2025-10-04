@@ -33,7 +33,7 @@ namespace DemiCode.Scheduling.Configuration.Schedules
         /// <summary>
         /// The name of our schedule element. This attribute must be unique within the list of schedules.
         /// </summary>
-        [ConfigurationProperty("name", IsRequired = false, IsKey = false, DefaultValue="")]
+        [ConfigurationProperty("name", IsRequired = false, IsKey = false, DefaultValue = "")]
         public string Name
         {
             get { return ((string)base["name"]); }

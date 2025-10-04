@@ -6,7 +6,7 @@ namespace DemiCode.Scheduling.Test.Mocks
     /// <summary>
     /// Class that enables testing of Factory.CreateInstance.
     /// </summary>
-    internal class SimpleClass 
+    internal class SimpleClass
     {
         [ThreadStatic] public static bool SimpleMethodWasCalled = false;
         [ThreadStatic] public static bool SimpleMethodWith1ParameterWasCalled = false;
@@ -100,13 +100,13 @@ namespace DemiCode.Scheduling.Test.Mocks
             DisposeWasCalled = false;
         }
 
-        public void SimpleMethod() {}
+        public void SimpleMethod() { }
 
         public void Dispose()
         {
             DisposeWasCalled = true;
             GC.SuppressFinalize(this);
         }
-        
+
     }
 }

@@ -78,7 +78,7 @@ namespace DemiCode.Scheduling.Schedules
                 CurrentOccurrence = DateTime.MaxValue;
                 return false;
             }
-    
+
             CurrentOccurrence = FirstOccurrence;
             return true;
         }

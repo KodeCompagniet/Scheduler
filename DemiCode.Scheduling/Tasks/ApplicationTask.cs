@@ -65,7 +65,7 @@ namespace DemiCode.Scheduling.Tasks
                 {
                     process.Start();
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
                     logger.Error("Failed to start process {0}", e, Path);
                 }

@@ -11,8 +11,8 @@ namespace DemiCode.Configuration
         /// <summary>
         /// Initialize a new instance of <see cref="DateElement"/>.
         /// </summary>
-        public DateElement() 
-        :base("yyyy-MM-dd")
+        public DateElement()
+        : base("yyyy-MM-dd")
         { }
 
         /// <summary>

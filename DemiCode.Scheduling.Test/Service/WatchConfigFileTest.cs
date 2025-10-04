@@ -70,7 +70,7 @@ namespace DemiCode.Scheduling.Service.Test
 
                     using (var trigger = new AutoResetEvent(false))
                     {
-                        ConfigurationFileChangedEventHandler x = 
+                        ConfigurationFileChangedEventHandler x =
                             delegate
                             {
                                 Assert.IsNotNull(scheduler != null);
@@ -180,7 +180,7 @@ namespace DemiCode.Scheduling.Service.Test
                             }
                         }
                         Assert.IsNotNull(testDummyEvent);
-                        Assert.AreEqual(Level.Debug, testDummyEvent.Level);               
+                        Assert.AreEqual(Level.Debug, testDummyEvent.Level);
                     }
                 }
             }

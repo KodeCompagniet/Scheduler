@@ -19,7 +19,7 @@ namespace DemiCode.Scheduling.Configuration.Schedules.Test
         {
             var now = new DateTime(2008, 7, 6, 5, 4, 3, 2);
             var ts = TimeSpan.FromSeconds(5);
-            var days = new[] {DayOfWeek.Tuesday, DayOfWeek.Friday};
+            var days = new[] { DayOfWeek.Tuesday, DayOfWeek.Friday };
 
             var target = new WeeklyScheduleElement("weekly", now, ts, days);
 
@@ -98,7 +98,7 @@ namespace DemiCode.Scheduling.Configuration.Schedules.Test
         public void LoadFromConfigTest()
         {
             SchedulerSettings settings = SchedulerSettingsManager.GetConfigurationSection("WeeklyScheduleConfig");
-            
+
         }
 
     }

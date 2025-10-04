@@ -161,17 +161,17 @@ namespace DemiCode.Scheduling.Schedules
                 CurrentOccurrence = FirstOccurrence + TimeSpan.FromTicks(passedOccurences * _interval.Ticks);
                 return true;
             }
-            
+
             if (passedOccurences < _numberOfOccurences)
             {
                 _remainingOccurences = _numberOfOccurences - passedOccurences;
                 CurrentOccurrence = FirstOccurrence + TimeSpan.FromTicks(passedOccurences * _interval.Ticks);
                 return true;
             }
-            
+
             _remainingOccurences = 0L;
             CurrentOccurrence = DateTime.MaxValue;
-            
+
             return false;
         }
 

@@ -28,7 +28,7 @@ namespace DemiCode.Scheduling.Loggers.log4net.Test
         public void CreateNDCTest()
         {
             ILoggerFactory factory = new Log4netLoggerFactory();
-        
+
             using (factory.CreateNDC("context message"))
             {
             }

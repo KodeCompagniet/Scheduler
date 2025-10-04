@@ -22,7 +22,7 @@ namespace DemiCode.SchedulerService
 
             // Determine if running as Windows Service or Console
             bool isService = !(Environment.UserInteractive && System.Diagnostics.Debugger.IsAttached);
-            
+
             if (isService)
             {
                 builder.UseWindowsService(options =>

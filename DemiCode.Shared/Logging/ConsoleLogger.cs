@@ -9,11 +9,11 @@ namespace DemiCode.Logging
     {
         private readonly string _loggerName;
         private readonly string _loggerNameMsg;
-        
+
         /// <summary>
         /// Initialize a new instance of <see cref="ConsoleLogger"/>.
         /// </summary>
-        public ConsoleLogger() : this(null) {}
+        public ConsoleLogger() : this(null) { }
 
         /// <summary>
         /// Initialize a new instance of <see cref="ConsoleLogger"/>.
@@ -123,7 +123,7 @@ namespace DemiCode.Logging
 
         #endregion
 
-        private void WriteMessage(string message, params object [] args)
+        private void WriteMessage(string message, params object[] args)
         {
             string msg = String.Format(_loggerNameMsg + message, args);
             Console.WriteLine(msg);

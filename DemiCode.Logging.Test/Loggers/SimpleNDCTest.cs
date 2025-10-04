@@ -50,7 +50,7 @@ namespace DemiCode.Scheduling.Loggers.Test
         public void ConstructorTest()
         {
             using (new SimpleNDC("test"))
-            {}
+            { }
         }
     }
 
