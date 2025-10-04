@@ -1,5 +1,5 @@
 ﻿using System;
-using DemiCode.Logging.Loggers;
+using DemiCode.Logging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace DemiCode.Logging.Configuration.Loggers.Test

@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
 using System.Reflection;
-using DemiCode.Logging.Loggers;
+using DemiCode.Logging;
 using DemiCode.Logging.log4net;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 

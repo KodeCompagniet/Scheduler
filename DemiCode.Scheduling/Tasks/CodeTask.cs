@@ -70,8 +70,15 @@ namespace DemiCode.Scheduling.Tasks
 
             var logger = loggerFactory.CreateLogger(typeof(CodeTask));
 
-            var codeInstance = Factory.CreateInstance<object>(CodeClass);
-            var disposableCode = codeInstance as IDisposable;
+            // Only instantiate for non-static methods
+            object codeInstance = null;
+            IDisposable disposableCode = null;
+
+            if (!methodInstance.IsStatic)
+            {
+                codeInstance = Factory.CreateInstance<object>(CodeClass);
+                disposableCode = codeInstance as IDisposable;
+            }
 
             try
             {

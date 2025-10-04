@@ -80,5 +80,98 @@ namespace DemiCode.Scheduling.Schedules.Test
             Assert.That(schedule.CurrentOccurrence.Month, Is.EqualTo(expectedMonth));
             Assert.That(schedule.CurrentOccurrence.Day, Is.EqualTo(expectedDay));
         }
+
+        /// <summary>
+        /// Test that MonthlySchedule respects the toDate boundary and does not emit occurrences beyond it.
+        /// This tests the bug where schedules emit one extra occurrence past their configured end date.
+        /// </summary>
+        [Test]
+        public void MoveToFirstFrom_OnToDate_ReturnsToDateOccurrence()
+        {
+            // Schedule from Jan 1 to Feb 1, 2025
+            // Occurrences are on the 1st of each month
+            var schedule = new MonthlySchedule(Dt.At(2025, 1, 1), Dt.At(2025, 2, 1));
+
+            // Move to first occurrence from January 15 (mid-month)
+            var result = schedule.MoveToFirstFrom(Dt.At(2025, 1, 15));
+
+            // Should return true and set occurrence to February 1 (next occurrence, equals toDate)
+            Assert.That(result, Is.True);
+            Assert.That(schedule.CurrentOccurrence, Is.EqualTo(Dt.At(2025, 2, 1)));
+        }
+
+        [Test]
+        public void MoveToFirstFrom_OnToDateExactly_ReturnsToDateOccurrence()
+        {
+            // Schedule from Jan 1 to Feb 1, 2025
+            // Occurrences are on the 1st of each month
+            var schedule = new MonthlySchedule(Dt.At(2025, 1, 1), Dt.At(2025, 2, 1));
+
+            // Move to first occurrence from the exact toDate (Feb 1)
+            // Since Feb 1 IS an occurrence, "moving from" it means moving to the NEXT occurrence
+            // But the next occurrence (March 1) is beyond toDate, so should return false
+            var result = schedule.MoveToFirstFrom(Dt.At(2025, 2, 1));
+
+            // Should return false because moving from Feb 1 would require going to March 1 (beyond toDate)
+            Assert.That(result, Is.False);
+            Assert.That(schedule.CurrentOccurrence, Is.EqualTo(DateTime.MaxValue));
+        }
+
+        [Test]
+        public void MoveToFirstFrom_AtEndOfToDateMonth_DoesNotExceedBoundary()
+        {
+            // BUG TEST: Schedule from Jan 1 to Feb 1, 2025
+            // Occurrences are on the 1st of each month
+            var schedule = new MonthlySchedule(Dt.At(2025, 1, 1), Dt.At(2025, 2, 1));
+
+            // Move from Jan 2 (after the Jan 1 occurrence)
+            // This should move to Feb 1 (the toDate), not beyond
+            var result = schedule.MoveToFirstFrom(Dt.At(2025, 1, 2));
+
+            Assert.That(result, Is.True);
+            Assert.That(schedule.CurrentOccurrence, Is.EqualTo(Dt.At(2025, 2, 1)),
+                "Should move to February 1 (toDate), not beyond");
+        }
+
+        [Test]
+        public void MoveToFirstFrom_AfterLastValidOccurrence_ReturnsFalse()
+        {
+            // Schedule from Jan 1 to Feb 1, 2025
+            // Occurrences are on the 1st of each month
+            var schedule = new MonthlySchedule(Dt.At(2025, 1, 1), Dt.At(2025, 2, 1));
+
+            // Move from Jan 15 (mid-month) - should give us Feb 1
+            var result = schedule.MoveToFirstFrom(Dt.At(2025, 1, 15));
+            Assert.That(result, Is.True);
+            Assert.That(schedule.CurrentOccurrence, Is.EqualTo(Dt.At(2025, 2, 1)));
+
+            // BUG TEST: Now move from Feb 2 (after the last valid occurrence).
+            // The buggy implementation would calculate March 1 and return it,
+            // even though March 1 exceeds toDate (Feb 1).
+            // EXPECTED: Should return false and set CurrentOccurrence to DateTime.MaxValue
+            result = schedule.MoveToFirstFrom(Dt.At(2025, 2, 2));
+
+            Assert.That(result, Is.False, "Should return false when next occurrence would exceed toDate");
+            Assert.That(schedule.CurrentOccurrence, Is.EqualTo(DateTime.MaxValue),
+                "Should set CurrentOccurrence to DateTime.MaxValue when schedule is complete");
+        }
+
+        [Test]
+        public void MoveToFirstFrom_BoundaryCase_LastDayOfMonth()
+        {
+            // Schedule from Jan 31 to Feb 28, 2025 (non-leap year)
+            var schedule = new MonthlySchedule(Dt.At(2025, 1, 31), Dt.At(2025, 2, 28));
+
+            // Move from Feb 1 - should give us Feb 28 (last day of Feb that aligns with Jan 31)
+            var result = schedule.MoveToFirstFrom(Dt.At(2025, 2, 1));
+
+            Assert.That(result, Is.True);
+            Assert.That(schedule.CurrentOccurrence, Is.EqualTo(Dt.At(2025, 2, 28)));
+
+            // Now try to move beyond - should return false
+            result = schedule.MoveToFirstFrom(Dt.At(2025, 3, 1));
+            Assert.That(result, Is.False);
+            Assert.That(schedule.CurrentOccurrence, Is.EqualTo(DateTime.MaxValue));
+        }
     }
 }

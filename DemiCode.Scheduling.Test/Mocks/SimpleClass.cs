@@ -109,4 +109,43 @@ namespace DemiCode.Scheduling.Test.Mocks
         }
 
     }
+
+    /// <summary>
+    /// Static-only utility class with no parameterless constructor.
+    /// Used to test CodeTask static method invocation.
+    /// </summary>
+    internal class StaticOnlyClass
+    {
+        [ThreadStatic]
+        public static bool StaticMethodWasCalled = false;
+
+        [ThreadStatic]
+        public static bool StaticMethodWithParamWasCalled = false;
+
+        [ThreadStatic]
+        public static string LastParamValue = null;
+
+        // Private constructor to prevent instantiation
+        private StaticOnlyClass()
+        {
+        }
+
+        public static void ResetTrackerFields()
+        {
+            StaticMethodWasCalled = false;
+            StaticMethodWithParamWasCalled = false;
+            LastParamValue = null;
+        }
+
+        public static void StaticMethod()
+        {
+            StaticMethodWasCalled = true;
+        }
+
+        public static void StaticMethodWithParam(string param1)
+        {
+            StaticMethodWithParamWasCalled = true;
+            LastParamValue = param1;
+        }
+    }
 }

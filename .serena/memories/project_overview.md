@@ -1,0 +1,6 @@
+# DemiCode Scheduler – Project Overview
+- Purpose: Provide a configurable scheduling engine for .NET that triggers alarms according to interval, counted interval, weekly, and one-shot schedules and runs associated tasks (code or external processes). Includes logging abstraction and log4net integration, plus service/sample hosts.
+- Tech stack: C# targeting .NET Standard 2.0 for core library, .NET 8.0 for test projects; uses NUnit, Moq, log4net. Build tooling via dotnet CLI (MSBuild).
+- Structure: `DemiCode.Scheduling` (core scheduler, schedules, tasks, configuration), `DemiCode.Logging` (logging abstractions), `DemiCode.Logging.log4net` (log4net adapter), `DemiCode.Shared` (shared utilities), auxiliary sample/service/test projects (`DemiCode.Scheduling.Test`, `DemiCode.Scheduling.GUI`, etc.). Solution file `DemiCode.Scheduling.sln` ties projects together.
+- Key dependencies: DemiCode internal libraries, NUnit/Moq for tests, log4net for logging integration.
+- Notable docs: `README.md` quick starts, multiple migration status docs in root.

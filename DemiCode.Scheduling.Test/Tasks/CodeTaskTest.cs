@@ -99,6 +99,60 @@ namespace DemiCode.Scheduling.Tasks.Test
             Assert.AreEqual(2, values[1]);
 
         }
+
+        /// <summary>
+        /// Test that static methods on classes without parameterless constructors can be executed.
+        /// This addresses the bug where CodeTask would fail to invoke static methods on static-only utility classes.
+        /// </summary>
+        [Test]
+        public void StaticMethodWithoutParameterlessConstructorTest()
+        {
+            StaticOnlyClass.ResetTrackerFields();
+
+            ILoggerFactory loggerFactory = new LoggerFactoryMock();
+
+            // Test static method with no parameters
+            var task = new CodeTask(typeof(StaticOnlyClass), "StaticMethod");
+            task.Execute(loggerFactory);
+
+            Assert.IsTrue(StaticOnlyClass.StaticMethodWasCalled, "Static method without parameters should have been called");
+        }
+
+        /// <summary>
+        /// Test that static methods with parameters work on classes without parameterless constructors.
+        /// </summary>
+        [Test]
+        public void StaticMethodWithParametersTest()
+        {
+            StaticOnlyClass.ResetTrackerFields();
+
+            ILoggerFactory loggerFactory = new LoggerFactoryMock();
+
+            // Test static method with parameters
+            var task = new CodeTask(typeof(StaticOnlyClass), "StaticMethodWithParam", "test_value");
+            task.Execute(loggerFactory);
+
+            Assert.IsTrue(StaticOnlyClass.StaticMethodWithParamWasCalled, "Static method with parameters should have been called");
+            Assert.AreEqual("test_value", StaticOnlyClass.LastParamValue, "Parameter should have been passed correctly");
+        }
+
+        /// <summary>
+        /// Test that existing static methods on classes WITH parameterless constructors still work.
+        /// This ensures backward compatibility.
+        /// </summary>
+        [Test]
+        public void StaticMethodWithParameterlessConstructorTest()
+        {
+            SimpleClass.ResetTrackerFields();
+
+            ILoggerFactory loggerFactory = new LoggerFactoryMock();
+
+            // SimpleClass has a parameterless constructor and static methods
+            var task = new CodeTask(typeof(SimpleClass), "ExtendedMethod");
+            task.Execute(loggerFactory);
+
+            Assert.IsTrue(SimpleClass.ExtendedMethodCalled, "Static method on class with parameterless constructor should work");
+        }
     }
 
 
