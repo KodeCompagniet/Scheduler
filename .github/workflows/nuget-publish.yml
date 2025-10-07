@@ -1,0 +1,133 @@
+name: NuGet Publish
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: 'Publish to NuGet.org (true) or just pack (false)'
+        required: false
+        default: 'false'
+        type: choice
+        options: ['false', 'true']
+
+permissions:
+  contents: write
+
+env:
+  DOTNET_NOLOGO: true
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
+
+jobs:
+  build-test-pack:
+    runs-on: windows-latest
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET SDK 8.0.120
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.120'
+          cache: true
+
+      - name: Display .NET info
+        run: dotnet --info
+
+      - name: Restore
+        run: dotnet restore DemiCode.Scheduling.sln
+
+      - name: Build (Release)
+        run: dotnet build DemiCode.Scheduling.sln -c Release --no-restore
+
+      - name: Test (Release)
+        run: dotnet test DemiCode.Scheduling.sln -c Release --no-restore --no-build --verbosity normal
+
+      - name: Compute Version and validate tag
+        id: version
+        shell: pwsh
+        run: |
+          $props = Get-Content -Raw -Path "Directory.Build.props"
+          $m = [regex]::Match($props, '<Version>(?<v>[^<]+)</Version>')
+          if (-not $m.Success) { Write-Error "Version not found in Directory.Build.props"; exit 1 }
+          $version = $m.Groups['v'].Value.Trim()
+          "version=$version" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
+
+          $ref = "${{ github.ref_name }}"
+          if ($ref -like 'v*') {
+            $tag = $ref.Substring(1)
+            if ($tag -ne $version) {
+              Write-Error "Tag 'v$tag' does not match Directory.Build.props version '$version'"
+              exit 1
+            }
+          } else {
+            Write-Host "No tag ref; skipping tag-version check"
+          }
+
+      - name: Pack NuGet packages
+        run: |
+          mkdir artifacts\nuget
+          dotnet pack DemiCode.Shared/DemiCode.Shared.csproj -c Release --no-build --output artifacts/nuget
+          dotnet pack DemiCode.Scheduling/DemiCode.Scheduling.csproj -c Release --no-build --output artifacts/nuget
+          dotnet pack DemiCode.Logging.log4net/DemiCode.Logging.log4net.csproj -c Release --no-build --output artifacts/nuget
+
+      - name: Validate packages by consuming them
+        shell: pwsh
+        run: |
+          $pkgDir = Resolve-Path "artifacts/nuget"
+          dotnet new console -n Consumer -o _validate -f net8.0
+          dotnet nuget add source "$pkgDir" -n local -v quiet
+          $version = "${{ steps.version.outputs.version }}"
+          if (-not $version) { Write-Error "Missing version from previous step"; exit 1 }
+          dotnet add _validate/Consumer.csproj package DemiCode.Shared --version $version --source local
+          dotnet add _validate/Consumer.csproj package DemiCode.Scheduling --version $version --source local
+          dotnet add _validate/Consumer.csproj package DemiCode.Logging.log4net --version $version --source local
+          dotnet restore _validate/Consumer.csproj
+          dotnet build _validate/Consumer.csproj -c Release --no-restore
+
+      - name: Upload NuGet artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: nuget-packages
+          path: artifacts/nuget/*
+          retention-days: 30
+
+  publish:
+    if: ${{ github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.publish == 'true') }}
+    needs: build-test-pack
+    runs-on: windows-latest
+    steps:
+      - name: Download NuGet artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: nuget-packages
+          path: artifacts/nuget
+
+      - name: Publish to NuGet.org
+        shell: pwsh
+        env:
+          NUGET_API_KEY: ${{ secrets.KODECOMPAGNIET_SCHEDULER_NUGET_APIKEY }}
+        run: |
+          if (-not $env:NUGET_API_KEY) { Write-Error "Missing NUGET_API_KEY secret"; exit 1 }
+          dotnet nuget push "artifacts/nuget/*.nupkg" `
+            --api-key "$env:NUGET_API_KEY" `
+            --source https://api.nuget.org/v3/index.json `
+            --symbol-source https://symbols.nuget.org/upload `
+            --skip-duplicate
+
+      - name: Create GitHub Release
+        if: github.event_name == 'push'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: Release ${{ needs.build-test-pack.outputs.version || github.ref_name }}
+          body: See CHANGELOG.md for details.
+          files: |
+            artifacts/nuget/*.nupkg
+            artifacts/nuget/*.snupkg
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
