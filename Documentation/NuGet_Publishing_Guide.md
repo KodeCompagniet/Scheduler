@@ -7,7 +7,7 @@ This is a concise guide for publishing DemiCode Scheduler packages to NuGet. For
 - `DemiCode.Scheduling`
 - `DemiCode.Logging.log4net`
 
-Note: `DemiCode.Logging` is not published as of v2.x.
+Note: `DemiCode.Logging` was removed in v2.0.0; consumers should reference `DemiCode.Shared` for the `DemiCode.Logging` namespace.
 
 ## Prerequisites
 - .NET SDK 8.0 (pinned by `global.json` to `8.0.120`).

@@ -7,7 +7,7 @@ This document explains how to cut a new release of DemiCode Scheduler and how th
 - `DemiCode.Scheduling`
 - `DemiCode.Logging.log4net`
 
-`DemiCode.Logging` is not published as of v2.x.
+`DemiCode.Logging` was removed in v2.0.0; the logging namespace now ships from `DemiCode.Shared`.
 
 ## Versioning
 - Source of truth: `Directory.Build.props` `<Version>` (for example, `2.0.0`).
@@ -84,4 +84,3 @@ Note: Some tests require Windows kernels (P/Invoke). Prefer running the CI workf
 - Workflow: `.github/workflows/nuget-publish.yml`
 - NuGet secret: `KODECOMPAGNIET_SCHEDULER_NUGET_APIKEY`
 - Artifacts: `artifacts/nuget` (`.nupkg` and `.snupkg`)
-

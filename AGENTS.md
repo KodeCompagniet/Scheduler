@@ -106,14 +106,15 @@ Do NOT use `HashCode.Combine()` (not available in netstandard2.0).
 - **Issue**: Implementation doesn't match design documentation
 - **Action**: Do NOT fix without explicit approval. Tests are written to match buggy behavior.
 
-### 2. Obsolete APIs in Tests
-Test projects intentionally use obsolete APIs to verify backward compatibility:
-- `Scheduler.CreateFromConfig()` - Use `SchedulerFactory.CreateFromConfig()` in new code
+### 2. Legacy APIs in Tests
+Test projects intentionally exercise legacy behaviors to verify backward compatibility:
 - `TaskCollection.Add(ITask, IDictionary)` - IDictionary parameter is obsolete
 - `TaskHandler(ITask, IDictionary, ILoggerFactory)` - IDictionary parameter is obsolete
 - XML-based schedule constructors - Use configuration system instead
 
-These obsolete usages in **test code** are intentional and should not be removed.
+The obsolete `Scheduler.CreateFromConfig()` overloads were removed in 2.0.0; new code (including tests) should call `SchedulerFactory.CreateFromConfig()`.
+
+These remaining obsolete usages in **test code** are intentional and should not be removed.
 
 ### 3. Test Project Warnings
 Test projects have 21 expected warnings (obsolete APIs, security attributes). These are normal and intentional.

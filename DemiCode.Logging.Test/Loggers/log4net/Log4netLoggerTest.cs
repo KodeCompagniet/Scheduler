@@ -52,7 +52,7 @@ namespace DemiCode.Scheduling.Loggers.log4net.Test
         /// <summary>
         ///A test for Log4netLogger (string)
         ///</summary>
-        [DeploymentItem("DemiCode.Scheduling.Loggers.log4net.dll")]
+[DeploymentItem("DemiCode.Logging.log4net.dll")]
         [TestMethod]
         public void ConstructorTest()
         {
@@ -64,7 +64,7 @@ namespace DemiCode.Scheduling.Loggers.log4net.Test
         /// <summary>
         ///A test for Log4netLogger (Type)
         ///</summary>
-        [DeploymentItem("DemiCode.Scheduling.Loggers.log4net.dll")]
+[DeploymentItem("DemiCode.Logging.log4net.dll")]
         [TestMethod]
         public void ConstructorTest1()
         {

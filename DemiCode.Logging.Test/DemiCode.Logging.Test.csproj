@@ -12,7 +12,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DemiCode.Shared\DemiCode.Shared.csproj" />
-    <ProjectReference Include="..\DemiCode.Logging\DemiCode.Logging.csproj" />
     <ProjectReference Include="..\DemiCode.Logging.log4net\DemiCode.Logging.log4net.csproj" />
   </ItemGroup>
 

@@ -35,7 +35,7 @@
                             
                                 Name of a scheduler element to use as default configuration. The name must correspond to
                                 a scheduler element in the schedulers collection.<para/>
-                                The named configuration will be used by <codeEntityReference qualifyHint="false" autoUpgrade="true">M:DemiCode.Scheduling.Scheduler.CreateFromConfig(System.String)</codeEntityReference> and can be 
+                                The named configuration will be used by <codeEntityReference qualifyHint="false" autoUpgrade="true">M:DemiCode.Scheduling.SchedulerFactory.CreateFromConfig(System.String)</codeEntityReference> and can be 
                                 accessed via <codeEntityReference qualifyHint="false">P:DemiCode.Scheduling.Configuration.SchedulerSettings.DefaultScheduler</codeEntityReference> property.
                         </entry>
                     </row>

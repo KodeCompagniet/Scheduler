@@ -1,4 +1,4 @@
-// � 2001 IDesign Inc. All rights reserved 
+// (c) 2001 IDesign Inc. All rights reserved 
 //Questions? Comments? go to 
 //http://www.idesign.net
 

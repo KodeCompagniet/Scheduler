@@ -47,7 +47,6 @@ namespace DemiCode.Scheduling.Loggers.Test
         /// <summary>
         ///A test for ConsoleLogger (string)
         ///</summary>
-        [DeploymentItem("DemiCode.Scheduling.dll")]
         [TestMethod]
         public void ConstructorTest()
         {
@@ -58,7 +57,6 @@ namespace DemiCode.Scheduling.Loggers.Test
         /// <summary>
         ///A test for ConsoleLogger (Type)
         ///</summary>
-        [DeploymentItem("DemiCode.Scheduling.dll")]
         [TestMethod]
         public void ConstructorTest1()
         {
@@ -66,7 +64,6 @@ namespace DemiCode.Scheduling.Loggers.Test
             Assert.IsNotNull(target);
         }
 
-        [DeploymentItem("DemiCode.Scheduling.dll")]
         [TestMethod]
         public void LogTest()
         {

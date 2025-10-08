@@ -38,7 +38,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DemiCode.Shared\DemiCode.Shared.csproj" />
-    <ProjectReference Include="..\DemiCode.Logging\DemiCode.Logging.csproj" />
   </ItemGroup>
 
   <ItemGroup>

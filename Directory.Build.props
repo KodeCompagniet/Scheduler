@@ -12,6 +12,8 @@
     <PackageReleaseNotes>
 ## Version 2.0.0
 ### Breaking Changes
+- Removed obsolete `Scheduler.CreateFromConfig(...)` overloads; switch to `SchedulerFactory.CreateFromConfig(...)`.
+- Removed the legacy `DemiCode.Logging` assembly and type forwarders; reference `DemiCode.Shared` for `DemiCode.Logging` types.
 - Consolidated logging namespaces - update using statements from DemiCode.Logging.Loggers to DemiCode.Logging
 - ApplicationTask now uses direct process execution instead of shell - use explicit shell invocation for shell features
 
