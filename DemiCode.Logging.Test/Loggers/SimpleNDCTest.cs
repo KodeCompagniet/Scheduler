@@ -45,7 +45,6 @@ namespace DemiCode.Scheduling.Loggers.Test
         //
         #endregion
 
-        [DeploymentItem("DemiCode.Scheduling.dll")]
         [TestMethod]
         public void ConstructorTest()
         {

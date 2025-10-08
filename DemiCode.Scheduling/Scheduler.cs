@@ -94,34 +94,6 @@ namespace DemiCode.Scheduling
 
         #endregion
 
-        #region obsolete factory stuff
-        /// <summary>
-        /// Creates a Scheduler with schedules from the configuration file (.config).
-        /// </summary>
-        /// <param name="sectionName">The section name as defined in the .config files configSections/section</param>
-        /// <returns>The default Scheduler configured in the configuration file.</returns>
-        /// <seealso href="d9a6a49a-098b-4d25-aa79-eb78b4634e34.htm" target="_self">Scheduler configuration using .NET configuration files</seealso>
-        [Obsolete("Use SchedulerFactory.CreateFromConfig")]
-        public static Scheduler CreateFromConfig(string sectionName)
-        {
-            return SchedulerFactory.CreateFromConfig(sectionName);
-        }
-
-        /// <summary>
-        /// Creates a Scheduler with schedules from the configuration file (.config).
-        /// </summary>
-        /// <param name="sectionName">The section name as defined in the .config files configSections/section</param>
-        /// <param name="schedulerName">The named scheduler to create</param>
-        /// <returns>The named Scheduler configured in the configuration file.</returns>
-        /// <seealso href="d9a6a49a-098b-4d25-aa79-eb78b4634e34.htm" target="_self">Scheduler configuration using .NET configuration files</seealso>
-        [Obsolete("Use SchedulerFactory.CreateFromConfig")]
-        public static Scheduler CreateFromConfig(string sectionName, string schedulerName)
-        {
-            return SchedulerFactory.CreateFromConfig(sectionName, schedulerName);
-        }
-
-        #endregion
-
         #region Dispose and dtor stuff
         /// <summary>
         /// Destructor

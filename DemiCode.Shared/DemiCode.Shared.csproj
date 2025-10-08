@@ -5,11 +5,31 @@
     <RootNamespace>DemiCode.Shared</RootNamespace>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <ProjectGuid>{4950761D-AFFA-4A0E-B328-4CA6238FC786}</ProjectGuid>
+
+    <!-- NuGet Package Metadata -->
+    <PackageId>DemiCode.Shared</PackageId>
+    <Authors>DemiCode</Authors>
+    <Description>Core utilities and base types for DemiCode Scheduler - a robust job scheduling framework for .NET applications.</Description>
+    <PackageTags>scheduler;job;task;cron;timer;background;shared;utilities</PackageTags>
+    <PackageProjectUrl>https://github.com/KodeCompagniet/demicode-scheduling</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/KodeCompagniet/demicode-scheduling</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageReadmeFile>NuGet_README.md</PackageReadmeFile>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+
+    <!-- Symbol Package Configuration -->
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
 
   <ItemGroup>
     <Compile Include="..\AssemblyInfo.Common.cs" Link="AssemblyInfo.Common.cs" />
     <Compile Include="..\AssemblyInfo.Version.cs" Link="AssemblyInfo.Version.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE.txt" Pack="true" PackagePath="" />
+    <None Include="..\docs\NuGet_README.md" Pack="true" PackagePath="" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'net48'">

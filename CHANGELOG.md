@@ -9,13 +9,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Breaking Changes
 
-#### Logger Namespace Consolidation
-- **Removed** duplicate `DemiCode.Logging.Loggers` namespace
-- **Consolidated** all logging types into `DemiCode.Logging` namespace
-- **Added** type forwarders in `DemiCode.Logging.dll` to maintain binary compatibility
-- **Migration:** Update `using DemiCode.Logging.Loggers;` to `using DemiCode.Logging;`
-- **Impact:** Simple find-replace operation, no other code changes needed
-- **Binary Compatibility:** Existing binaries that reference `DemiCode.Logging` continue to work via type forwarders
+#### Logging Assembly Removal
+- **Removed** the legacy `DemiCode.Logging` assembly and its type forwarders
+- **Consolidated** all logging types into `DemiCode.Shared` (`DemiCode.Logging` namespace)
+- **Migration:** Reference the `DemiCode.Shared` package/assembly directly; remove dependencies on `DemiCode.Logging`
+- **Impact:** Consumers must update project references and package dependencies to `DemiCode.Shared`
+- **Binary Compatibility:** Requires recompilation against the new package layout
+
+#### Scheduler Factory API Cleanup
+- **Removed** obsolete `Scheduler.CreateFromConfig(...)` overloads
+- **Migration:** Call `SchedulerFactory.CreateFromConfig(...)` (and related overloads) instead
+- **Impact:** Source-breaking for callers of the removed static methods
 
 #### ApplicationTask Shell Execution
 - **Changed** `ProcessStartInfo.UseShellExecute` from `true` to `false`
@@ -27,11 +31,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-#### MonthlySchedule Boundary Guard
-- **Fixed** `MonthlySchedule` emitting an extra occurrence past the configured `toDate`
-- **Behavior:** Schedules now correctly stop at `toDate` without generating additional alarms
-- **Impact:** Implementation now matches documented behavior; most users won't need changes
-- **Location:** `DemiCode.Scheduling/Schedules/MonthlySchedule.cs:91-96`
+#### MonthlySchedule Implementation Corrected
+- **Fixed** `MonthlySchedule` now correctly implements monthly scheduling on the first day of each month
+- **Fixed** `DateTimeHelper.GetFirstOfMonth` properly returns the 1st of the month (not preserving the original day)
+- **Fixed** `MonthlySchedule` no longer emits extra occurrences past the configured `toDate`
+- **Behavior:** Monthly schedules now run on the same day each month (the day from `_fromDate`)
+- **Impact:** Implementation now matches the original design intent and class name
+- **Location:** `DemiCode.Scheduling/DateTimeHelper.cs:24-32`, `DemiCode.Scheduling/Schedules/MonthlySchedule.cs:85-137`
+- **Tests:** Comprehensive test coverage in `DemiCode.Scheduling.Test/Schedules/MonthlyScheduleTest.cs`
 
 #### CodeTask Static Method Support
 - **Fixed** `CodeTask` throwing reflection errors when invoking static methods on types without parameterless constructors

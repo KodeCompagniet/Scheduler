@@ -582,4 +582,4 @@ appsettings.Local.json
 
 # Build outputs to be ignored
 Samples/*.dll
-".serena/" 
+.serena/

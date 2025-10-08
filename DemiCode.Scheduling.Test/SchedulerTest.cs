@@ -293,7 +293,7 @@ namespace DemiCode.Scheduling.Test
             using (Scheduler actual = SchedulerFactory.CreateFromConfig("scheduling"))
             {
                 Assert.IsNotNull(actual,
-                                 "DemiCode.Scheduling.Scheduler.CreateFromConfig did not return the expected value.");
+                                 "DemiCode.Scheduling.SchedulerFactory.CreateFromConfig did not return the expected value.");
                 Assert.AreEqual(2, actual.Count);
             }
         }
@@ -336,7 +336,7 @@ namespace DemiCode.Scheduling.Test
             using (Scheduler actual = SchedulerFactory.CreateFromConfig("scheduling", "test"))
             {
                 Assert.IsNotNull(actual,
-                                 "DemiCode.Scheduling.Scheduler.CreateFromConfig did not return the expected value.");
+                                 "DemiCode.Scheduling.SchedulerFactory.CreateFromConfig did not return the expected value.");
                 Assert.AreEqual(0, actual.Count);
             }
         }

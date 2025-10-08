@@ -191,7 +191,12 @@ The core library builds for `netstandard2.0`.
 - **ApplicationTask** (v2.0+): Shell features (pipes, redirection, environment variable expansion) are not supported. To use shell features, invoke the shell explicitly (e.g., `cmd.exe /c` on Windows or `/bin/sh -c` on Linux).
 
 
+## Releases & NuGet Publishing
+
+- Release management (CI workflow, tagging, validation): `Documentation/Release_Management.md`
+- NuGet publishing quick start (scripts and basics): `Documentation/NuGet_Publishing_Guide.md`
+
+
 ## License
 
-MIT — see `LICENSE`.
-
+MIT — see `LICENSE.txt`.
