@@ -10,8 +10,8 @@ namespace DemiCode.Scheduling.Test
         [Test]
         public void GetTimeTest()
         {
-            if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-                Assert.Ignore("System time manipulation is only supported on Windows");
+            if (!TimeHelper.IsTimeManipulationSupported)
+                Assert.Ignore("System time manipulation is not supported in this environment");
 
             DateTime expetedNow = DateTime.Now.ToUniversalTime();
             DateTime now = TimeHelper.GetTime();
@@ -30,8 +30,8 @@ namespace DemiCode.Scheduling.Test
         [Test]
         public void SetTimeTest()
         {
-            if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-                Assert.Ignore("System time manipulation is only supported on Windows");
+            if (!TimeHelper.IsTimeManipulationSupported)
+                Assert.Ignore("System time manipulation is not supported in this environment");
 
             DateTime originalNow = TimeHelper.GetTime().ToUniversalTime();
             DateTime modifiedNow = originalNow.AddHours(1);
@@ -52,8 +52,8 @@ namespace DemiCode.Scheduling.Test
         [Test]
         public void Change()
         {
-            if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-                Assert.Ignore("System time manipulation is only supported on Windows");
+            if (!TimeHelper.IsTimeManipulationSupported)
+                Assert.Ignore("System time manipulation is not supported in this environment");
 
             var originalDate = DateTime.Now;
             var newDate = new DateTime(2008, 1, 1, 0, 0, 0, DateTimeKind.Utc);
