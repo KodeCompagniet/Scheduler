@@ -148,13 +148,54 @@ jobs:
           Write-Host "Found $($packages.Count) package(s) to publish:"
           $packages | ForEach-Object { Write-Host "  - $($_.Name)" }
 
+          # Validate API key format (basic check)
+          if ($env:NUGET_API_KEY.Length -lt 32) {
+            Write-Warning "API key seems too short. NuGet API keys are typically 32+ characters."
+          }
+
           # Push each package
+          $failedPackages = @()
           foreach ($package in $packages) {
-            Write-Host "Publishing $($package.Name)..."
-            dotnet nuget push $package.FullName `
+            Write-Host "`nPublishing $($package.Name)..."
+
+            # Try to push the package
+            $output = dotnet nuget push $package.FullName `
               --api-key "$env:NUGET_API_KEY" `
               --source https://api.nuget.org/v3/index.json `
-              --skip-duplicate
+              --skip-duplicate 2>&1
+
+            $exitCode = $LASTEXITCODE
+
+            if ($exitCode -ne 0) {
+              # Check for specific error patterns
+              if ($output -match "403.*API key") {
+                Write-Warning "API key authentication failed for $($package.Name)"
+                Write-Host "Error details: $output"
+              } elseif ($output -match "already exists") {
+                Write-Host "Package $($package.Name) already exists (skipping)" -ForegroundColor Yellow
+                continue
+              } else {
+                Write-Warning "Failed to push $($package.Name) (exit code: $exitCode)"
+                Write-Host "Error details: $output"
+              }
+              $failedPackages += $package.Name
+            } else {
+              Write-Host "Successfully published $($package.Name)" -ForegroundColor Green
+            }
+          }
+
+          if ($failedPackages.Count -gt 0) {
+            Write-Host ""
+            Write-Error "Failed to publish $($failedPackages.Count) package(s):"
+            $failedPackages | ForEach-Object { Write-Host "  - $_" -ForegroundColor Red }
+            Write-Host ""
+            Write-Host "TROUBLESHOOTING STEPS:" -ForegroundColor Yellow
+            Write-Host "1. Verify the API key in GitHub Secrets (KODECOMPAGNIET_SCHEDULER_NUGET_APIKEY)" -ForegroundColor Cyan
+            Write-Host "2. Check API key at: https://www.nuget.org/account/apikeys" -ForegroundColor Cyan
+            Write-Host "3. Ensure the key has 'Push' or 'Push new packages and package versions' scope" -ForegroundColor Cyan
+            Write-Host "4. Verify you own these package IDs on NuGet.org or they don't exist yet" -ForegroundColor Cyan
+            Write-Host "5. If re-running workflow, packages might already be published (check NuGet.org)" -ForegroundColor Cyan
+            exit 1
           }
 
       - name: Create GitHub Release
