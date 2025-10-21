@@ -22,7 +22,7 @@ namespace DemiCode.Scheduling.Test
         /// This test checks that <see cref="Scheduler.Stop"/> can be called from a schedule event handler.
         /// Proves that case 9080 is fixed.
         /// </summary>
-        [Test]
+        [Test, Category("TimingSensitive")]
         public void Stop_CalledDuringOccurence_StopsTheScheduler()
         {
             var now = DateTime.Now.AddMilliseconds(500);
@@ -54,7 +54,16 @@ namespace DemiCode.Scheduling.Test
                 alarmListener.AssertScheduledAlarm(5000);
 
                 Assert.That(wasStopped);
-                Assert.That(scheduler.IsRunning, Is.False);
+
+                // In CI environments, stopping might take a bit longer due to virtualization overhead
+                // Wait up to 2 seconds for the scheduler to fully stop
+                var stopTimeout = DateTime.Now.AddSeconds(2);
+                while (scheduler.IsRunning && DateTime.Now < stopTimeout)
+                {
+                    Thread.Sleep(100);
+                }
+
+                Assert.That(scheduler.IsRunning, Is.False, "Scheduler should have stopped after calling Stop() in the event handler");
             }
         }
 

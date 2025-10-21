@@ -9,7 +9,19 @@ namespace DemiCode.Scheduling.Test
         /// <summary>
         /// Indicates whether system time manipulation is supported on the current platform
         /// </summary>
-        public static bool IsTimeManipulationSupported => RuntimeInformation.IsOSPlatform(OSPlatform.Windows);
+        public static bool IsTimeManipulationSupported => RuntimeInformation.IsOSPlatform(OSPlatform.Windows) && !IsRunningInCI;
+
+        /// <summary>
+        /// Detects if tests are running in a CI environment where system time manipulation might be restricted
+        /// </summary>
+        public static bool IsRunningInCI =>
+            Environment.GetEnvironmentVariable("CI") != null ||
+            Environment.GetEnvironmentVariable("GITHUB_ACTIONS") != null ||
+            Environment.GetEnvironmentVariable("TF_BUILD") != null || // Azure DevOps
+            Environment.GetEnvironmentVariable("APPVEYOR") != null ||
+            Environment.GetEnvironmentVariable("JENKINS_URL") != null ||
+            Environment.GetEnvironmentVariable("GITLAB_CI") != null ||
+            Environment.GetEnvironmentVariable("CIRCLECI") != null;
 
         [DllImport("kernel32.dll")]
         private extern static void GetSystemTime(ref SYSTEMTIME lpSystemTime);

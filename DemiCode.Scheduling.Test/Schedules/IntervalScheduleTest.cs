@@ -45,8 +45,8 @@ namespace DemiCode.Scheduling.Schedules.Test
         [Test, Category("SystemTimeChanges")]
         public void ChangeSystemClockDuringIntervalTest()
         {
-            if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-                Assert.Ignore("System time manipulation is only supported on Windows");
+            if (!TimeHelper.IsTimeManipulationSupported)
+                Assert.Ignore("System time manipulation is not supported in this environment");
 
             DateTime previous = DateTime.MinValue;
             bool invalidDiff = false;
@@ -108,8 +108,8 @@ namespace DemiCode.Scheduling.Schedules.Test
         [Test, Category("SystemTimeChanges")]
         public void MidnightCrossingTest()
         {
-            if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-                Assert.Ignore("System time manipulation is only supported on Windows");
+            if (!TimeHelper.IsTimeManipulationSupported)
+                Assert.Ignore("System time manipulation is not supported in this environment");
 
             DateTime previous = DateTime.MinValue;
             bool invalidDiff = false;
@@ -157,8 +157,8 @@ namespace DemiCode.Scheduling.Schedules.Test
         [Test, Category("SystemTimeChanges")]
         public void DaylightSavingCrossingTest()
         {
-            if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-                Assert.Ignore("System time manipulation is only supported on Windows");
+            if (!TimeHelper.IsTimeManipulationSupported)
+                Assert.Ignore("System time manipulation is not supported in this environment");
 
             DateTime previous = DateTime.MinValue;
             bool invalidDiff = false;
@@ -201,8 +201,8 @@ namespace DemiCode.Scheduling.Schedules.Test
         [Test]
         public void TwoHourDaylightSavingCrossingTest()
         {
-            if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-                Assert.Ignore("System time manipulation is only supported on Windows");
+            if (!TimeHelper.IsTimeManipulationSupported)
+                Assert.Ignore("System time manipulation is not supported in this environment");
 
             DateTime previous = DateTime.MinValue;
             bool invalidDiff = false;
