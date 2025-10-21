@@ -84,7 +84,16 @@ jobs:
         run: |
           $pkgDir = Resolve-Path "artifacts/nuget"
           dotnet new console -n Consumer -o _validate -f net8.0
-          dotnet nuget add source "$pkgDir" -n local -v quiet
+
+          # Ensure the project uses appropriate C# version for .NET 8
+          $csprojPath = "_validate/Consumer.csproj"
+          $csproj = Get-Content $csprojPath -Raw
+          if ($csproj -notmatch "<LangVersion>") {
+            $csproj = $csproj -replace '(<PropertyGroup>)', "`$1`n    <LangVersion>latest</LangVersion>"
+            Set-Content $csprojPath -Value $csproj
+          }
+
+          dotnet nuget add source "$pkgDir" -n local
           $version = "${{ steps.version.outputs.version }}"
           if (-not $version) { Write-Error "Missing version from previous step"; exit 1 }
           dotnet add _validate/Consumer.csproj package DemiCode.Shared --version $version --source local
