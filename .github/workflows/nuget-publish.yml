@@ -149,8 +149,9 @@ jobs:
           $packages | ForEach-Object { Write-Host "  - $($_.Name)" }
 
           # Validate API key format (basic check)
+          Write-Host "API key validation: Length = $($env:NUGET_API_KEY.Length) characters"
           if ($env:NUGET_API_KEY.Length -lt 32) {
-            Write-Warning "API key seems too short. NuGet API keys are typically 32+ characters."
+            Write-Warning "API key seems too short. NuGet API keys are typically 32-52 characters."
           }
 
           # Push each package
