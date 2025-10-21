@@ -136,5 +136,19 @@ namespace DemiCode.Configuration
             return Equals(compareTo as DateTimeElement);
         }
 
+        ///<summary>
+        ///Serves as a hash function for this type.
+        ///</summary>
+        ///<returns>A hash code for the current object.</returns>
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                int hash = base.GetHashCode();
+                hash = (hash * 397) ^ (_format?.GetHashCode() ?? 0);
+                return hash;
+            }
+        }
+
     }
 }

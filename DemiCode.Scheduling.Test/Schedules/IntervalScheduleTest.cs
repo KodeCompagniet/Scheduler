@@ -65,7 +65,7 @@ namespace DemiCode.Scheduling.Schedules.Test
                     scheduler.Add(sched);
 
                     sched.Alarm +=
-                        delegate(object sender, AlarmEventArgs e)
+                        delegate (object sender, AlarmEventArgs e)
                             {
                                 sw.Stop();
                                 Console.WriteLine(
@@ -124,7 +124,7 @@ namespace DemiCode.Scheduling.Schedules.Test
                     scheduler.Add(sched);
 
                     sched.Alarm +=
-                        delegate(object sender, AlarmEventArgs e)
+                        delegate (object sender, AlarmEventArgs e)
                             {
                                 Console.WriteLine("{0:yyyyMMdd HH:mm:ss.fffffff} - {1:yyyyMMdd HH:mm:ss.fffffff}",
                                                   e.ActualSignalTime, e.SignalTime);
@@ -172,7 +172,7 @@ namespace DemiCode.Scheduling.Schedules.Test
                     scheduler.Add(sched);
 
                     sched.Alarm +=
-                        delegate(object sender, AlarmEventArgs e)
+                        delegate (object sender, AlarmEventArgs e)
                             {
                                 Console.WriteLine("{0:yyyyMMdd HH:mm:ss.fffffff} - {1:yyyyMMdd HH:mm:ss.fffffff}",
                                                   e.ActualSignalTime, e.SignalTime);
@@ -217,7 +217,7 @@ namespace DemiCode.Scheduling.Schedules.Test
                     scheduler.Add(new OneShotSchedule(new DateTime(2008, 3, 30, 2, 0, 2)));
 
                     sched.Alarm +=
-                        delegate(object sender, AlarmEventArgs e)
+                        delegate (object sender, AlarmEventArgs e)
                             {
                                 Console.WriteLine("{0:yyyyMMdd HH:mm:ss.fffffff} - {1:yyyyMMdd HH:mm:ss.fffffff}",
                                                   e.ActualSignalTime, e.SignalTime);
@@ -325,7 +325,7 @@ namespace DemiCode.Scheduling.Schedules.Test
 
                 // Wait until we're aligned with the schedules start time
                 DateTime start = DateTime.Now;
-                int align = (5 - (start.Millisecond%5));
+                int align = (5 - (start.Millisecond % 5));
                 if (align < 5)
                     Thread.Sleep(align);
 

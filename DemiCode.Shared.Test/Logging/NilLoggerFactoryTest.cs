@@ -26,7 +26,7 @@ namespace DemiCode.Logging.Test
         public void CreateNDCTest()
         {
             ILoggerFactory factory = new NilLoggerFactory();
-        
+
             using (factory.CreateNDC("context message"))
             {
             }

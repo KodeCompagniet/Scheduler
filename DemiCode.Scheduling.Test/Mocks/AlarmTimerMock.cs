@@ -9,7 +9,7 @@ namespace DemiCode.Scheduling.Test.Mocks
     /// alarms. The alarm is configured with an <see cref="IAlarmTimer.AlarmTime"/> and will fire
     /// the <see cref="IAlarmTimer.Elapsed"/> event immediately upon calling <see cref="Enable"/>.
     /// </summary>
-    internal class AlarmTimerMock: IAlarmTimer
+    internal class AlarmTimerMock : IAlarmTimer
     {
         #region Privates
 
@@ -28,7 +28,7 @@ namespace DemiCode.Scheduling.Test.Mocks
         {
             if (logger == null)
                 throw new ArgumentNullException("logger");
- 
+
             _logger = logger;
         }
 

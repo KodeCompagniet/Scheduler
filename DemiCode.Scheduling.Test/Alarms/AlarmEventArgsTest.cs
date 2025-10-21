@@ -70,7 +70,7 @@ namespace DemiCode.Scheduling.Alarms.Test
         {
             DateTime val = DateTime.Now.AddDays(1);
             AlarmEventArgs target = new AlarmEventArgs(val, val, "additional data");
-            
+
             Assert.AreEqual(val, target.SignalTime, "DemiCode.Scheduling.AlarmEventArgs.SignalTime was not set correctly.");
         }
     }

@@ -121,7 +121,7 @@ namespace DemiCode.Scheduling.Configuration.Tasks
                 var val = valueList[i];
                 if (val == null)
                 {
-                    types[i] = typeof (object);
+                    types[i] = typeof(object);
                     values[i] = null;
                 }
                 else
@@ -166,6 +166,15 @@ namespace DemiCode.Scheduling.Configuration.Tasks
         public override bool Equals(object compareTo)
         {
             return Equals(compareTo as CodeTaskElement);
+        }
+
+        ///<summary>
+        ///Serves as a hash function for this type.
+        ///</summary>
+        ///<returns>A hash code for the current object.</returns>
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
     }
 

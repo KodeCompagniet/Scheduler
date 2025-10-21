@@ -23,7 +23,7 @@ namespace DemiCode.Scheduling.Configuration.Test
         /// <summary>
         ///A test for CreateNewElement ()
         ///</summary>
-        
+
         [Test]
         public void CreateNewElementTest()
         {

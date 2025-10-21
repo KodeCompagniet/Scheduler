@@ -12,7 +12,7 @@ namespace DemiCode.Scheduling.Test.Mocks
         public bool WasExecuted;
 
         public TaskMock()
-        {}
+        { }
 
         public string Param0 { get; private set; }
         public TaskMock(string param0)

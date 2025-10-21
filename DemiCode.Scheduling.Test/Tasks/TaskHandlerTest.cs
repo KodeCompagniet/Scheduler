@@ -22,9 +22,8 @@ namespace DemiCode.Scheduling.Tasks.Test
         public void ScheduledAlarmEventHandlerTest()
         {
             var task = new TaskMock();
-            IDictionary parameters = new Dictionary<string, object>();
             ILoggerFactory loggerFactory = new LoggerFactoryMock();
-            var target = new TaskHandler(task, parameters, loggerFactory);
+            var target = new TaskHandler(task, loggerFactory);
 
             object sender = null;
             AlarmEventArgs e = null;
@@ -41,39 +40,36 @@ namespace DemiCode.Scheduling.Tasks.Test
         public void ConstructorTest()
         {
             ITask task = new TaskMock();
-            IDictionary parameters = new Dictionary<string, object>();
             ILoggerFactory factory = new LoggerFactoryMock();
 
-            TaskHandler target = new TaskHandler(task, parameters, factory);
-        
+            TaskHandler target = new TaskHandler(task, factory);
+
             Assert.IsNotNull(target);
         }
 
-        
+
         [Test]
         public void ConstructorWithNullParametersTest1()
         {
             Assert.Throws<ArgumentNullException>(() =>
             {
                 ITask task = new TaskMock();
-                IDictionary parameters = new Dictionary<string, object>();
-                ILoggerFactory loggerFactory = null;   
+                ILoggerFactory loggerFactory = null;
 
-                TaskHandler target = new TaskHandler(task, parameters, loggerFactory);
+                TaskHandler target = new TaskHandler(task, loggerFactory);
             });
         }
 
-        
+
         [Test]
         public void ConstructorWithNullParametersTest3()
         {
             Assert.Throws<ArgumentNullException>(() =>
             {
                 ITask task = null;
-                IDictionary parameters = new Dictionary<string, object>();
                 ILoggerFactory loggerFactory = new LoggerFactoryMock();
 
-                TaskHandler target = new TaskHandler(task, parameters, loggerFactory);
+                TaskHandler target = new TaskHandler(task, loggerFactory);
             });
         }
     }

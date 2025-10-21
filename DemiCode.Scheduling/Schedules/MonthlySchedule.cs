@@ -104,12 +104,27 @@ namespace DemiCode.Scheduling.Schedules
                 // If we are behind the monthly day, move to that day
                 if (time.Date < dt)
                 {
+                    // Check if dt exceeds toDate boundary
+                    if (dt.Date > _toDate)
+                    {
+                        CurrentOccurrence = DateTime.MaxValue;
+                        return false;
+                    }
                     CurrentOccurrence = dt;
                 }
                 else
                 {
                     // Otherwise, skip to the next month
-                    CurrentOccurrence = _fromDate.AddMonths(monthDifference + 1);
+                    var nextOccurrence = _fromDate.AddMonths(monthDifference + 1);
+
+                    // Check if next occurrence exceeds toDate boundary
+                    if (nextOccurrence.Date > _toDate)
+                    {
+                        CurrentOccurrence = DateTime.MaxValue;
+                        return false;
+                    }
+
+                    CurrentOccurrence = nextOccurrence;
                 }
 
                 return true;

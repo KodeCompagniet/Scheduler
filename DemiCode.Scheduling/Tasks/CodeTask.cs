@@ -68,10 +68,17 @@ namespace DemiCode.Scheduling.Tasks
             if (loggerFactory == null)
                 throw new ArgumentNullException("loggerFactory");
 
-            var logger = loggerFactory.CreateLogger(typeof (CodeTask));
+            var logger = loggerFactory.CreateLogger(typeof(CodeTask));
 
-            var codeInstance = Factory.CreateInstance<object>(CodeClass);
-            var disposableCode = codeInstance as IDisposable;
+            // Only instantiate for non-static methods
+            object codeInstance = null;
+            IDisposable disposableCode = null;
+
+            if (!methodInstance.IsStatic)
+            {
+                codeInstance = Factory.CreateInstance<object>(CodeClass);
+                disposableCode = codeInstance as IDisposable;
+            }
 
             try
             {
@@ -97,7 +104,7 @@ namespace DemiCode.Scheduling.Tasks
         {
             var typearray = new List<Type>(parameters.Length);
             var valuearray = new List<object>(parameters.Length);
-            for (var i = 0; i < parameters.Length;i++ )
+            for (var i = 0; i < parameters.Length; i++)
             {
                 var value = parameters[i];
                 if (value == null)

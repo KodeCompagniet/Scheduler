@@ -186,11 +186,17 @@ The core library builds for `netstandard2.0`.
 ## Notes and Tips
 
 - Removing/replacing tasks at runtime is intentionally not supported; define the set up front.
-- For non-static `CodeTask` methods, your class must have a parameterless constructor.
+- `CodeTask` supports both static and instance methods. For instance methods, your class must have a parameterless constructor.
 - Use `scheduler.Loggers.Add(...)` to add a logger factory programmatically when not using config.
+- **ApplicationTask** (v2.0+): Shell features (pipes, redirection, environment variable expansion) are not supported. To use shell features, invoke the shell explicitly (e.g., `cmd.exe /c` on Windows or `/bin/sh -c` on Linux).
+
+
+## Releases & NuGet Publishing
+
+- Release management (CI workflow, tagging, validation): `Documentation/Release_Management.md`
+- NuGet publishing quick start (scripts and basics): `Documentation/NuGet_Publishing_Guide.md`
 
 
 ## License
 
-MIT — see `LICENSE`.
-
+MIT — see `LICENSE.txt`.

@@ -1,5 +1,5 @@
 using System;
-using DemiCode.Logging.Loggers;
+using DemiCode.Logging;
 
 namespace DemiCode.Logging.Test.Mocks
 {

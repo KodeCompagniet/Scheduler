@@ -101,7 +101,7 @@ namespace DemiCode.Scheduling.Configuration.Test
                 {
                     ScheduleElementBase left = original[i];
                     ScheduleElementBase right = copy[i];
-                    d.Add(scr +"_" + left.Name + "_" + right.Name, left.Equals(right));
+                    d.Add(scr + "_" + left.Name + "_" + right.Name, left.Equals(right));
                 }
             }
 

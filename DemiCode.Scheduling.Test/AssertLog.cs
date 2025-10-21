@@ -129,7 +129,7 @@ namespace DemiCode.Scheduling.Test
                     }
                 }
 
-                
+
 
                 if (_not)
                 {

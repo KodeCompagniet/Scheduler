@@ -29,7 +29,6 @@ namespace DemiCode.Configuration
         /// <returns>The <see cref="ConfigurationElement"/> type to use for <paramref name="elementName"/>.</returns>
         protected abstract Type GetElementType(string elementName);
 
-        [ThreadStatic]
         private Dictionary<object, string> _keyToElementType;
 
         /// <summary>

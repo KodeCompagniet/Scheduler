@@ -13,7 +13,6 @@
   <ItemGroup>
     <ProjectReference Include="..\DemiCode.Shared\DemiCode.Shared.csproj" />
     <ProjectReference Include="..\DemiCode.Scheduling\DemiCode.Scheduling.csproj" />
-    <ProjectReference Include="..\DemiCode.Logging\DemiCode.Logging.csproj" />
     <ProjectReference Include="..\DemiCode.Logging.log4net\DemiCode.Logging.log4net.csproj" />
     <ProjectReference Include="..\DemiCode.Scheduling.Test.Dummy\DemiCode.Scheduling.Test.Dummy.csproj" />
   </ItemGroup>

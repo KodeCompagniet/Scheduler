@@ -211,8 +211,8 @@ namespace DemiCode.Scheduling.Test
         [Test]
         public void CreateTypeWithParametersInConstructorTest()
         {
-            SimpleClass simpleClass = 
-                Factory.CreateInstance<SimpleClass>(typeof (SimpleClass), "paramValue");
+            SimpleClass simpleClass =
+                Factory.CreateInstance<SimpleClass>(typeof(SimpleClass), "paramValue");
             Assert.IsNotNull(simpleClass);
             Assert.AreEqual("paramValue", simpleClass.ConstructorParameter1);
         }

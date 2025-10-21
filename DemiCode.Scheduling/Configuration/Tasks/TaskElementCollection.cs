@@ -14,7 +14,7 @@ namespace DemiCode.Scheduling.Configuration.Tasks
     {
         private static readonly Dictionary<string, Type> _elementTypeMap;
 
-        static TaskElementCollection() 
+        static TaskElementCollection()
         {
             _elementTypeMap = new Dictionary<string, Type>(4)
                                   {
@@ -113,7 +113,7 @@ namespace DemiCode.Scheduling.Configuration.Tasks
         /// <returns>The default element type <see cref="TaskElement"/>.</returns>
         protected override Type GetDefaultElementType()
         {
-            return typeof (TaskElement);
+            return typeof(TaskElement);
         }
     }
 }

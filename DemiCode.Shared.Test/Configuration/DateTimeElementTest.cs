@@ -73,7 +73,7 @@ namespace DemiCode.Configuration.Test
 
         private class FormatTestElement : DateTimeElement
         {
-            public FormatTestElement() : base("yy-MM-dd") {}
+            public FormatTestElement() : base("yy-MM-dd") { }
         }
     }
 }

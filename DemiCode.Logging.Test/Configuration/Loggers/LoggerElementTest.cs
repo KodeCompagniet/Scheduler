@@ -1,5 +1,5 @@
 ﻿using System;
-using DemiCode.Logging.Loggers;
+using DemiCode.Logging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace DemiCode.Logging.Configuration.Loggers.Test
@@ -17,7 +17,7 @@ namespace DemiCode.Logging.Configuration.Loggers.Test
         public void Constructor2Test()
         {
             var element = new LoggerElement(typeof(NilLoggerFactory));
-            Assert.AreEqual(typeof (NilLoggerFactory), element.LoggerType);
+            Assert.AreEqual(typeof(NilLoggerFactory), element.LoggerType);
         }
 
         [TestMethod]

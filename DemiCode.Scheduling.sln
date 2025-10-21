@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemiCode.Shared", "DemiCode
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemiCode.Scheduling", "DemiCode.Scheduling\DemiCode.Scheduling.csproj", "{3C7ED8E3-6128-482F-BC3C-0BED63584CD6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemiCode.Logging", "DemiCode.Logging\DemiCode.Logging.csproj", "{98200917-C5F4-4958-B262-D87DAC1DF321}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemiCode.Logging.log4net", "DemiCode.Logging.log4net\DemiCode.Logging.log4net.csproj", "{D494AB74-6095-4B39-AD47-3E12678AE83C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemiCode.SchedulerService", "DemiCode.SchedulerService\DemiCode.SchedulerService.csproj", "{DA8CA6FE-ECA8-4308-AA01-847945933689}"
@@ -38,10 +36,6 @@ Global
 		{3C7ED8E3-6128-482F-BC3C-0BED63584CD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C7ED8E3-6128-482F-BC3C-0BED63584CD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C7ED8E3-6128-482F-BC3C-0BED63584CD6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{98200917-C5F4-4958-B262-D87DAC1DF321}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{98200917-C5F4-4958-B262-D87DAC1DF321}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{98200917-C5F4-4958-B262-D87DAC1DF321}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{98200917-C5F4-4958-B262-D87DAC1DF321}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D494AB74-6095-4B39-AD47-3E12678AE83C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D494AB74-6095-4B39-AD47-3E12678AE83C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D494AB74-6095-4B39-AD47-3E12678AE83C}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -17,7 +17,7 @@ namespace DemiCode.Scheduling.Test
         public void LogCommentTest()
         {
             const string format = "";
-            var p = new object[0]; 
+            var p = new object[0];
 
             MessageLogger.LogComment(format, p);
         }
@@ -28,8 +28,8 @@ namespace DemiCode.Scheduling.Test
         [Test]
         public void LogErrorTest()
         {
-            const string format = ""; 
-            var p = new object[0]; 
+            const string format = "";
+            var p = new object[0];
 
             MessageLogger.LogError(format, p);
         }
@@ -40,7 +40,7 @@ namespace DemiCode.Scheduling.Test
         [Test]
         public void LogInfoTest()
         {
-            string format = ""; 
+            string format = "";
             object[] p = new object[0];
 
             MessageLogger.LogInfo(format, p);
@@ -52,7 +52,7 @@ namespace DemiCode.Scheduling.Test
         [Test]
         public void LogWarningTest()
         {
-            string format = ""; 
+            string format = "";
             object[] p = new object[0];
 
             MessageLogger.LogWarning(format, p);

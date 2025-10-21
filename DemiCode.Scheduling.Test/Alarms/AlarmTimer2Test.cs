@@ -189,7 +189,7 @@ namespace DemiCode.Scheduling.Alarms.Test
         /// <summary>
         ///A test for TicksToMilliseconds (long)
         ///</summary>
-        
+
         [Test]
         public void TicksToMillisecondsTest()
         {

@@ -86,7 +86,7 @@ namespace DemiCode.Scheduling.Test
             _scheduler[scheduleName].Alarm += delegate
                                                   {
                                                       _triggerCounts[0]++;
-                                                       _triggers[0].Set();
+                                                      _triggers[0].Set();
                                                   };
         }
 

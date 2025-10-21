@@ -71,7 +71,7 @@ namespace DemiCode.Scheduling.Test
 
             int oneCount = 0;
             int twoCount = 0;
-            
+
 
             using (var scheduler = SchedulerFactory.Create(list))
             {
@@ -113,12 +113,12 @@ namespace DemiCode.Scheduling.Test
             {
                 var alarmListener1 = new ScheduledAlarmListener(scheduler, 2, -1);
 
-                scheduler[0].Alarm += delegate(object sender, AlarmEventArgs e)
+                scheduler[0].Alarm += delegate (object sender, AlarmEventArgs e)
                                           {
                                               oneSignalTime.Add(e.SignalTime);
                                               oneCount++;
                                           };
-                scheduler[1].Alarm += delegate(object sender, AlarmEventArgs e)
+                scheduler[1].Alarm += delegate (object sender, AlarmEventArgs e)
                                           {
                                               twoSignalTime.Add(e.SignalTime);
                                               twoCount++;
@@ -293,7 +293,7 @@ namespace DemiCode.Scheduling.Test
             using (Scheduler actual = SchedulerFactory.CreateFromConfig("scheduling"))
             {
                 Assert.IsNotNull(actual,
-                                 "DemiCode.Scheduling.Scheduler.CreateFromConfig did not return the expected value.");
+                                 "DemiCode.Scheduling.SchedulerFactory.CreateFromConfig did not return the expected value.");
                 Assert.AreEqual(2, actual.Count);
             }
         }
@@ -305,14 +305,14 @@ namespace DemiCode.Scheduling.Test
         public void MemoryUsageTest()
         {
             // "Touch" our library to load it
-            var sc = new[] {typeof (Scheduler), typeof (DateElement), typeof (LogManager)};
+            var sc = new[] { typeof(Scheduler), typeof(DateElement), typeof(LogManager) };
 
             long memoryBefore = GC.GetTotalMemory(true);
 
             int count = 100;
             while (--count > 0)
             {
-                using (var scheduler = Scheduler.CreateFromConfig("scheduling"))
+                using (var scheduler = SchedulerFactory.CreateFromConfig("scheduling"))
                 {
                     scheduler.Start();
                     Thread.Sleep(2);
@@ -336,7 +336,7 @@ namespace DemiCode.Scheduling.Test
             using (Scheduler actual = SchedulerFactory.CreateFromConfig("scheduling", "test"))
             {
                 Assert.IsNotNull(actual,
-                                 "DemiCode.Scheduling.Scheduler.CreateFromConfig did not return the expected value.");
+                                 "DemiCode.Scheduling.SchedulerFactory.CreateFromConfig did not return the expected value.");
                 Assert.AreEqual(0, actual.Count);
             }
         }
@@ -408,7 +408,7 @@ namespace DemiCode.Scheduling.Test
                     Assert.IsNotNull(schedule as OneShotSchedule);
                 }
 
-                IEnumerator enumerator = ((IEnumerable) scheduler).GetEnumerator();
+                IEnumerator enumerator = ((IEnumerable)scheduler).GetEnumerator();
                 Assert.IsNotNull(enumerator);
                 Assert.IsTrue(enumerator.MoveNext());
             }
@@ -529,7 +529,7 @@ namespace DemiCode.Scheduling.Test
                 target.Start();
 
                 double diff = TimeSpan.FromTicks(DateTime.Now.Ticks - then.Ticks).TotalMilliseconds;
-                int timeout = 3*triggerMilliseconds - (int) diff;
+                int timeout = 3 * triggerMilliseconds - (int)diff;
                 bool result = alarmListener.WaitForScheduledAlarm(timeout);
 
                 Assert.IsTrue(result, "Did not receive expected event within timeout {0} milliseconds. Diff was {1}",
@@ -544,7 +544,7 @@ namespace DemiCode.Scheduling.Test
         [Test]
         public void ConstructorWithScheduleArrayTest()
         {
-            IEnumerable<ISchedule> schedules = new ISchedule[] {new OneShotSchedule(DateTime.Now)};
+            IEnumerable<ISchedule> schedules = new ISchedule[] { new OneShotSchedule(DateTime.Now) };
             using (var target = new Scheduler(schedules))
             {
                 Assert.AreEqual(1, target.Count);
@@ -675,7 +675,7 @@ namespace DemiCode.Scheduling.Test
         [Test]
         public void ExecuteTaskFromConfigTest()
         {
-            using (var scheduler = Scheduler.CreateFromConfig("SimpleWithLogging"))
+            using (var scheduler = SchedulerFactory.CreateFromConfig("SimpleWithLogging"))
             {
                 var alarmListener = new ScheduledAlarmListener(scheduler, 1, -1);
                 scheduler.Add(new OneShotSchedule(DateTime.Now.AddSeconds(1)));
@@ -701,11 +701,11 @@ namespace DemiCode.Scheduling.Test
         public void ExecuteTaskOnSpecificScheduleFromConfigTest()
         {
             using (
-                var target = Scheduler.CreateFromConfig("TaskAndLoggingSection",
+                var target = SchedulerFactory.CreateFromConfig("TaskAndLoggingSection",
                                                                      "unittest_task_execution_withschedulerefs_unittest")
                 )
             {
-                var task = (TaskMock) target.Tasks[0];
+                var task = (TaskMock)target.Tasks[0];
                 var alarmListener = new ScheduledAlarmListener(target, "interval", 1, -1);
 
                 target.Start();
@@ -723,7 +723,7 @@ namespace DemiCode.Scheduling.Test
         public void ExecuteWithLog4netLoggingTest()
         {
             using (
-                var target = Scheduler.CreateFromConfig("TaskAndLoggingSection",
+                var target = SchedulerFactory.CreateFromConfig("TaskAndLoggingSection",
                                                                      "config_with_log4netlogger_used_in_unittests"))
             {
                 var alarmListener = new ScheduledAlarmListener(target, "interval", 1, -1);

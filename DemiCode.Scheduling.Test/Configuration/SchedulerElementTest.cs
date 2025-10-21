@@ -52,7 +52,7 @@ namespace DemiCode.Scheduling.Configuration.Test
         [Test]
         public void Equals_WithEqualSchedulesGivesTrue()
         {
-            var left = new SchedulerElement {new ScheduleElement("first", typeof(OneShotSchedule)) };
+            var left = new SchedulerElement { new ScheduleElement("first", typeof(OneShotSchedule)) };
             var right = new SchedulerElement { new ScheduleElement("first", typeof(OneShotSchedule)) };
             var actual = left.Equals(right);
             Assert.That(actual, Is.True);

@@ -72,7 +72,7 @@ namespace DemiCode.Logging.Test
             LoggerFactoryCollection collection = new LoggerFactoryCollection();
             NilLoggerFactory factory = new NilLoggerFactory();
             collection.Add(factory);
-            Assert.IsTrue(((ICollection<ILoggerFactory>) collection).Contains(factory));
+            Assert.IsTrue(((ICollection<ILoggerFactory>)collection).Contains(factory));
             Assert.IsFalse(((ICollection<ILoggerFactory>)collection).Contains(new NilLoggerFactory()));
         }
 
@@ -84,7 +84,7 @@ namespace DemiCode.Logging.Test
             collection.Add(factory);
 
             ILoggerFactory[] array = new ILoggerFactory[collection.Count];
-            ((ICollection<ILoggerFactory>) collection).CopyTo(array, 0);
+            ((ICollection<ILoggerFactory>)collection).CopyTo(array, 0);
         }
 
         [Test]
@@ -107,7 +107,7 @@ namespace DemiCode.Logging.Test
             NilLoggerFactory factory = new NilLoggerFactory();
             collection.Add(factory);
 
-            IEnumerator<ILoggerFactory> e = ((IEnumerable<ILoggerFactory>) collection).GetEnumerator();
+            IEnumerator<ILoggerFactory> e = ((IEnumerable<ILoggerFactory>)collection).GetEnumerator();
             Assert.IsNotNull(e);
 
             IEnumerator en = ((IEnumerable)collection).GetEnumerator();
@@ -133,7 +133,7 @@ namespace DemiCode.Logging.Test
             NilLoggerFactory factory = new NilLoggerFactory();
             collection.Add(factory);
 
-            Assert.IsTrue(((ICollection<ILoggerFactory>) collection).Remove(factory));
+            Assert.IsTrue(((ICollection<ILoggerFactory>)collection).Remove(factory));
 
             Assert.AreEqual(0, collection.Count);
         }

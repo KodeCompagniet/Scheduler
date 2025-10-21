@@ -1,4 +1,4 @@
-using DemiCode.Logging.Loggers;
+using DemiCode.Logging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace DemiCode.Scheduling.Loggers.Test
@@ -59,7 +59,7 @@ namespace DemiCode.Scheduling.Loggers.Test
         public void CreateNDCTest()
         {
             ILoggerFactory factory = new NilLoggerFactory();
-        
+
             using (factory.CreateNDC("context message"))
             {
             }

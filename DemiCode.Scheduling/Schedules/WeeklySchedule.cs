@@ -252,7 +252,7 @@ namespace DemiCode.Scheduling.Schedules
                 CurrentOccurrence = time.Date.Add(_timeOfDay);
                 return true;
             }
-            
+
             CurrentOccurrence = DateTime.MaxValue;
 
             return false;

@@ -17,22 +17,22 @@ namespace DemiCode.Scheduling.Tasks.Test
         private class TestableTaskElementCollection : TaskElementCollection
         {
             public new ConfigurationElementCollectionType CollectionType => base.CollectionType;
-            
+
             public new ConfigurationElement CreateNewElement()
             {
                 return base.CreateNewElement();
             }
-            
+
             public new ConfigurationElement CreateNewElement(string elementName)
             {
                 return base.CreateNewElement(elementName);
             }
-            
+
             public new object GetElementKey(ConfigurationElement element)
             {
                 return base.GetElementKey(element);
             }
-            
+
             public new bool IsElementName(string elementName)
             {
                 return base.IsElementName(elementName);
@@ -73,7 +73,7 @@ namespace DemiCode.Scheduling.Tasks.Test
 
             ConfigurationElement actual;
 
-            string elementName = "task"; 
+            string elementName = "task";
             actual = target.CreateNewElement(elementName);
             Assert.IsInstanceOf<TaskElement>(actual);
 
@@ -89,7 +89,7 @@ namespace DemiCode.Scheduling.Tasks.Test
         /// <summary>
         ///A test for CreateNewElement (string) with an unknown element name.
         ///</summary>
-        
+
         [Test]
         public void CreateInvalidElementTest()
         {
@@ -142,8 +142,8 @@ namespace DemiCode.Scheduling.Tasks.Test
         {
             TaskElementCollection target = new TaskElementCollection();
 
-            TaskElement val = new TaskElement(); 
-            int index = 0; 
+            TaskElement val = new TaskElement();
+            int index = 0;
 
             target[index] = val;
         }

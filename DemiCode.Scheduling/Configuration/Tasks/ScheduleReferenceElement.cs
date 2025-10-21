@@ -12,7 +12,7 @@ namespace DemiCode.Scheduling.Configuration.Tasks
     /// <remarks>This class is intended to be used by the <see cref="TaskElementBase"/> class</remarks>
     public class ScheduleReferenceElement : ConfigurationElement, IEquatable<ScheduleReferenceElement>
     {
-           /// <summary>
+        /// <summary>
         /// Construct an empty <see cref="ScheduleReferenceElement"/> instance.
         /// </summary>
         public ScheduleReferenceElement() { }
@@ -25,7 +25,7 @@ namespace DemiCode.Scheduling.Configuration.Tasks
         {
             ScheduleName = scheduleName;
         }
- 
+
         /// <summary>
         /// The name of a schedule element that a task will be connected to. This attribute must be unique 
         /// within the list of schedule references.
@@ -65,6 +65,15 @@ namespace DemiCode.Scheduling.Configuration.Tasks
         {
             if (ReferenceEquals(this, compareTo)) return true;
             return Equals(compareTo as ScheduleReferenceElement);
+        }
+
+        ///<summary>
+        ///Serves as a hash function for this type.
+        ///</summary>
+        ///<returns>A hash code for the current object.</returns>
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
     }
 }

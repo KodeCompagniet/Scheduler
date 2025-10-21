@@ -52,7 +52,7 @@ namespace DemiCode.Scheduling.Configuration.Tasks.Test
         [Test]
         public void Equals_WithDifferentScheduleRefsGivesFalse()
         {
-            var left = new CodeTaskElement {new ScheduleReferenceElement("first")};
+            var left = new CodeTaskElement { new ScheduleReferenceElement("first") };
             var right = new CodeTaskElement { new ScheduleReferenceElement("last") };
             var actual = left.Equals(right);
             Assert.That(actual, Is.False);
@@ -61,8 +61,8 @@ namespace DemiCode.Scheduling.Configuration.Tasks.Test
         [Test]
         public void Equals_WithEqualScheduleRefsGivesTrue()
         {
-            var left = new CodeTaskElement {new ScheduleReferenceElement("first")};
-            var right = new CodeTaskElement {new ScheduleReferenceElement("first")};
+            var left = new CodeTaskElement { new ScheduleReferenceElement("first") };
+            var right = new CodeTaskElement { new ScheduleReferenceElement("first") };
             var actual = left.Equals(right);
             Assert.That(actual, Is.True);
         }

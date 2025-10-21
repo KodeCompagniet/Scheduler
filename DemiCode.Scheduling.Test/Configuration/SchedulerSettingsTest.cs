@@ -79,7 +79,7 @@ namespace DemiCode.Scheduling.Configuration.Test
 
             var interval = scheduler.GetScheduleElementByName("interval") as IntervalScheduleElement;
             Assert.IsNotNull(interval);
-            Assert.AreEqual(new DateTime(2006, 11, 30, 15,50,0), interval.FirstOccurrence.Value);
+            Assert.AreEqual(new DateTime(2006, 11, 30, 15, 50, 0), interval.FirstOccurrence.Value);
 
             var counted = scheduler.GetScheduleElementByName("counted") as IntervalCountedScheduleElement;
             Assert.IsNotNull(counted);
@@ -100,7 +100,7 @@ namespace DemiCode.Scheduling.Configuration.Test
         /// A test for PostDeserialize (). 
         /// We'll provoke some exceptions by loading an invalid section
         ///</summary>
-        
+
         [Test]
         public void DeserializeInvalidSectionTest()
         {
@@ -118,7 +118,7 @@ namespace DemiCode.Scheduling.Configuration.Test
         /// <summary>
         /// Test loading a scheduler section with task config.
         ///</summary>
-        
+
         [Test]
         public void LoadSectionWithJobConfigTest()
         {
@@ -171,7 +171,7 @@ namespace DemiCode.Scheduling.Configuration.Test
         /// <summary>
         /// Test loading a scheduler section with logger config.
         ///</summary>
-        
+
         [Test]
         public void LoadSectionWithLoggerConfigTest()
         {
@@ -200,7 +200,7 @@ namespace DemiCode.Scheduling.Configuration.Test
         /// <summary>
         /// Test loading a scheduler section with invalid logger config.
         ///</summary>
-        
+
         [Test]
         public void LoadSectionWithInvalidLoggerConfigTest()
         {
@@ -213,7 +213,7 @@ namespace DemiCode.Scheduling.Configuration.Test
         /// <summary>
         /// Test loading a scheduler section with log4net logger config.
         ///</summary>
-        
+
         [Test]
         public void LoadSectionWithLog4netLoggerConfigTest()
         {
@@ -224,7 +224,7 @@ namespace DemiCode.Scheduling.Configuration.Test
             // Validate log4net logger
             LoggerElementBase log4netLogger = loggerElementCollection[0];
             Assert.IsNotNull(log4netLogger);
-            
+
             ILoggerFactory factory = log4netLogger.GetLoggerInstance();
             Assert.IsNotNull(factory);
             Assert.IsInstanceOf<Log4netLoggerFactory>(factory);
@@ -233,7 +233,7 @@ namespace DemiCode.Scheduling.Configuration.Test
         /// <summary>
         /// Test loading a scheduler section with ConsoleLogger config.
         ///</summary>
-        
+
         [Test]
         public void LoadSectionWithConsoleLoggerConfigTest()
         {
@@ -252,7 +252,7 @@ namespace DemiCode.Scheduling.Configuration.Test
         /// <summary>
         /// Test loading a scheduler section with logger with parameters config.
         ///</summary>
-        
+
         [Test]
         public void LoadSectionWithParameterizedLoggerConfigTest()
         {
@@ -272,7 +272,7 @@ namespace DemiCode.Scheduling.Configuration.Test
         /// <summary>
         /// Test loading a scheduler section with CodeTask config containing parameters.
         ///</summary>
-        
+
         [Test]
         public void LoadSectionWithCodeTaskWithParametersConfigTest()
         {
@@ -281,7 +281,7 @@ namespace DemiCode.Scheduling.Configuration.Test
             Assert.AreEqual(1, schedulerElement.Tasks.Count);
             CodeTaskElement codeTaskElement = schedulerElement.Tasks[0] as CodeTaskElement;
             Assert.IsNotNull(codeTaskElement);
-            Assert.AreEqual(typeof (SimpleClass), codeTaskElement.Class);
+            Assert.AreEqual(typeof(SimpleClass), codeTaskElement.Class);
             Assert.AreEqual("OtherMethodWithParameters", codeTaskElement.Method);
             Assert.IsTrue(codeTaskElement.Parameters.ContainsKey("param1"));
             Assert.IsTrue(codeTaskElement.Parameters.ContainsKey("param2"));
@@ -305,7 +305,7 @@ namespace DemiCode.Scheduling.Configuration.Test
         /// <summary>
         /// Test loading a section with an invalid task element config.
         /// </summary>
-        
+
         [Test]
         public void TaskElementMissingTypeTest()
         {
@@ -318,7 +318,7 @@ namespace DemiCode.Scheduling.Configuration.Test
         /// <summary>
         /// Test loading a scheduler section with invalid CodeTask config.
         ///</summary>
-        
+
         [Test]
         public void LoadSectionWithInvalidCodeTaskConfigTest()
         {
@@ -331,8 +331,8 @@ namespace DemiCode.Scheduling.Configuration.Test
         [Test]
         public void Equals_DifferentObjectsGivesFalse()
         {
-            var left = new SchedulerSettings {DefaultScheduler = "left"};
-            var right = new SchedulerSettings { DefaultScheduler = "right"};
+            var left = new SchedulerSettings { DefaultScheduler = "left" };
+            var right = new SchedulerSettings { DefaultScheduler = "right" };
             Assert.AreNotEqual(left, right);
         }
 

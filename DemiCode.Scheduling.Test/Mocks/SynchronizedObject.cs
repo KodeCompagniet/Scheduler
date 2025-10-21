@@ -75,43 +75,43 @@ namespace DemiCode.Scheduling.Test.Mocks
 
         #endregion
 
-		#region Dispose and dtor stuff
-		/// <summary>
-		/// Destructor
-		/// </summary>
+        #region Dispose and dtor stuff
+        /// <summary>
+        /// Destructor
+        /// </summary>
         ~SynchronizedObject()
-		{
-			Dispose(false);
-		}
+        {
+            Dispose(false);
+        }
 
-		/// <summary>
-		/// Disposes the AlarmTimer
-		/// </summary>
-		public void Dispose()
-		{
-			Dispose(true);
-			GC.SuppressFinalize(this);
-		}
+        /// <summary>
+        /// Disposes the AlarmTimer
+        /// </summary>
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
 
-		private void Dispose(bool disposing)
-		{
-			if (!_disposed)
-			{
-				// If disposing equals true, dispose all managed 
-				// and unmanaged resources.
-				if (disposing)
-				{
-					// Dispose managed resources.
+        private void Dispose(bool disposing)
+        {
+            if (!_disposed)
+            {
+                // If disposing equals true, dispose all managed 
+                // and unmanaged resources.
+                if (disposing)
+                {
+                    // Dispose managed resources.
                     _synchronizer.Dispose();
                     _synchronizer = null;
-				}
+                }
 
-				// Release unmanaged resources. If disposing is false, 
-				// only the following code is executed.
-			}
+                // Release unmanaged resources. If disposing is false, 
+                // only the following code is executed.
+            }
 
-			_disposed = true;
-		}
-		#endregion
+            _disposed = true;
+        }
+        #endregion
     }
 }

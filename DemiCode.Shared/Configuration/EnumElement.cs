@@ -169,5 +169,26 @@ namespace DemiCode.Configuration
             if (ReferenceEquals(this, compareTo)) return true;
             return Equals(compareTo as EnumElement<T>);
         }
+
+        ///<summary>
+        ///Serves as a hash function for this type.
+        ///</summary>
+        ///<returns>A hash code for the current object.</returns>
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                int hash = _collectionElementName?.GetHashCode() ?? 0;
+                hash = (hash * 397) ^ (_itemElementName?.GetHashCode() ?? 0);
+                if (Value != null)
+                {
+                    foreach (var item in Value)
+                    {
+                        hash = (hash * 397) ^ (item?.GetHashCode() ?? 0);
+                    }
+                }
+                return hash;
+            }
+        }
     }
 }

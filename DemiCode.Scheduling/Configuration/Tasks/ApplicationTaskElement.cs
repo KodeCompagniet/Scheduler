@@ -33,7 +33,7 @@ namespace DemiCode.Scheduling.Configuration.Tasks
 
             for (int i = 0; i < arguments.Length; i++)
             {
-                AddAdditionalProperty("arg"+i, arguments[i]);    
+                AddAdditionalProperty("arg" + i, arguments[i]);
             }
         }
 
@@ -92,6 +92,15 @@ namespace DemiCode.Scheduling.Configuration.Tasks
         {
             if (ReferenceEquals(this, compareTo)) return true;
             return Equals(compareTo as ApplicationTaskElement);
+        }
+
+        ///<summary>
+        ///Serves as a hash function for this type.
+        ///</summary>
+        ///<returns>A hash code for the current object.</returns>
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
     }
 }

@@ -1,5 +1,5 @@
 using System;
-using DemiCode.Logging.Loggers;
+using DemiCode.Logging;
 using log4net;
 
 namespace DemiCode.Logging.log4net

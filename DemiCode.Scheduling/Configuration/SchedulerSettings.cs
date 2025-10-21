@@ -63,10 +63,10 @@ namespace DemiCode.Scheduling.Configuration
         /// <summary>
         /// Defines the default scheduler instance to use.
         /// </summary>
-        [ConfigurationProperty(defaultSchedulerProperty, IsRequired = true, DefaultValue="")]
+        [ConfigurationProperty(defaultSchedulerProperty, IsRequired = true, DefaultValue = "")]
         public string DefaultScheduler
         {
-            get { return (string)base[defaultSchedulerProperty];}
+            get { return (string)base[defaultSchedulerProperty]; }
             set { base[defaultSchedulerProperty] = value; }
         }
 
@@ -144,6 +144,15 @@ namespace DemiCode.Scheduling.Configuration
         {
             if (ReferenceEquals(this, compareTo)) return true;
             return Equals(compareTo as SchedulerSettings);
+        }
+
+        ///<summary>
+        ///Serves as a hash function for this type.
+        ///</summary>
+        ///<returns>A hash code for the current object.</returns>
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
     }
 }

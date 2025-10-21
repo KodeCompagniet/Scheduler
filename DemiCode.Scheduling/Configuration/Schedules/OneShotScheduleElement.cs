@@ -48,7 +48,7 @@ namespace DemiCode.Scheduling.Configuration.Schedules
         /// <returns>A <see cref="OneShotSchedule"/> instance.</returns>
         public override ISchedule GetScheduleInstance()
         {
-            return new OneShotSchedule(Name, Time.Value);   
+            return new OneShotSchedule(Name, Time.Value);
         }
     }
 }

@@ -33,7 +33,7 @@ namespace DemiCode.Scheduling.Test
         [Test]
         public void CreateFromConfig_CreateNamedScheduler()
         {
-            using (var scheduler = Scheduler.CreateFromConfig("scheduling", "lunch"))
+            using (var scheduler = SchedulerFactory.CreateFromConfig("scheduling", "lunch"))
             {
                 Assert.IsNotNull(scheduler, "CreateFromConfig did not return the expected value.");
                 Assert.AreEqual(1, scheduler.Count);
@@ -87,7 +87,7 @@ namespace DemiCode.Scheduling.Test
         [Test]
         public void CreateSchedulerWithSchedulesTest()
         {
-            var schedules = new List<ISchedule> {new OneShotSchedule(DateTime.Now.AddDays(1))};
+            var schedules = new List<ISchedule> { new OneShotSchedule(DateTime.Now.AddDays(1)) };
             using (var scheduler = SchedulerFactory.Create(schedules))
             {
                 Assert.IsNotNull(scheduler, "Create did not return the expected value.");
@@ -117,7 +117,7 @@ namespace DemiCode.Scheduling.Test
             });
         }
 
-        
+
         [Test]
         [Ignore("SchedulerFactory.CreateFromXml has been removed. Use CreateFromConfigFile with .NET configuration files instead.")]
         public void CreateFromXmlTest()
@@ -131,7 +131,7 @@ namespace DemiCode.Scheduling.Test
             // }
         }
 
-        
+
         [Test]
         [Ignore("SchedulerFactory.CreateFromXml has been removed. Use CreateFromConfigFile with .NET configuration files instead.")]
         public void CreateFromXmlSampleSchedulesTest()
@@ -151,7 +151,7 @@ namespace DemiCode.Scheduling.Test
             // }
         }
 
-        
+
         [Test]
         [Ignore("SchedulerFactory.CreateFromXml has been removed.")]
         public void CreateFromXmlWithNullXpathTest()

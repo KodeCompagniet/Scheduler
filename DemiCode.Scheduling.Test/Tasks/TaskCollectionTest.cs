@@ -83,7 +83,7 @@ namespace DemiCode.Scheduling.Tasks.Test
             using (Scheduler scheduler = new Scheduler())
             {
                 var taskCollection = new TaskCollection(scheduler);
-                var tasks = new[]{ new TaskMock(), new TaskMock() };
+                var tasks = new[] { new TaskMock(), new TaskMock() };
                 taskCollection.AddRange(tasks);
 
                 Assert.AreEqual(2, taskCollection.Count);
@@ -239,12 +239,12 @@ namespace DemiCode.Scheduling.Tasks.Test
         public void ContainsTest()
         {
             TaskCollection collection;
-             using (CreateSchedulerMock(out collection))
-             {
-                 Assert.IsTrue(((ICollection<ITask>) collection).Contains(collection[0]));
-                 ITask mock = new TaskMock();
-                 Assert.IsFalse(((ICollection<ITask>)collection).Contains(mock));
-             }
+            using (CreateSchedulerMock(out collection))
+            {
+                Assert.IsTrue(((ICollection<ITask>)collection).Contains(collection[0]));
+                ITask mock = new TaskMock();
+                Assert.IsFalse(((ICollection<ITask>)collection).Contains(mock));
+            }
         }
 
         [Test]
@@ -258,7 +258,7 @@ namespace DemiCode.Scheduling.Tasks.Test
                 ((ICollection<ITask>)collection).CopyTo(tasks, 0);
                 foreach (ITask task in tasks)
                 {
-                    Assert.IsTrue(((ICollection<ITask>)collection).Contains(task));    
+                    Assert.IsTrue(((ICollection<ITask>)collection).Contains(task));
                 }
             }
         }
@@ -269,7 +269,7 @@ namespace DemiCode.Scheduling.Tasks.Test
             TaskCollection collection;
             using (CreateSchedulerMock(out collection))
             {
-                IEnumerator<ITask> enumerator = ((IEnumerable<ITask>) collection).GetEnumerator();
+                IEnumerator<ITask> enumerator = ((IEnumerable<ITask>)collection).GetEnumerator();
                 Assert.IsNotNull(enumerator);
             }
         }
@@ -280,14 +280,14 @@ namespace DemiCode.Scheduling.Tasks.Test
             TaskCollection collection;
             using (CreateSchedulerMock(out collection))
             {
-                Assert.AreEqual(0, ((IList<ITask>) collection).IndexOf(collection[0]));
+                Assert.AreEqual(0, ((IList<ITask>)collection).IndexOf(collection[0]));
             }
         }
 
         /// <summary>
         ///A test for TaskCollection (Scheduler)
         ///</summary>
-        
+
         [Test]
         public void ConstructorTest1()
         {
@@ -308,7 +308,7 @@ namespace DemiCode.Scheduling.Tasks.Test
                 TaskCollection target = new TaskCollection(scheduler);
 
                 ITask val = new TaskMock();
-                int index = 0; 
+                int index = 0;
 
                 target.Add(val);
 
