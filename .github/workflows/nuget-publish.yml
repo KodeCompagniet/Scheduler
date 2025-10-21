@@ -34,6 +34,10 @@ jobs:
         with:
           dotnet-version: '8.0.120'
           cache: true
+          # This repo does not commit NuGet lock files.
+          # Use project files for cache key to avoid hard failure
+          # "Dependencies lock file is not found ... packages.lock.json".
+          cache-dependency-path: '**/*.csproj'
 
       - name: Display .NET info
         run: dotnet --info
