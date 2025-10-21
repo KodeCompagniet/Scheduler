@@ -126,11 +126,36 @@ jobs:
           NUGET_API_KEY: ${{ secrets.KODECOMPAGNIET_SCHEDULER_NUGET_APIKEY }}
         run: |
           if (-not $env:NUGET_API_KEY) { Write-Error "Missing NUGET_API_KEY secret"; exit 1 }
-          dotnet nuget push "artifacts/nuget/*.nupkg" `
-            --api-key "$env:NUGET_API_KEY" `
-            --source https://api.nuget.org/v3/index.json `
-            --symbol-source https://symbols.nuget.org/upload `
-            --skip-duplicate
+
+          # Check if artifacts directory exists
+          if (-not (Test-Path "artifacts/nuget")) {
+            Write-Error "Directory 'artifacts/nuget' does not exist"
+            exit 1
+          }
+
+          # List all files in the artifacts directory for debugging
+          Write-Host "Contents of artifacts/nuget:"
+          Get-ChildItem -Path "artifacts/nuget" | ForEach-Object { Write-Host "  - $($_.Name)" }
+
+          # Get all .nupkg files (excluding symbols packages)
+          $packages = Get-ChildItem -Path "artifacts/nuget" -Filter "*.nupkg" | Where-Object { $_.Name -notlike "*.snupkg" }
+
+          if ($packages.Count -eq 0) {
+            Write-Error "No NuGet packages found in artifacts/nuget"
+            exit 1
+          }
+
+          Write-Host "Found $($packages.Count) package(s) to publish:"
+          $packages | ForEach-Object { Write-Host "  - $($_.Name)" }
+
+          # Push each package
+          foreach ($package in $packages) {
+            Write-Host "Publishing $($package.Name)..."
+            dotnet nuget push $package.FullName `
+              --api-key "$env:NUGET_API_KEY" `
+              --source https://api.nuget.org/v3/index.json `
+              --skip-duplicate
+          }
 
       - name: Create GitHub Release
         if: github.event_name == 'push'
