@@ -14,6 +14,7 @@ on:
         options: ['false', 'true']
 
 permissions:
+  id-token: write
   contents: write
 
 env:
@@ -120,10 +121,19 @@ jobs:
           name: nuget-packages
           path: artifacts/nuget
 
+
+      # Get a short-lived NuGet API key
+      - name: NuGet login
+        uses: NuGet/login@v1
+        id: login
+        with:
+          user: ${{ secrets.NUGET_USER }}
+ 
+
       - name: Publish to NuGet.org
         shell: pwsh
         env:
-          NUGET_API_KEY: ${{ secrets.KODECOMPAGNIET_SCHEDULER_NUGET_APIKEY }}
+          NUGET_API_KEY: ${{ steps.login.outputs.NUGET_API_KEY }}
         run: |
           if (-not $env:NUGET_API_KEY) { Write-Error "Missing NUGET_API_KEY secret"; exit 1 }
 
