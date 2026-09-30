@@ -43,42 +43,46 @@ jobs:
       - name: Display .NET info
         run: dotnet --info
 
+      - name: Compute package version
+        id: version
+        shell: pwsh
+        env:
+          RELEASE_REF_TYPE: ${{ github.ref_type }}
+          RELEASE_REF_NAME: ${{ github.ref_name }}
+        run: |
+          if ($env:RELEASE_REF_TYPE -eq 'tag') {
+            if ($env:RELEASE_REF_NAME -notmatch '^v(?<version>.+)$') {
+              Write-Error "Release tag must start with 'v'"
+              exit 1
+            }
+            $version = $Matches['version']
+          } else {
+            $props = Get-Content -Raw -Path "Directory.Build.props"
+            $m = [regex]::Match($props, '<Version>(?<v>[^<]+)</Version>')
+            if (-not $m.Success) { Write-Error "Version not found in Directory.Build.props"; exit 1 }
+            $version = $m.Groups['v'].Value.Trim()
+          }
+          "version=$version" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
+
       - name: Restore
         run: dotnet restore DemiCode.Scheduling.sln
 
       - name: Build (Release)
-        run: dotnet build DemiCode.Scheduling.sln -c Release --no-restore
+        env:
+          RELEASE_VERSION: ${{ steps.version.outputs.version }}
+        run: dotnet build DemiCode.Scheduling.sln -c Release --no-restore "-p:Version=$env:RELEASE_VERSION"
 
       - name: Test (Release)
         run: dotnet test DemiCode.Scheduling.sln -c Release --no-restore --no-build --verbosity normal
 
-      - name: Compute Version and validate tag
-        id: version
-        shell: pwsh
-        run: |
-          $props = Get-Content -Raw -Path "Directory.Build.props"
-          $m = [regex]::Match($props, '<Version>(?<v>[^<]+)</Version>')
-          if (-not $m.Success) { Write-Error "Version not found in Directory.Build.props"; exit 1 }
-          $version = $m.Groups['v'].Value.Trim()
-          "version=$version" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
-
-          $ref = "${{ github.ref_name }}"
-          if ($ref -like 'v*') {
-            $tag = $ref.Substring(1)
-            if ($tag -ne $version) {
-              Write-Error "Tag 'v$tag' does not match Directory.Build.props version '$version'"
-              exit 1
-            }
-          } else {
-            Write-Host "No tag ref; skipping tag-version check"
-          }
-
       - name: Pack NuGet packages
+        env:
+          RELEASE_VERSION: ${{ steps.version.outputs.version }}
         run: |
           mkdir artifacts\nuget
-          dotnet pack DemiCode.Shared/DemiCode.Shared.csproj -c Release --no-build --output artifacts/nuget
-          dotnet pack DemiCode.Scheduling/DemiCode.Scheduling.csproj -c Release --no-build --output artifacts/nuget
-          dotnet pack DemiCode.Logging.log4net/DemiCode.Logging.log4net.csproj -c Release --no-build --output artifacts/nuget
+          dotnet pack DemiCode.Shared/DemiCode.Shared.csproj -c Release --no-build --output artifacts/nuget "-p:Version=$env:RELEASE_VERSION"
+          dotnet pack DemiCode.Scheduling/DemiCode.Scheduling.csproj -c Release --no-build --output artifacts/nuget "-p:Version=$env:RELEASE_VERSION"
+          dotnet pack DemiCode.Logging.log4net/DemiCode.Logging.log4net.csproj -c Release --no-build --output artifacts/nuget "-p:Version=$env:RELEASE_VERSION"
 
       - name: Validate packages by consuming them
         shell: pwsh

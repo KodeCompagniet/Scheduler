@@ -37,7 +37,7 @@ Secrets and permissions:
 Jobs:
 1) `build-test-pack`
    - Restore, build (Release), and run tests.
-   - Extracts `version` from `Directory.Build.props` and validates tag matches version on tag builds.
+   - Uses the `v*` tag as the package version on releases; manual runs use `Directory.Build.props`.
    - Packs the three NuGet packages to `artifacts/nuget`.
    - Validates packages by consuming them in a temporary console project.
    - Uploads packed artifacts (`retention-days: 30`).
@@ -49,7 +49,7 @@ Jobs:
 
 ## Standard Release Flow
 1. Prepare a branch:
-   - Bump `Directory.Build.props` `<Version>` and `AssemblyInfo.Version.cs`.
+   - Bump `AssemblyInfo.Version.cs`.
    - Update `CHANGELOG.md` and adjust `<PackageReleaseNotes>` if used.
    - Open a PR and ensure CI is green.
 
@@ -63,7 +63,7 @@ Jobs:
    - Tag the commit with the exact version:
      - `git tag -a v2.0.0 -m "Release 2.0.0"`
      - `git push origin v2.0.0`
-   - The workflow validates the tag matches `<Version>`, publishes to NuGet, and creates a GitHub Release.
+   - The workflow uses the tag version for packages, publishes to NuGet, and creates a GitHub Release.
 
 ## Local Packaging/Publishing
 For local builds or dry runs, scripts are available:
@@ -73,7 +73,7 @@ For local builds or dry runs, scripts are available:
 Note: Some tests require Windows kernels (P/Invoke). Prefer running the CI workflow (Windows) when verifying releases.
 
 ## Troubleshooting
-- Tag/version mismatch: The workflow fails if tag `vX.Y.Z` ≠ `<Version>` in `Directory.Build.props`.
+- Invalid release tag: The workflow requires release tags to start with `v`.
 - Duplicate package: NuGet returns 409; the workflow uses `--skip-duplicate` to ignore already-published versions.
 - Symbol upload: Ensure `.snupkg` is produced; the workflow pushes symbols via `--symbol-source`.
 - Failing tests on Linux: Use the Windows runner; do not run release validation on Linux-only runners.
