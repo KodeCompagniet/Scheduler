@@ -31,8 +31,9 @@ Runners and SDK:
 - .NET SDK `8.0.120` (pinned by `global.json`).
 
 Secrets and permissions:
-- NuGet API key: `KODECOMPAGNIET_SCHEDULER_NUGET_APIKEY` (repository Actions secret).
-- Workflow sets `permissions: contents: write` for GitHub Release creation.
+- Configure a NuGet.org trusted publisher for this repository and `.github/workflows/nuget-publish.yml`.
+- Store the NuGet.org account username in the `NUGET_USER` GitHub Actions secret. The publish job uses GitHub OIDC (`id-token: write`) to obtain a short-lived NuGet publishing key; do not store a long-lived NuGet API key in GitHub.
+- The workflow grants `contents: write` only to the publish job for GitHub Release creation; other jobs have read-only contents permission.
 
 Jobs:
 1) `build-test-pack`
@@ -82,5 +83,5 @@ Note: Some tests require Windows kernels (P/Invoke). Prefer running the CI workf
 - Version file: `Directory.Build.props` `<Version>`
 - Assembly version: `AssemblyInfo.Version.cs`
 - Workflow: `.github/workflows/nuget-publish.yml`
-- NuGet secret: `KODECOMPAGNIET_SCHEDULER_NUGET_APIKEY`
+- NuGet trusted publisher: configured on NuGet.org for this repository and workflow
 - Artifacts: `artifacts/nuget` (`.nupkg` and `.snupkg`)

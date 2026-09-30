@@ -14,8 +14,7 @@ on:
         options: ['false', 'true']
 
 permissions:
-  id-token: write
-  contents: write
+  contents: read
 
 env:
   DOTNET_NOLOGO: true
@@ -114,6 +113,9 @@ jobs:
     if: ${{ github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.publish == 'true') }}
     needs: build-test-pack
     runs-on: windows-latest
+    permissions:
+      id-token: write
+      contents: write
     steps:
       - name: Download NuGet artifacts
         uses: actions/download-artifact@v4
@@ -122,20 +124,20 @@ jobs:
           path: artifacts/nuget
 
 
-      # Get a short-lived NuGet API key
       - name: NuGet login
         uses: NuGet/login@v1
         id: login
         with:
           user: ${{ secrets.NUGET_USER }}
- 
-
       - name: Publish to NuGet.org
         shell: pwsh
         env:
           NUGET_API_KEY: ${{ steps.login.outputs.NUGET_API_KEY }}
         run: |
-          if (-not $env:NUGET_API_KEY) { Write-Error "Missing NUGET_API_KEY secret"; exit 1 }
+          if (-not $env:NUGET_API_KEY) {
+            Write-Error "NuGet login did not provide a temporary API key. Check the NuGet trusted publisher configuration and NUGET_USER."
+            exit 1
+          }
 
           # Check if artifacts directory exists
           if (-not (Test-Path "artifacts/nuget")) {
@@ -157,12 +159,6 @@ jobs:
 
           Write-Host "Found $($packages.Count) package(s) to publish:"
           $packages | ForEach-Object { Write-Host "  - $($_.Name)" }
-
-          # Validate API key format (basic check)
-          Write-Host "API key validation: Length = $($env:NUGET_API_KEY.Length) characters"
-          if ($env:NUGET_API_KEY.Length -lt 32) {
-            Write-Warning "API key seems too short. NuGet API keys are typically 32-52 characters."
-          }
 
           # Push each package
           $failedPackages = @()
@@ -201,11 +197,11 @@ jobs:
             $failedPackages | ForEach-Object { Write-Host "  - $_" -ForegroundColor Red }
             Write-Host ""
             Write-Host "TROUBLESHOOTING STEPS:" -ForegroundColor Yellow
-            Write-Host "1. Verify the API key in GitHub Secrets (KODECOMPAGNIET_SCHEDULER_NUGET_APIKEY)" -ForegroundColor Cyan
-            Write-Host "2. Check API key at: https://www.nuget.org/account/apikeys" -ForegroundColor Cyan
-            Write-Host "3. Ensure the key has 'Push' or 'Push new packages and package versions' scope" -ForegroundColor Cyan
-            Write-Host "4. Verify you own these package IDs on NuGet.org or they don't exist yet" -ForegroundColor Cyan
-            Write-Host "5. If re-running workflow, packages might already be published (check NuGet.org)" -ForegroundColor Cyan
+            Write-Host "1. Verify the NuGet trusted publisher matches this repository and workflow." -ForegroundColor Cyan
+            Write-Host "2. Verify NUGET_USER is the NuGet.org username associated with the trusted publisher." -ForegroundColor Cyan
+            Write-Host "3. Confirm the publish job has id-token: write permission." -ForegroundColor Cyan
+            Write-Host "4. Verify the NuGet account can publish these package IDs." -ForegroundColor Cyan
+            Write-Host "5. If re-running workflow, packages might already be published (check NuGet.org)." -ForegroundColor Cyan
             exit 1
           }
 
